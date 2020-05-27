@@ -3,37 +3,55 @@
 .section_one, 
 .section_two {
     text-align: center;
-    justify-content: center;
-    padding: 3%;
+    justify-content: center;    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
+.section_one{
+    background-color: lightgoldenrodyellow;
+    padding: 5%;
+}
+.section_two{
+    background-color: mintcream;
+    /*background-color: honeydew;*/
+}
 .section_one figure {
-    width: 100px;
-    margin: 30px;
+    width: 25%;    
     color: darkgoldenrod;
     font-weight: bold;
-    text-shadow: gray 2px 2px;
+    align-content: center;
 }
 
 .section_one figure img, 
 .section_one figure i {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: solid 1px white;
     box-shadow: gray 0px 0px 10px;
+    margin: 5px;
 }
 .section_one figure i{
     background-color: rgb(27, 1, 1);
     color: goldenrod;
     font-size: 48px;   
 }
+figure:hover{
+    transform: scale(1.1);
+}
 .content{
     width: 400px;
     padding: 5px;
 }
 
-
+@media screen and (max-width: 500px){
+    .section_one{
+        padding: 5%;
+    }
+.section_one figure img,
+.section_one figure i {
+    width: 100px;
+    height: 100px;
+}
+}

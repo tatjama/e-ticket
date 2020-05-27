@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" media="screen" href="style/main.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="style/index.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="style/navigation.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="style/footer.css"/>
         <link rel="icon" href="images/drama6.jpg" type="image/jpg">
         
         
@@ -15,8 +17,23 @@
     <body>
         <div  class="container">
             <header>
+                <div id="logo">
+                    <img src="./images/drama6.jpg">
+                </div>
                 <nav>
 
+                    <ul>
+                    <li><a id="galerija" href="#aboutus">O nama</a></li>      
+                    <li><a id="galerija" href="#terms">Uslovi kupovine</a></li>      
+                    <li><a id="galerija" href="#customer_service">Korisnički servis</a></li>      
+               <li><a id="unos" href="view/unos.html">Unos</a></li>
+               <li><a id="prodaja" href="view/prodaja.html">Prodaja</a></li>
+               <li><a id="registracija" href="#" onclick="prikaziRegistracionuFormu()">Registracija</a></li>
+               <li><a id="logovanje" href="#" onclick="prikaziLoginFormu()">Logovanje</a></li>
+               <li><a id="signout" href="#" onclick="signOut()">Sign Out</a></li>
+   
+                    </ul>
+                    <div style="clear:both"></div>
                 </nav>
             </header>
             <section class="section_one">
@@ -43,7 +60,7 @@
             </section>
             <section class="section_two">
                 <div class="content">
-                    <h1>O nama</h1>
+                    <h1 id="aboutus">O nama</h1>
                     <p>Mislimo da je zadovoljan klijent najbolja reklama</p>
                 </div>
                 <div class="content">
@@ -60,7 +77,7 @@
                 </div>
             </section>
             <footer>
-
+                <p>Copyright 2019 T&MShell</p>
             </footer>
         </div>
 
