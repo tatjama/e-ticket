@@ -10,4 +10,7 @@ html {
 }
 a, i{
     display: block;
+    text-decoration: none;
+    font-size: small;   
+    cursor: pointer; 
 }

@@ -9,8 +9,11 @@
     flex-wrap: wrap;
 }
 .section_one{
-    background-color: lightgoldenrodyellow;
+    background-color: lightgoldenrodyellow;    
     padding: 5%;
+}
+.section_one a{
+    color: darkgoldenrod;
 }
 .section_two{
     background-color: mintcream;
