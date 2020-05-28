@@ -19,9 +19,10 @@ a {
     padding: 5px;
     text-align: center;
 }
+
 nav a:hover{
     transform: scale(1.1);
-    color: honeydew;
+    color: goldenrod;
 }
 
 ul {

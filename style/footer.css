@@ -52,6 +52,9 @@ footer a:hover{
     padding-left: 12px;
     padding-top: 60px;
 }
+svg path:hover{
+    fill:goldenrod;
+}
 .footer-menu{
   justify-content: space-between;
 }
@@ -80,3 +83,41 @@ input{
     position: relative;
     top: -20px;
 }
+@media screen and (max-width: 500px){
+             
+  footer{
+        flex-direction: column;
+        padding: 25px;         
+    }     
+    footer{
+        flex-direction: column-reverse;
+    }
+    footer div{
+        width: 100%;
+    }
+    footer button{
+        margin: 0px;
+    }
+    .footer-form{
+        left: 10px
+    }
+    .social{
+        padding-bottom: 50px;
+    }
+    .footer-div-first{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: stretch;
+        padding-bottom: 100px;
+    }
+    .footer-menu{
+        padding-left: 50px;
+    }
+    #footer-copy{
+        position: relative;
+        top: 400px;
+        left: 50px;
+    }
+}
+
