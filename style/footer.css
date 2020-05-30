@@ -1,10 +1,10 @@
-footer div{
+nav div, footer div{
     width: 33%;
 } 
-footer{
+nav, footer{
     display: flex;
     flex-direction: row;    
-    padding: 50px 160px;   
+    padding: 50px 100px;   
 }
 .logo img{
     width: 100px;
@@ -12,7 +12,7 @@ footer{
    border: goldenrod 2px solid;
    box-shadow: darkgoldenrod 0px 0px 10px;
  }
-.social, .footer-menu{
+.nav-menu, .social, .footer-menu{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;    
