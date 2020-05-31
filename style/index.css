@@ -11,6 +11,7 @@
 .section_one{
     background-color: lightgoldenrodyellow;    
     padding: 5%;
+    
 }
 .section_one a{
     color: darkgoldenrod;
@@ -46,6 +47,79 @@ figure:hover{
 .content{
     width: 400px;
     padding: 5px;
+}
+/***Section three****/
+.section_three{
+    background-color: mintcream;    
+    padding: 5%;   
+}
+.section_three h1{
+    text-align: center;
+    color: goldenrod;
+}
+
+.parallax1 {
+    /* The image used */
+    background-image: url('../images/balerina2.jpg');
+    /* Full height */
+    height: 300px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url('../images/balerina7.jpg');
+    /* Full height */
+    height: 300px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+    background-image: url('../images/balerina8.jpg');
+    /* Full height */
+    height: 300px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.opis {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content: center;
+    box-sizing: border-box;
+    background-image: radial-gradient(white, goldenrod, grey);
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.opis1 {
+    display: flex;
+}
+.section_three img {
+    border: 0px;
+    width: 200px;
+    height: 200px;
+    margin: 8px 50px;
+    justify-content: center;
+}
+.section_three p, 
+.section_three h4{
+    padding: 0px  20px ;
+    text-align: center;
 }
 
 @media screen and (max-width: 500px){
