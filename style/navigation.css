@@ -16,17 +16,10 @@ nav div{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    
-   /* position: relative;
-    right:100px;
-    top: -250px;*/
 }
-.nav-close{
-    z-index: 5;
-}
-.nav-mobile{
-    
-    display: none;
+
+.nav-hamburger{    
+    display: none;    
 }
 
 #logo img{
@@ -48,7 +41,7 @@ nav a:hover{
 .nav-bg-menu{
     display: none;
 }
-@media screen and (max-width:500px){
+@media screen and (max-width:750px){
     nav{
         padding: 30px;     
    }   
@@ -58,51 +51,33 @@ nav a:hover{
 }
    div.nav-menu, .nav-bg{
        display: none;
-   }    
-   .nav-menu{
-       background-color: pink;
-       padding: 50px 90px;
-       text-align: center;
-       position: absolute;
-       top: 20px;
-       left: 15px;
-       z-index: 3; 
-             
-   }
+   }  
    .nav-bg-menu{
        position: absolute;
-       top: -30px;
+       top: 0px;
        left: 0px;
-       width: 375px;
+       /*width: 375px;*/
+       width: 100%;
        height: 850px;
-       background-color: hsl(227, 12%, 61%);       
+       background-color: hsl(225, 3%, 49%);       
        background-image: linear-gradient(white 5%, black);
-       opacity: 0.6;
        z-index: 0;
    }
-   .nav-menu a{
-       display: block;
-       padding: 10px;
-       font-weight: bold;
-   }
-   
-   .nav-bg{
-       position: relative;
-      top: 270px;
-       right: 0px;
-       background-color: hotpink;
-    
-   }
-   .nav-mobile{
-    
-       display: inherit;
+   .nav-bg-menu a{
+       color: navy;
+       margin: 15px 0px;
    }
    .nav-hamburger{        
        display: inherit;
+       width: 45%;
+       text-align: end;
            
    }
    .nav-close{
-       display: none;
-   }
+      display: block;
+      width: 80%;
+      text-align: end;
+      padding: 20px;
+    }
     
 }

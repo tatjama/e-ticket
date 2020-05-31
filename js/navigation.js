@@ -1,16 +1,16 @@
 function openMenu(){    
     document.querySelector('.nav-hamburger').style.display = 'none';
-    document.querySelector('.nav-close').style.display = 'initial';
-    document.querySelector('.nav-menu').style.display = 'initial';
-   document.querySelector('.nav-bg').style.display = 'initial';
+    document.querySelector('.nav-close').style.visibility = 'show';
+   // document.querySelector('.nav-menu').style.display = 'initial';
+  // document.querySelector('.nav-bg').style.display = 'initial';
     document.querySelector('.nav-bg-menu').style.display = 'initial';      
 }
 function closeMenu(){
     document.querySelector('.nav-hamburger').style.display = "initial";
-    document.querySelector('.nav-close').style.display = 'none';
+    document.querySelector('.nav-close').style.visibility = 'hide';
     document.querySelector('.nav-bg-menu').style.display = 'none';
-    document.querySelector('.nav-menu').style.display = 'none';
-    document.querySelector('.section-one-svg').style.visibility = 'visible';
+   // document.querySelector('.nav-menu').style.display = 'none';
+    //document.querySelector('.section-one-svg').style.visibility = 'visible';
 }
 /*function currentSlide(n){         
     document.querySelector('.slider').style.left =185-n*375 +'px';          
