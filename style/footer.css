@@ -83,7 +83,7 @@ input{
     position: relative;
     top: -20px;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 750px){
              
   footer{
         flex-direction: column;
@@ -94,6 +94,7 @@ input{
     }
     footer div{
         width: 100%;
+        text-align: center;
     }
     footer button{
         margin: 0px;
@@ -111,13 +112,9 @@ input{
         justify-content: stretch;
         padding-bottom: 100px;
     }
-    .footer-menu{
-        padding-left: 50px;
-    }
     #footer-copy{
         position: relative;
         top: 400px;
-        left: 50px;
     }
 }
 
