@@ -1,19 +1,19 @@
 //pop-up prozor logovanje
 function showLoginForm() {
-    document.getElementById("pokupi").style.display = "block";
+    document.getElementById("pickUp_signIn").style.display = "block";
 }
 
 
 function hideLoginForm() {
-    document.getElementById("pokupi").style.display = "none";
+    document.getElementById("pickUp_signIn").style.display = "none";
 }
 //pop-up prozor registracija
 function showSignUpForm() {
-    document.getElementById("pokupiRezervacija").style.display = "block";
+    document.getElementById("pickUp_signUp").style.display = "block";
 }
 
 function hideSignUpForm() {
-    document.getElementById("pokupiRezervacija").style.display = "none";
+    document.getElementById("pickUp_signUp").style.display = "none";
 }
 function signOut(){
  trenutnoUlogovani = {
