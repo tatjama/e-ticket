@@ -62,7 +62,7 @@ footer p, footer button{
     font-size: 0.8rem;
     font-weight: lighter;        
 }
-input{
+footer input{
     border-radius: 25px;
     padding-left: 15px;
     height: 40px;

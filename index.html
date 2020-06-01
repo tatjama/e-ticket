@@ -13,7 +13,66 @@
         <link rel="icon" href="images/drama6.jpg" type="image/jpg">        
     </head>
     <body>
-        <div  class="container">            
+        <div  class="container">  
+          <!--REGISTRACIJA POP-UP FORMA-->
+
+        <div class="popupForma" id="mojaRegistracija">
+         
+          <form id="pokupiRezervacija">
+            <div onclick="hideSignUpForm()" class="close_popup">
+              <img src="./images/icon-close.svg">
+            </div>
+  
+              <fieldset>
+                  <legend>Registracija korisnika</legend>
+                  Ime:
+                  <span class="greskaR" title="Pogrešan unos. Unesite ime"></span>
+                  <input type="text" placeholder="Unesite ime" id="imeRegistracija" onblur="validR('imeRegistracija', 0)" onfocus="unosR(0)" required>
+                  <br> Prezime:
+                  <span class="greskaR" title="Pogrešan unos. Unesite prezime"></span>
+                  <input type="text" placeholder="Unesite prezime" id="prezimeRegistracija" onblur="validR('prezimeRegistracija', 1)" onfocus="unosR(1)" required>
+
+                  <br>E-mail:
+                  <span class="greskaR" title="Pogrešan unos. Unesite validan E-mail"></span>
+                  <input type="email" placeholder="E-mail" id="emailRegistracija" onblur="validMailR('emailRegistracija', 2)" onfocus="unosR(2)" required>
+                  <br> Lozinka:
+                  <span class="greskaR" title="Pogrešan unos. Unesite password"></span>
+                  <input type="password" id="lozinkaRegistracija" name="bday" onblur="valid1R('lozinkaRegistracija', 3)" onfocus="unosR(3)" required><br> Status:
+
+                  <input type="number" placeholder="administrator" id="kolicinaRegistracija" readonly value="1"><br>
+
+                  <input type="button" onclick="registracija()" value="Registracija">
+                  <input type="button" onclick="obrisiR()" value="Obriši">
+                  
+              </fieldset>
+          </form>
+      </div>
+
+          
+          <!--LOGOVANJE POP-UP FORMA-->
+        <div class="popupForma" id="mojaForma">
+          <form id="pokupi">
+            <div onclick="hideLoginForm()" class="close_popup">
+              <img src="./images/icon-close.svg">
+            </div>
+              <fieldset>
+                  <legend>LOGOVANJE</legend>
+
+
+                  <br>E-mail:<br>
+                  <span class="greska" id="greska1" title="Pogrešan unos. Unesite validan E-mail"></span>
+                  <input type="email" placeholder="E-mail" id="cena" onblur="validMail('cena', 0)" onfocus="unos(0)" required>
+                  <br> Lozinka:<br>
+                  <span class="greska" id="greska2" title="Pogrešan unos. Unesite password"></span>
+                  <input type="password" id="datum" placeholder="Lozinka" onblur="valid1('datum', 1)" onfocus="unos(1)" required><br>
+                  <br>
+                  <input type="button" onclick="logovanje()" value="Uloguj">
+                  <input type="button" onclick="obrisi()" value="Obriši">
+
+              </fieldset>
+          </form>
+      </div>
+
             <!---NAVIGATION-->
             <nav class="flex-row">
                   <div id="logo">
@@ -25,10 +84,14 @@
                     <a  href="#terms">Uslovi kupovine</a>
                     <a  href="#customer_service">Korisnički servis</a>                   
                   </div>      
-                  <div class="nav-bg">                     
-                    <a id="eshop" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
-                    <a id="registracija" href="#" onclick="prikaziRegistracionuFormu()">Sign Up</a>
-                    <a id="logovanje" href="#" onclick="prikaziLoginFormu()">Sign In</a>                   
+                  <div class="nav-bg" id="start">                 
+                  <a onclick="setLocalStoridge()" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                </div>     
+                  <div class="nav-bg" id="signing">
+                      <a id="eshop" href="#">E-shop <i class="fa fa-opencart" ></i> </a>                    
+                      <a id="registracija" href="#" onclick="showSignUpForm()">Sign Up</a>
+                      <a id="logovanje" href="#" onclick="showLoginForm()">Sign In</a>      
+                              
                   </div>                  
                   <div onclick="openMenu()" class="nav-hamburger"  >
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="18"><g fill="honeydew" fill-rule="evenodd"><path d="M0 0h25v4H0zM0 7h25v4H0zM0 14h25v4H0z"/></g></svg>
@@ -190,5 +253,7 @@
 
     </body>
     <script rel="text/js" src="./js/navigation.js"></script>
+    <script rel="text/js" src="./js/setLocaleStoridge.js"></script>
+    <script rel="text/js" src="./js/popup.js"></script>
 </html>
 

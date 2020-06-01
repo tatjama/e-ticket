@@ -17,11 +17,12 @@ nav div{
     flex-direction: row;
     justify-content: flex-end;
 }
-
+#signing{
+    display: none;
+}
 .nav-hamburger{    
     display: none;    
 }
-
 #logo img{
    width: 60px;  
   border-radius: 50%;
