@@ -16,14 +16,15 @@ function hideSignUpForm() {
     document.getElementById("pickUp_signUp").style.display = "none";
 }
 function signOut(){
- trenutnoUlogovani = {
+    currentlyLoggedIn = {
         status: 9,
-        email: "gost"
+        email: "guest"
     };
-    console.log(trenutnoUlogovani);
-    document.getElementById('registracija').style.display = "block";
-            document.getElementById('eshop2').style.display = "none";
-            document.getElementById('unos').style.display = "none";
-            document.getElementById('prodaja').style.display = "none";
-            document.getElementById('signout').style.display = "none";
+    console.log(currentlyLoggedIn);
+    document.getElementById('signUp').style.display = "block";
+    document.getElementById('signIn').style.display = "block";
+            //document.getElementById('eshop2').style.display = "none";
+           // document.getElementById('unos').style.display = "none";
+           // document.getElementById('prodaja').style.display = "none";
+            document.getElementById('signOut').style.display = "none";
 }
