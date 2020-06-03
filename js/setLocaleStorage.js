@@ -1,4 +1,4 @@
-function setLocalStoridge() {
+function setLocalStorage() {
     //localStorage.removeItem('bazakorisnika');
 
     //preuzimanje vrednosti local storidga i slanje na drugu adresu
@@ -16,7 +16,7 @@ function setLocalStoridge() {
         localStorage.setItem('trenutnoulogovanikorisnik3', JSON.stringify(trenutnoUlogovani));*/
 
 
-    //KADA JE LOCAL STORADGE PRAZAN, PUNIMO GA POCETNIM VREDNOSTIMA.
+    //KADA JE LOCAL STORAGE PRAZAN, PUNIMO GA POCETNIM VREDNOSTIMA.
     //INDEX.HTML DUGME POCETNA
 
         document.getElementById('start').style.display = "none";
@@ -29,6 +29,14 @@ function setLocalStoridge() {
         { ime: "PERA", prezime: "PERIC", email: "pera@gmail.com", lozinka: "pera", status: "1" },
         { ime: "MITAR", prezime: "MIRIC", email: "mitar@gmail.com", lozinka: "mitar", status: "1" },
         { ime: "IVAN", prezime: "IVANOVIC", email: "ivan@gmail.com", lozinka: "ivan", status: "1" }
+
+    ];
+    var userStorage = [
+        { name: "TATJANA", surname: "MARKOVIC", email: "tanja120a@gmail.com", password: "tanja", status: "0" },
+        { name: "TANJA", surname: "MARKOVIC", email: "tanja120@gmail.com", password: "tanja", status: "0" },
+        { name: "PERA", surname: "PERIC", email: "pera@gmail.com", password: "pera", status: "1" },
+        { name: "MITAR", surname: "MIRIC", email: "mitar@gmail.com", password: "mitar", status: "1" },
+        { name: "IVAN", surname: "IVANOVIC", email: "ivan@gmail.com", password: "ivan", status: "1" }
 
     ];
     var nizDogadjaja = [{
@@ -218,19 +226,32 @@ function setLocalStoridge() {
         }
 
     ];
+    //ovaj ukloniti
     var trenutnoUlogovani = {
         status: 9,
         email: "gost"
     }
+    var currentlyLoggedIn = {
+        status: 9,
+        email: "guest"
+    }
     console.log(nizDogadjaja);
+    //ovaj ukloniti
     console.log(bazakorisnika);
+    console.log(userStorage);
+    //ovaj ukloniti
     console.log(trenutnoUlogovani);
+    console.log(currentlyLoggedIn);
 
     localStorage.removeItem('bazadogadjaja');
+    //ovaj ukloniti
     localStorage.removeItem('bazakorisnika');
+    localStorage.removeItem('userStorage');    
     localStorage.removeItem('trenutnoulogovanikorisnik');
 
     localStorage.setItem('bazadogadjaja', JSON.stringify(nizDogadjaja));
+    //ovaj ukloniti
     localStorage.setItem('bazakorisnika', JSON.stringify(bazakorisnika));
+    localStorage.setItem('userStorage', JSON.stringify(userStorage));
     localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(trenutnoUlogovani));
 }

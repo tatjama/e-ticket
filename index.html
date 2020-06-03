@@ -26,23 +26,23 @@
               <fieldset>
                   <legend>Registracija korisnika</legend>
                   Ime:
-                  <span class="greskaR" title="Pogrešan unos. Unesite ime"></span>
-                  <input type="text" placeholder="Unesite ime" id="imeRegistracija" onblur="validR('imeRegistracija', 0)" onfocus="unosR(0)" required>
+                  <span class="error_signUp" title="Pogrešan unos. Unesite ime"></span>
+                  <input type="text" placeholder="Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
                   <br> Prezime:
-                  <span class="greskaR" title="Pogrešan unos. Unesite prezime"></span>
-                  <input type="text" placeholder="Unesite prezime" id="prezimeRegistracija" onblur="validR('prezimeRegistracija', 1)" onfocus="unosR(1)" required>
+                  <span class="error_signUp" title="Pogrešan unos. Unesite prezime"></span>
+                  <input type="text" placeholder="Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>
 
                   <br>E-mail:
-                  <span class="greskaR" title="Pogrešan unos. Unesite validan E-mail"></span>
-                  <input type="email" placeholder="E-mail" id="emailRegistracija" onblur="validMailR('emailRegistracija', 2)" onfocus="unosR(2)" required>
+                  <span class="error_signUp" title="Pogrešan unos. Unesite validan E-mail"></span>
+                  <input type="email" placeholder="E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
                   <br> Lozinka:
-                  <span class="greskaR" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="lozinkaRegistracija" name="bday" onblur="valid1R('lozinkaRegistracija', 3)" onfocus="unosR(3)" required><br> Status:
+                  <span class="error_signUp" title="Pogrešan unos. Unesite password"></span>
+                  <input type="password" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required><br> Status:
 
-                  <input type="number" placeholder="administrator" id="kolicinaRegistracija" readonly value="1"><br>
+                  <input type="number" placeholder="administrator" id="signUp_status" readonly value="1"><br>
 
-                  <input type="button" onclick="registracija()" value="Registracija">
-                  <input type="button" onclick="obrisiR()" value="Obriši">
+                  <input type="button" onclick="signUp()" value="Registracija">
+                  <input type="button" onclick="clearInputSignUp()" value="Obriši">
                   
               </fieldset>
           </form>
@@ -60,14 +60,14 @@
 
 
                   <br>E-mail:<br>
-                  <span class="greska" id="greska1" title="Pogrešan unos. Unesite validan E-mail"></span>
-                  <input type="email" placeholder="E-mail" id="cena" onblur="validMail('cena', 0)" onfocus="unos(0)" required>
+                  <span class="error" id="error1" title="Pogrešan unos. Unesite validan E-mail"></span>
+                  <input type="email" placeholder="E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
                   <br> Lozinka:<br>
-                  <span class="greska" id="greska2" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="datum" placeholder="Lozinka" onblur="valid1('datum', 1)" onfocus="unos(1)" required><br>
+                  <span class="error" id="error2" title="Pogrešan unos. Unesite password"></span>
+                  <input type="password" id="logIn_password" placeholder="Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
                   <br>
-                  <input type="button" onclick="logovanje()" value="Uloguj">
-                  <input type="button" onclick="obrisi()" value="Obriši">
+                  <input type="button" onclick="signIn()" value="Uloguj">
+                  <input type="button" onclick="clearInput()" value="Obriši">
 
               </fieldset>
           </form>
@@ -85,7 +85,7 @@
                     <a  href="#customer_service">Korisnički servis</a>                   
                   </div>      
                   <div class="nav-bg" id="start">                 
-                  <a onclick="setLocalStoridge()" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                  <a onclick="setLocalStorage()" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
                 </div>     
                   <div class="nav-bg" id="signing">
                       <a id="eshop" href="#">E-shop <i class="fa fa-opencart" ></i> </a>                    
@@ -253,7 +253,11 @@
 
     </body>
     <script rel="text/js" src="./js/navigation.js"></script>
-    <script rel="text/js" src="./js/setLocaleStoridge.js"></script>
+    <script rel="text/js" src="./js/setLocaleStorage.js"></script>
     <script rel="text/js" src="./js/popup.js"></script>
+    <script rel="text/js" src="./js/logIn_validation.js"></script>
+    <script rel="text/js" src="./js/logIn.js"></script>
+    <script rel="text/js" src="./js/signUp_validation.js"></script>
+    <script rel="text/js" src="./js/signUp.js"></script>
 </html>
 
