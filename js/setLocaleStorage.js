@@ -1,4 +1,4 @@
-function setLocalStorage() {
+function setLocalStorage(a, b, c, d) {
     //localStorage.removeItem('bazakorisnika');
 
     //preuzimanje vrednosti local storidga i slanje na drugu adresu
@@ -19,20 +19,21 @@ function setLocalStorage() {
     //KADA JE LOCAL STORAGE PRAZAN, PUNIMO GA POCETNIM VREDNOSTIMA.
     //INDEX.HTML DUGME POCETNA
 
-        document.getElementById('start').style.display = "none";
-        document.getElementById('signing').style.display ="inherit";
-        document.getElementById('eshop').style.display = "none";
-        document.getElementById('entry').style.display = "none";
-        document.getElementById('sale').style.display = "none";
+        let start = document.getElementById(a);
+        let signing = document.getElementById(b); 
+        let signIn = document.getElementById(c);
+        let signUp = document.getElementById(d);
+      //  let signing_mobile = document.getElementById('signing_mobile');
+       // let start_mobile = document.getElementById('start_mobile');
+        start.style.display = "none";
+        signing.style.display ="inherit";
+        signIn.style.display = "block";
+        signUp.style.display = "block";
 
-    var bazakorisnika = [
-        { ime: "TATJANA", prezime: "MARKOVIC", email: "tanja120a@gmail.com", lozinka: "tanja", status: "0" },
-        { ime: "TANJA", prezime: "MARKOVIC", email: "tanja120@gmail.com", lozinka: "tanja", status: "0" },
-        { ime: "PERA", prezime: "PERIC", email: "pera@gmail.com", lozinka: "pera", status: "1" },
-        { ime: "MITAR", prezime: "MIRIC", email: "mitar@gmail.com", lozinka: "mitar", status: "1" },
-        { ime: "IVAN", prezime: "IVANOVIC", email: "ivan@gmail.com", lozinka: "ivan", status: "1" }
+      //  signing_mobile.style.display = "inherit";
+       // start_mobile.style.display = "none";
 
-    ];
+    
     var userStorage = [
         { name: "TATJANA", surname: "MARKOVIC", email: "tanja120a@gmail.com", password: "tanja", status: "0" },
         { name: "TANJA", surname: "MARKOVIC", email: "tanja120@gmail.com", password: "tanja", status: "0" },
@@ -228,32 +229,20 @@ function setLocalStorage() {
         }
 
     ];
-    //ovaj ukloniti
-    var trenutnoUlogovani = {
-        status: 9,
-        email: "gost"
-    }
+    
     var currentlyLoggedIn = {
         status: 9,
         email: "guest"
     }
-    console.log(nizDogadjaja);
-    //ovaj ukloniti
-    console.log(bazakorisnika);
-    console.log(userStorage);
-    //ovaj ukloniti
-    console.log(trenutnoUlogovani);
+    console.log(nizDogadjaja);   
+    console.log(userStorage);    
     console.log(currentlyLoggedIn);
 
     localStorage.removeItem('bazadogadjaja');
-    //ovaj ukloniti
-    localStorage.removeItem('bazakorisnika');
     localStorage.removeItem('userStorage');    
     localStorage.removeItem('trenutnoulogovanikorisnik');
 
     localStorage.setItem('bazadogadjaja', JSON.stringify(nizDogadjaja));
-    //ovaj ukloniti
-    localStorage.setItem('bazakorisnika', JSON.stringify(bazakorisnika));
     localStorage.setItem('userStorage', JSON.stringify(userStorage));
-    localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(trenutnoUlogovani));
+    localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(currentlyLoggedIn));
 }

@@ -3,12 +3,15 @@ function openMenu(){
     document.querySelector('.nav-close').style.visibility = 'show';
    // document.querySelector('.nav-menu').style.display = 'initial';
   // document.querySelector('.nav-bg').style.display = 'initial';
-    document.querySelector('.nav-bg-menu').style.display = 'initial';      
+    document.querySelector('.nav-bg-menu').style.display = 'initial';   
+    document.getElementById('start_mobile').style.display = "block";   
 }
 function closeMenu(){
     document.querySelector('.nav-hamburger').style.display = "initial";
     document.querySelector('.nav-close').style.visibility = 'hide';
     document.querySelector('.nav-bg-menu').style.display = 'none';
+    document.getElementById('signIn_mobile').style.display = "none";
+    document.getElementById('signUp_mobile').style.display = "none";
    // document.querySelector('.nav-menu').style.display = 'none';
     //document.querySelector('.section-one-svg').style.visibility = 'visible';
 }

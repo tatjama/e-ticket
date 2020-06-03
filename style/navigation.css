@@ -17,12 +17,14 @@ nav div{
     flex-direction: row;
     justify-content: flex-end;
 }
-#signing{
-    display: none;
-}
+#signing, 
+#entry,
+#sale,
+#eshop,
 #signOut{
     display: none;
 }
+
 .nav-hamburger{    
     display: none;    
 }
@@ -70,6 +72,18 @@ nav a:hover{
    .nav-bg-menu a{
        color: navy;
        margin: 15px 0px;
+   }
+   #signing_mobile{
+       width: 100%;
+       text-align: center;
+       display: none;
+   }
+   #start_mobile,
+   #eshop_mobile, 
+   #entry_mobile,
+   #sale_mobile,
+   #signOut_mobile{
+       display: none;
    }
    .nav-hamburger{        
        display: inherit;
