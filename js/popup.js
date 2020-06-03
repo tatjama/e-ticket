@@ -15,22 +15,17 @@ function showSignUpForm() {
 function hideSignUpForm() {
     document.getElementById("pickUp_signUp").style.display = "none";
 }
-function signOut(){
+function signOut(a, b, c, d, e, f){
     currentlyLoggedIn = {
         status: 9,
         email: "guest"
     };
     console.log(currentlyLoggedIn);
-    document.getElementById('signUp').style.display = "block";
-    document.getElementById('signUp_mobile').style.display = "block";
-    document.getElementById('signIn').style.display = "block";
-    document.getElementById('signIn_mobile').style.display = "block";
-    document.getElementById('eshop').style.display = "none";
-    document.getElementById('eshop_mobile').style.display = "none";
-    document.getElementById('entry').style.display = "none";
-    document.getElementById('entry_mobile').style.display = "none";
-    document.getElementById('sale').style.display = "none";
-    document.getElementById('sale_mobile').style.display = "none";
-    document.getElementById('signOut').style.display = "none";
-    document.getElementById('signOut_mobile').style.display = "none";
+    document.getElementById(a).style.display = "block";
+    document.getElementById(b).style.display = "block";
+    document.getElementById(c).style.display = "none";
+    document.getElementById(d).style.display = "none";
+    document.getElementById(e).style.display = "none";
+    document.getElementById(f).style.display = "none";
 }
+
