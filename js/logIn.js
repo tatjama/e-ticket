@@ -31,7 +31,7 @@ function signIn() {
             if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
                 if(userArray[i].status == 1){
                     alert("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je registrovani korisnik.")
-                    document.getElementById('signIn').style.display = 'none';
+                    
                 }else{
 
                 
@@ -73,16 +73,26 @@ function signIn() {
                 //document.getElementById('sale').style.display = "none";
                 //document.getElementById('eshop2').style.display = "block";
                 document.getElementById('eshop').style.display = "block";
+                document.getElementById('eshop_mobile').style.display = "block";
+                document.getElementById('signIn').style.display = 'none';
+                document.getElementById('signIn_mobile').style.display = 'none';
                 document.getElementById('signUp').style.display = "none";
+                document.getElementById('signUp_mobile').style.display = "none";
                 document.getElementById('signOut').style.display = "block";
+                document.getElementById('signOut_mobile').style.display = "block";
             } else {
                // document.getElementById('eshop').style.display = "none";
                // document.getElementById('eshop2').style.display = "none";
                 document.getElementById('entry').style.display = "block";
+                document.getElementById('entry_mobile').style.display = "block";
                 document.getElementById('sale').style.display = "block";
+                document.getElementById('sale_mobile').style.display = "block";
                 document.getElementById('signIn').style.display = 'none';
+                document.getElementById('signIn_mobile').style.display = 'none';
                 document.getElementById('signUp').style.display = "none";
+                document.getElementById('signUp_mobile').style.display = "none";
                 document.getElementById('signOut').style.display ="block";
+                document.getElementById('signOut_mobile').style.display ="block";
             }
 
         }
