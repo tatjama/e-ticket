@@ -52,6 +52,7 @@ function signUp() {
             console.log(newUser);
             clearInputSignUp();
             document.getElementById('pickUp_signUp').style.display = 'none';
+            document.getElementById('signUp').style.display = 'none';
         }
 
 

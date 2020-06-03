@@ -31,6 +31,7 @@ function signIn() {
             if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
                 if(userArray[i].status == 1){
                     alert("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je registrovani korisnik.")
+                    document.getElementById('signIn').style.display = 'none';
                 }else{
 
                 
@@ -68,9 +69,9 @@ function signIn() {
             //smesta trenutno ulogovanog korisnika u localStoride
             localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(currentlyLoggedIn));
             if (currentlyLoggedIn.status == 1) {
-                document.getElementById('unos').style.display = "none";
-                document.getElementById('prodaja').style.display = "none";
-                document.getElementById('eshop2').style.display = "block";
+                //document.getElementById('unos').style.display = "none";
+                //document.getElementById('prodaja').style.display = "none";
+                //document.getElementById('eshop2').style.display = "block";
                 document.getElementById('signUp').style.display = "none";
                 document.getElementById('signOut').style.display = "block";
             } else {
