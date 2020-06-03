@@ -22,6 +22,8 @@ function setLocalStorage() {
         document.getElementById('start').style.display = "none";
         document.getElementById('signing').style.display ="inherit";
         document.getElementById('eshop').style.display = "none";
+        document.getElementById('entry').style.display = "none";
+        document.getElementById('sale').style.display = "none";
 
     var bazakorisnika = [
         { ime: "TATJANA", prezime: "MARKOVIC", email: "tanja120a@gmail.com", lozinka: "tanja", status: "0" },

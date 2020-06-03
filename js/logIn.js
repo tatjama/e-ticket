@@ -69,16 +69,17 @@ function signIn() {
             //smesta trenutno ulogovanog korisnika u localStoride
             localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(currentlyLoggedIn));
             if (currentlyLoggedIn.status == 1) {
-                //document.getElementById('unos').style.display = "none";
-                //document.getElementById('prodaja').style.display = "none";
+                //document.getElementById('entry').style.display = "none";
+                //document.getElementById('sale').style.display = "none";
                 //document.getElementById('eshop2').style.display = "block";
+                document.getElementById('eshop').style.display = "block";
                 document.getElementById('signUp').style.display = "none";
                 document.getElementById('signOut').style.display = "block";
             } else {
                // document.getElementById('eshop').style.display = "none";
                // document.getElementById('eshop2').style.display = "none";
-                //document.getElementById('unos').style.display = "block";
-                //document.getElementById('prodaja').style.display = "block";
+                document.getElementById('entry').style.display = "block";
+                document.getElementById('sale').style.display = "block";
                 document.getElementById('signIn').style.display = 'none';
                 document.getElementById('signUp').style.display = "none";
                 document.getElementById('signOut').style.display ="block";

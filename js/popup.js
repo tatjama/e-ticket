@@ -23,8 +23,8 @@ function signOut(){
     console.log(currentlyLoggedIn);
     document.getElementById('signUp').style.display = "block";
     document.getElementById('signIn').style.display = "block";
-            //document.getElementById('eshop2').style.display = "none";
-           // document.getElementById('unos').style.display = "none";
-           // document.getElementById('prodaja').style.display = "none";
-            document.getElementById('signOut').style.display = "none";
+    document.getElementById('eshop').style.display = "none";
+    document.getElementById('entry').style.display = "none";
+    document.getElementById('sale').style.display = "none";
+    document.getElementById('signOut').style.display = "none";
 }
