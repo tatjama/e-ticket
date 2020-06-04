@@ -1,30 +1,47 @@
-napraviSliku();
+createBackgroundImage();
 
-function napraviSliku() {
-    /*var currentlyLoggedIn = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));
-    console.log(currentlyLoggedIn);*/
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
-     //session storage 
+function createBackgroundImage() {
+    //session storage 
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
+    function animate(){
+                
+        $('h1').show().animate({
+            left: '550px',
+            top: "100px",
+            fontSize: "56px"
+
+        }, (500)).queue(function() {
+            $(this).css({
+                "color": "goldenrod",
+                "text-shadow": "3px 3px 11px white"
+            }).dequeue();
+        });
+        }
+        
      
      if(sessionStorage.getItem('user')!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
             console.log(currentlyLoggedIn);
-            var omotac = document.getElementById('omotac');
-        var slika = document.createElement('img');
-        slika.setAttribute('src', "../images/drama6.jpg");
-    
-        omotac.appendChild(slika);
+            var eshopContainer = document.getElementById('eshop-container');
+            var backgroundImage = document.createElement('img');
+            backgroundImage.setAttribute('src', "../images/drama6.jpg");    
+            eshopContainer.appendChild(backgroundImage);
+            document.getElementById('omotac1').innerHTML = 
+            "<h1>Dobro dosli korisnice!</h1>"
+            animate();
             }else{
             console.log('neregistrovani korisnik')
-            document.getElementById('omotac').innerHTML = "Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete."
-            }
+            document.getElementById('omotac1').innerHTML = 
+            "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
+            animate();
+        }
         
     }else{ 
          console.log('neregistrovani korisnik');
-     document.getElementById('omotac').innerHTML = 
-     "Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.";
-
+     document.getElementById('omotac1').innerHTML = 
+     "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+        animate();
      }
     
     }
@@ -32,11 +49,11 @@ function napraviSliku() {
 $(document).ready(function() {
     $('img').click(function() {
         $(this).animate({
-            height: '-=50%',
-            width: '-=50%',
+            height: '-=70%',
+            width: '-=70%',
         });
-        var linkovi = '<div id="linkovi"><a href="../view/baletshop.html"><img class="linkovi" border="0" alt="balet" src="../slikezavrsni/balerina1.jpg" width="20" height="20">BALET</a><a href="../view/dramashop.html"><img border="0" class="linkovi" alt="drama" src="../slikezavrsni/drama1.jpg" width="100" height="100">DRAMA</a><a href="../view/operashop.html"><img border="0" class="linkovi" alt="opera" src="../slikezavrsni/opera3.jpg" width="100" height="100">OPERA</a><a href="../view/filharmonijashop.html" target="_blank"><img border="0" class="linkovi" alt="filharmonija" src="../slikezavrsni/filharmonija5.jpg" width="100"  height="100">FILHARMONIJA</a></div>';
-        $("body").append(linkovi);
+        var shops = '<div id="shops"><a href="../view/baletshop.html"><img class="shops" alt="balet" src="../images/balerina1.jpg">BALET</a><a href="../view/dramashop.html"><img class="shops" alt="drama" src="../images/drama1.jpg">DRAMA</a><a href="../view/operashop.html"><img class="shops" alt="opera" src="../images/opera3.jpg">OPERA</a><a href="../view/filharmonijashop.html" target="_blank"><img class="shops" alt="filharmonija" src="../images/filharmonija5.jpg">FILHARMONIJA</a></div>';
+        $("body").append(shops);
     });
 });
 $('a :hover').click(function() {

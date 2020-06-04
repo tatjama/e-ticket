@@ -2,12 +2,15 @@
     margin: 0%;
     box-sizing: border-box;
 }
-
-#omotac {
+body{
+    background-color: lightgray;
+}
+#eshop-container {
     width: 60%;
     background-color: grey;
     margin: 0% 20%;
     padding: 2%;
+    background-color: grey;
 }
 
 img {
@@ -18,7 +21,7 @@ img {
     width: 345px;
     height: 260px;
 }
-
+/*
 p {
     background-color: lightgray;
     border-radius: 50%;
@@ -30,16 +33,15 @@ p {
     margin: 10px;
     cursor: pointer;
 }
-
+*/
 h1 {
     position: absolute;
     font-size: 12px;
 }
-
-#omotac1 {
+/*#omotac1 {
     display: flex;
     justify-content: center;
-}
+}*/
 
 a {
     display: inline-block;
@@ -50,12 +52,12 @@ a {
     font-weight: bold;
 }
 
-a :hover {
+a:hover {
     box-shadow: 10px 10px 8px #888888;
     color: red;
 }
 
-.linkovi {
+.shops {
     width: 143px;
     height: 140px;
 }
