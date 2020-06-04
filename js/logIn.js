@@ -41,6 +41,7 @@ function signIn() {
                 currentlyLoggedIn.email = userArray[i].email;
                 currentlyLoggedIn.name = userArray[i].name;
                 currentlyLoggedIn.surname = userArray[i].surname;
+                currentlyLoggedIn.password = userArray[i].password;
             }
         }
 
@@ -63,11 +64,16 @@ function signIn() {
             document.getElementById('signOut').style.display = "none";
 
         } else {
+
+             //session storage 
+            sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );
+    
+
             console.log(currentlyLoggedIn);
             //praznimo localStoridze
-            localStorage.removeItem('trenutnoulogovanikorisnik');
+            localStorage.removeItem('currentlyLoggedInUser');
             //smesta trenutno ulogovanog korisnika u localStoride
-            localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(currentlyLoggedIn));
+            localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
             if (currentlyLoggedIn.status == 1) {
                 //document.getElementById('entry').style.display = "none";
                 //document.getElementById('sale').style.display = "none";

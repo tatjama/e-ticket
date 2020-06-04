@@ -54,11 +54,6 @@ function signUp() {
             document.getElementById('pickUp_signUp').style.display = 'none';
             document.getElementById('signUp').style.display = 'none';
         }
-
-
-
-
-
     }
 
 } //kraj funkcije registracija

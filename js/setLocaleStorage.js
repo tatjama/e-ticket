@@ -240,9 +240,9 @@ function setLocalStorage(a, b, c, d) {
 
     localStorage.removeItem('bazadogadjaja');
     localStorage.removeItem('userStorage');    
-    localStorage.removeItem('trenutnoulogovanikorisnik');
+    localStorage.removeItem('currentlyLoggedInUser');
 
     localStorage.setItem('bazadogadjaja', JSON.stringify(nizDogadjaja));
     localStorage.setItem('userStorage', JSON.stringify(userStorage));
-    localStorage.setItem('trenutnoulogovanikorisnik', JSON.stringify(currentlyLoggedIn));
+    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
 }

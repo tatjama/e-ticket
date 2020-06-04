@@ -16,6 +16,7 @@ function hideSignUpForm() {
     document.getElementById("pickUp_signUp").style.display = "none";
 }
 function signOut(a, b, c, d, e, f){
+    sessionStorage.removeItem('user');
     currentlyLoggedIn = {
         status: 9,
         email: "guest"
