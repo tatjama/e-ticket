@@ -20,3 +20,8 @@ nav{
      transform: scale(1.1);
      color: goldenrod;
  }
+ @media screen and (max-width:750px){
+    nav{
+        padding: 50px 20px ;
+    }
+ }

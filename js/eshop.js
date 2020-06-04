@@ -7,8 +7,8 @@ function createBackgroundImage() {
                 
         $('h1').show().animate({
             right: '20px',
-            top: "10px",
-            fontSize: "24px"
+            top: "100px",
+            fontSize: "14px"
 
         }, (500)).queue(function() {
             $(this).css({
