@@ -1,7 +1,7 @@
 nav{
     background-color: navy;
     display: flex;
-            flex-direction: row;    
+    flex-direction: row;    
     padding: 50px 100px;   
 }
 nav div{

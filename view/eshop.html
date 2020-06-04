@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/navigationShop.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/eshop.css" />
     <title>E-shop</title>
 
 </head>
 
 <body onload="user()" >
+    <nav class="flex-row">
+        <div id="logo">
+            <a href="../index.html">
+                <img class="nav-img-logo" src="../images/drama6.jpg">
+            </a>
+      </div>
+      <div class="nav-bg" >
+        <a id="signOut"  href="#" onclick="signOut('signUp','signIn', 'eshop', 'entry', 'sale', 'signOut' )">Sign Out</a>     
+                
+    </div>
+    </nav>
     <div id="eshop-container" >
 
         
@@ -21,8 +34,8 @@
     </div>
    
     <script rel="text/js" src="../js/session.js"></script>
+    <script type="text/js" src="../js/signout.js"></script>
     <script src="../js/eshop.js">
-
     </script>
 </body>
 

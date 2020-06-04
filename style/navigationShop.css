@@ -1,0 +1,22 @@
+nav{
+    background-color: navy;
+    display: flex;
+    flex-direction: row;    
+    padding: 50px 100px; 
+    justify-content: space-between;  
+}
+
+#logo img{
+    width: 60px;  
+   border-radius: 50%;
+   border: goldenrod 2px solid;
+ }
+ nav a{
+     color: honeydew;
+     font-size: 1rem;
+     padding: 5px;
+ }
+ nav a:hover{
+     transform: scale(1.1);
+     color: goldenrod;
+ }
