@@ -66,7 +66,8 @@ function createEShop() {
             store.removeChild(store.children)
         }*/
         for(let i = 0; i < store.childNodes.length ; i++){
-            store.removeChild(store.childNodes[i])
+            store.removeChild(store.childNodes[4- i]);
+            alert('obrisao sam ' +i)
         }
        // store.removeChild(store.childNodes[4]);
     }
@@ -91,15 +92,17 @@ function createEShop() {
             //refaktorizacija
            
             let storeArticle = document.createElement('div');                   
-            storeArticle.innerHTML = '<div><img id="balet"' + (i + 1) + 
-                                    ' class="items" alt="balet"' + (i + 1) + 
-                                    ' src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
+            storeArticle.innerHTML = '<img id="balet' + (i + 1) + 
+                                    '" class="items" alt="balet' + (i + 1) + 
+                                    ' "src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
                                     filterPerformance[i].naziv + 
                                     '</span> <br> Cena: <span>' + filterPerformance[i].cena + 
-                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '"></div>';
+                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '">';
             
             store.appendChild(storeArticle);           
-        }              
+        } 
+        console.log(store.childNodes.length);
+        console.log(store.childNodes);             
     }     
 
 /*$(document).ready(function() {
