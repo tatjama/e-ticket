@@ -30,9 +30,9 @@ function createEShop() {
             var shopArray = document.getElementsByClassName('shops');
             
                 shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
-                //shopArray[1].addEventListener("click", function(){openStore("Predstava")} );
-                //shopArray[2].addEventListener("click", function(){openStore("Opera")} );
-                //shopArray[3].addEventListener("click", function(){openStore("Filharmonija")} );
+                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
+                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", "opera")} );
+                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", "filharmonija")} );
             
             //upisiBalet("Balet")
             animate();
