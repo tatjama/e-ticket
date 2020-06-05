@@ -24,15 +24,24 @@ function createBackgroundImage() {
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
             console.log(currentlyLoggedIn);
-            var eshopContainer = document.getElementById('eshop-container');
+           /* var eshopContainer = document.getElementById('eshop-container');
             var backgroundImage = document.createElement('img');
             backgroundImage.setAttribute('src', "../images/drama6.jpg");    
-            eshopContainer.appendChild(backgroundImage);
+            eshopContainer.appendChild(backgroundImage);*/
+            document.querySelector('.nav-bg').style.display = "flex";
+            document.getElementById('signIn').style.display = "none";
+            document.getElementById('signUp').style.display = "none";
             document.getElementById('omotac1').innerHTML = 
-            '<h1>Dobro dosli ' + currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname +' u nas e-shop.' + '</h1>';
+            '<h1 id="welcome-user">Dobro dosli ' + currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname +' u nas e-shop.' + '</h1>';
+            var shops = '<div id="shops"><a href="../view/baletshop.html"><img class="shops" alt="balet" src="../images/balerina1.jpg">Balet</a><a href="../view/dramashop.html"><img class="shops" alt="drama" src="../images/drama1.jpg">Drama</a><a href="../view/operashop.html"><img class="shops" alt="opera" src="../images/opera3.jpg">Opera</a><a href="../view/filharmonijashop.html" target="_blank"><img class="shops" alt="filharmonija" src="../images/filharmonija5.jpg">Filharmonija</a></div>';
+            $("body").append(shops);
             animate();
             }else{
-            console.log('neregistrovani korisnik')
+            console.log('gost');
+            document.querySelector('.nav-bg').style.display = 'none';
+            document.getElementById('signIn').style.display = "block";
+            document.getElementById('signUp').style.display = "block";
+            
             document.getElementById('omotac1').innerHTML = 
             "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
             animate();
@@ -40,6 +49,10 @@ function createBackgroundImage() {
         
     }else{ 
          console.log('neregistrovani korisnik');
+         document.querySelector('.nav-bg').style.display = "none";
+         document.getElementById('signIn').style.display = "block";
+            document.getElementById('signUp').style.display = "block";
+            
      document.getElementById('omotac1').innerHTML = 
      "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
         animate();

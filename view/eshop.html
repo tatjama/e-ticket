@@ -21,10 +21,13 @@
             </a>
       </div>
       <div class="nav-bg" >
-        <a id="signOut"  href="#" onclick="signOut('signUp','signIn', 'eshop', 'entry', 'sale', 'signOut' )">Sign Out</a>     
+        <a id="signUp" href="#" onclick="showSignUpForm()">Sign Up</a>
+        <a id="signIn" href="#" onclick="showLoginForm()">Sign In</a>
+        <a id="signOut"  href="#" onclick="signOut('signIn', 'signUp', 'signOut','shops', 'welcome-user', 'eshop-header')">Sign Out</a>     
                 
     </div>
     </nav>
+    <h2 id="eshop-header">E - shop</h2>
     <div id="eshop-container" >
 
         
@@ -34,7 +37,7 @@
     </div>
    
     <script rel="text/js" src="../js/session.js"></script>
-    <script type="text/js" src="../js/signout.js"></script>
+    <script rel="text/js" src="../js/signout.js"></script>
     <script src="../js/eshop.js">
     </script>
 </body>
