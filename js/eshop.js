@@ -84,7 +84,8 @@ function createEShop() {
         for (let i = 0; i < filterPerformance.length; i++) {
             //refaktorizacija
            
-            let storeArticle = document.createElement('div');                   
+            let storeArticle = document.createElement('div');    
+            storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
                                     '" class="items" alt="' + y + (i + 1) + 
                                     ' "src="../images/' + z + (i + 1) + '.jpg"><br><span>' + 
