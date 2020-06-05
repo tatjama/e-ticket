@@ -74,7 +74,7 @@ function createEShop() {
             let store = document.getElementById('open-store');
             var storeArticle = document.createElement('div');                   
             storeArticle.innerHTML = '<img id="balet"' + (i + 1) + 
-                                    ' class="linkovi" alt="balet"' + (i + 1) + 
+                                    ' class="items" alt="balet"' + (i + 1) + 
                                     ' src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
                                     filterBalet[i].naziv + 
                                     '</span> <br> Cena: <span>' + filterBalet[i].cena + 
