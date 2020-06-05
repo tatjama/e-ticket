@@ -37,14 +37,14 @@ h1 {
     display: flex;
     justify-content: center;
 }*/
-
-#shops a {
+#shops div {
     color: darkgoldenrod;    
     text-align: center;
     padding: 5px;
     font-weight: bold;
 }
-#shops a:hover{
+
+#shops div:hover{
     color: navy;
 }
 

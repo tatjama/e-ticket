@@ -16,13 +16,11 @@
         <div  class="container">  
           <!--REGISTRACIJA POP-UP FORMA-->
 
-        <div class="popUp_form" id="my_signUp">
-         
+        <div class="popUp_form" id="my_signUp">         
           <form id="pickUp_signUp">
             <div onclick="hideSignUpForm()" class="close_popup">
               <img src="./images/icon-close.svg">
-            </div>
-  
+            </div>  
               <fieldset>
                   <legend>Registracija korisnika</legend>
                   Ime:
@@ -30,25 +28,21 @@
                   <input type="text" placeholder="Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
                   <br> Prezime:
                   <span class="error_signUp" title="Pogrešan unos. Unesite prezime"></span>
-                  <input type="text" placeholder="Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>
-
-                  <br>E-mail:
+                  <input type="text" placeholder="Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
                   <span class="error_signUp" title="Pogrešan unos. Unesite validan E-mail"></span>
                   <input type="email" placeholder="E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
                   <br> Lozinka:
                   <span class="error_signUp" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required><br> Status:
-
-                  <input type="number" placeholder="administrator" id="signUp_status" readonly value="1"><br>
-
+                  <input type="password" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
+                  <br> Status:
+                  <input type="number" placeholder="administrator" id="signUp_status" readonly value="1">
+                  <br>
                   <input type="button" onclick="signUp()" value="Registracija">
-                  <input type="button" onclick="clearInputSignUp()" value="Obriši">
-                  
+                  <input type="button" onclick="clearInputSignUp()" value="Obriši">                  
               </fieldset>
           </form>
-      </div>
+        </div>
 
-          
           <!--LOGOVANJE POP-UP FORMA-->
         <div class="popUp_form" id="my_signIn">
           <form id="pickUp_signIn">
@@ -57,8 +51,6 @@
             </div>
               <fieldset>
                   <legend>LOGOVANJE</legend>
-
-
                   <br>E-mail:<br>
                   <span class="error" id="error1" title="Pogrešan unos. Unesite validan E-mail"></span>
                   <input type="email" placeholder="E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
@@ -68,33 +60,30 @@
                   <br>
                   <input type="button" onclick="signIn()" value="Uloguj">
                   <input type="button" onclick="clearInput()" value="Obriši">
-
               </fieldset>
           </form>
-      </div>
+        </div>
 
             <!---NAVIGATION-->
             <nav class="flex-row">
                   <div id="logo">
                     <img class="nav-img-logo" src="./images/drama6.jpg">
-                </div>
-                  
+                  </div>                  
                   <div class="nav-menu">
                     <a  href="#aboutus">O nama</a>    
                     <a  href="#terms">Uslovi kupovine</a>
                     <a  href="#customer_service">Korisnički servis</a>                   
                   </div>      
                   <div class="nav-bg" id="start">                 
-                  <a onclick="setLocalStorage('start', 'signing', 'signIn', 'signUp')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
-                </div>     
+                    <a onclick="setLocalStorage('start', 'signing', 'signIn', 'signUp')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                  </div>     
                   <div class="nav-bg" id="signing">
                       <a id="eshop" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>  
                       <a id="entry" href="view/unos.html">Unos</a>
                       <a id="sale" href="view/prodaja.html">Prodaja</a>                 
                       <a id="signUp" href="#" onclick="showSignUpForm()">Sign Up</a>
                       <a id="signIn" href="#" onclick="showLoginForm()">Sign In</a> 
-                      <a id="signOut" href="#" onclick="signOut('signUp','signIn', 'eshop', 'entry', 'sale', 'signOut' )">Sign Out</a>     
-                              
+                      <a id="signOut" href="#" onclick="signOut('signUp','signIn', 'eshop', 'entry', 'sale', 'signOut' )">Sign Out</a> 
                   </div>                  
                   <div onclick="openMenu()" class="nav-hamburger"  >
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="18"><g fill="honeydew" fill-rule="evenodd"><path d="M0 0h25v4H0zM0 7h25v4H0zM0 14h25v4H0z"/></g></svg>
@@ -105,17 +94,16 @@
                     </div>
                     <a  href="#aboutus" onclick="closeMenu()">O nama</a>    
                     <a  href="#terms" onclick="closeMenu()">Uslovi kupovine</a>
-                    <a  href="#customer_service" onclick="closeMenu()">Korisnički servis</a>    
-                                  
-                      <a id="start_mobile" onclick="setLocalStorage('start_mobile', 'signing_mobile', 'signIn_mobile', 'signUp_mobile')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
-                  <div id="signing_mobile">
-                    <a id="eshop_mobile" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>
-                    <a id="entry_mobile" href="view/unos.html">Unos</a>
-                    <a id="sale_mobile" href="view/prodaja.html">Prodaja</a>
-                    <a id="signUp_mobile" href="#" onclick="showSignUpForm()">Sign Up</a>
-                    <a id="signIn_mobile" href="#" onclick="showLoginForm()">Sign In</a> 
-                    <a id="signOut_mobile" href="#" onclick="signOut('signUp_mobile','signIn_mobile', 'eshop_mobile', 'entry_mobile', 'sale_mobile', 'signOut_mobile' )">Sign Out</a> 
-                  </div>                  
+                    <a  href="#customer_service" onclick="closeMenu()">Korisnički servis</a>                                    
+                    <a id="start_mobile" onclick="setLocalStorage('start_mobile', 'signing_mobile', 'signIn_mobile', 'signUp_mobile')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                    <div id="signing_mobile">
+                      <a id="eshop_mobile" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>
+                      <a id="entry_mobile" href="view/unos.html">Unos</a>
+                      <a id="sale_mobile" href="view/prodaja.html">Prodaja</a>
+                      <a id="signUp_mobile" href="#" onclick="showSignUpForm()">Sign Up</a>
+                      <a id="signIn_mobile" href="#" onclick="showLoginForm()">Sign In</a> 
+                      <a id="signOut_mobile" href="#" onclick="signOut('signUp_mobile','signIn_mobile', 'eshop_mobile', 'entry_mobile', 'sale_mobile', 'signOut_mobile' )">Sign Out</a> 
+                    </div>                  
                   </div>
             </nav>    
             <section class="section_one">
