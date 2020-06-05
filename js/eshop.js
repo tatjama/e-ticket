@@ -30,6 +30,9 @@ function createEShop() {
             var shopArray = document.getElementsByClassName('shops');
             for(let i = 0; i < shopArray.length; i++){
                 shopArray[i].addEventListener("click", function(){openStore("Balet")} );
+                //shopArray[i].addEventListener("click", function(){openStore("Predstava")} );
+                //shopArray[i].addEventListener("click", function(){openStore("Opera")} );
+                //shopArray[i].addEventListener("click", function(){openStore("Filharmonija")} );
             }
             //upisiBalet("Balet")
             animate();
@@ -53,13 +56,28 @@ function createEShop() {
 
 
     function openStore(x) {
+        let store = document.getElementById('open-store');
+        console.log(store.firstElementChild);
+        console.log(store.childNodes.length);
+        console.log(store.childNodes);
+        if(store.firstElementChild !== null){
+            alert('ima node')
+       /* while(store.hasChildNodes){
+            store.removeChild(store.children)
+        }*/
+        for(let i = 0; i < store.childNodes.length ; i++){
+            store.removeChild(store.childNodes[i])
+        }
+       // store.removeChild(store.childNodes[4]);
+    }
+        //store.removeChild(store.childNodes[0]);
         //nizDogadjaja izvlacimo iz localS
         let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
         //Filtriramo po vrsti dogadjaja -balet  
-        var filterBalet = performances;
+        var filterPerformance = performances;
     
-        filterBalet = performances.filter(
+        filterPerformance = performances.filter(
             function(newPerformance) {
                 if (newPerformance.vrsta == x) {
                     return true;
@@ -67,18 +85,18 @@ function createEShop() {
                     return false;
                 }
             });            
-        console.log(filterBalet);
+        console.log(filterPerformance);
     
-        for (let i = 0; i < filterBalet.length; i++) {
+        for (let i = 0; i < filterPerformance.length; i++) {
             //refaktorizacija
-            let store = document.getElementById('open-store');
-            var storeArticle = document.createElement('div');                   
-            storeArticle.innerHTML = '<img id="balet"' + (i + 1) + 
+           
+            let storeArticle = document.createElement('div');                   
+            storeArticle.innerHTML = '<div><img id="balet"' + (i + 1) + 
                                     ' class="items" alt="balet"' + (i + 1) + 
                                     ' src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
-                                    filterBalet[i].naziv + 
-                                    '</span> <br> Cena: <span>' + filterBalet[i].cena + 
-                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '"><br>';
+                                    filterPerformance[i].naziv + 
+                                    '</span> <br> Cena: <span>' + filterPerformance[i].cena + 
+                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '"></div>';
             
             store.appendChild(storeArticle);           
         }              
