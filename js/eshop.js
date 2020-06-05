@@ -1,48 +1,3 @@
-
-            /*function upisiBalet(){
-                alert('upisi balet');
-            }*/
-            function upisiBalet(x) {
-                //nizDogadjaja izvlacimo iz localS
-                let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
-            
-                //Filtriramo po vrsti dogadjaja -balet  
-                var filterBalet = dogadjanja;
-            
-                filterBalet = dogadjanja.filter(
-                    function(noviDogadjaj) {
-                        if (noviDogadjaj.vrsta == x) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
-            
-            
-                console.log(filterBalet);
-            
-                for (let i = 0; i < filterBalet.length; i++) {
-                    //refaktorizacija
-                    let korpa = document.getElementById('korpa');
-                    var omotacSlike = document.createElement('div');
-                    
-                    //omotacSlike.setAttribute("class","item");
-                    omotacSlike.innerHTML = '<img id="balet"' + (i + 1) + 
-                                            ' class="linkovi" alt="balet"' + (i + 1) + 
-                                            ' src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
-                                            filterBalet[i].naziv + 
-                                            '</span> <br> Cena: <span>' + filterBalet[i].cena + 
-                                            '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '"><br>';
-                    
-                    korpa.appendChild(omotacSlike);
-            
-            
-                }
-               /* var dugmici = document.createElement('span');
-                    dugmici.innerHTML = ' <button type="button" class="dugme" id="dugme"><a href="korpakorisnik.html" > Kupi</a></button><br><button type="button" class="dugme" id="dugme1"><a href="korpakorisnik.html"> Korpa</a></button><br><button type="button" class="dugme" id="dugme2"><a href="prodavnica.html">E-shop</a> </button>'
-                    omotacSlike.appendChild(dugmici);*/
-            
-            }            
 createEShop();
 
 function createEShop() {
@@ -74,7 +29,7 @@ function createEShop() {
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops');
             for(let i = 0; i < shopArray.length; i++){
-                shopArray[i].addEventListener("click", function(){upisiBalet("Balet")} );
+                shopArray[i].addEventListener("click", function(){openStore("Balet")} );
             }
             //upisiBalet("Balet")
             animate();
@@ -95,6 +50,39 @@ function createEShop() {
      }
     
     }
+
+
+    function openStore(x) {
+        //nizDogadjaja izvlacimo iz localS
+        let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+    
+        //Filtriramo po vrsti dogadjaja -balet  
+        var filterBalet = performances;
+    
+        filterBalet = performances.filter(
+            function(newPerformance) {
+                if (newPerformance.vrsta == x) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });            
+        console.log(filterBalet);
+    
+        for (let i = 0; i < filterBalet.length; i++) {
+            //refaktorizacija
+            let store = document.getElementById('open-store');
+            var storeArticle = document.createElement('div');                   
+            storeArticle.innerHTML = '<img id="balet"' + (i + 1) + 
+                                    ' class="linkovi" alt="balet"' + (i + 1) + 
+                                    ' src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
+                                    filterBalet[i].naziv + 
+                                    '</span> <br> Cena: <span>' + filterBalet[i].cena + 
+                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '"><br>';
+            
+            store.appendChild(storeArticle);           
+        }              
+    }     
 
 /*$(document).ready(function() {
     $('img').click(function() {
