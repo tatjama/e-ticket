@@ -57,21 +57,19 @@ function createEShop() {
 
     function openStore(x) {
         let store = document.getElementById('open-store');
-        console.log(store.firstElementChild);
-        console.log(store.childNodes.length);
-        console.log(store.childNodes);
+        //store.innerHTML = '';
+       // console.log(store.firstElementChild);
+        //console.log(store.childNodes.length);
+        let k = store.childNodes.length;
+        //console.log(store.childNodes);
         if(store.firstElementChild !== null){
-            alert('ima node')
-       /* while(store.hasChildNodes){
-            store.removeChild(store.children)
-        }*/
-        for(let i = 0; i < store.childNodes.length ; i++){
-            store.removeChild(store.childNodes[4- i]);
-            alert('obrisao sam ' +i)
-        }
-       // store.removeChild(store.childNodes[4]);
+           // alert('ima node')
+        for(let i = 0; i < k ; i++){
+            store.removeChild(store.childNodes[0]);
+           // alert('obrisao sam ' +i)
+        }       
     }
-        //store.removeChild(store.childNodes[0]);
+        
         //nizDogadjaja izvlacimo iz localS
         let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
@@ -101,8 +99,8 @@ function createEShop() {
             
             store.appendChild(storeArticle);           
         } 
-        console.log(store.childNodes.length);
-        console.log(store.childNodes);             
+       // console.log(store.childNodes.length);
+        //console.log(store.childNodes);             
     }     
 
 /*$(document).ready(function() {
