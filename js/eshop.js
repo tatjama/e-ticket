@@ -28,12 +28,12 @@ function createEShop() {
             var shops = '<div id="shops"><div><img class="shops" alt="balet" src="../images/balerina1.jpg">Balet</div><div><img class="shops" alt="drama" src="../images/drama1.jpg">Drama</div><div ><img class="shops" alt="opera" src="../images/opera3.jpg">Opera</div><div ><img class="shops" alt="filharmonija" src="../images/filharmonija5.jpg">Filharmonija</div></div>';
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops');
-            for(let i = 0; i < shopArray.length; i++){
-                shopArray[i].addEventListener("click", function(){openStore("Balet")} );
-                //shopArray[i].addEventListener("click", function(){openStore("Predstava")} );
-                //shopArray[i].addEventListener("click", function(){openStore("Opera")} );
-                //shopArray[i].addEventListener("click", function(){openStore("Filharmonija")} );
-            }
+            
+                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
+                //shopArray[1].addEventListener("click", function(){openStore("Predstava")} );
+                //shopArray[2].addEventListener("click", function(){openStore("Opera")} );
+                //shopArray[3].addEventListener("click", function(){openStore("Filharmonija")} );
+            
             //upisiBalet("Balet")
             animate();
             }else{
@@ -55,19 +55,14 @@ function createEShop() {
     }
 
 
-    function openStore(x) {
+    function openStore(x, y, z) {
         let store = document.getElementById('open-store');
         //store.innerHTML = '';
-       // console.log(store.firstElementChild);
-        //console.log(store.childNodes.length);
         let k = store.childNodes.length;
-        //console.log(store.childNodes);
-        if(store.firstElementChild !== null){
-           // alert('ima node')
-        for(let i = 0; i < k ; i++){
-            store.removeChild(store.childNodes[0]);
-           // alert('obrisao sam ' +i)
-        }       
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){
+                store.removeChild(store.childNodes[0]);
+            }       
     }
         
         //nizDogadjaja izvlacimo iz localS
@@ -90,17 +85,15 @@ function createEShop() {
             //refaktorizacija
            
             let storeArticle = document.createElement('div');                   
-            storeArticle.innerHTML = '<img id="balet' + (i + 1) + 
-                                    '" class="items" alt="balet' + (i + 1) + 
-                                    ' "src="../images/balerina' + (i + 1) + '.jpg"><br><span>' + 
+            storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
+                                    '" class="items" alt="' + y + (i + 1) + 
+                                    ' "src="../images/' + z + (i + 1) + '.jpg"><br><span>' + 
                                     filterPerformance[i].naziv + 
                                     '</span> <br> Cena: <span>' + filterPerformance[i].cena + 
                                     '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '">';
             
             store.appendChild(storeArticle);           
-        } 
-       // console.log(store.childNodes.length);
-        //console.log(store.childNodes);             
+        }        
     }     
 
 /*$(document).ready(function() {
