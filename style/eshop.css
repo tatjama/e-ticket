@@ -21,7 +21,7 @@ h1 {
     color: mintcream;    
     text-align: center;
     padding: 5px;
-    font-weight: bold;
+    
 }
 #shops div:hover{
     color: goldenrod;
@@ -35,8 +35,8 @@ h1 {
 }
 
 .shops-img {
-    border-radius: 15px;
-    border: mintcream solid 3px;
+    /*border-radius: 15px;*/
+    border: rgba(245, 255, 250, 0.7) solid 3px;
     width: 120px;
     height: 120px;
     margin: 10px;
@@ -94,7 +94,7 @@ span{
     display: flex;
 }*/
 /*OVO je izmenjeno*/
-/*#korpa {
+#korpa {
     flex-wrap: wrap;
 }
 #omotacDugme{
@@ -104,21 +104,19 @@ span{
     
 }
 .omotacKorpe{
-    background-image: radial-gradient(white, goldenrod, grey);
+   /* background-image: radial-gradient(white, goldenrod, grey);*/
+   background-color: navy;
 }
-
-
-
-p {
+/*p {
     padding: 20px;
-}
+}*/
 
 .dugme {
-    border-radius: 30px;
+  /*  border-radius: 30px;*/
     border: 0cm;
     padding: 20px;
     text-decoration: none;
-    width: 100px;
+    width: 200px;
     height: 50px;
     margin: 5px;
 }
@@ -132,16 +130,29 @@ button :hover{
     color: white;
     font-weight: bold;
 }
-*/
+
 @media screen and (max-width: 750px){    
     nav{
-        padding: 20px;
+        padding: 10px;
+    }
+    #shops{
+        padding-bottom: 10px;
     }
     .shops-img{
-        margin: 30px 5px;
+        margin: 10px 5px;
     }
     h4{
-        font-size: 14px;
+        font-size: 12px;        
+        font-weight: lighter;
+    }
+    h2{
+        padding: 10px;
+        font-weight: lighter;
+    }
+    .dugme{
+        
+        height: 40px;
+        padding: 15px;
     }
     .items-img{
         width: 130px;

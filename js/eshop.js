@@ -6,7 +6,7 @@ function createEShop() {
     function animate(){                
         $('h1').show().animate({
             right: '50px',
-            top: "85px",
+            top: "80px",
             fontSize: "14px"
 
         }, (500)).queue(function() {
