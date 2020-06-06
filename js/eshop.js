@@ -25,9 +25,9 @@ function createEShop() {
             document.querySelector('.nav-bg').style.display = "flex";
             document.getElementById('omotac1').innerHTML = 
             '<h1 id="welcome-user">Dobro dosli ' + currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname +' u nas e-shop.' + '</h1>';
-            var shops = '<div id="shops"><div><img class="shops" alt="balet" src="../images/balerina1.jpg">Balet</div><div><img class="shops" alt="drama" src="../images/drama1.jpg">Drama</div><div ><img class="shops" alt="opera" src="../images/opera3.jpg">Opera</div><div ><img class="shops" alt="filharmonija" src="../images/filharmonija5.jpg">Filharmonija</div></div>';
+            var shops = '<div id="shops"><div class="shops"><img class="shops-img" alt="balet" src="../images/balerina1.jpg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" alt="drama" src="../images/drama1.jpg"><h4>Drama</h4></div><div class="shops"><img class="shops-img" alt="opera" src="../images/opera3.jpg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" alt="filharmonija" src="../images/filharmonija5.jpg"><h4>Filharmonija</h4></div></div>';
             $("#eshop-container").append(shops);
-            var shopArray = document.getElementsByClassName('shops');
+            var shopArray = document.getElementsByClassName('shops-img');
             
                 shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
                 shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
@@ -56,6 +56,11 @@ function createEShop() {
 
 
     function openStore(x, y, z) {
+        let omotac1 = document.getElementById('omotac1');
+        if(omotac1.firstElementChild !== null){
+            omotac1.removeChild(omotac1.firstElementChild)
+        }
+        
         let store = document.getElementById('open-store');
         //store.innerHTML = '';
         let k = store.childNodes.length;
@@ -87,11 +92,12 @@ function createEShop() {
             let storeArticle = document.createElement('div');    
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
-                                    '" class="items" alt="' + y + (i + 1) + 
-                                    ' "src="../images/' + z + (i + 1) + '.jpg"><br><span>' + 
+                                    '" class="items-img" alt="' + y + (i + 1) + 
+                                    ' "src="../images/' + z + (i + 1) + '.jpg"><div class = "items-text"><p>' + 
                                     filterPerformance[i].naziv + 
-                                    '</span> <br> Cena: <span>' + filterPerformance[i].cena + 
-                                    '</span>   <br>Količina <input type="number" min="0" max="20" placeholder="0" id="rezervacija' + i + '">';
+                                    '</p><p>  Cena: <span>' + filterPerformance[i].cena + 
+                                    ' RSD </span> </p> <p>Količina: </p> <input type="number" min="0" max="20" placeholder="0" id="rezervacija' +
+                                     i + '"></div>';
             
             store.appendChild(storeArticle);           
         }        

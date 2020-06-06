@@ -1,16 +1,13 @@
-
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body{
     background-color: lightgoldenrodyellow;
 }
 h2{
     color: navy;
     text-align: center;
-}
-img {
-    position: relative;
-    display: block;
-    border-radius: 15px;
-    margin-bottom: 10px;
 }
 h1 {
     position: absolute;
@@ -28,15 +25,17 @@ h1 {
 #shops{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.shops {
+
+.shops-img {
+    border-radius: 15px;
     width: 143px;
     height: 140px;
     margin: 20px;
 }
-.shops:hover {
+.shops-img:hover {
     box-shadow: 10px 10px 8px #888888;
 }
 
@@ -52,28 +51,37 @@ h1 {
     background-color: mintcream;
     font-size: 16px;
     padding: 10px;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
-span{
-    margin: 50px;
-}
-.items {
-    border: 0px;
+.items-img {
     width: 200px;
     height: 200px;
-    margin: 8px 50px;
-    justify-content: center;
-    text-align: center;
-    align-content: center;
+    padding-right: 20px;
+    border-radius: 15px;
+}
+.items-text{
+    text-align: left;
+}
+p{
+    padding: 3px;
+    font-size: 14px;
 }
 .item-card{
+    height: 200px;
+    width: 350px;
+    padding-right: 10px;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
+    align-items: center;
+    margin: 40px;
+}
+span{
+    font-weight: bold;
 }
  input{
     width: 50px;
+    height: 20px;    
 }
 
 /*.opis1 {
@@ -119,9 +127,23 @@ button :hover{
     font-weight: bold;
 }
 */
-@media screen and (max-width: 750px){
-    
-    .shops{
+@media screen and (max-width: 750px){    
+    .shops-img{
         margin: 30px 5px;
+    }
+    .items-img{
+        width: 130px;
+        height: 130px;
+    }
+    .item-card{
+        margin: 20px 10px;
+        height: 130px;
+        width: 240px;
+    }
+    p{
+        font-size: 8px;
+    }
+    input{
+        height: 15px;
     }
   }
