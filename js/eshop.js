@@ -5,8 +5,8 @@ function createEShop() {
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
     function animate(){                
         $('h1').show().animate({
-            right: '20px',
-            top: "100px",
+            right: '50px',
+            top: "85px",
             fontSize: "14px"
 
         }, (500)).queue(function() {
@@ -108,6 +108,7 @@ $(document).ready(function() {
         $('.shops-img').animate({
             height: '50px',
             width: '50px',
+            border: '" solid red "+ 2px'
         });
     });
 });

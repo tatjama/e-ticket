@@ -3,24 +3,28 @@
     padding: 0px;
 }
 body{
-    background-color: lightgoldenrodyellow;
+    background-color: navy;
+}
+nav{
+    padding: 20px 100px;
 }
 h2{
-    color: navy;
+    color: mintcream;
     text-align: center;
+    padding: 20px;
 }
 h1 {
     position: absolute;
     font-size: 8px;
 }
 #shops div {
-    color: darkgoldenrod;    
+    color: mintcream;    
     text-align: center;
     padding: 5px;
     font-weight: bold;
 }
 #shops div:hover{
-    color: navy;
+    color: goldenrod;
 }
 #shops{
     display: flex;
@@ -32,12 +36,14 @@ h1 {
 
 .shops-img {
     border-radius: 15px;
-    width: 143px;
-    height: 140px;
-    margin: 20px;
+    border: mintcream solid 3px;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
 }
 .shops-img:hover {
-    box-shadow: 10px 10px 8px #888888;
+    /*box-shadow: 10px 10px 8px #888888;*/
+    transform: scale(1.1);
 }
 
 /**Balet shop**/
@@ -70,11 +76,11 @@ p{
 }
 .item-card{
     height: 200px;
-    width: 340px;
+    width: 380px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 40px;
+    margin:40px  20px;
 }
 span{
     font-weight: bold;
@@ -128,6 +134,9 @@ button :hover{
 }
 */
 @media screen and (max-width: 750px){    
+    nav{
+        padding: 20px;
+    }
     .shops-img{
         margin: 30px 5px;
     }
@@ -141,7 +150,7 @@ button :hover{
     .item-card{
         margin: 20px 10px;
         height: 130px;
-        width: 230px;
+        width: 240px;
     }
 
     p{
