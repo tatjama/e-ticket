@@ -103,16 +103,14 @@ function createEShop() {
         }        
     }     
 
-/*$(document).ready(function() {
-    $('img').click(function() {
-        $(this).animate({
-            height: '-=70%',
-            width: '-=70%',
+$(document).ready(function() {
+    $('.shops').click(function() {
+        $('.shops-img').animate({
+            height: '50px',
+            width: '50px',
         });
-        var shops = '<div id="shops"><a href="../view/baletshop.html"><img class="shops" alt="balet" src="../images/balerina1.jpg">Balet</a><a href="../view/dramashop.html"><img class="shops" alt="drama" src="../images/drama1.jpg">Drama</a><a href="../view/operashop.html"><img class="shops" alt="opera" src="../images/opera3.jpg">Opera</a><a href="../view/filharmonijashop.html" target="_blank"><img class="shops" alt="filharmonija" src="../images/filharmonija5.jpg">Filharmonija</a></div>';
-        $("body").append(shops);
     });
 });
-$('a :hover').click(function() {
+/*$('a :hover').click(function() {
     alert("Kliknuto");
 });*/
