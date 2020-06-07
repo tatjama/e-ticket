@@ -71,7 +71,8 @@ nav a:hover{
    }
    .nav-bg-menu a{
        color: navy;
-       margin: 15px 0px;
+       margin: 20px 0px;
+       padding: 10px;
    }
    #signing_mobile{
        width: 100%;
