@@ -5,13 +5,13 @@ function createEShop() {
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
     function animate(){                
         $('h1').show().animate({
-            right: '50px',
-            top: "80px",
+            right: '10px',
+            top: "60px",
             fontSize: "14px"
         }, (500)).queue(function() {
             $(this).css({
                 "color": "white",
-                "text-shadow": "3px 3px 11px white",
+               // "text-shadow": "3px 3px 11px white",
               //  "background-color": "white"
             }).dequeue();
         });
@@ -23,8 +23,10 @@ function createEShop() {
             console.log(currentlyLoggedIn);
             document.querySelector('.nav-bg').style.display = "flex";
             document.getElementById('omotac1').innerHTML = 
-            '<h1 id="welcome-user">Dobro dosli ' + currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname +' u nas e-shop.' + '</h1>';
-            var shops = '<div id="shops"><div class="shops"><img class="shops-img" alt="balet" src="../images/balerina1.jpg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" alt="drama" src="../images/drama1.jpg"><h4>Drama</h4></div><div class="shops"><img class="shops-img" alt="opera" src="../images/opera3.jpg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" alt="filharmonija" src="../images/filharmonija5.jpg"><h4>Filharmonija</h4></div></div>';
+            '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
+            ' ' + currentlyLoggedIn.surname +
+            ' u nas e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' + '</h1>';
+            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Drama</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
@@ -59,6 +61,11 @@ function createEShop() {
         if(omotac1.firstElementChild !== null){
             omotac1.removeChild(omotac1.firstElementChild)
         }
+        document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+        document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+        document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+        document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+        
         
         let store = document.getElementById('open-store');
         //store.innerHTML = '';
@@ -74,7 +81,8 @@ function createEShop() {
     
         //Filtriramo po vrsti dogadjaja -balet  
         var filterPerformance = performances;
-    
+        console.log(y);
+        document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
         filterPerformance = performances.filter(
             function(newPerformance) {
                 if (newPerformance.vrsta == x) {
@@ -94,6 +102,7 @@ function createEShop() {
                                     '" class="items-img" alt="' + y + (i + 1) + 
                                     ' "src="../images/' + z + (i + 1) + '.jpg"><div class = "items-text"><p>' + 
                                     filterPerformance[i].naziv + 
+                                    '</p><p class="items-author" style="text-transform:capitalize">' + filterPerformance[i].autor + 
                                     '</p><p>  Cena: <span>' + filterPerformance[i].cena + 
                                     ' RSD </span> </p> <p>Količina: </p> <input type="number" min="0" max="20" placeholder="0" id="rezervacija' +
                                      i + '"></div>';
@@ -106,9 +115,11 @@ $(document).ready(function() {
     $('.shops').click(function() {
         $('.shops-img').animate({
             height: '50px',
-            width: '50px',
-            border: '" solid red "+ 2px'
+            width: '50px'
         });
+        $('.shops').animate({
+            margin: '0px'
+        })
     });
 });
 

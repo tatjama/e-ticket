@@ -16,6 +16,8 @@ h2{
 h1 {
     position: absolute;
     font-size: 8px;
+    color: mintcream;
+    padding: 20px;
 }
 #shops div {
     color: mintcream;    
@@ -33,17 +35,23 @@ h1 {
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
-
+#balet.shops-img.active{
+background-color: orange;
+}
 .shops-img {
     /*border-radius: 15px;*/
-    border: rgba(245, 255, 250, 0.7) solid 3px;
+   /* border: rgba(245, 255, 250, 0.7) solid 3px;*/
+    /*background-color: mintcream;*/
     width: 120px;
     height: 120px;
     margin: 10px;
 }
+
 .shops-img:hover {
     /*box-shadow: 10px 10px 8px #888888;*/
-    transform: scale(1.1);
+    transform: scale(1.1);    
+    background-color: rgba(226, 215, 186, 0.1);
+    border-radius: 50%;
 }
 
 /**Balet shop**/
@@ -56,7 +64,7 @@ h1 {
     box-sizing: border-box;
     /*background-image: radial-gradient(white, goldenrod);*/
     background-color: mintcream;
-    font-size: 16px;
+    font-size: 12px;
     padding: 10px;
     width: 100%;
     margin: auto;
@@ -67,8 +75,14 @@ h1 {
     padding-right: 20px;
     border-radius: 15px;
 }
+
 .items-text{
     text-align: left;
+}
+.items-author{
+    font-size: 12px;
+    text-transform: capitalize;
+    
 }
 p{
     padding: 3px;
@@ -137,7 +151,12 @@ span{
     #shops{
         padding-bottom: 10px;
     }
+    .shops{
+        margin: 80px 20px;
+    }
     .shops-img{
+        width: 100px;
+        height: 100px;
         margin: 10px 5px;
     }
     h4{
@@ -161,7 +180,9 @@ span{
         height: 130px;
         width: 240px;
     }
-
+.items-author{
+    font-size: 6px;
+}
     p{
         font-size: 8px;
     }

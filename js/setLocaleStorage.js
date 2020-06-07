@@ -92,7 +92,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "LABUDOVO JEZERO",
-            autor: "PETAR ILJIČ ČAJKOVSKI",
+            autor: "Petar Iljič Čajkovski",
             cena: "900",
             datum: "2019-05-18",
             kolicina: 236,
