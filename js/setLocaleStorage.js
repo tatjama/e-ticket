@@ -44,7 +44,7 @@ function setLocalStorage(a, b, c, d) {
     ];
     var nizDogadjaja = [{
             naziv: "KARMEN",
-            autor: "BIZE",
+            autor: "Bize",
             cena: "700",
             datum: "2019-05-10",
             kolicina: 123,
@@ -54,7 +54,7 @@ function setLocalStorage(a, b, c, d) {
         },
         {
             naziv: "RADOVAN TREĆI",
-            autor: "DUŠAN KOVAČEVIĆ",
+            autor: "Dušan Kovačević",
             cena: "500",
             datum: "2019-05-20",
             kolicina: 8,
@@ -64,7 +64,7 @@ function setLocalStorage(a, b, c, d) {
         }, {
 
             naziv: "GOSPOĐA MINISTARKA",
-            autor: "BRANISLAV NUŠIĆ",
+            autor: "Branislav Nušić",
             cena: "800",
             datum: "2019-05-15",
             kolicina: 163,
@@ -74,7 +74,7 @@ function setLocalStorage(a, b, c, d) {
         },
         {
             naziv: "TRAVIJATA",
-            autor: "ĐUZEPE VERDI",
+            autor: "Đuzepe Verdi",
             cena: "860",
             datum: "2019-05-19",
             kolicina: 161,
@@ -83,7 +83,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "BALKANSKI ŠPIJUN",
-            autor: "DUŠAN KOVAČEVIĆ",
+            autor: "Dušan Kovačević",
             cena: "680",
             datum: "2019-05-11",
             kolicina: 175,
@@ -101,7 +101,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "ČUDO U ŠARGANU",
-            autor: "LJUBOMIR SIMOVIĆ",
+            autor: "LJubomir Simović",
             cena: "550",
             datum: "2019-05-25",
             kolicina: 80,
@@ -110,7 +110,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "DAMA S KAMELIJAMA",
-            autor: "ALEKSANDAR DIMA SIN",
+            autor: "Aleksandar Dima Sin",
             cena: "800",
             datum: "2019-05-16",
             kolicina: 255,
@@ -119,7 +119,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "EVGENIJE ONJEGIN",
-            autor: "PETAR ILJIČ ČAJKOVSKI",
+            autor: "Petar Iljič Čajkovski",
             cena: "900",
             datum: "2019-05-16",
             kolicina: 58,
@@ -128,7 +128,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "KRCKO ORAŠČIĆ",
-            autor: "PETAR ILJIČ ČAJKOVSKI",
+            autor: "Petar Iljič Čajkovski",
             cena: "980",
             datum: "2019-05-28",
             kolicina: 37,
@@ -137,7 +137,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "KRALJICA MARGO",
-            autor: "GORAN BREGOVIĆ",
+            autor: "Goran Bregović",
             cena: "700",
             datum: "2019-05-17",
             kolicina: 195,
@@ -146,7 +146,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "USPAVANA LEPOTICA",
-            autor: "PETAR ILJIČ ČAJKOVSKI",
+            autor: "Petar Iljič Čajkovski",
             cena: "800",
             datum: "2019-05-16",
             kolicina: 79,
@@ -155,7 +155,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "KAVALERIJA RUSTIKANA",
-            autor: "PJETRO MASKANJI",
+            autor: "Pjetro Maskanji",
             cena: "1000",
             datum: "2019-05-21",
             kolicina: 151,
@@ -164,7 +164,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "AIDA",
-            autor: "ĐUZEPE VERDI",
+            autor: "Đuzepe Verdi",
             cena: "880",
             datum: "2019-05-18",
             kolicina: 158,
@@ -173,7 +173,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "MUZIČKI RAZGOVORI",
-            autor: "NEMANJA STANKOVIĆ",
+            autor: "Nemanja Stanković",
             cena: "2000",
             datum: "2019-05-15",
             kolicina: 163,
@@ -182,7 +182,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "KONCERT NA OTVORENOM",
-            autor: "GABRIJEL FELC",
+            autor: "Gabrijel Felc",
             cena: "100",
             datum: "2019-05-22",
             kolicina: 93,
@@ -191,7 +191,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "JA VOLIM FILHARMONIJU",
-            autor: "ALEKSANDAR KOJIĆ",
+            autor: "Aleksandar Kojić",
             cena: "2500",
             datum: "2019-05-22",
             kolicina: 163,
@@ -201,7 +201,7 @@ function setLocalStorage(a, b, c, d) {
         }, {
 
             naziv: "BOLERO",
-            autor: "RAVEL",
+            autor: "Ravel",
             cena: "970",
             datum: "2019-05-17",
             kolicina: 165,
@@ -210,7 +210,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "ERO S ONOGA SVIJETA",
-            autor: "JAKOV GOTOVAC",
+            autor: "Jakov Gotovac",
             cena: "1500",
             datum: "2019-05-27",
             kolicina: "157",
@@ -219,7 +219,7 @@ function setLocalStorage(a, b, c, d) {
 
         }, {
             naziv: "NA LEPOM PLAVOM DUNAVU",
-            autor: "JOHAN STRAUS",
+            autor: "Johan Štraus",
             cena: "1200",
             datum: "2019-05-13",
             kolicina: "71",

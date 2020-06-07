@@ -102,8 +102,9 @@ function createEShop() {
                                     '" class="items-img" alt="' + y + (i + 1) + 
                                     ' "src="../images/' + z + (i + 1) + '.jpg"><div class = "items-text"><p>' + 
                                     filterPerformance[i].naziv + 
-                                    '</p><p class="items-author" style="text-transform:capitalize">' + filterPerformance[i].autor + 
-                                    '</p><p>  Cena: <span>' + filterPerformance[i].cena + 
+                                    '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
+                                    '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
+                                    '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
                                     ' RSD </span> </p> <p>Količina: </p> <input type="number" min="0" max="20" placeholder="0" id="rezervacija' +
                                      i + '"></div>';
             
