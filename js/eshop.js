@@ -100,7 +100,8 @@ function createEShop() {
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
                                     '" class="items-img" alt="' + y + (i + 1) + 
-                                    ' "src="../images/' + z + (i + 1) + '.jpg"><div class = "items-text"><p>' + 
+                                    ' "src="../images/' + z + (i + 1) + 
+                                    '.jpg"><div class = "items-text"><p class = "items-name">' + 
                                     filterPerformance[i].naziv + 
                                     '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 

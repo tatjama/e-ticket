@@ -80,6 +80,7 @@ background-color: orange;
 .items-text{
     text-align: left;
 }
+.items-name,
 .items-author,
 .items-scene,
 .items-price{
@@ -181,7 +182,7 @@ span{
     .item-card{
         margin: 20px 10px;
         height: 130px;
-        width: 240px;
+        width: 300px;
     }
     p{
         font-size: 10px;

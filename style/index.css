@@ -173,7 +173,7 @@ figure:hover{
 
 @media screen and (max-width: 750px){
     .section_one{
-        padding: 15px 20px;
+        padding: 10px 20px;
     }
 .section_one figure img {
     width: 100px;
@@ -181,7 +181,7 @@ figure:hover{
 }
 .section_one figure{
     width: 102px;
-    margin: 40px 27px;
+    margin: 20px 27px;
 }
 .description{
    /* flex-direction: column;*/
@@ -191,5 +191,8 @@ figure:hover{
 @media screen and(max-width: 500px){
     .section_one{
         padding: 50px 20px;
+    }
+    .section_one figure{
+        margin: 40px 27px;
     }
 }
