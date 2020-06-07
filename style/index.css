@@ -67,7 +67,6 @@ input {
 
 /*SEKCIJA*/
 
-.section_one, 
 .section_two {
     text-align: center;
     justify-content: center;    
@@ -75,21 +74,29 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .section_one{
     background-color: lightgoldenrodyellow;    
-    padding: 5%;    
+    padding: 8% 5%;    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .section_one a{
     color: darkgoldenrod;
+    display: block;
 }
 .section_two{
     background-color: mintcream;
     /*background-color: honeydew;*/
 }
 .section_one figure {
-    width: 25%;    
+    width: 152px;    
     font-weight: bold;
-    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .section_one figure img{
@@ -166,11 +173,15 @@ figure:hover{
 
 @media screen and (max-width: 750px){
     .section_one{
-        padding: 5%;
+        padding: 50px 20px;
     }
 .section_one figure img {
     width: 100px;
     height: 100px;
+}
+.section_one figure{
+    width: 102px;
+    margin: 40px 27px;
 }
 .description{
    /* flex-direction: column;*/
