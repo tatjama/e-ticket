@@ -113,8 +113,8 @@ function createEShop() {
                                     '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
                                     '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ "'rezervacija" + i + "'" + ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down – kopija.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
-                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ "'rezervacija" + i + "'" + ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up – kopija.svg" ></button></div>';
+                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ "'rezervacija" + i + "'" + ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ "'rezervacija" + i + "'" + ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
             
                                   
             store.appendChild(storeArticle);           

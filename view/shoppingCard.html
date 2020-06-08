@@ -8,32 +8,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../style/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/navigationEShop.css"/>
+    <link rel="stylesheet" type="text/css" meia="screen" href="../style/shoppingCard.css"/>
     <link rel="icon" href="../images/drama6.jpg" type="image/jpg">
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <a href="../index.html">HOME</a>
-    <a href="./eshop.html.">E-SHOP</a>
+    <nav class="flex-row">
+        <div id="logo">
+            <a href="../index.html">
+                <img class="nav-img-logo" src="../images/drama6.jpg">
+            </a>
+        </div>
+        <div class="nav-bg" >
+            <a id="signOut" title="Vratite se u prodavnicu..."  href="./eshop.html"><i class="fa fa-opencart" >  </i> E-shop </a>     
+        </div>
+    </nav>
 
 
-    <div class="omotac">
+    <div class="shoppingCard-container">
 
         <h1> <i class="fa fa-opencart" style="font-size:48px;color:darkgoldenrod">  </i> KORPA</h1>
-        <p id="poruka"></p>
+        <p id="thank-you-message"></p>
         <div id="ispisOpcijaFiltera"></div>
 
-        <table id="roditelj" style="position: relative;left: -30%;">
-            UKUPAN IZNOS:<input type="number" id="ceh" value="0" placeholder="0">
-            <tr id="tabelaRezervisanihDogadjaja">
+        <table id="table-main">
+            UKUPAN IZNOS:<input type="number" id="sum-of-buying-items" value="0" placeholder="0">
+            <tr id="table-of-reserved-performances">
                 <th>NAZIV</th>
-                <th>AUTOR</th>
+                <th class="default-hide">AUTOR</th>
                 <th>CENA </th>
-                <th>DATUM</th>
-                <th>KOLIČINA ULAZNICA</th>
-                <th>VRSTA DOGAĐAJA</th>
-                <th>SCENA</th>
+                <th class="default-hide">DATUM</th>
+                <th class="default-hide">KOLIČINA ULAZNICA</th>
+                <th class="default-hide">VRSTA DOGAĐAJA</th>
+                <th class="default-hide">SCENA</th>
                 <th>REZERVACIJA</th>
                 <th>OBRISI</th>
                 <th>IZNOS</th>

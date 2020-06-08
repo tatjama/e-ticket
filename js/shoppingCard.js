@@ -14,10 +14,10 @@ function createShoppingCard() {
     tableOfReservedPerformances(shoppingCard);
 
     //dodavanje dugmeta kupi      
-    let table = document.getElementById('tabelaRezervisanihDogadjaja');
+    let table = document.getElementById('table-of-reserved-performances');
     let buy = document.createElement('button');
     buy.addEventListener('click', shopping);
-    buy.innerHTML = 'Kupi';
+    buy.innerHTML = 'Izvrši plaćanje';
     table.appendChild(buy);
 
     //sumiramo ukupan iznos
@@ -25,21 +25,21 @@ function createShoppingCard() {
 
     function sumShoppingCard() {
         for (let i = 0; i < shoppingCard.length; i++) {
-            let sumOfBuyingItems = document.getElementById('ceh').value;
+            let sumOfBuyingItems = document.getElementById('sum-of-buying-items').value;
             let sumOfItem = document.getElementById('iznos' + i).innerHTML;
             sumOfBuyingItems = parseInt(sumOfBuyingItems) + parseInt(sumOfItem);
-            document.getElementById('ceh').value = sumOfBuyingItems;
+            document.getElementById('sum-of-buying-items').value = sumOfBuyingItems;
         }
     }
 
     $(document).ready(function() {
 
-        $("#roditelj").on('click', '.obrisi', function(event) {
+        $("#table-main").on('click', '.obrisi', function(event) {
             console.log(event.target.id);
             var removeId = event.target.id;
             var positionOfRemovedRow = removeId.slice(6);
             //brisanje sume
-            document.getElementById('ceh').value -= shoppingCard[positionOfRemovedRow].iznos;
+            document.getElementById('sum-of-buying-items').value -= shoppingCard[positionOfRemovedRow].iznos;
 
             delete shoppingCard[positionOfRemovedRow]
             console.log(positionOfRemovedRow);
@@ -57,7 +57,7 @@ function createShoppingCard() {
     //FUNKCIJE:
 
     function addEraseItem(el) {
-        el.obrisi = 'Obrisi';
+        el.obrisi = 'Ukloni';
         el.iznos = parseInt(el.cena) * parseInt(el.rezervacija);
 
     }
@@ -66,7 +66,7 @@ function createShoppingCard() {
 
     //Funkcija koja pravi tabelu sa rezervisanim događajima
     function tableOfReservedPerformances(x) {
-        let table = document.getElementById('tabelaRezervisanihDogadjaja');
+        let table = document.getElementById('table-of-reserved-performances');
         table.style.display = 'initial';
 
         for (y in x) {
@@ -89,10 +89,10 @@ function createShoppingCard() {
         return x;
     }
 
-    //kraj funkcije tabela rezervisanih događaja
+    //kraj funkcije tableOfReservedPerformances
 
 
-    // Aktivira se pritiskom dugmeta 'kupi'
+    // Aktivira se pritiskom dugmeta 'Izvrsi placanje'
     //1.smesta  niz kupljenih ulaznica u localStoridge pod nazivom "kupljeno"
 
     function shopping() {
@@ -123,8 +123,8 @@ function createShoppingCard() {
                     //pre toga obrisemo dosadasnji lager 
                     localStorage.removeItem('bazadogadjaja');
                     localStorage.setItem('bazadogadjaja', JSON.stringify(lager));
-                    document.getElementById('roditelj').style.display = "none";
-                    document.getElementById('poruka').innerHTML = "Vaša kupovina je uspešno izvršena. Hvala."
+                    document.getElementById('table-main').style.display = "none";
+                    document.getElementById('thank-you-message').innerHTML = "Vaša kupovina je uspešno izvršena. Hvala."
 
                 }
             }
