@@ -171,9 +171,6 @@ span{
     height: 50px;
     margin: 5px;
 }
-/*button :hover{
-    background-color: brown;
-}*/
 .button :hover,
 #eshop-buttons :hover, a :hover {
     background-color: goldenrod;
