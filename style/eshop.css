@@ -8,6 +8,11 @@ body{
 nav{
     padding: 20px 100px;
 }
+#eshop-navigation{
+    position: sticky;
+    top: 0px;
+    background-color: navy;
+}
 h2{
     color: mintcream;
     text-align: center;
@@ -115,10 +120,11 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
-#omotacDugme{
+#eshop-buttons{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
     
 }
 .omotacKorpe{
@@ -142,7 +148,7 @@ span{
     background-color: brown;
 }*/
 .button :hover,
-#omotacDugme :hover, a :hover {
+#eshop-buttons :hover, a :hover {
     background-color: darkgoldenrod;
     color: white;
     font-weight: bold;
@@ -165,7 +171,7 @@ span{
     }
     h4{
         font-size: 12px;        
-        font-weight: lighter;
+       /* font-weight: lighter;*/
     }
     h2{
         padding: 40px;

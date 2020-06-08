@@ -58,6 +58,10 @@ function createEShop() {
 
     function openStore(x, y, z) {
         let omotac1 = document.getElementById('omotac1');
+        let h2 = document.getElementById('eshop-header');
+        if(h2.style.display !== "none"){
+            h2.style.display = "none";
+        }
         if(omotac1.firstElementChild !== null){
             omotac1.removeChild(omotac1.firstElementChild)
         }
