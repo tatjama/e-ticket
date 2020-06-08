@@ -1,3 +1,6 @@
+var eShopMessage = document.getElementById('eshop-message');
+var navBg = document.querySelector('.nav-bg');
+
 createEShop();
 
 function createEShop() {
@@ -21,8 +24,8 @@ function createEShop() {
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
             console.log(currentlyLoggedIn);
-            document.querySelector('.nav-bg').style.display = "flex";
-            document.getElementById('omotac1').innerHTML = 
+            navBg.style.display = "flex";
+            eShopMessage.innerHTML = 
             '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' + '</h1>';
@@ -39,16 +42,16 @@ function createEShop() {
             animate();
             }else{
             console.log('gost');
-            document.querySelector('.nav-bg').style.display = 'none';          
-            document.getElementById('omotac1').innerHTML = 
+            navBg.style.display = 'none';          
+            eShopMessage.innerHTML = 
             "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
             animate();
         }
         
     }else{ 
          console.log('neregistrovani korisnik');
-         document.querySelector('.nav-bg').style.display = "none";            
-         document.getElementById('omotac1').innerHTML = 
+         navBg.style.display = "none";            
+         eShopMessage.innerHTML = 
         "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
         animate();
      }
@@ -57,13 +60,12 @@ function createEShop() {
 
 
     function openStore(x, y, z) {
-        let omotac1 = document.getElementById('omotac1');
         let h2 = document.getElementById('eshop-header');
         if(h2.style.display !== "none"){
             h2.style.display = "none";
         }
-        if(omotac1.firstElementChild !== null){
-            omotac1.removeChild(omotac1.firstElementChild)
+        if(eShopMessage.firstElementChild !== null){
+            eShopMessage.removeChild(eShopMessage.firstElementChild)
         }
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";

@@ -1,3 +1,9 @@
+var errorSignUp = document.getElementsByClassName('error_signUp');
+var nameSignUp = document.getElementById('signUp_name');
+var surnameSignUp = document.getElementById('signUp_surname');
+var emailSignUp = document.getElementById('signUp_email');
+var passwordSignUp = document.getElementById('signUp_email');
+
 /*obrisiLokalStoridz();
 
 function obrisiLokalStoridz() {
@@ -11,14 +17,14 @@ function obrisiLokalStoridz() {
 var userArray = [];
 
 function signUp() {
-    if (document.getElementById('signUp_name').value == '' ||
-        document.getElementById('signUp_surname').value == '' ||
-        document.getElementById('signUp_email').value == '' ||
-        document.getElementById('signUp_password').value == '' ||
-        document.getElementsByClassName('error_signUp')[0].innerHTML != '' ||
-        document.getElementsByClassName('error_signUp')[1].innerHTML != '' ||
-        document.getElementsByClassName('error_signUp')[2].innerHTML != '' ||
-        document.getElementsByClassName('error_signUp')[3].innerHTML != '') {
+    if (nameSignUp.value == '' ||
+        surnameSignUp.value == '' ||
+        emailSignUp.value == '' ||
+        passwordSignUp.value == '' ||
+        errorSignUp[0].innerHTML != '' ||
+        errorSignUp[1].innerHTML != '' ||
+        errorSignUp[2].innerHTML != '' ||
+        errorSignUp[3].innerHTML != '') {
         alert('Neispravan unos ili prazno polje');
     } else {
 
@@ -28,10 +34,10 @@ function signUp() {
         var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
         console.log(userArray);
 
-        newUser.name = document.getElementById('signUp_name').value.toUpperCase();
-        newUser.surname = document.getElementById('signUp_surname').value.toUpperCase();
-        newUser.email = document.getElementById('signUp_email').value;
-        newUser.password = document.getElementById('signUp_password').value;
+        newUser.name = nameSignUp.value.toUpperCase();
+        newUser.surname = surnameSignUp.value.toUpperCase();
+        newUser.email = emailSignUp.value;
+        newUser.password = passwordSignUp.value;
         newUser.status = document.getElementById('signUp_status').value;
         userArray.forEach(element => {
             if (element.email === newUser.email) {
