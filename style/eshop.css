@@ -42,7 +42,7 @@ h1 {
     padding-bottom: 50px;
 }
 #balet.shops-img.active{
-background-color: orange;
+/*background-color: red;*/
 }
 .shops-img {
     /*border-radius: 15px;*/
@@ -93,13 +93,14 @@ background-color: orange;
     text-transform: capitalize;
     
 }
+
 p{
     padding: 3px;
     font-size: 14px;
 }
 .item-card{
     height: 200px;
-    width: 380px;
+    width: 390px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -111,6 +112,16 @@ span{
  input{
     width: 50px;
     height: 20px;    
+}
+.items-quantity-button{
+    height: 24px;
+    padding: 0px 3px;
+    margin: 3px;
+    background-color: navy;
+    color: white;
+}
+.items-quantity-button:hover{
+    background-color: goldenrod;
 }
 
 /*.opis1 {
@@ -149,7 +160,7 @@ span{
 }*/
 .button :hover,
 #eshop-buttons :hover, a :hover {
-    background-color: darkgoldenrod;
+    background-color: goldenrod;
     color: white;
     font-weight: bold;
 }
@@ -195,5 +206,9 @@ span{
     }
     input{
         height: 15px;
+    }
+    .items-quantity-button{
+        height: 19px;
+        
     }
   }

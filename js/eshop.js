@@ -18,7 +18,7 @@ function createEShop() {
               //  "background-color": "white"
             }).dequeue();
         });
-    }        
+    }    
      
      if(sessionStorage.getItem('user')!== null){ 
 
@@ -102,6 +102,7 @@ function createEShop() {
         for (let i = 0; i < filterPerformance.length; i++) {
             //refaktorizacija
            
+           
             let storeArticle = document.createElement('div');    
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
@@ -112,12 +113,26 @@ function createEShop() {
                                     '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
                                     '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>Količina: </p> <input type="number" min="0" max="20" placeholder="0" id="rezervacija' +
-                                     i + '"></div>';
+                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ "'rezervacija" + i + "'" + ')">Smanji</button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ "'rezervacija" + i + "'" + ')">Dodaj</button></div>';
             
+                                  
             store.appendChild(storeArticle);           
         }        
-    }     
+    }  
+      
+function quantityUp(x){
+   let quantity = document.getElementById(x).value;   
+   document.getElementById(x).value =++quantity;
+   console.log(quantity);
+}
+function quantityDown(x){
+    let quantity = document.getElementById(x).value;
+    if(quantity >= 1){
+        document.getElementById(x).value = --quantity;
+    }    
+    console.log(quantity);
+}   
 
 $(document).ready(function() {
     $('.shops').click(function() {
@@ -190,3 +205,5 @@ function makeNewReservation() {
     }
 
 }
+  
+  
