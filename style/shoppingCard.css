@@ -1,17 +1,20 @@
 .shoppingCard-container{
     padding: 30px;
 }
-.default-hide,
-.autor,
-.datum,
-.kolicina,
-.vrsta,
-.scena{
-    display: none;
+#table-main{
+    border-spacing: 3px 3px;
 }
+/*#table-of-reserved-performances :nth-child(even){
+    background-color: orangered;
+}*/
+
 .rezervacija,
-.naziv{
+.naziv,
+.cena{
     font-weight: bold;
+}
+.cena{
+    
 }
 @media screen and (max-width: 750px){
     .shoppingCard-container{
@@ -21,5 +24,22 @@
     td{
         font-size: 12px;
         font-weight: lighter;
+       
+        padding: 10px;
     }
+    td{
+        border-right: dashed 1px olive;
+        margin: 2px;
+        font-size: 10px;
+        text-align: right;
+    }
+    
+.default-hide,
+.autor,
+.datum,
+.kolicina,
+.vrsta,
+.scena{
+    display: none;
+}
 }
