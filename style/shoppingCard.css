@@ -7,37 +7,38 @@
 /*#table-of-reserved-performances :nth-child(even){
     background-color: orangered;
 }*/
+th, 
+td{
+    font-weight: lighter;       
+    padding: 10px;
+}
+th{
+    font-size: 12px;
+}
+td{
+    border-right: dashed 1px olive;
+    margin: 2px;
+    font-size: 10px;
+    text-align: right;
+}
 
 .rezervacija,
 .naziv,
-.cena{
+.cena,
+.iznos,
+.obrisi{
     font-weight: bold;
 }
-.cena{
-    
-}
+
 @media screen and (max-width: 750px){
     .shoppingCard-container{
         padding: 10px;
     }
-    th, 
-    td{
-        font-size: 12px;
-        font-weight: lighter;
-       
-        padding: 10px;
-    }
-    td{
-        border-right: dashed 1px olive;
-        margin: 2px;
-        font-size: 10px;
-        text-align: right;
-    }
-    
+   
 
 }
 @media screen and (max-width: 500px){
-.default-hide,
+
 .autor,
 .datum,
 .kolicina,

@@ -1,10 +1,13 @@
+//vadi niz iz local S i parsira u JavaScript, smesta u promenljivu korpa
+var shoppingCard = JSON.parse(localStorage.getItem('korpa')) || [];
 createShoppingCard();
 
 function createShoppingCard() {
 
-    //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu korpa
-    var shoppingCard = JSON.parse(localStorage.getItem('korpa')) || [];
+    
     console.log(shoppingCard);
+    
+
     // suma();
 
     //dodajemo polje za kolicinu rezervacije .
@@ -14,11 +17,11 @@ function createShoppingCard() {
     tableOfReservedPerformances(shoppingCard);
 
     //dodavanje dugmeta zavrsi kupovinu      
-    let table = document.getElementById('table-of-reserved-performances');
+    /*let table = document.getElementById('table-of-reserved-performances');
     let buy = document.createElement('button');
     buy.addEventListener('click', shopping);
     buy.innerHTML = 'Završi kupovinu';
-    table.appendChild(buy);
+    table.appendChild(buy);*/
 
     //sumiramo ukupan iznos
     sumShoppingCard();
@@ -32,7 +35,7 @@ function createShoppingCard() {
             document.getElementById('sum-of-buying-items').value = sumOfBuyingItems;
         }
     }
-    
+
     //vraca vrednost broja sa tackom nakon hiljadu.
         function thousands_separators(num)
     {
@@ -41,26 +44,7 @@ function createShoppingCard() {
         return num_parts.join(",");
     }
 
-    $(document).ready(function() {
-
-        $("#table-main").on('click', '.obrisi', function(event) {
-            console.log(event.target.id);
-            var removeId = event.target.id;
-            var positionOfRemovedRow = removeId.slice(6);
-            //brisanje sume
-            document.getElementById('sum-of-buying-items').value -= shoppingCard[positionOfRemovedRow].iznos;
-
-            delete shoppingCard[positionOfRemovedRow]
-            console.log(positionOfRemovedRow);
-            $(this).closest('tr').remove();
-            var purchasedItems = shoppingCard.filter(deleteRemovedFields);
-
-            console.log(purchasedItems);
-            console.log(shoppingCard);
-
-        });
-
-    });
+    
 
 
     //FUNKCIJE:
@@ -101,7 +85,14 @@ function createShoppingCard() {
     //kraj funkcije tableOfReservedPerformances
 
 
-    // Aktivira se pritiskom dugmeta 'Izvrsi placanje'
+    
+
+   
+}
+function deleteRemovedFields (element) {
+    return element != undefined;
+}
+// Aktivira se pritiskom dugmeta 'Izvrsi placanje'
     //1.smesta  niz kupljenih ulaznica u localStoridge pod nazivom "kupljeno"
 
     function shopping() {
@@ -143,8 +134,23 @@ function createShoppingCard() {
         //praznimo localS korpa
         localStorage.removeItem('korpa');
     }
+    $(document).ready(function() {
 
-    function deleteRemovedFields (element) {
-        return element != undefined;
-    }
-}
+        $("#table-main").on('click', '.obrisi', function(event) {
+            console.log(event.target.id);
+            var removeId = event.target.id;
+            var positionOfRemovedRow = removeId.slice(6);
+            //brisanje sume
+            document.getElementById('sum-of-buying-items').value -= shoppingCard[positionOfRemovedRow].iznos;
+
+            delete shoppingCard[positionOfRemovedRow]
+            console.log(positionOfRemovedRow);
+            $(this).closest('tr').remove();
+            var purchasedItems = shoppingCard.filter(deleteRemovedFields);
+
+            console.log(purchasedItems);
+            console.log(shoppingCard);
+
+        });
+
+    });
