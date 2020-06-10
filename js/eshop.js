@@ -29,7 +29,7 @@ function createEShop() {
             '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' + '</h1>';
-            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Drama</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
+            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
@@ -61,6 +61,7 @@ function createEShop() {
 
     function openStore(x, y, z) {
         let h2 = document.getElementById('eshop-header');
+        document.getElementById('reservation').removeAttribute('click');
         if(h2.style.display !== "none"){
             h2.style.display = "none";
         }
@@ -89,10 +90,14 @@ function createEShop() {
         var filterPerformance = performances;
         console.log(y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
+        //console.log(document.getElementById(y).innerHTML);
         filterPerformance = performances.filter(
             function(newPerformance) {
                 if (newPerformance.vrsta == x) {
+                    console.log(newPerformance.vrsta);
+                    document.getElementById('active-store').innerHTML = newPerformance.vrsta;
                     return true;
+
                 } else {
                     return false;
                 }
@@ -117,9 +122,80 @@ function createEShop() {
                                     + i + '"><button class="items-quantity-button" onclick="quantityUp('+ "'rezervacija" + i + "'" + ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
             
                                   
-            store.appendChild(storeArticle);           
-        }        
+            store.appendChild(storeArticle);      
+                
+        }  
+        
+        
+        /*function makeNewReservation(){
+            createNewReservation(x);
+            console.log(x);
+        }*/
     }  
+
+    let reservation = document.getElementById('reservation');
+        reservation.addEventListener('click', createNewReservation); 
+        
+        function createNewReservation() {
+            console.log();
+            //nizDogadjaja izvlacimo iz localS
+            let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+            
+            //Filtriramo po vrsti dogadjaja  
+            var filterPerformance = performances;
+            var activePerformance = document.getElementById('active-store').innerHTML;
+            
+            filterPerformance = performances.filter(
+                function(newPerformance) {
+                    if (newPerformance.vrsta == activePerformance) {
+                        console.log(newPerformance)
+                        console.log(activePerformance)
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+        
+        
+            console.log(filterPerformance);
+        
+            let reservationsArray = [];
+            for (let j = 0; j < filterPerformance.length; j++) {
+                let newReservation = document.getElementById('rezervacija' + j).value;
+        
+                //DODALA USLOV DA NE MOZE DA ODE U MINUS
+                if (newReservation > 0) {
+                    //nizFiltriranihDogadjaja[j].kolicina = parseInt(nizFiltriranihDogadjaja[j].kolicina);
+                    if (newReservation > parseInt(filterPerformance[j].kolicina)) {
+                        //treba da izbaci gresku za kolicinu 
+                        alert(
+                            "lager ne moze da ide u minus. Rezervisete vise ulaznica nego sto ima na lageru.Mozete da kupite maksimalno " +
+                            filterPerformance[j].kolicina + " ulaznica");
+                        console.log(filterPerformance[j].kolicina);
+                        console.log(newReservation);
+                        newReservation = 0;
+                    }
+                    filterPerformance[j].rezervacija = newReservation;
+                    reservationsArray.push(filterPerformance[j]);
+        
+                }
+            }
+            console.log(reservationsArray);
+        
+            //vadi niz iz local S 'korpa' i parsira u JavaScript, smesta u promenljivu korpaIzStoridza
+            var shopingCardFromStorage = JSON.parse(localStorage.getItem('korpa')) || [];
+            //merdzujemo niz korpaIzStoridza i nizRezervacija i smestamo u niz novaKorpa
+            var newShopingCard = shopingCardFromStorage.concat(reservationsArray);
+            console.log(newShopingCard);
+            //smesta niz novaKorpa u localStoride
+            localStorage.setItem('korpa', JSON.stringify(newShopingCard));
+            reservationsArray = [];
+            for (let j = 0; j < filterPerformance.length; j++) {
+                document.getElementById('rezervacija' + j).value = 0;
+            }
+        
+        }    
+    
       
 function quantityUp(x){
    let quantity = document.getElementById(x).value;   
@@ -146,64 +222,6 @@ $(document).ready(function() {
     });
 });
 
-let reservation = document.getElementById('reservation');
-reservation.addEventListener('click', makeNewReservation);
 
-function makeNewReservation() {
-
-    //nizDogadjaja izvlacimo iz localS
-    let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
-
-    //Filtriramo po vrsti dogadjaja -balet  
-    var filterPerformance = performances;
-
-    filterPerformance = performances.filter(
-        function(newPerformance) {
-            if (newPerformance.vrsta == "Balet") {
-                return true;
-            } else {
-                return false;
-            }
-        });
-
-
-    console.log(filterPerformance);
-
-    let reservationsArray = [];
-    for (let j = 0; j < filterPerformance.length; j++) {
-        let newReservation = document.getElementById('rezervacija' + j).value;
-
-        //DODALA USLOV DA NE MOZE DA ODE U MINUS
-        if (newReservation > 0) {
-            //nizFiltriranihDogadjaja[j].kolicina = parseInt(nizFiltriranihDogadjaja[j].kolicina);
-            if (newReservation > parseInt(filterPerformance[j].kolicina)) {
-                //treba da izbaci gresku za kolicinu 
-                alert(
-                    "lager ne moze da ide u minus. Rezervisete vise ulaznica nego sto ima na lageru.Mozete da kupite maksimalno " +
-                    filterPerformance[j].kolicina + " ulaznica");
-                console.log(filterPerformance[j].kolicina);
-                console.log(newReservation);
-                newReservation = 0;
-            }
-            filterPerformance[j].rezervacija = newReservation;
-            reservationsArray.push(filterPerformance[j]);
-
-        }
-    }
-    console.log(reservationsArray);
-
-    //vadi niz iz local S 'korpa' i parsira u JavaScript, smesta u promenljivu korpaIzStoridza
-    var shopingCardFromStorage = JSON.parse(localStorage.getItem('korpa')) || [];
-    //merdzujemo niz korpaIzStoridza i nizRezervacija i smestamo u niz novaKorpa
-    var newShopingCard = shopingCardFromStorage.concat(reservationsArray);
-    console.log(newShopingCard);
-    //smesta niz novaKorpa u localStoride
-    localStorage.setItem('korpa', JSON.stringify(newShopingCard));
-    reservationsArray = [];
-    for (let j = 0; j < filterPerformance.length; j++) {
-        document.getElementById('rezervacija' + j).value = 0;
-    }
-
-}
   
   

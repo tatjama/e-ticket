@@ -11,12 +11,16 @@ th,
 td{
     font-weight: lighter;       
     padding: 10px;
+   /* display: table-column;*/
+   /* width: 60px;*/
 }
 th{
     font-size: 12px;
+   
 }
 td{
     border-right: dashed 1px olive;
+    /*border-bottom: dashed 1px olive;*/
     margin: 2px;
     font-size: 10px;
     text-align: right;
@@ -29,21 +33,23 @@ td{
 .obrisi{
     font-weight: bold;
 }
-
+#pay-button{
+    display: none;
+}
 @media screen and (max-width: 750px){
     .shoppingCard-container{
         padding: 10px;
     }
-   
+    .autor,
+    .datum,
+    .kolicina,
+    .vrsta,
+    .scena{
+        display: none;
+    }
 
 }
 @media screen and (max-width: 500px){
 
-.autor,
-.datum,
-.kolicina,
-.vrsta,
-.scena{
-    display: none;
-}
+
 }

@@ -177,7 +177,9 @@ span{
     color: white;
     font-weight: bold;
 }
-
+#active-store{
+    color: white;
+}
 @media screen and (max-width: 750px){    
     nav{
         padding: 10px;

@@ -31,7 +31,7 @@ function createShoppingCard() {
             let sumOfBuyingItems = document.getElementById('sum-of-buying-items').value;
             let sumOfItem = document.getElementById('iznos' + i).innerHTML;
             sumOfBuyingItems = parseInt(sumOfBuyingItems) + parseInt(sumOfItem);
-            sumOfBuyingItems = thousands_separators(sumOfBuyingItems);
+           // sumOfBuyingItems = thousands_separators(sumOfBuyingItems);
             document.getElementById('sum-of-buying-items').value = sumOfBuyingItems;
         }
     }
