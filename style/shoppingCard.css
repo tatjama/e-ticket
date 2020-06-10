@@ -74,6 +74,12 @@ button {
     .shoppingCard-container{
         padding: 10px;
     }
+    button{
+        width: 180px;
+    }
+    th, td{
+        padding: 10px 5px;
+    }
     .autor,
     .datum,
     .kolicina,
