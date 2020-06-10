@@ -43,17 +43,26 @@ td{
 .obrisi-header{
     font-weight: bold;
 }
+input{
+    background-color: rgb(217, 165, 32);
+    color: white;
+    height: 40px;
+    text-align: center;
+    border: 0px;
+    font-weight: bold;
+    margin: 6px;
+}
 button {
       background-color: navy;
       color: white;
       border: 0cm;
       padding: 20px;
       text-decoration: none;
-      width: 180px;
+      width: 174px;
       height: 50px;
       margin: 5px;
   }
-  button :hover
+  button:hover
    {
       background-color: goldenrod;
       font-weight: bold;
