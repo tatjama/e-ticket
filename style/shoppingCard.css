@@ -23,14 +23,21 @@ th{
 }
 td{
     border-right: dashed 1px olive;
+    border-collapse: collapse;
     /*border-bottom: dashed 1px olive;*/
     margin: 2px;
     font-size: 10px;
     text-align: right;
 }
+td.iznos{
+    border-left: dashed 1px olive;
+    border-right: 0px;
+}
 .obrisi{
     background-color: navy;
-    color: white;   
+    color: white; 
+    border-radius: 15px;
+    border: white 3px solid;  
 }
 .obrisi:hover{
     background-color: goldenrod;
