@@ -13,7 +13,8 @@ function createShoppingCard() {
     //pozivamo funkciju za iscrtavanje tabele sa rezervisanim događajima
     tableOfReservedPerformances(shoppingCard);
 
-    //dodavanje dugmeta zavrsi kupovinu      
+    //dodavanje dugmeta zavrsi kupovinu    
+    //!!! ovo smo izbacili dugme je fiksno  
     /*let table = document.getElementById('table-of-reserved-performances');
     let buy = document.createElement('button');
     buy.addEventListener('click', shopping);

@@ -28,14 +28,36 @@ td{
     font-size: 10px;
     text-align: right;
 }
-
+.obrisi{
+    background-color: navy;
+    color: white;   
+}
+.obrisi:hover{
+    background-color: goldenrod;
+}
 .rezervacija,
 .naziv,
 .cena,
 .iznos,
-.obrisi{
+.obrisi,
+.obrisi-header{
     font-weight: bold;
 }
+button {
+      background-color: navy;
+      color: white;
+      border: 0cm;
+      padding: 20px;
+      text-decoration: none;
+      width: 180px;
+      height: 50px;
+      margin: 5px;
+  }
+  button :hover
+   {
+      background-color: goldenrod;
+      font-weight: bold;
+  }
 #pay-button{
     display: none;
 }
