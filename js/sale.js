@@ -1,3 +1,60 @@
+ createSale();
+
+function createSale() {
+    //session storage 
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
+    function animate(){                
+        $('h1').show().animate({
+            right: '10px',
+            top: "60px",
+            fontSize: "14px"
+        }, (500)).queue(function() {
+            $(this).css({
+                "color": "white",
+               // "text-shadow": "3px 3px 11px white",
+              //  "background-color": "white"
+            }).dequeue();
+        });
+    }    
+     
+     if(sessionStorage.getItem('user')!== null){ 
+
+        if(currentlyLoggedIn.status ===  "0"){
+            console.log(currentlyLoggedIn);
+            navBg.style.display = "flex";
+            eShopMessage.innerHTML = 
+            '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
+            ' ' + currentlyLoggedIn.surname +
+            ' u naš e-shop.<br> Da biste počeli proces prodajee ulaznica, molimo Vas da odaberete filtere.' + '</h1>';
+            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
+            $("#eshop-container").append(shops);
+            var shopArray = document.getElementsByClassName('shops-img');
+            
+                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
+                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
+                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", "opera")} );
+                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", "filharmonija")} );
+            
+            //upisiBalet("Balet")
+            animate();
+            }else{
+            console.log('gost');
+            navBg.style.display = 'none';          
+            eShopMessage.innerHTML = 
+            "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
+            animate();
+        }
+        
+    }else{ 
+         console.log('neregistrovani korisnik');
+         navBg.style.display = "none";            
+         eShopMessage.innerHTML = 
+        "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+        animate();
+     }
+    
+    }
+
 //otvara prozor za selektovanje filtera i ponistava prethodno zadat filter
 function filter() {
     let sFilter = document.getElementById('selektujFilter');
