@@ -13,7 +13,7 @@
 th, 
 td{
     font-weight: lighter;       
-    padding: 10px;
+    padding: 15px;
    /* display: table-column;*/
    /* width: 60px;*/
 }
@@ -47,10 +47,11 @@ input{
     background-color: rgb(217, 165, 32);
     color: white;
     height: 40px;
+    width: 170px;
     text-align: center;
     border: 0px;
     font-weight: bold;
-    margin: 6px;
+    margin: 5px;
 }
 button {
       background-color: navy;
@@ -62,6 +63,7 @@ button {
       height: 50px;
       margin: 5px;
   }
+  
   button:hover
    {
       background-color: goldenrod;
@@ -74,11 +76,11 @@ button {
     .shoppingCard-container{
         padding: 10px;
     }
-    button{
-        width: 184px;
-    }
+   /* button, input{
+        width: 180px;
+    }*/
     th, td{
-        padding: 10px ;
+        padding: 15px ;
     }
     .autor,
     .datum,
