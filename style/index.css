@@ -24,6 +24,7 @@ input {
     height: 30px;
     margin: 5px;
     border: 1px solid goldenrod;
+    padding: 2px;
 }
 #my_signIn input:nth-of-type(3){
     background-color: navy;

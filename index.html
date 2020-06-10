@@ -25,17 +25,17 @@
                   <legend>Registracija korisnika</legend>
                   Ime:
                   <span class="error_signUp" title="Pogrešan unos. Unesite ime"></span>
-                  <input type="text" placeholder="Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
+                  <input type="text" placeholder=" Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
                   <br> Prezime:
                   <span class="error_signUp" title="Pogrešan unos. Unesite prezime"></span>
-                  <input type="text" placeholder="Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
+                  <input type="text" placeholder=" Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
                   <span class="error_signUp" title="Pogrešan unos. Unesite validan E-mail"></span>
-                  <input type="email" placeholder="E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
+                  <input type="email" placeholder=" E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
                   <br> Lozinka:
                   <span class="error_signUp" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
+                  <input type="password" placeholder=" Lozinka" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
                   <br> Status:
-                  <input type="number" placeholder="administrator" id="signUp_status" readonly value="1">
+                  <input type="number" placeholder=" administrator" id="signUp_status" readonly value="1">
                   <br>
                   <input type="button" onclick="signUp()" value="Registracija">
                   <input type="button" onclick="clearInputSignUp()" value="Obriši">                  
@@ -53,10 +53,10 @@
                   <legend>LOGOVANJE</legend>
                   <br>E-mail:<br>
                   <span class="error" id="error1" title="Pogrešan unos. Unesite validan E-mail"></span>
-                  <input type="email" placeholder="E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
+                  <input type="email" placeholder=" E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
                   <br> Lozinka:<br>
                   <span class="error" id="error2" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="logIn_password" placeholder="Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
+                  <input type="password" id="logIn_password" placeholder=" Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
                   <br>
                   <input type="button" onclick="signIn()" value="Uloguj">
                   <input type="button" onclick="clearInput()" value="Obriši">
