@@ -75,10 +75,10 @@ button {
         padding: 10px;
     }
     button{
-        width: 180px;
+        width: 184px;
     }
     th, td{
-        padding: 10px 5px;
+        padding: 10px ;
     }
     .autor,
     .datum,
@@ -88,4 +88,9 @@ button {
         display: none;
     }
 
+}
+@media screen and (max-width: 400px){
+    th, td{
+        padding: 10px 5px;
+    }
 }
