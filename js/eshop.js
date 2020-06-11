@@ -72,8 +72,7 @@ function createEShop() {
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
         document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
         document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-        
-        
+                
         let store = document.getElementById('open-store');
         //store.innerHTML = '';
         let k = store.childNodes.length;
@@ -105,9 +104,7 @@ function createEShop() {
         console.log(filterPerformance);
     
         for (let i = 0; i < filterPerformance.length; i++) {
-            //refaktorizacija
-           
-           
+            //refaktorizacija           
             let storeArticle = document.createElement('div');    
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
@@ -118,19 +115,14 @@ function createEShop() {
                                     '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
                                     '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ "'rezervacija" + i + "'" + ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
-                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ "'rezervacija" + i + "'" + ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
-            
-                                  
-            store.appendChild(storeArticle);      
-                
+                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                    "'rezervacija" + i + "'" + 
+                                    ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
+                                    "'rezervacija" + i + "'" + 
+                                    ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
+            store.appendChild(storeArticle);                  
         }  
-        
-        
-        /*function makeNewReservation(){
-            createNewReservation(x);
-            console.log(x);
-        }*/
     }  
 
     let reservation = document.getElementById('reservation');

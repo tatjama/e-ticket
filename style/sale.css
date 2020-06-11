@@ -124,7 +124,7 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
-#eshop-buttons{
+#sale-buttons{
     display: flex;
     flex-direction: row;
     justify-content: center;    
@@ -139,7 +139,7 @@ span{
     margin: 5px;
 }
 .button :hover,
-#eshop-buttons :hover, a :hover {
+#sale-buttons :hover, a :hover {
     background-color: goldenrod;
     color: white;
     font-weight: bold;

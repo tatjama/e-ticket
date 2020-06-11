@@ -9,44 +9,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../style/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/navigationEShop.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/sale.css"/>
     <link rel="icon" href="../images/drama6.jpg" type="image/jpg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
-<body>
-   
-    
-    <nav class="flex-row">
-        <div id="logo">
-            <a href="../index.html">
-                <img class="nav-img-logo" src="../images/drama6.jpg">
-            </a>
+<body>   
+    <div id="sale-navigation"> 
+        <nav class="flex-row">
+            <div id="logo">
+                <a href="../index.html">
+                    <img class="nav-img-logo" src="../images/drama6.jpg">
+                </a>
+            </div>
+            <div class="nav-bg" >
+                <a  title="Idite na unos ulaznica..."  href="./entry.html">Unos</a>     
+            </div>
+        </nav>
+        <div id="sale-container" >
         </div>
-        <div class="nav-bg" >
-            <a  title="Idite na unos ulaznica..."  href="./entry.html">Unos</a>     
+        <h2 id="sale-header">Sale</h2>
+        <div id="sale-buttons">
+            <button type="button" class="button" id="filter-button" onclick="filtriraj()"><a href="#">Filtriraj</a></button><br>
+            <button type="reset" class="button" id="clear-button"><a href="#">Obriši</a></button><br>            
+            <button type="button" class="button" id="reservation-button"><a href="filter.html"> Rezerviši</a></button><br>
+            <button type="button" class="button" id="reservation"><a href="#" > Dodajte </a></button><br>            
+                    
         </div>
-    </nav>
-    <div id="sale-container" >
     </div>
-    <h2 id="sale-header">Sale</h2>
-    <div id="sale-buttons">
-       <button type="button" class="button" id="dugme1"><a href="shoppingCard.html"> Korpa</a></button><br>
-        <button type="button" class="button" id="reservation"><a href="#" > Dodajte u korpu</a></button><br>            
-    </div>
-</div> 
     <div id="sale-message">            
     </div>
-    <div class="open-sale" id="open-sale"></div>
-    <div id="active-sale"></div>
+    <div class="open-store" id="open-store"></div>
+    <div id="active-store"></div>
 
-    <div class="container">
+
+
+
+
+
+    <!--<div class="container">
         <h1 onmouseover="filter()"> <i class="fa fa-opencart" style="font-size:48px;color:darkgoldenrod">  </i> FILTER DOGAĐAJA</h1>
-
+    -->
         <!-- <button type="button" onclick="filter()" class="fiksni">Filteri</button><br><br>-->
         
         <!--Forma za izbor filtera-->
 
-        <form id="selektujFilter" style="display: none">
+        <!--<form id="selektujFilter" style="display: none">
             <fieldset>
                 Vrsta događaja:<br>
                 <select id="filterVrsta" size="4">          
@@ -71,9 +80,9 @@
 
             </fieldset>
         </form>
-        <br><br>
+        <br><br>-->
         <!--------------------------------------------------------------------------------------------->
-        <div id="ispisOpcijaFiltera"></div>
+       <!--<div id="ispisOpcijaFiltera"></div>
 
         <table id="roditelj">
             <tr id="tabelaFiltriranihDogadjaja1" style="display: none">
@@ -86,7 +95,7 @@
                 <th>SCENA</th>
             </tr>
         </table>
-    </div>
+    </div>-->
     <script src="../js/sale.js"></script>
 </body>
 

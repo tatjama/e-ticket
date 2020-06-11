@@ -1,21 +1,11 @@
- createSale();
+var eShopMessage = document.getElementById('sale-message');
+var navBg = document.querySelector('.nav-bg');
+
+createSale();
 
 function createSale() {
     //session storage 
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
-    function animate(){                
-        $('h1').show().animate({
-            right: '10px',
-            top: "60px",
-            fontSize: "14px"
-        }, (500)).queue(function() {
-            $(this).css({
-                "color": "white",
-               // "text-shadow": "3px 3px 11px white",
-              //  "background-color": "white"
-            }).dequeue();
-        });
-    }    
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;          
      
      if(sessionStorage.getItem('user')!== null){ 
 
@@ -25,9 +15,9 @@ function createSale() {
             eShopMessage.innerHTML = 
             '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
-            ' u naš e-shop.<br> Da biste počeli proces prodajee ulaznica, molimo Vas da odaberete filtere.' + '</h1>';
+            ' u prodavnicu za administratore.<br>Koristite filtere da biste lakše pronašli ulaznice.' + '</h1>';
             var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
-            $("#eshop-container").append(shops);
+            $("#sale-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
                 shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
@@ -41,7 +31,7 @@ function createSale() {
             console.log('gost');
             navBg.style.display = 'none';          
             eShopMessage.innerHTML = 
-            "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
+            "<h1>Nemate administratorska ovlašćenja za prodaju ulaznica!</h1>"
             animate();
         }
         
@@ -49,11 +39,124 @@ function createSale() {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+        "<h1>Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.</h1>";
         animate();
-     }
-    
+     }    
     }
+
+    function animate(){                
+        $('h1').show().animate({
+            right: '10px',
+            top: "60px",
+            fontSize: "14px"
+        }, (500)).queue(function() {
+            $(this).css({
+                "color": "white",
+               // "text-shadow": "3px 3px 11px white",
+              //  "background-color": "white"
+            }).dequeue();
+        });
+    } 
+
+    function openStore(x, y, z) {
+        let h2 = document.getElementById('sale-header');
+        document.getElementById('reservation').removeAttribute('click');
+        if(h2.style.display !== "none"){
+            h2.style.display = "none";
+        }
+        if(eShopMessage.firstElementChild !== null){
+            eShopMessage.removeChild(eShopMessage.firstElementChild)
+        }
+        document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+        document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+        document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+        document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+                
+        let store = document.getElementById('open-store');
+        //store.innerHTML = '';
+        let k = store.childNodes.length;
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){
+                store.removeChild(store.childNodes[0]);
+            }       
+    }
+        
+        //nizDogadjaja izvlacimo iz localS
+        let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+    
+        //Filtriramo po vrsti dogadjaja -balet  
+        var filterPerformance = performances;
+        console.log(y);
+        document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
+        //console.log(document.getElementById(y).innerHTML);
+        filterPerformance = performances.filter(
+            function(newPerformance) {
+                if (newPerformance.vrsta == x) {
+                    console.log(newPerformance.vrsta);
+                    document.getElementById('active-store').innerHTML = newPerformance.vrsta;
+                    return true;
+
+                } else {
+                    return false;
+                }
+            });            
+        console.log(filterPerformance);
+    
+        for (let i = 0; i < filterPerformance.length; i++) {
+            //refaktorizacija           
+            let storeArticle = document.createElement('div');    
+            storeArticle.setAttribute('class' , 'item-card') ;              
+            storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
+                                    '" class="items-img" alt="' + y + (i + 1) + 
+                                    ' "src="../images/' + z + (i + 1) + 
+                                    '.jpg"><div class = "items-text"><p class = "items-name">' + 
+                                    filterPerformance[i].naziv + 
+                                    '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
+                                    '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
+                                    '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
+                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                    "'rezervacija" + i + "'" + 
+                                    ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
+                                    "'rezervacija" + i + "'" + 
+                                    ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
+            store.appendChild(storeArticle);                  
+        }  
+    } 
+
+     
+     $(document).ready(function() {
+         $('.shops').click(function() {
+             $('.shops-img').animate({
+                 height: '50px',
+                 width: '50px'
+             });
+             $('.shops').animate({
+                 margin: '0px'
+             })
+         });
+     });
+
+     function quantityUp(x){
+        let quantity = document.getElementById(x).value;   
+        document.getElementById(x).value =++quantity;
+        console.log(quantity);
+     }
+     function quantityDown(x){
+         let quantity = document.getElementById(x).value;
+         if(quantity >= 1){
+             document.getElementById(x).value = --quantity;
+         }    
+         console.log(quantity);
+     }   
+    
+     
+     
+       
+     
+    
+
+
 
 //otvara prozor za selektovanje filtera i ponistava prethodno zadat filter
 function filter() {
