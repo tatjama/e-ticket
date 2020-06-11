@@ -70,13 +70,13 @@ function createSale() {
 
 // filter po vrsti scene
     function filterScene(x){
-        alert('filter ' + x)
         removePreSelection();
 
         document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
         document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
 
         document.getElementById(x).setAttribute('src', '../images/' + x + '.svg');
+        console.log('filtriraj po sceni ' + x);
     }
 
 //filter po vrsti dogadjaja
@@ -96,13 +96,13 @@ function createSale() {
     
         //Filtriramo po vrsti dogadjaja -balet  
         var filterPerformance = performances;
-        console.log(y);
+        console.log( y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
         //console.log(document.getElementById(y).innerHTML);
         filterPerformance = performances.filter(
             function(newPerformance) {
                 if (newPerformance.vrsta == x) {
-                    console.log(newPerformance.vrsta);
+                    console.log("filtriraj po vrsti dogadjaja " + newPerformance.vrsta);
                     document.getElementById('active-store').innerHTML = newPerformance.vrsta;
                     return true;
 
