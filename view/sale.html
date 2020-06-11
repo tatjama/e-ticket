@@ -16,7 +16,7 @@
 </head>
 
 <body>   
-    <div id="sale-navigation"> 
+    <d id="sale-navigation"> 
         <nav class="flex-row">
             <div id="logo">
                 <a href="../index.html">
@@ -29,14 +29,36 @@
         </nav>
         <div id="sale-container" >
         </div>
-        <h2 id="sale-header">Sale</h2>
-        <div id="sale-buttons">
-            <button type="button" class="button" id="filter-button" onclick="filtriraj()"><a href="#">Filtriraj</a></button><br>
-            <button type="reset" class="button" id="clear-button"><a href="#">Obriši</a></button><br>            
-            <button type="button" class="button" id="reservation-button"><a href="filter.html"> Rezerviši</a></button><br>
-            <button type="button" class="button" id="reservation"><a href="#" > Dodajte </a></button><br>            
-                    
+        <hr style="color: aquamarine;">
+        <div id="search-filter">
+            
+            <div class="filter-box">                                
+                <input type="text" id="karakter"><br><br>
+                <label for="karakter"> <h3>Dogadjaji čije ime sadrži karaktere:</h3></label>
+            </div>  
+            <div class="filter-box">                 
+                <input type="checkbox" id="kolicinaKarata"><br><br> 
+                <label for="karakter"> <h3>Količina veća od 0:</h3></label><br>
+            </div>   
+            <div class="filter-box">
+               
+                <input type="checkbox" id="prebroj"><br><br>
+                <label for="karakter"> <h3>Prebroj filtrirane događaje:</h3></label><br>
+                <br>
+            </div>    
         </div>
+        <h2 id="sale-header">Sale</h2>
+        
+           
+        
+            <div id="sale-buttons">
+                <button type="button" class="button" id="filter-button" onclick="filtriraj()"><a href="#">Filtriraj</a></button><br>
+                <button type="reset" class="button" id="clear-button"><a href="#">Obriši</a></button><br>            
+                <button type="button" class="button" id="reservation-button"><a href="filter.html"> Rezerviši</a></button><br>
+                <button type="button" class="button" id="reservation"><a href="#" > Dodajte </a></button><br>            
+                        
+            </div>
+        
     </div>
     <div id="sale-message">            
     </div>

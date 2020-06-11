@@ -60,27 +60,14 @@ function createEShop() {
 
 
     function openStore(x, y, z) {
-        let h2 = document.getElementById('eshop-header');
-        document.getElementById('reservation').removeAttribute('click');
-        if(h2.style.display !== "none"){
-            h2.style.display = "none";
-        }
-        if(eShopMessage.firstElementChild !== null){
-            eShopMessage.removeChild(eShopMessage.firstElementChild)
-        }
+        let store = document.getElementById('open-store');
+        removePreSelection();
+
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
         document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
         document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-                
-        let store = document.getElementById('open-store');
-        //store.innerHTML = '';
-        let k = store.childNodes.length;
-        if(store.firstElementChild !== null){          
-            for(let i = 0; i < k ; i++){
-                store.removeChild(store.childNodes[0]);
-            }       
-    }
+        
         
         //nizDogadjaja izvlacimo iz localS
         let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
@@ -123,7 +110,26 @@ function createEShop() {
                                     ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
             store.appendChild(storeArticle);                  
         }  
-    }  
+    } 
+    function removePreSelection(){
+        let h2 = document.getElementById('eshop-header');
+        document.getElementById('reservation').removeAttribute('click');
+        if(h2.style.display !== "none"){
+            h2.style.display = "none";
+        }
+        if(eShopMessage.firstElementChild !== null){
+            eShopMessage.removeChild(eShopMessage.firstElementChild)
+        }
+                
+        let store = document.getElementById('open-store');
+        //store.innerHTML = '';
+        let k = store.childNodes.length;
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){
+                store.removeChild(store.childNodes[0]);
+            }       
+    }
+    } 
 
     let reservation = document.getElementById('reservation');
         reservation.addEventListener('click', createNewReservation); 

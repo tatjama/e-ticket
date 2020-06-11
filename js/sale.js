@@ -1,5 +1,6 @@
 var eShopMessage = document.getElementById('sale-message');
 var navBg = document.querySelector('.nav-bg');
+var store = document.getElementById('open-store');
 
 createSale();
 
@@ -16,15 +17,24 @@ function createSale() {
             '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' u prodavnicu za administratore.<br>Koristite filtere da biste lakše pronašli ulaznice.' + '</h1>';
-            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
+            var shops = '"<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
+            //var scene = '<div id="filter-scene"><hr style="color:aquamarine"/><h3>Izaberite scenu - opcija</h3><div id="scenes"><div class = "scene">Velika scena</div><div class="scene">Mala scena</div></div></div>'            
+            var scene = '<div id="filter-scene"><hr style="color:aquamarine"/><div id="scenes"><div class = "scene"><img class="scene-img" id="velika-scena" alt="velika scena" src="../images/velika-scena-white.svg"><h4>Velika scena</h4></div><div class="scene"><img class="scene-img" id="mala-scena" alt="mala scena" src="../images/mala-scena-white.svg"><h4>Mala scena</h4></div></div></div>'            
+            
             $("#sale-container").append(shops);
+            $('#sale-container').append(scene);
             var shopArray = document.getElementsByClassName('shops-img');
             
                 shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
                 shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
                 shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", "opera")} );
                 shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", "filharmonija")} );
-            
+           
+            var sceneArray = document.getElementsByClassName('scene-img');
+
+                sceneArray[0].addEventListener("click",function(){filterScene("velika-scena")});
+                sceneArray[1].addEventListener("click", function(){filterScene("mala-scena")});
+
             //upisiBalet("Balet")
             animate();
             }else{
@@ -33,8 +43,7 @@ function createSale() {
             eShopMessage.innerHTML = 
             "<h1>Nemate administratorska ovlašćenja za prodaju ulaznica!</h1>"
             animate();
-        }
-        
+        }        
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
@@ -44,6 +53,7 @@ function createSale() {
      }    
     }
 
+// poruka koja izlazi prilikom otvaranja prodavnice
     function animate(){                
         $('h1').show().animate({
             right: '10px',
@@ -58,28 +68,28 @@ function createSale() {
         });
     } 
 
-    function openStore(x, y, z) {
-        let h2 = document.getElementById('sale-header');
-        document.getElementById('reservation').removeAttribute('click');
-        if(h2.style.display !== "none"){
-            h2.style.display = "none";
-        }
-        if(eShopMessage.firstElementChild !== null){
-            eShopMessage.removeChild(eShopMessage.firstElementChild)
-        }
+// filter po vrsti scene
+    function filterScene(x){
+        alert('filter ' + x)
+        removePreSelection();
+
+        document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
+        document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
+
+        document.getElementById(x).setAttribute('src', '../images/' + x + '.svg');
+    }
+
+//filter po vrsti dogadjaja
+    function openStore(x, y, z) {        
+        removePreSelection();
+
+        
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
         document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
         document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-                
-        let store = document.getElementById('open-store');
-        //store.innerHTML = '';
-        let k = store.childNodes.length;
-        if(store.firstElementChild !== null){          
-            for(let i = 0; i < k ; i++){
-                store.removeChild(store.childNodes[0]);
-            }       
-    }
+        
+        
         
         //nizDogadjaja izvlacimo iz localS
         let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
@@ -123,7 +133,26 @@ function createSale() {
             store.appendChild(storeArticle);                  
         }  
     } 
-
+// brisanje predstava koje su prethodno selektovanje
+    function removePreSelection(){
+        let h2 = document.getElementById('sale-header');
+        document.getElementById('reservation').removeAttribute('click');
+        if(h2.style.display !== "none"){
+            h2.style.display = "none";
+        }
+        if(eShopMessage.firstElementChild !== null){
+            eShopMessage.removeChild(eShopMessage.firstElementChild)
+        }
+        
+        //let store = document.getElementById('open-store');
+        //store.innerHTML = '';
+        let k = store.childNodes.length;
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){
+                store.removeChild(store.childNodes[0]);
+            }       
+    }
+    }
      
      $(document).ready(function() {
          $('.shops').click(function() {
@@ -132,6 +161,17 @@ function createSale() {
                  width: '50px'
              });
              $('.shops').animate({
+                 margin: '0px'
+             })
+         });
+     });
+     $(document).ready(function() {
+         $('.scene').click(function() {
+             $('.scene-img').animate({
+                 height: '50px',
+                 width: '50px'
+             });
+             $('.scene').animate({
                  margin: '0px'
              })
          });

@@ -22,28 +22,49 @@ h1 {
     padding: 20px;
     font-weight: lighter;
 }
-#shops div {
+
+#shops div, 
+#scenes div {
     color: mintcream;    
     text-align: center;
     padding: 5px;
     
 }
-#shops div:hover{
+#shops div:hover,
+#scenes div:hover{
     color: goldenrod;
 }
-#shops{
+#shops, 
+#scenes,
+#search-filter{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
-.shops-img {
+#filter-scene{
+    display: flex;
+    flex-direction: column;
+   
+}
+#filter-scene h3,
+#search-filter h3{
+    font-size: 16px;
+    font-weight: lighter;
+    text-align: center;
+    color: mintcream;
+    padding: 10px;
+
+}
+.shops-img,
+.scene-img {
     width: 120px;
     height: 120px;
     margin: 10px;
 }
-.shops-img:hover {
+.shops-img:hover,
+.scene-img {
     transform: scale(1.1);    
 }
 .open-store {
@@ -124,6 +145,9 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
+.filter-box{
+    padding: 10px;
+}
 #sale-buttons{
     display: flex;
     flex-direction: row;
@@ -151,13 +175,16 @@ span{
     nav{
         padding: 10px;
     }
-    #shops{
+    #shops,
+    #scenes{
         padding-bottom: 10px;
     }
-    .shops{
+    .shops,
+    .scene{
         margin: 70px 20px;
     }
-    .shops-img{
+    .shops-img,
+    .scene-img{
         width: 100px;
         height: 100px;
         margin: 10px 5px;
