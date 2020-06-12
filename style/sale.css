@@ -31,9 +31,7 @@ h1 {
 #shops div, 
 #scenes div {
     color: mintcream;    
-    text-align: center;
-   /* padding: 5px;*/
-    
+    text-align: center;    
 }
 #shops div:hover,
 #scenes div:hover{
@@ -44,11 +42,12 @@ h1 {
 #search-filter{
     display: flex;
     flex-direction: row;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
 #search-filter{
+    padding-top: 15px;
     justify-content: stretch;
 }
 #search-filter div{
@@ -75,14 +74,12 @@ hr{
     margin: 10px;
     color: aquamarine;
 }
-#filter-scene h3,
+
 #search-filter h3{
     font-size: 16px;
     font-weight: lighter;
-    /*text-align: center;*/
     color: mintcream;
-   /* padding: 10px;*/
-
+    margin: 7px 0px 13px 0px;
 }
 .shops-img,
 .scene-img {
@@ -113,7 +110,6 @@ hr{
     padding-right: 20px;
     border-radius: 15px;
 }
-
 .items-text{
     text-align: left;
 }
@@ -128,7 +124,6 @@ hr{
     color: navy;
     font-weight: bold;
 }
-
 p{
     padding: 3px;
     font-size: 14px;
@@ -150,7 +145,6 @@ span{
     font-size: 15px;
     border: 0px;
     text-align: center;
-    /*margin-left: 10px;*/
 }
 .items-quantity-button{
     height: 24px;
@@ -159,7 +153,6 @@ span{
     background-color: navy;
     color: white;
 }
-
 .items-quantity-button:hover{
     /*background-color: rgb(212, 200, 170);*/
     background-color: goldenrod;
@@ -172,9 +165,6 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
-/*.filter-box{
-    padding: 10px;
-}*/
 #sale-buttons{
     display: flex;
     flex-direction: row;
@@ -266,8 +256,7 @@ span{
         height: 20px;
     }
     .items-quantity-button{
-        height: 19px;
-        
+        height: 19px;        
     }
     .arrow-img{
         width: 20px;
@@ -277,9 +266,6 @@ span{
     
   }
   @media screen and (max-width: 550px){
-   /* #search-filter{
-        padding: 0px 40px;
-    }*/
     .scene{
         width: 35%;
     }
