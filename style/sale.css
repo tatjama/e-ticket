@@ -22,12 +22,17 @@ h1 {
     padding: 20px;
     font-weight: lighter;
 }
-
+.scene{
+    width: 17%;
+}
+.scene:last-of-type{
+    width: 40%;
+}
 #shops div, 
 #scenes div {
     color: mintcream;    
     text-align: center;
-    padding: 5px;
+   /* padding: 5px;*/
     
 }
 #shops div:hover,
@@ -43,6 +48,12 @@ h1 {
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
+#search-filter{
+    justify-content: stretch;
+}
+#search-filter div{
+    text-align: left;
+}
 .filter-img{
     height: 30px;
     margin-bottom: -10px;
@@ -50,21 +61,27 @@ h1 {
 }
 .filter-box input[type="text"] {
     width: 200px;
-    height: 20px;
-    
+    height: 20px;    
 }
-#filter-scene{
+.filter-box{
+    margin: 0px 20px;
+}
+#filter-scene{    
     display: flex;
     flex-direction: column;
-   
+   padding: 0px 10px;
+}
+hr{
+    margin: 10px;
+    color: aquamarine;
 }
 #filter-scene h3,
 #search-filter h3{
     font-size: 16px;
     font-weight: lighter;
-    text-align: center;
+    /*text-align: center;*/
     color: mintcream;
-    padding: 10px;
+   /* padding: 10px;*/
 
 }
 .shops-img,
@@ -133,7 +150,7 @@ span{
     font-size: 15px;
     border: 0px;
     text-align: center;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 .items-quantity-button{
     height: 24px;
@@ -155,9 +172,9 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
-.filter-box{
+/*.filter-box{
     padding: 10px;
-}
+}*/
 #sale-buttons{
     display: flex;
     flex-direction: row;
@@ -183,12 +200,21 @@ span{
 }
 @media screen and (max-width: 750px){    
     nav{
-        padding: 10px;
+        padding: 0px 10px;
+    }
+    .scene{
+        width: 17%;
+    }
+    .scene:last-of-type{
+        width: 42%;
     }
     #shops,
     #scenes,
     #search-filter{
         padding: 0px;
+    }
+    #search-filter{
+        width: 100%;
     }
     .shops,
     .scene{
@@ -218,6 +244,7 @@ span{
     }
     .filter-box{
         padding: 0px 10px;
+        margin: 0px;
     }
     .button{        
         height: 40px;
@@ -249,9 +276,15 @@ span{
     }
     
   }
-  @media screen and (max-width: 450px){
-    #search-filter{
+  @media screen and (max-width: 550px){
+   /* #search-filter{
         padding: 0px 40px;
+    }*/
+    .scene{
+        width: 35%;
+    }
+    .scene:last-of-type{
+        width: 100%;
     }
 
   }

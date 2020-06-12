@@ -19,7 +19,35 @@ function createSale() {
             ' u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice.' + '</h1>';
             var shops = '"<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
             //var scene = '<div id="filter-scene"><hr style="color:aquamarine"/><h3>Izaberite scenu - opcija</h3><div id="scenes"><div class = "scene">Velika scena</div><div class="scene">Mala scena</div></div></div>'            
-            var scene = '<div id="filter-scene"><hr style="color:aquamarine"/><div id="scenes"><div class = "scene"><img class="scene-img" id="velika-scena" alt="velika scena" src="../images/velika-scena-white.svg"><h4>Velika scena</h4></div><div class="scene"><img class="scene-img" id="mala-scena" alt="mala scena" src="../images/mala-scena-white.svg"><h4>Mala scena</h4></div></div></div>'            
+            var scene = `<div id="filter-scene"><hr/>
+            <div id="scenes">
+                <div class = "scene">
+                    <img class="scene-img" id="velika-scena" alt="velika scena" src="../images/velika-scena-white.svg">
+                    <h4>Velika scena</h4>
+                </div>
+                <div class="scene">
+                    <img class="scene-img" id="mala-scena" alt="mala scena" src="../images/mala-scena-white.svg">
+                    <h4>Mala scena</h4>
+                </div>
+                <div class="scene">
+                    <div id="search-filter">
+                        <div class="filter-box">
+                            <label for="karakter"> <h3>Dogadjaji čije ime sadrži karaktere:</h3></label>
+                            <input type="text" id="karakter">
+                            <img class="filter-img" src="../images/search-white.svg"><br><br>
+                        </div>
+                        <div class="filter-box">
+                            <label for="karakter"> <h3>Količina veća od 0:</h3></label>
+                            <input type="checkbox" id="kolicinaKarata">
+                        </div>
+                        <div class="filter-box">
+                            <label for="karakter"> <h3>Prebroj filtrirane događaje:</h3></label>
+                            <input type="checkbox" id="prebroj"><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`            
             
             $("#sale-container").append(shops);
             $('#sale-container').append(scene);
