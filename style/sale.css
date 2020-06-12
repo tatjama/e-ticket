@@ -140,8 +140,8 @@ span{
     font-weight: bold;
 }
  input{
-    width: 20px;
-    height: 20px;  
+    width: 15px;
+    height: 15px;  
     font-size: 15px;
     border: 0px;
     text-align: center;
@@ -216,9 +216,9 @@ span{
     }
     .shops-img,
     .scene-img{
-        width: 70px;
-        height: 70px;
-        margin: 10px;
+        width: 60px;
+        height: 60px;
+        margin: 10px 15px;
     }
     h4,
     #search-filter h3{
@@ -226,7 +226,6 @@ span{
         font-weight: bold;
     }
     h2{
-        padding: 40px;
         font-weight: lighter;
     }
     #search-filter{
@@ -252,9 +251,9 @@ span{
     p{
         font-size: 12px;
     }
-    input{
+    /*input{
         height: 20px;
-    }
+    }*/
     .items-quantity-button{
         height: 19px;        
     }
