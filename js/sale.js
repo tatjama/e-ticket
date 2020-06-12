@@ -218,7 +218,7 @@ function createSale() {
                  width: '50px'
              });
              $('.scene').animate({
-                 margin: '0px'
+                 margin: '10px 0px'
              })
          });
      });
