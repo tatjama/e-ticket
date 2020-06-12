@@ -257,13 +257,11 @@ function filter() {
 
      let typeOfPerformance = document.getElementById('active-store').innerHTML;
      let typeOfScene = document.getElementById('active-scene').innerHTML;
-     let ticketStock = document.getElementById('kolicinaKarata');
-     ticketStock = parse(ticketStock);
+     let ticketStock = document.getElementById('kolicinaKarata').checked;
      let characters = document.getElementById('active-search').innerHTML;
         console.log(typeOfPerformance);
         console.log(typeOfScene);
-        console.log(ticketStock);
-        console.log(ticketStock.checked);
+        console.log(ticketStock);;
         console.log(characters);
     //filter by type of performance
       let filterTypeOfPerformance = dogadjanja;
@@ -292,37 +290,42 @@ function filter() {
 // filter if quantity is more than 0. We check is it checked option more than 0
 // From array of dogadjanja with metod filter remove performance with quontity <= 0
       let ticketExist = filterTypeOfScene;
-      if(ticketStock.checked) {
+      if(ticketStock) {
+          /*console.log(filterTypeOfScene)
+          alert('oznacen')*/
+
           ticketExist = filterTypeOfScene.filter(function(stock){
                 let quantityStock = parseInt(stock.kolicina);
-                if(quantityStock > 0) {
+                console.log(quantityStock);
+                if(quantityStock > 10) {
                     return true;
                 } else {
                     return false;
                 }
           });
       }
+      
       // filter by characters. On Input field write some characters
       filterByCharacters = ticketExist;
-      if(characters !== ''){
-          let filterByCharacters = [];
+
+      if(characters == ''){alert('nema karaktera')} else {
+          // variabla have to be var to catch console.log down
+          var filterByCharacters = [];
           for (let i = 0; i < ticketExist.length; i++) {
-
-            let cha = (ticketExist[i].naziv).indexOf(characters);
-
+            var cha = (ticketExist[i].naziv).indexOf(characters);
             if (cha >= 0) {
                 filterByCharacters.push(ticketExist[i]);
             }
-        }
+        }       
       }
+      
       console.log(filterByCharacters);
-
       // Put filtered array in localStorage
     localStorage.removeItem('filter');
     localStorage.setItem('filter', JSON.stringify(filterByCharacters));
 
-    //Cll function for rendering table for filtered performances
-    tabelaFiltriranihDogadjaja(filterByCharacters);
+    //Call function for rendering table for filtered performances
+   // tabelaFiltriranihDogadjaja(filterByCharacters);
 
     //Qounting filtered performances 
     if (document.getElementById('prebroj').checked) {
@@ -335,10 +338,10 @@ function filter() {
                 }
             });
         // render sum of qouted performances        
-        let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
+        /*let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
         let showSumOfPerformances = document.createElement('p');
         showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayQount.length;
-        tableOfFilteredPerformances.appendChild(showSumOfPerformances);
+        tableOfFilteredPerformances.appendChild(showSumOfPerformances);*/
     }
 
   }  
