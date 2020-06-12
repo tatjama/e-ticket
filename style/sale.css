@@ -44,9 +44,10 @@ h1 {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-bottom: 50px;
+    
 }
 #search-filter{
+    padding-bottom: 30px;
     padding-top: 15px;
     justify-content: stretch;
 }
