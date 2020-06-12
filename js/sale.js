@@ -57,8 +57,8 @@ function createSale() {
     function animate(){                
         $('h1').show().animate({
             right: '10px',
-            top: "60px",
-            fontSize: "14px"
+            top: "25px",
+            fontSize: "12px"
         }, (500)).queue(function() {
             $(this).css({
                 "color": "white",

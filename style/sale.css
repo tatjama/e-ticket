@@ -50,8 +50,8 @@ h1 {
 }
 .filter-box input[type="text"] {
     width: 200px;
-    height: 25px;
-    margin-left: 10px;
+    height: 20px;
+    
 }
 #filter-scene{
     display: flex;
@@ -128,12 +128,12 @@ span{
     font-weight: bold;
 }
  input{
-    width: 50px;
-    height: 26px;  
+    width: 20px;
+    height: 20px;  
     font-size: 15px;
     border: 0px;
-    padding-bottom: 3px;
     text-align: center;
+    margin-left: 10px;
 }
 .items-quantity-button{
     height: 24px;
@@ -186,23 +186,28 @@ span{
         padding: 10px;
     }
     #shops,
-    #scenes{
-        padding-bottom: 10px;
+    #scenes,
+    #search-filter{
+        padding: 0px;
     }
     .shops,
     .scene{
        margin: 10px 20px;
     }
+    #shops div,
+    #scene div{
+        padding: 0px;
+    }
     .shops-img,
     .scene-img{
-        width: 80px;
-        height: 80px;
-        margin: 10px 5px;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
     }
     h4,
     #search-filter h3{
         font-size: 12px;        
-       /* font-weight: lighter;*/
+        font-weight: bold;
     }
     h2{
         padding: 40px;
@@ -210,6 +215,9 @@ span{
     }
     #search-filter{
         justify-content: stretch; 
+    }
+    .filter-box{
+        padding: 0px 10px;
     }
     .button{        
         height: 40px;
@@ -228,7 +236,7 @@ span{
         font-size: 12px;
     }
     input{
-        height: 25px;
+        height: 20px;
     }
     .items-quantity-button{
         height: 19px;
@@ -240,4 +248,10 @@ span{
         padding: 2px 7px;
     }
     
+  }
+  @media screen and (max-width: 450px){
+    #search-filter{
+        padding: 0px 40px;
+    }
+
   }
