@@ -243,144 +243,123 @@ function filterSearch(){
          }    
          console.log(quantity);
      }   
-    
-     
-  function doFilter(){
-     
-  }   
-       
-     
-    
-
-
-
-//otvara prozor za selektovanje filtera i ponistava prethodno zadat filter
+  
+     //otvara prozor za selektovanje filtera i ponistava prethodno zadat filter
 function filter() {
     let sFilter = document.getElementById('selektujFilter');
     sFilter.style.display = 'initial';
     sFilter.value = '';
 
 }
+     
+  function doFilter(){
+     let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
 
-
-
-//funkcija primenjuje filtere
-/*Filtrira tebele dogadjaja po 4 osnova.
-- 1. Vrsta dogadjaja
- - 2. Mesto dogadjaja(scena)
- - 3. Kolicina veca od nula
- - 4. po nazivu dogadjaja*/
-function filtriraj() {
-    //nizDogadjaja izvlacimo iz localS
-    let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
-    let filterVrsta = document.getElementById('filterVrsta').value;
-    let filterScena = document.getElementById('filterScena').value;
-    let kolicinaKarata = document.getElementById('kolicinaKarata');
-    kolicinaKarata = parseInt(kolicinaKarata);
-    var karakter = document.getElementById('karakter').value.toUpperCase();
-
-    //Filtriramo po vrsti dogadjaja. Pocetnom nizu menjamo ime u novi niz da bismo rezultat uvek
-    // trazili po imenu novog niza, cak i kada ne primenimo filter jer nije pozvan 
-    var filterVrstaDogadjaja = dogadjanja;
-    if (filterVrsta != '') {
-        filterVrstaDogadjaja = dogadjanja.filter(
-            function(noviDogadjaj) {
-                if (noviDogadjaj.vrsta == filterVrsta) {
+     let typeOfPerformance = document.getElementById('active-store').innerHTML;
+     let typeOfScene = document.getElementById('active-scene').innerHTML;
+     let ticketStock = document.getElementById('kolicinaKarata');
+     ticketStock = parse(ticketStock);
+     let characters = document.getElementById('active-search').innerHTML;
+        console.log(typeOfPerformance);
+        console.log(typeOfScene);
+        console.log(ticketStock);
+        console.log(ticketStock.checked);
+        console.log(characters);
+    //filter by type of performance
+      let filterTypeOfPerformance = dogadjanja;
+      if(typeOfPerformance !==''){
+          filterTypeOfPerformance = dogadjanja.filter(
+              function(newPerformance){
+                  if(newPerformance.vrsta ==typeOfPerformance){
+                      return true;
+                  } else {
+                      return false;
+                  }
+              });
+      }
+      // filter by type of scene
+      let filterTypeOfScene = filterTypeOfPerformance;
+      if (typeOfScene !== ''){
+          filterTypeOfScene = filterTypeOfPerformance.filter(
+              function(newPerformance){
+                  if (newPerformance.scena == typeOfScene){
+                      return true
+                  } else {
+                      return false
+                  }
+              });
+      }
+// filter if quantity is more than 0. We check is it checked option more than 0
+// From array of dogadjanja with metod filter remove performance with quontity <= 0
+      let ticketExist = filterTypeOfScene;
+      if(ticketStock.checked) {
+          ticketExist = filterTypeOfScene.filter(function(stock){
+                let quantityStock = parseInt(stock.kolicina);
+                if(quantityStock > 0) {
                     return true;
                 } else {
                     return false;
                 }
-            });
-    }
+          });
+      }
+      // filter by characters. On Input field write some characters
+      filterByCharacters = ticketExist;
+      if(characters !== ''){
+          let filterByCharacters = [];
+          for (let i = 0; i < ticketExist.length; i++) {
 
-    //filter za Scenu. Funkcija filter
-    var filterVrstaScene = filterVrstaDogadjaja;
-    if (filterScena != '') {
-        filterVrstaScene = filterVrstaDogadjaja.filter(
-            function(noviDogajaj) {
-                if (noviDogajaj.scena == filterScena) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-    }
-
-    //filter kolicina veca od 0. Proveravamo da li je cekirana opcija kolicina veca od nule
-    //iz niza dogadjaja ugradjenom metodom filter uklanjamo dogadjaje sa kolicinom manjom od 0
-    var imaKarata = filterVrstaScene;
-    if (kolicinaKarata.checked) {
-        imaKarata = filterVrstaScene.filter(function(lager) {
-            let stanjeLagera = parseInt(lager.kolicina);
-            if (stanjeLagera > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-    }
-
-    //filter po ukljucenim slovima. U input polje ubacimo proizvoljan broj karaktera
-    filterPoImenu = imaKarata;
-
-    if (karakter == '') {} else {
-        var filterPoImenu = [];
-        for (let i = 0; i < imaKarata.length; i++) {
-
-            var cha = (imaKarata[i].naziv).indexOf(karakter);
+            let cha = (ticketExist[i].naziv).indexOf(characters);
 
             if (cha >= 0) {
-                filterPoImenu.push(imaKarata[i]);
+                filterByCharacters.push(ticketExist[i]);
             }
         }
-    }
+      }
+      console.log(filterByCharacters);
 
-    console.log(filterPoImenu);
-
-    //smesta filtrirani niz u localStoridge
+      // Put filtered array in localStorage
     localStorage.removeItem('filter');
-    localStorage.setItem('filter', JSON.stringify(filterPoImenu));
+    localStorage.setItem('filter', JSON.stringify(filterByCharacters));
 
-    //pozvamo funkciju za iscrtavanje tabele sa filtriranim dogadjajima
-    tabelaFiltriranihDogadjaja(filterPoImenu);
+    //Cll function for rendering table for filtered performances
+    tabelaFiltriranihDogadjaja(filterByCharacters);
 
-    //Prebrojavanje dogadjaja koji su filtrirani
+    //Qounting filtered performances 
     if (document.getElementById('prebroj').checked) {
-        var nizPrebroj = filterPoImenu.map(
-            function(elemenat) {
-                let suma = 1;
-                for (let i = 0; i < filterPoImenu.length; i++) {
-                    suma = suma + i;
-                    return suma;
+        let arrayQount = filterByCharacters.map(
+            function(elemenat){
+                let sum = 1;
+                for (let i = 0; i < filterByCharacters.length; i++){
+                    sum = sum + i;
+                    return sum;
                 }
-            }
-        );
-
-        //ispis broja prebrojanih dogadjaja        
-        let tabela = document.getElementById('tabelaFiltriranihDogadjaja1');
-        let ispisBrojaDogadjaja = document.createElement('p');
-        ispisBrojaDogadjaja.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + nizPrebroj.length;
-        tabela.appendChild(ispisBrojaDogadjaja);
-    }
-
-    //Funkcija koja pravi tabelu sa filtriranim dogadjajima
-    function tabelaFiltriranihDogadjaja(x) {
-        let tabela = document.getElementById('tabelaFiltriranihDogadjaja1');
-        tabela.style.display = 'initial';
-
-        x.forEach(
-            function(y) {
-                let red = document.createElement('tr');
-
-                for (i in y) {
-                    let celija = document.createElement('td');
-                    celija.innerHTML = y[i];
-                    red.appendChild(celija);
-                }
-                tabela.appendChild(red);
             });
-        return x;
+        // render sum of qouted performances        
+        let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
+        let showSumOfPerformances = document.createElement('p');
+        showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayQount.length;
+        tableOfFilteredPerformances.appendChild(showSumOfPerformances);
     }
-    //kraj funkcije tabela filtriranih dogadjaja    
+
+  }  
+// end of function doFilter()
+
+//Funkcija koja pravi tabelu sa filtriranim dogadjajima
+function tabelaFiltriranihDogadjaja(x) {
+    let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
+    tableOfFilteredPerformances.style.display = 'initial';
+
+    x.forEach(
+        function(y) {
+            let red = document.createElement('tr');
+
+            for (i in y) {
+                let celija = document.createElement('td');
+                celija.innerHTML = y[i];
+                red.appendChild(celija);
+            }
+            tableOfFilteredPerformances.appendChild(red);
+        });
+    return x;
 }
-//kraj funkcije filtriraj
+//kraj funkcije tabela filtriranih dogadjaja
