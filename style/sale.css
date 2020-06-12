@@ -6,8 +6,8 @@ nav{
     padding: 20px 100px;
 }
 #eshop-navigation{
-    position: sticky;
-    top: 0px;
+   /* position: sticky;
+    top: 0px;*/
     background-color: navy;
 }
 h2{
@@ -191,15 +191,16 @@ span{
     }
     .shops,
     .scene{
-        margin: 70px 20px;
+       margin: 10px 20px;
     }
     .shops-img,
     .scene-img{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         margin: 10px 5px;
     }
-    h4{
+    h4,
+    #search-filter h3{
         font-size: 12px;        
        /* font-weight: lighter;*/
     }
