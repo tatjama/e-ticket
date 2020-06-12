@@ -327,11 +327,12 @@ function filter() {
     localStorage.setItem('filter', JSON.stringify(filterByCharacters));
 
     //Call function for rendering table for filtered performances
-    tabelaFiltriranihDogadjaja(filterByCharacters);
+    //tabelaFiltriranihDogadjaja(filterByCharacters);
+    showFilteredItems(filterByCharacters);
 
     //Qounting filtered performances 
     if (qount) {
-         arrayQount = filterByCharacters.map(
+       let  arrayQount = filterByCharacters.map(
             function(elemenat){
                 let sum = 1;
                 for (let i = 0; i < filterByCharacters.length; i++){
@@ -341,14 +342,62 @@ function filter() {
                 }
             });
         // render sum of qouted performances        
-        let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
+      /*  let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
         let showSumOfPerformances = document.createElement('p');
         showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayQount.length;
-        tableOfFilteredPerformances.appendChild(showSumOfPerformances);
+        tableOfFilteredPerformances.appendChild(showSumOfPerformances);*/
     }
 
   }  
 // end of function doFilter()
+
+//function render filtered items
+
+function showFilteredItems(x){
+    for (let i = 0; i < x.length; i++) {
+        //refaktorizacija  
+        let performanceType;
+        let imageName;
+        let showTypeOfPerformance = x[i].vrsta;
+       // console.log(showTypeOfPerformance)
+        switch(showTypeOfPerformance){
+            case "Balet": 
+                performanceType = "balet";
+                imageName = 'balerina';
+                break;
+            case "Predstava":
+                performanceType = "drama";
+                imageName = 'drama';
+                break;
+            case "Opera":
+                performanceType = "opera";
+                imageName = 'opera';
+                break;
+            case "Filharmonija":
+                performanceType = "filharmonija" ;
+                imageName = 'filharmonija';   
+                break;
+        }   
+        
+        let storeArticle = document.createElement('div');    
+        storeArticle.setAttribute('class' , 'item-card') ;              
+        storeArticle.innerHTML = '<img id="' + performanceType + (i + 1) + 
+                                '" class="items-img" alt="' + performanceType + (i + 1) + 
+                                ' "src="../images/' + imageName + (i + 1) + 
+                                '.jpg"><div class = "items-text"><p class = "items-name">' + 
+                                x[i].naziv + 
+                                '</p><p class="items-author">AUTOR: ' + x[i].autor + 
+                                '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
+                                '</p><p class = "items-price">  CENA: <span >' + x[i].cena + 
+                                ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                "'rezervacija" + i + "'" + 
+                                ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
+                                "'rezervacija" + i + "'" + 
+                                ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
+        store.appendChild(storeArticle);                  
+    }
+}
 
 //Funkcija koja pravi tabelu sa filtriranim dogadjajima
 function tabelaFiltriranihDogadjaja(x) {
