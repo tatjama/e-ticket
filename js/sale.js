@@ -50,17 +50,17 @@ function createSale() {
                 <div class="scene">
                     <div id="search-filter">
                         <div class="filter-box">
-                            <input type="text" id="karakter">
+                            <input type="text" onchange = "filterSearch()" id="karakter">
                             <img class="filter-img" src="../images/search-white.svg">
                             <label for="karakter"> <h3>Dogadjaji čije ime sadrži karaktere:</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="kolicinaKarata">
-                            <label for="karakter"> <h3>Količina veća od 0:</h3></label>
+                            <label for="kolicinaKarata"> <h3>Količina veća od 0:</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="prebroj">
-                            <label for="karakter"> <h3>Prebroj filtrirane događaje:</h3></label>
+                            <label for="prebroj"> <h3>Prebroj filtrirane događaje:</h3></label>
                         </div>
                     </div>
                 </div>
@@ -78,8 +78,8 @@ function createSale() {
            
             var sceneArray = document.getElementsByClassName('scene-img');
 
-                sceneArray[0].addEventListener("click",function(){filterScene("velika-scena")});
-                sceneArray[1].addEventListener("click", function(){filterScene("mala-scena")});
+                sceneArray[0].addEventListener("click",function(){filterScene("velika-scena", "Velika scena")});
+                sceneArray[1].addEventListener("click", function(){filterScene("mala-scena", "Mala scena")});
 
             //upisiBalet("Balet")
             animate();
@@ -113,39 +113,47 @@ function createSale() {
             }).dequeue();
         });
     } 
+// filter po karakterima
 
+function filterSearch(){
+    var karakter = document.getElementById('karakter').value.toUpperCase();
+    console.log(karakter)
+    document.getElementById('active-search').innerHTML = karakter;
+    document.querySelector('.filter-img').setAttribute('src', '../images/search.svg');
+}
 // filter po vrsti scene
-    function filterScene(x){
+    function filterScene(x, y){
         removePreSelection();
 
         document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
         document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
 
         document.getElementById(x).setAttribute('src', '../images/' + x + '.svg');
-        console.log('filtriraj po sceni ' + x);
+        document.getElementById('active-scene').innerHTML = y;
+        console.log('filtriraj po sceni ' + y);
     }
 
 //filter po vrsti dogadjaja
     function openStore(x, y, z) {        
         removePreSelection();
-
         
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
         document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
         document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
         
-        
+        document.getElementById('active-store').innerHTML = x;  
         
         //nizDogadjaja izvlacimo iz localS
-        let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+       // let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
         //Filtriramo po vrsti dogadjaja -balet  
-        var filterPerformance = performances;
+       // var filterPerformance = performances;
+        console.log(x)
         console.log( y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
         //console.log(document.getElementById(y).innerHTML);
-        filterPerformance = performances.filter(
+       /* filterPerformance = performances.filter(
             function(newPerformance) {
                 if (newPerformance.vrsta == x) {
                     console.log("filtriraj po vrsti dogadjaja " + newPerformance.vrsta);
@@ -178,7 +186,7 @@ function createSale() {
                                     ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
             store.appendChild(storeArticle);                  
         }  
-    } 
+    */ } 
 // brisanje predstava koje su prethodno selektovanje
     function removePreSelection(){
         let h2 = document.getElementById('sale-header');
@@ -198,7 +206,7 @@ function createSale() {
                 store.removeChild(store.childNodes[0]);
             }       
     }
-    }
+}
      
      $(document).ready(function() {
          $('.shops').click(function() {
@@ -237,7 +245,9 @@ function createSale() {
      }   
     
      
+  function doFilter(){
      
+  }   
        
      
     

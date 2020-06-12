@@ -28,32 +28,14 @@
             </div>
         </nav>
         <div id="sale-container" >
-        </div>
-        
-        <!--<div id="search-filter">
-            
-            <div class="filter-box">  
-                <label for="karakter"> <h3>Dogadjaji čije ime sadrži karaktere:</h3></label>                              
-                <input type="text" id="karakter"><img class="filter-img" src="../images/search-white.svg"><br><br>
-                
-            </div>  
-            <div class="filter-box">   
-                <label for="karakter"> <h3>Količina veća od 0:</h3></label>              
-                <input type="checkbox" id="kolicinaKarata">
-            </div>   
-            <div class="filter-box">
-                <label for="karakter"> <h3>Prebroj filtrirane događaje:</h3></label>
-                <input type="checkbox" id="prebroj"><br><br>
-               
-            </div>    
-        </div>-->
+        </div>      
 
         <h2 id="sale-header">Prodavnica</h2>
         
            
         
             <div id="sale-buttons">
-                <button type="button" class="button" id="filter-button" onclick="filtriraj()"><a href="#">Filtriraj</a></button><br>
+                <button type="button" class="button" id="filter-button" onclick="doFilter()"><a href="#">Filtriraj</a></button><br>
                 <button type="reset" class="button" id="clear-button"><a href="#">Obriši</a></button><br>            
                 <button type="button" class="button" id="reservation-button"><a href="filter.html"> Rezerviši</a></button><br>
                 <button type="button" class="button" id="reservation"><a href="#" > Dodajte </a></button><br>            
@@ -64,7 +46,10 @@
     <div id="sale-message">            
     </div>
     <div class="open-store" id="open-store"></div>
-    <div id="active-store"></div>
+    <div><span id="active-store"></span>
+        <span id="active-scene"></span>
+        <span id="active-search"></span>
+    </div>
 
 
 
@@ -92,9 +77,11 @@
                             
                                 <option value="Mala scena">Mala</option>
                                 <option value="Velika scena">Velika</option>
-                            </select><br> Količina veća od 0:<br>
-                <input type="checkbox" id="kolicinaKarata"><br> Dogadjaji čije ime sadrži karaktere:<br>
-                <input type="text" id="karakter"><br><br>
+                            </select>
+                <br> Količina veća od 0:<br><input type="checkbox" id="kolicinaKarata">
+                
+                <br> Dogadjaji čije ime sadrži karaktere:<br><input type="text" id="karakter"><br><br>
+
                 <input type="checkbox" id="prebroj">Prebroj filtrirane događaje<br>
 
                 <button type="button" onclick="filtriraj()">Filtriraj</button>
