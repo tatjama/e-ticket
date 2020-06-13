@@ -1,6 +1,11 @@
 var eShopMessage = document.getElementById('sale-message');
 var navBg = document.querySelector('.nav-bg');
 var store = document.getElementById('open-store');
+var h2 = document.getElementById('sale-header');
+var activeSearch = document.getElementById('active-search');
+var activeScene = document.getElementById('active-scene');
+var activeStore = document.getElementById('active-store');
+
 
 createSale();
 
@@ -99,6 +104,21 @@ function createSale() {
      }    
     }
 
+    //variable
+
+    var bigScene = document.getElementById('velika-scena');
+    var smallScene = document.getElementById('mala-scena');
+    var ballet = document.getElementById('balet');
+    var opera = document.getElementById('opera');
+    var drama = document.getElementById('drama');
+    var concert = document.getElementById('filharmonija');
+    var character = document.getElementById('karakter');
+    var quantityField = document.getElementById('quantity');
+    var countItems = document.getElementById('prebroj');
+    var quantityOfItems = document.getElementById('kolicinaKarata');
+    var filterImage = document.querySelector('.filter-img');
+
+
 // poruka koja izlazi prilikom otvaranja prodavnice
     function animate(){                
         $('h1').show().animate({
@@ -117,41 +137,43 @@ function createSale() {
 
     function filterSearch(){
         removePreSelection();
-        var karakter = document.getElementById('karakter').value.toUpperCase();
+        let karakter = character.value.toUpperCase();
         console.log(karakter)
-        document.getElementById('active-search').innerHTML = karakter;
-        document.querySelector('.filter-img').setAttribute('src', '../images/search.svg');
+        activeSearch.innerHTML = karakter;
+        filterImage.setAttribute('src', '../images/search.svg');
     }
 // filter po vrsti scene
     function filterScene(x, y){
         removePreSelection();
 
-        document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
-        document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
+        bigScene.src = "../images/velika-scena-white.svg";
+        smallScene.src = "../images/mala-scena-white.svg";
 
         document.getElementById(x).setAttribute('src', '../images/' + x + '.svg');
-        document.getElementById('active-scene').innerHTML = y;
-        console.log('filtriraj po sceni ' + y);
+        activeScene.innerHTML = y;        
     }
+
+
+
 
 //filter po vrsti dogadjaja
     function openStore(x, y) {        
         removePreSelection();
         
-        document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
-        document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
-        document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
-        document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+        ballet.src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+        drama.src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+        opera.src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+        concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
         
-        document.getElementById('active-store').innerHTML = x;  
+        activeStore.innerHTML = x;  
         
         //nizDogadjaja izvlacimo iz localS
        // let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
         //Filtriramo po vrsti dogadjaja -balet  
        // var filterPerformance = performances;
-        console.log(x)
-        console.log( y);
+       // console.log(x)
+       // console.log( y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
        
        } 
@@ -203,10 +225,10 @@ function filter() {
   function doFilter(){
       removePreSelection();
      let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
-     let typeOfPerformance = document.getElementById('active-store').innerHTML;
-     let typeOfScene = document.getElementById('active-scene').innerHTML;
-     let ticketStock = document.getElementById('kolicinaKarata').checked;
-     let characters = document.getElementById('active-search').innerHTML;
+     let typeOfPerformance = activeStore.innerHTML;
+     let typeOfScene = activeScene.innerHTML;
+     let ticketStock = quantityOfItems.checked;
+     let characters = activeSearch.innerHTML;
      let count = document.getElementById('prebroj').checked;
        
     //filter by type of performance
@@ -281,7 +303,7 @@ function filter() {
                 }
             });
         // render sum of qouted performances         
-        document.getElementById('quantity').innerHTML = "Izlistan je " + arrayCount.length + " događaj."
+        quantityField.innerHTML = "Izlistan je " + arrayCount.length + " događaj."
       
     }
   }  
@@ -289,28 +311,29 @@ function filter() {
 
 function removeAllFilters(){
     removePreSelection();
-    document.getElementById('active-store').innerHTML = '';
-    document.getElementById('active-scene').innerHTML = '';
-    document.getElementById('active-search').innerHTML = '';
+    activeStore.innerHTML = '';
+    activeScene.innerHTML = '';
+    activeSearch.innerHTML = '';
 
-    document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
-    document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
-    document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
-    document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+    ballet.src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+    drama.src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+    opera.src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+    concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
     
-    document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
-    document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
+    bigScene.src = "../images/velika-scena-white.svg";
+    smallScene.src = "../images/mala-scena-white.svg";
 
-    document.getElementById('karakter').value = "";
-    document.getElementById('kolicinaKarata').checked = false;
-    document.getElementById('prebroj').checked = false;
+    character.value = "";
+    filterImage.src =  "../images/search-white.svg";
+    quantityOfItems.checked = false;
+    countItems.checked = false;
 
 }
 
 // brisanje predstava koje su prethodno selektovanje
 function removePreSelection(){
-    let h2 = document.getElementById('sale-header');
-    document.getElementById('quantity').innerHTML = '';
+    
+    quantityField.innerHTML = '';
     document.getElementById('reservation').removeAttribute('click');
     if(h2.style.display !== "none"){
         h2.style.display = "none";
@@ -335,7 +358,6 @@ function showFilteredItems(x){
     for (let i = 0; i < x.length; i++) {
         //refaktorizacija  
         let performanceType;
-        let imageName;
         let showTypeOfPerformance = x[i].vrsta;
        // console.log(showTypeOfPerformance)
         switch(showTypeOfPerformance){
