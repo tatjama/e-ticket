@@ -12,7 +12,7 @@ function signOut(a, b, c, d, e, f){
     document.getElementById(e).style.display = "none";
     document.getElementById(f).style.display = "none";
 }
-function signOutEshop(){
+function signOutEshop(x){
     sessionStorage.removeItem('user');
     currentlyLoggedIn = {
         status: 9,
@@ -20,8 +20,6 @@ function signOutEshop(){
     };
     console.log(currentlyLoggedIn);
     document.getElementById('signOut').style.display = "none";
-    document.getElementById('shops').style.display = "none";
+    document.getElementById(x).style.display = "none";
 }
-function signOutSale(){
-    
-}
+
