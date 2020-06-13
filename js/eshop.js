@@ -33,10 +33,10 @@ function createEShop() {
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
-                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
-                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
-                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", "opera")} );
-                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", "filharmonija")} );
+                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet")} );
+                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama")} );
+                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera")} );
+                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija")} );
             
             //upisiBalet("Balet")
             animate();
@@ -59,7 +59,7 @@ function createEShop() {
     }
 
 
-    function openStore(x, y, z) {
+    function openStore(x, y) {
         let store = document.getElementById('open-store');
         removePreSelection();
 
@@ -96,8 +96,8 @@ function createEShop() {
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
                                     '" class="items-img" alt="' + y + (i + 1) + 
-                                    ' "src="../images/' + z + (i + 1) + 
-                                    '.jpg"><div class = "items-text"><p class = "items-name">' + 
+                                    ' "src="../images/' + filterPerformance[i].image + 
+                                    '"><div class = "items-text"><p class = "items-name">' + 
                                     filterPerformance[i].naziv + 
                                     '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
