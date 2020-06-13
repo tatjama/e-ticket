@@ -384,9 +384,10 @@ function showFilteredItems(x){
                                 x[i].naziv + 
                                 '</p><p class="items-author">AUTOR: ' + x[i].autor + 
                                 '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
-                                '</p><p class = "items-date">DATUM: ' + x[i].datum + 
+                                '</p><p class = "items-stock">Količina:<span id="stock' + i  +
+                                '">' +x[i].kolicina + '</span></p><p class = "items-date">DATUM: ' + x[i].datum + 
                                 '</p><p class = "items-price">  CENA: <span >' + x[i].cena + 
-                                ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                ' RSD </span> </p> <p>Rezerviši: </p><button class="items-quantity-button" onclick="quantityDown('+ 
                                 "'rezervacija" + i + "'" + 
                                 ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" class="items-input" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
                                 + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
@@ -400,14 +401,22 @@ function makeNewReservation(){
     let newReservations = [];
     let reservation = {};
     let input = document.getElementsByClassName('items-input');    
-   
+    
     for( let i = 0; i < input.length; i++){
+        console.log('stock' + i);
             if(input[i].value > 0){
             reservation = {
                 naziv : document.getElementById(i).innerHTML,
+                kolicina : document.getElementById('stock' + i).innerHTML,
                 rezervacija : input[i].value
              }
-            newReservations.push(reservation);            
+             if(reservation.rezervacija > reservation.kolicina ){
+                alert(
+                    "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da rezervišete maksimalno " +
+                    reservation.kolicina + " ulaznica");
+             } else{
+                newReservations.push(reservation);
+             }                       
         }        
     }
     console.log(newReservations);

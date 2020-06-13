@@ -166,7 +166,7 @@ function createEShop() {
                     if (newReservation > parseInt(filterPerformance[j].kolicina)) {
                         //treba da izbaci gresku za kolicinu 
                         alert(
-                            "lager ne moze da ide u minus. Rezervisete vise ulaznica nego sto ima na lageru.Mozete da kupite maksimalno " +
+                            "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno " +
                             filterPerformance[j].kolicina + " ulaznica");
                         console.log(filterPerformance[j].kolicina);
                         console.log(newReservation);
