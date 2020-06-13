@@ -134,8 +134,7 @@ function createEShop() {
     let reservation = document.getElementById('reservation');
         reservation.addEventListener('click', createNewReservation); 
         
-        function createNewReservation() {
-            console.log();
+        function createNewReservation() {           
             //storageOfPerformances izvlacimo iz localS
             let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
             

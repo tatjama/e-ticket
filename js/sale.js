@@ -380,7 +380,7 @@ function showFilteredItems(x){
         storeArticle.innerHTML = '<img id="' + performanceType + (i + 1) + 
                                 '" class="items-img" alt="' + performanceType + (i + 1) + 
                                 ' "src="../images/' + x[i].image + 
-                                '"><div class = "items-text"><p class = "items-name">' + 
+                                '"><div class = "items-text"><p class = "items-name" id = "'+ i +'">' + 
                                 x[i].naziv + 
                                 '</p><p class="items-author">AUTOR: ' + x[i].autor + 
                                 '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
@@ -388,12 +388,29 @@ function showFilteredItems(x){
                                 '</p><p class = "items-price">  CENA: <span >' + x[i].cena + 
                                 ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
                                 "'rezervacija" + i + "'" + 
-                                ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
+                                ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" class="items-input" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
                                 + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
                                 "'rezervacija" + i + "'" + 
                                 ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
         store.appendChild(storeArticle);                  
     }
+}
+//this function added new reservation in the shopping card
+function makeNewReservation(){
+    let newReservations = [];
+    let reservation = {};
+    let input = document.getElementsByClassName('items-input');    
+   
+    for( let i = 0; i < input.length; i++){
+            if(input[i].value > 0){
+            reservation = {
+                naziv : document.getElementById(i).innerHTML,
+                rezervacija : input[i].value
+             }
+            newReservations.push(reservation);            
+        }        
+    }
+    console.log(newReservations);
 }
 
 //Funkcija koja pravi tabelu sa filtriranim dogadjajima
