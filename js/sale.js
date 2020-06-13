@@ -262,7 +262,7 @@ function filter() {
           ticketExist = filterTypeOfScene.filter(function(stock){
                 let quantityStock = parseInt(stock.kolicina);
                 console.log(quantityStock);
-                if(quantityStock > 10) {
+                if(quantityStock > 0) {
                     return true;
                 } else {
                     return false;
@@ -403,14 +403,17 @@ function makeNewReservation(){
     let input = document.getElementsByClassName('items-input');    
     
     for( let i = 0; i < input.length; i++){
-        console.log('stock' + i);
+        
             if(input[i].value > 0){
             reservation = {
                 naziv : document.getElementById(i).innerHTML,
                 kolicina : document.getElementById('stock' + i).innerHTML,
                 rezervacija : input[i].value
              }
-             if(reservation.rezervacija > reservation.kolicina ){
+             console.log('stock' + i);
+             if(parseInt(reservation.rezervacija)  > parseInt(reservation.kolicina) ){
+                 //console.log(reservation.rezervacija);
+                 //console.log(reservation.kolicina);
                 alert(
                     "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da rezervišete maksimalno " +
                     reservation.kolicina + " ulaznica");
