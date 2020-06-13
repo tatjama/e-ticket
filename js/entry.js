@@ -52,7 +52,7 @@ function obrisi() {
 //potom ubacuje metodom push objekat noviDogađaj u niz nizDogađaja gde ga pamti
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jedan događaj drugim 
 // Inicijalizujemo promenljivu nizDogađaja kao niz u koji smestamo dobijene objekte
-var nizDogadjaja = [];
+var storageOfPerformances = [];
 
 function dogadjaj() {
     if (document.getElementById('naziv').value == '' || document.getElementById('autor').value == '' ||
@@ -83,14 +83,14 @@ function dogadjaj() {
             noviDogadjaj.scena = 'Velika scena';
         }
 
-        //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizDogadjaja
-        var nizDogadjaja = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
-        //ubacuje novi dogadjaj objekat u nizDogadjaja
-        nizDogadjaja.push(noviDogadjaj);
-        //smesta nizDogadjaja u localStoride
-        localStorage.setItem('bazadogadjaja', JSON.stringify(nizDogadjaja));
+        //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
+        var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
+        //ubacuje novi dogadjaj objekat u storageOfPerformances
+        storageOfPerformances.push(noviDogadjaj);
+        //smesta storageOfPerformances u localStoride
+        localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances));
 
-        console.log(nizDogadjaja);
+        console.log(storageOfPerformances);
         console.log(noviDogadjaj);
 
         obrisi();

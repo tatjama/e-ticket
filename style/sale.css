@@ -117,7 +117,8 @@ hr{
 .items-name,
 .items-author,
 .items-scene,
-.items-price{
+.items-price.
+.items-date{
     font-size: 12px;
     text-transform: capitalize;    
 }
@@ -157,6 +158,10 @@ span{
 .items-quantity-button:hover{
     /*background-color: rgb(212, 200, 170);*/
     background-color: goldenrod;
+}
+input[type = "number"]{
+    width: 50px;
+    height: 25px;
 }
 .arrow-img{
     width: 20px;

@@ -167,7 +167,7 @@ function createSale() {
         
         activeStore.innerHTML = x;  
         
-        //nizDogadjaja izvlacimo iz localS
+        //storageOfPerformances izvlacimo iz localS
        // let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
         //Filtriramo po vrsti dogadjaja -balet  
@@ -384,6 +384,7 @@ function showFilteredItems(x){
                                 x[i].naziv + 
                                 '</p><p class="items-author">AUTOR: ' + x[i].autor + 
                                 '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
+                                '</p><p class = "items-date">DATUM: ' + x[i].datum + 
                                 '</p><p class = "items-price">  CENA: <span >' + x[i].cena + 
                                 ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
                                 "'rezervacija" + i + "'" + 

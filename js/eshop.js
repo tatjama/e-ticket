@@ -69,7 +69,7 @@ function createEShop() {
         document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
         
         
-        //nizDogadjaja izvlacimo iz localS
+        //storageOfPerformances izvlacimo iz localS
         let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
     
         //Filtriramo po vrsti dogadjaja -balet  
@@ -136,7 +136,7 @@ function createEShop() {
         
         function createNewReservation() {
             console.log();
-            //nizDogadjaja izvlacimo iz localS
+            //storageOfPerformances izvlacimo iz localS
             let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
             
             //Filtriramo po vrsti dogadjaja  
