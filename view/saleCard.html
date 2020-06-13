@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Korpa prodaje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/navigationEShop.css"/>
+    <link rel="stylesheet" type="text/css" meia="screen" href="../style/shoppingCard.css"/>
+    <link rel="icon" href="../images/drama6.jpg" type="image/jpg">
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="flex-row">
+        <div id="logo">
+            <a href="../index.html">
+                <img class="nav-img-logo" src="../images/drama6.jpg">
+            </a>
+        </div>
+        <div class="nav-bg" >
+            <a  title="Idite na unos ulaznica..."  href="./entry.html">Unos</a>
+            <a  title="Vratite se u prodavnicu..."  href="./sale.html"><i class="fa fa-opencart" >  </i> E-shop </a>     
+        </div>
+    </nav>
+
+
+    <div class="shoppingCard-container">
+
+        <h1> <i class="fa fa-opencart" style="font-size:48px;color:darkgoldenrod">  </i> KORPA</h1>
+        <p id="thank-you-message"></p>
+        <div id="ispisOpcijaFiltera"></div>
+
+        <table id="table-main">
+            UKUPAN IZNOS (RSD):
+            <input type="number" id="sum-of-buying-items" value="0" placeholder="0"  readonly>
+             
+            <tr id="table-of-reserved-performances">
+                <th class="naziv">NAZIV</th>
+                <th class="autor">AUTOR</th>
+                <th class="cena">CENA </th>
+                <th class ="image">SLIKA</th>
+                <th class="datum">DATUM</th>
+                <th class="kolicina">DOSTUPNO</th>
+                <th class="vrsta">VRSTA </th>
+                <th class="scena">SCENA</th>
+                <th class="rezervacija">KOL</th>
+                <th class="obrisi-header">OBRIŠI</th>
+                <th class="iznos">IZNOS</th>
+            </tr>
+        </table>
+        <button id="shopping-button" onclick="shopping()">Završi kupovinu</button>
+        <button id="pay-button" onclick = "pay()">Plati</button>
+
+    </div>
+    <script src="../js/shoppingCard.js"></script>
+</body>
+
+</html>

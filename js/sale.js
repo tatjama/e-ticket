@@ -398,6 +398,12 @@ function showFilteredItems(x){
 }
 //this function added new reservation in the shopping card
 function makeNewReservation(){
+
+    //let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
+    //localStorage.setItem('filter', JSON.stringify(filterByCharacters));
+    let filterArray = JSON.parse(localStorage.getItem('filter'));
+    console.log(filterArray);
+
     let newReservations = [];
     let reservation = {};
     let input = document.getElementsByClassName('items-input');    
@@ -405,11 +411,14 @@ function makeNewReservation(){
     for( let i = 0; i < input.length; i++){
         
             if(input[i].value > 0){
-            reservation = {
+           /* reservation = {
                 naziv : document.getElementById(i).innerHTML,
                 kolicina : document.getElementById('stock' + i).innerHTML,
                 rezervacija : input[i].value
-             }
+             }*/
+             reservation = filterArray[i];
+             reservation.rezervacija = input[i].value;
+             console.log(reservation);
              console.log('stock' + i);
              if(parseInt(reservation.rezervacija)  > parseInt(reservation.kolicina) ){
                  //console.log(reservation.rezervacija);
@@ -431,6 +440,7 @@ function makeNewReservation(){
     console.log(newShopingCard);
     //smesta niz novaKorpa u localStoride
     localStorage.setItem('korpa', JSON.stringify(newShopingCard));
+    //brisanje input polja i vracanje na 0
     newReservations = [];
     for (let j = 0; j < input.length; j++) {
         document.getElementById('rezervacija' + j).value = 0;

@@ -22,4 +22,6 @@ function signOutEshop(){
     document.getElementById('signOut').style.display = "none";
     document.getElementById('shops').style.display = "none";
 }
-
+function signOutSale(){
+    
+}
