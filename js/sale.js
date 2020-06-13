@@ -259,12 +259,12 @@ function filter() {
      let typeOfScene = document.getElementById('active-scene').innerHTML;
      let ticketStock = document.getElementById('kolicinaKarata').checked;
      let characters = document.getElementById('active-search').innerHTML;
-     let qount = document.getElementById('prebroj').checked;
+     let count = document.getElementById('prebroj').checked;
         console.log(typeOfPerformance);
         console.log(typeOfScene);
         console.log(ticketStock);;
         console.log(characters);
-        console.log(qount);
+        console.log(count);
     //filter by type of performance
       let filterTypeOfPerformance = dogadjanja;
       if(typeOfPerformance !==''){
@@ -327,24 +327,25 @@ function filter() {
     localStorage.setItem('filter', JSON.stringify(filterByCharacters));
 
     //Call function for rendering table for filtered performances
-    //tabelaFiltriranihDogadjaja(filterByCharacters);
+    //tabelaFiltriranihDogadjaja(filterByCharacters);//- table version
     showFilteredItems(filterByCharacters);
 
-    //Qounting filtered performances 
-    if (qount) {
-       let  arrayQount = filterByCharacters.map(
+    //Counting filtered performances 
+    if (count) {
+       var  arrayCount = filterByCharacters.map(
             function(elemenat){
                 let sum = 1;
                 for (let i = 0; i < filterByCharacters.length; i++){
                     sum = sum + i;
-                    console.log(sum)
                     return sum;
                 }
             });
-        // render sum of qouted performances        
-      /*  let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
+        // render sum of qouted performances 
+        
+        document.getElementById('quantity').innerHTML = "Izlistan je " + arrayCount.length + " događaj."
+      /* let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
         let showSumOfPerformances = document.createElement('p');
-        showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayQount.length;
+        showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayCount.length;
         tableOfFilteredPerformances.appendChild(showSumOfPerformances);*/
     }
 
@@ -400,7 +401,7 @@ function showFilteredItems(x){
 }
 
 //Funkcija koja pravi tabelu sa filtriranim dogadjajima
-function tabelaFiltriranihDogadjaja(x) {
+/*function tabelaFiltriranihDogadjaja(x) {
     let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
     tableOfFilteredPerformances.style.display = 'initial';
 
@@ -416,5 +417,5 @@ function tabelaFiltriranihDogadjaja(x) {
             tableOfFilteredPerformances.appendChild(red);
         });
     return x;
-}
+}*/
 //kraj funkcije tabela filtriranih dogadjaja

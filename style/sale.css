@@ -188,7 +188,8 @@ span{
 }
 #active-store,
 #active-scene,
-#active-search{
+#active-search, 
+#quantity{
     color: white;
     padding: 5px;
 }
