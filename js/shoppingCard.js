@@ -4,6 +4,10 @@ var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
 createShoppingCard();
 
 function createShoppingCard() {    
+    // remove image field from rendering
+   /* for (let i = 0; i < shoppingCard.length; i++){
+        delete shoppingCard[i].image;
+    }*/
     console.log(shoppingCard);
     // suma();
 

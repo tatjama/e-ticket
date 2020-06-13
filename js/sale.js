@@ -420,6 +420,18 @@ function makeNewReservation(){
         }        
     }
     console.log(newReservations);
+
+    //vadi niz iz local S 'korpa' i parsira u JavaScript, smesta u promenljivu korpaIzStoridza
+    var shopingCardFromStorage = JSON.parse(localStorage.getItem('korpa')) || [];
+    //merdzujemo niz korpaIzStoridza i nizRezervacija i smestamo u niz novaKorpa
+    var newShopingCard = shopingCardFromStorage.concat(newReservations);
+    console.log(newShopingCard);
+    //smesta niz novaKorpa u localStoride
+    localStorage.setItem('korpa', JSON.stringify(newShopingCard));
+    newReservations = [];
+    for (let j = 0; j < input.length; j++) {
+        document.getElementById('rezervacija' + j).value = 0;
+    }
 }
 
 //Funkcija koja pravi tabelu sa filtriranim dogadjajima

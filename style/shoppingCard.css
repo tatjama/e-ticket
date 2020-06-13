@@ -42,6 +42,9 @@ td.iznos{
 .obrisi:hover{
     background-color: goldenrod;
 }
+.image{
+    display: none;
+}
 .rezervacija,
 .naziv,
 .cena,
