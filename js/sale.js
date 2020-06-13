@@ -115,15 +115,16 @@ function createSale() {
     } 
 // filter po karakterima
 
-function filterSearch(){
-    var karakter = document.getElementById('karakter').value.toUpperCase();
-    console.log(karakter)
-    document.getElementById('active-search').innerHTML = karakter;
-    document.querySelector('.filter-img').setAttribute('src', '../images/search.svg');
-}
+    function filterSearch(){
+        removePreSelection();
+        var karakter = document.getElementById('karakter').value.toUpperCase();
+        console.log(karakter)
+        document.getElementById('active-search').innerHTML = karakter;
+        document.querySelector('.filter-img').setAttribute('src', '../images/search.svg');
+    }
 // filter po vrsti scene
     function filterScene(x, y){
-      //  removePreSelection();
+        removePreSelection();
 
         document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
         document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
@@ -135,7 +136,7 @@ function filterSearch(){
 
 //filter po vrsti dogadjaja
     function openStore(x, y) {        
-       // removePreSelection();
+        removePreSelection();
         
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
@@ -286,9 +287,30 @@ function filter() {
   }  
 // end of function doFilter()
 
+function removeAllFilters(){
+    removePreSelection();
+    document.getElementById('active-store').innerHTML = '';
+    document.getElementById('active-scene').innerHTML = '';
+    document.getElementById('active-search').innerHTML = '';
+
+    document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+    document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+    document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+    document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+    
+    document.getElementById('velika-scena').src = "../images/velika-scena-white.svg";
+    document.getElementById('mala-scena').src = "../images/mala-scena-white.svg";
+
+    document.getElementById('karakter').value = "";
+    document.getElementById('kolicinaKarata').checked = false;
+    document.getElementById('prebroj').checked = false;
+
+}
+
 // brisanje predstava koje su prethodno selektovanje
 function removePreSelection(){
     let h2 = document.getElementById('sale-header');
+    document.getElementById('quantity').innerHTML = '';
     document.getElementById('reservation').removeAttribute('click');
     if(h2.style.display !== "none"){
         h2.style.display = "none";
