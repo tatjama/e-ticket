@@ -71,10 +71,10 @@ function createSale() {
             $('#sale-container').append(scene);
             var shopArray = document.getElementsByClassName('shops-img');
             
-                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", "balerina")} );
-                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", "drama")} );
-                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", "opera")} );
-                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", "filharmonija")} );
+                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet")} );
+                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama")} );
+                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera")} );
+                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija")} );
            
             var sceneArray = document.getElementsByClassName('scene-img');
 
@@ -134,7 +134,7 @@ function filterSearch(){
     }
 
 //filter po vrsti dogadjaja
-    function openStore(x, y, z) {        
+    function openStore(x, y) {        
         removePreSelection();
         
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
@@ -152,41 +152,8 @@ function filterSearch(){
         console.log(x)
         console.log( y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
-        //console.log(document.getElementById(y).innerHTML);
-       /* filterPerformance = performances.filter(
-            function(newPerformance) {
-                if (newPerformance.vrsta == x) {
-                    console.log("filtriraj po vrsti dogadjaja " + newPerformance.vrsta);
-                    document.getElementById('active-store').innerHTML = newPerformance.vrsta;
-                    return true;
-
-                } else {
-                    return false;
-                }
-            });            
-        console.log(filterPerformance);
-    
-        for (let i = 0; i < filterPerformance.length; i++) {
-            //refaktorizacija           
-            let storeArticle = document.createElement('div');    
-            storeArticle.setAttribute('class' , 'item-card') ;              
-            storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
-                                    '" class="items-img" alt="' + y + (i + 1) + 
-                                    ' "src="../images/' + z + (i + 1) + 
-                                    '.jpg"><div class = "items-text"><p class = "items-name">' + 
-                                    filterPerformance[i].naziv + 
-                                    '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
-                                    '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
-                                    '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
-                                    "'rezervacija" + i + "'" + 
-                                    ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
-                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
-                                    "'rezervacija" + i + "'" + 
-                                    ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
-            store.appendChild(storeArticle);                  
-        }  
-    */ } 
+       
+       } 
 // brisanje predstava koje su prethodno selektovanje
     function removePreSelection(){
         let h2 = document.getElementById('sale-header');
@@ -254,17 +221,12 @@ function filter() {
      
   function doFilter(){
      let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
-
      let typeOfPerformance = document.getElementById('active-store').innerHTML;
      let typeOfScene = document.getElementById('active-scene').innerHTML;
      let ticketStock = document.getElementById('kolicinaKarata').checked;
      let characters = document.getElementById('active-search').innerHTML;
      let count = document.getElementById('prebroj').checked;
-        console.log(typeOfPerformance);
-        console.log(typeOfScene);
-        console.log(ticketStock);;
-        console.log(characters);
-        console.log(count);
+       
     //filter by type of performance
       let filterTypeOfPerformance = dogadjanja;
       if(typeOfPerformance !==''){
@@ -293,9 +255,6 @@ function filter() {
 // From array of dogadjanja with metod filter remove performance with quontity <= 0
       let ticketExist = filterTypeOfScene;
       if(ticketStock) {
-          /*console.log(filterTypeOfScene)
-          alert('oznacen')*/
-
           ticketExist = filterTypeOfScene.filter(function(stock){
                 let quantityStock = parseInt(stock.kolicina);
                 console.log(quantityStock);
@@ -309,8 +268,7 @@ function filter() {
       
       // filter by characters. On Input field write some characters
       filterByCharacters = ticketExist;
-
-      if(characters == ''){alert('nema karaktera')} else {
+      if(characters == ''){} else {
           // variabla have to be var to catch console.log down
           var filterByCharacters = [];
           for (let i = 0; i < ticketExist.length; i++) {
@@ -340,15 +298,10 @@ function filter() {
                     return sum;
                 }
             });
-        // render sum of qouted performances 
-        
+        // render sum of qouted performances         
         document.getElementById('quantity').innerHTML = "Izlistan je " + arrayCount.length + " događaj."
-      /* let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
-        let showSumOfPerformances = document.createElement('p');
-        showSumOfPerformances.innerHTML = 'Ukupan broj dogadjaja po  filterima je ' + arrayCount.length;
-        tableOfFilteredPerformances.appendChild(showSumOfPerformances);*/
+      
     }
-
   }  
 // end of function doFilter()
 
@@ -364,19 +317,15 @@ function showFilteredItems(x){
         switch(showTypeOfPerformance){
             case "Balet": 
                 performanceType = "balet";
-                imageName = 'balerina';
                 break;
             case "Predstava":
                 performanceType = "drama";
-                imageName = 'drama';
                 break;
             case "Opera":
                 performanceType = "opera";
-                imageName = 'opera';
                 break;
             case "Filharmonija":
                 performanceType = "filharmonija" ;
-                imageName = 'filharmonija';   
                 break;
         }   
         
@@ -384,8 +333,8 @@ function showFilteredItems(x){
         storeArticle.setAttribute('class' , 'item-card') ;              
         storeArticle.innerHTML = '<img id="' + performanceType + (i + 1) + 
                                 '" class="items-img" alt="' + performanceType + (i + 1) + 
-                                ' "src="../images/' + imageName + (i + 1) + 
-                                '.jpg"><div class = "items-text"><p class = "items-name">' + 
+                                ' "src="../images/' + x[i].image + 
+                                '"><div class = "items-text"><p class = "items-name">' + 
                                 x[i].naziv + 
                                 '</p><p class="items-author">AUTOR: ' + x[i].autor + 
                                 '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
