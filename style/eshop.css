@@ -146,6 +146,7 @@ span{
 }
 #active-store{
     color: white;
+    font-size: 0.67rem;
 }
 @media screen and (max-width: 750px){    
     nav{

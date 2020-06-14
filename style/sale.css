@@ -198,6 +198,7 @@ input[type = "number"]{
 #quantity{
     color: white;
     padding: 5px;
+    font-size: 0.67rem;
 }
 @media screen and (max-width: 750px){    
     nav{
