@@ -1,3 +1,55 @@
+var eShopMessage = document.getElementById('entry-message');
+var navBg = document.querySelector('.nav-bg');
+var entryContainer = document.querySelector('.entry-container');
+checkUser();
+
+function checkUser(){
+     //session storage 
+     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;          
+     
+     if(sessionStorage.getItem('user')!== null){ 
+
+        if(currentlyLoggedIn.status ===  "0"){
+            console.log(currentlyLoggedIn);
+            navBg.style.display = "flex";
+            eShopMessage.innerHTML = 
+            '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
+            ' ' + currentlyLoggedIn.surname +
+            ' .<br>Na ovoj strani pravite ulaz za nove ulaznice.</h1>';
+            animate();
+        }else{
+            console.log('gost');
+           navBg.style.display = 'none';  
+           entryContainer.style.display = 'none';        
+            eShopMessage.innerHTML = 
+            "<h1>Nemate administratorska ovlašćenja za unos ulaznica!</h1>"
+            animate();
+        }    
+    }else{ 
+        console.log('neregistrovani korisnik');
+        navBg.style.display = "none";  
+        entryContainer.style.display = 'none';          
+        eShopMessage.innerHTML = 
+       "<h1>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
+       animate();
+    }
+}
+
+// function with message in the opening sale store
+function animate(){                
+    $('h1').show().animate({
+        right: '10px',
+        top: "80px",
+        fontSize: "12px"
+    }, (500)).queue(function() {
+        $(this).css({
+            "color": "white",
+           // "text-shadow": "3px 3px 11px white",
+          //  "background-color": "white"
+        }).dequeue();
+    });
+} 
+
 /*obrisiLokalStoridz();
 
 function obrisiLokalStoridz() {
@@ -6,6 +58,8 @@ function obrisiLokalStoridz() {
 //funkciju poziva dugme Novi formular
 //dugme Pokupi se pojavljuje. Prilikom ucitavanja programa dugme Pokupi je aktivno. Kada ga pritisnemo
 // pokrecemo funkciju događajt() i sakrivamo dugme Pokupi
+
+
 function noviFormular() {
     document.getElementById('pokupi').style.display = 'initial';
     obrisi();

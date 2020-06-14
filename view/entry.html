@@ -7,25 +7,28 @@
     <title>Unos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="../style/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style//navigationEShop.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/entry.css"/>
     <link rel="icon" href="../images/drama6.jpg" type="image/jpg">
 
 </head>
 
 <body>
-    <nav class="flex-row">
+    <nav class="flex-row ">
         <div id="logo">
             <a href="../index.html">
                 <img class="nav-img-logo" src="../images/drama6.jpg">
             </a>
         </div>
-        <div class="nav-bg" >
-            <a  title="Idite na prodaju..."  href="./sale.html"><i class="fa fa-opencart" >  </i> Prodaja </a>     
+        <div class="nav-bg card" >
+            <a  title="Idite na prodaju..."  href="./sale.html"><i class="fa fa-opencart" >  </i> Prodaja </a>
+            <a id="signOut"  href="../index.html" onclick="signOutEshop('pokupi')">Sign Out</a>     
         </div>
     </nav>
 
-    <div class="omotac">
+    <div class="entry-container">
         <h3> <i class="fa fa-opencart" style="font-size:44px;color:darkgoldenrod"> UNOS DOGAĐAJA </i></h3>       <button type="reset" onclick="noviFormular()" class="fiksni">NOVI DOGAĐAJ</button>
 
        
@@ -64,7 +67,9 @@
             </fieldset>
         </form>
     </div>
+    <div id="entry-message"></div>
     <script src="../js/entry.js"></script>
+    <script src="../js/signout.js"></script>
 </body>
 
 </html>
