@@ -174,8 +174,8 @@ function createSale() {
      $(document).ready(function() {
          $('.shops').click(function() {
              $('.shops-img').animate({
-                 height: '50px',
-                 width: '50px'
+                 height: '40px',
+                 width: '40px'
              });
              $('.shops').animate({
                  margin: '0px'
@@ -185,8 +185,8 @@ function createSale() {
      $(document).ready(function() {
          $('.scene').click(function() {
              $('.scene-img').animate({
-                 height: '50px',
-                 width: '50px'
+                 height: '40px',
+                 width: '40px'
              });
              $('.scene').animate({
                  margin: '10px 0px'
