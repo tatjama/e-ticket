@@ -28,8 +28,10 @@
         </div>
     </nav>
 
-    <div class="entry-container">
-        <h3> <i class="fa fa-opencart" style="font-size:44px;color:darkgoldenrod"> UNOS DOGAĐAJA </i></h3>       <button type="reset" onclick="noviFormular()" class="fiksni">NOVI DOGAĐAJ</button>
+    <div id="entry-container">
+        <h3> <i class="fa fa-opencart" > UNOS DOGAĐAJA </i></h3>      
+         
+
 
        
         <!--<form id="pokupi" style="display: none">-->
@@ -56,13 +58,15 @@
                     <option value="Predstava">
                     <option value="Filharmonija">
                 </datalist><br>
-                <button type="button" onclick="brojUlaznica()"> Količina:</button>
+                <button type="button" class="button" id="quantity-button" onclick="brojUlaznica()"> Količina:</button>
                 <input type="number" placeholder="Količina" id="kolicina" readonly>
+                
                 <br><br> Scena:
                 <input type="radio" class="radiobutton" name="rh" id="pozitivna" checked>    &nbsp   Mala<br><br>
                 <input type="radio" class="radiobutton" name="rh">Velika<br><br>
-                <button type="button" onclick="dogadjaj()">Pokupi</button>
-                <button type="reset" onclick="obrisi()">Obriši</button>
+                <button type="reset" onclick="noviFormular()" class="button" class="fiksni">Novi događaj</button>
+                <button type="button" class="button" onclick="dogadjaj()">Pokupi</button>
+                <button type="reset" class="button" onclick="obrisi()">Obriši</button>
 
             </fieldset>
         </form>
