@@ -4,26 +4,13 @@ var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
 createShoppingCard();
 
 function createShoppingCard() {    
-    // remove image field from rendering
-   /* for (let i = 0; i < shoppingCard.length; i++){
-        delete shoppingCard[i].image;
-    }*/
     console.log(shoppingCard);
-    // suma();
-
+    
     //dodajemo polje za kolicinu rezervacije .
     shoppingCard.forEach(addEraseItem);
 
     //pozivamo funkciju za iscrtavanje tabele sa rezervisanim događajima
-    tableOfReservedPerformances(shoppingCard);
-
-    //dodavanje dugmeta zavrsi kupovinu    
-    //!!! ovo smo izbacili dugme je fiksno  
-    /*let table = document.getElementById('table-of-reserved-performances');
-    let buy = document.createElement('button');
-    buy.addEventListener('click', shopping);
-    buy.innerHTML = 'Završi kupovinu';
-    table.appendChild(buy);*/
+    tableOfReservedPerformances(shoppingCard);    
 
     //sumiramo ukupan iznos
     sumShoppingCard();    
@@ -34,12 +21,9 @@ function sumShoppingCard() {
         let sumOfBuyingItems = document.getElementById('sum-of-buying-items').value;
         let sumOfItem = document.getElementById('iznos' + i).innerHTML;
         sumOfBuyingItems = parseInt(sumOfBuyingItems) + parseInt(sumOfItem);
-       // sumOfBuyingItems = thousands_separators(sumOfBuyingItems);
         document.getElementById('sum-of-buying-items').value = sumOfBuyingItems;
     }
 }
-
-
 
 //When "ukloni" button is clicked, function remove all column
 $(document).ready(function() {
@@ -48,7 +32,7 @@ $(document).ready(function() {
         console.log(event.target.id);
         var removeId = event.target.id;
         var positionOfRemovedRow = removeId.slice(6);
-        //brisanje sume
+        //deleting sum
         document.getElementById('sum-of-buying-items').value -= shoppingCard[positionOfRemovedRow].iznos;
 
         delete shoppingCard[positionOfRemovedRow]
@@ -87,14 +71,12 @@ function tableOfReservedPerformances(x) {
             //dodajemo class-u za svaku celiju
             tableCells.setAttribute('class', i);
             tableCells.setAttribute('id', i + y);
-            //console.log(i + y);
             tableRow.appendChild(tableCells);
         }
 
         table.appendChild(tableRow);
     }
     console.log(x);
-    // suma();
     return x;
 }
 
@@ -152,8 +134,6 @@ function pay(){
     document.getElementById('thank-you-message').innerHTML = "Uplata je izvršio " + currentlyLoggedIn.name +
     " " + currentlyLoggedIn.surname + ". Hvala.";
     document.getElementById('sum-of-buying-items').value = "0";
-
-
 }
 
 function deleteRemovedFields (element) {

@@ -162,7 +162,6 @@ function createEShop() {
         
                 //DODALA USLOV DA NE MOZE DA ODE U MINUS
                 if (newReservation > 0) {
-                    //nizFiltriranihDogadjaja[j].kolicina = parseInt(nizFiltriranihDogadjaja[j].kolicina);
                     if (newReservation > parseInt(filterPerformance[j].kolicina)) {
                         //treba da izbaci gresku za kolicinu 
                         alert(

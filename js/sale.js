@@ -8,7 +8,7 @@ var activeStore = document.getElementById('active-store');
 
 
 createSale();
-
+// function create filter-options
 function createSale() {
     //session storage 
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;          
@@ -41,7 +41,7 @@ function createSale() {
                     <h4>Filharmonija</h4>
                 </div>
             </div>`;
-            //var scene = '<div id="filter-scene"><hr style="color:aquamarine"/><h3>Izaberite scenu - opcija</h3><div id="scenes"><div class = "scene">Velika scena</div><div class="scene">Mala scena</div></div></div>'            
+           
             var scene = `<div id="filter-scene"><hr/>
             <div id="scenes">
                 <div class = "scene">
@@ -119,7 +119,7 @@ function createSale() {
     var filterImage = document.querySelector('.filter-img');
 
 
-// poruka koja izlazi prilikom otvaranja prodavnice
+// function with message in the opening sale store
     function animate(){                
         $('h1').show().animate({
             right: '10px',
@@ -133,8 +133,8 @@ function createSale() {
             }).dequeue();
         });
     } 
-// filter po karakterima
 
+// filter po karakterima
     function filterSearch(){
         removePreSelection();
         let karakter = character.value.toUpperCase();
@@ -142,6 +142,7 @@ function createSale() {
         activeSearch.innerHTML = karakter;
         filterImage.setAttribute('src', '../images/search.svg');
     }
+
 // filter po vrsti scene
     function filterScene(x, y){
         removePreSelection();
@@ -166,14 +167,6 @@ function createSale() {
         concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
         
         activeStore.innerHTML = x;  
-        
-        //storageOfPerformances izvlacimo iz localS
-       // let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
-    
-        //Filtriramo po vrsti dogadjaja -balet  
-       // var filterPerformance = performances;
-       // console.log(x)
-       // console.log( y);
         document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
        
        } 
@@ -201,27 +194,19 @@ function createSale() {
          });
      });
 
+     
      function quantityUp(x){
         let quantity = document.getElementById(x).value;   
         document.getElementById(x).value =++quantity;
-        console.log(quantity);
      }
      function quantityDown(x){
          let quantity = document.getElementById(x).value;
          if(quantity >= 1){
              document.getElementById(x).value = --quantity;
          }    
-         console.log(quantity);
      }   
   
-     //otvara prozor za selektovanje filtera i ponistava prethodno zadat filter
-function filter() {
-    let sFilter = document.getElementById('selektujFilter');
-    sFilter.style.display = 'initial';
-    sFilter.value = '';
-
-}
-     
+// main function filter      
   function doFilter(){
       removePreSelection();
      let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
@@ -398,9 +383,6 @@ function showFilteredItems(x){
 }
 //this function added new reservation in the shopping card
 function makeNewReservation(){
-
-    //let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
-    //localStorage.setItem('filter', JSON.stringify(filterByCharacters));
     let filterArray = JSON.parse(localStorage.getItem('filter'));
     console.log(filterArray);
 
@@ -411,18 +393,11 @@ function makeNewReservation(){
     for( let i = 0; i < input.length; i++){
         
             if(input[i].value > 0){
-           /* reservation = {
-                naziv : document.getElementById(i).innerHTML,
-                kolicina : document.getElementById('stock' + i).innerHTML,
-                rezervacija : input[i].value
-             }*/
              reservation = filterArray[i];
              reservation.rezervacija = input[i].value;
              console.log(reservation);
              console.log('stock' + i);
              if(parseInt(reservation.rezervacija)  > parseInt(reservation.kolicina) ){
-                 //console.log(reservation.rezervacija);
-                 //console.log(reservation.kolicina);
                 alert(
                     "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da rezervišete maksimalno " +
                     reservation.kolicina + " ulaznica");
