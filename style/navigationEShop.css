@@ -14,7 +14,7 @@ nav{
  nav a{
      color: honeydew;
      font-size: 1rem;
-     padding: 5px;
+     padding: 10px;
  }
  nav a:hover{
      transform: scale(1.1);
@@ -24,10 +24,17 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding-top: 10px;
 }
 
  @media screen and (max-width:750px){
     nav{
         padding: 50px 20px ;
+    }
+    .flex-row.card{
+       padding: 20px;
+    }
+    nav a{
+        font-size: 0.67rem;
     }
  }

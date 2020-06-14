@@ -123,7 +123,7 @@ function createSale() {
     function animate(){                
         $('h1').show().animate({
             right: '10px',
-            top: "25px",
+            top: "35px",
             fontSize: "12px"
         }, (500)).queue(function() {
             $(this).css({
