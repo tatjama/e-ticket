@@ -1,5 +1,6 @@
 #entry-container{
     padding: 50px;
+    font-size: 12px;
 }
 h1 {
     position: absolute;
@@ -22,6 +23,9 @@ fieldset {
     text-align: right;
     padding: 20px;
 }
+#author{
+    text-transform: capitalize;
+}
 input {
     width: 250px;
     height: 30px;
@@ -31,6 +35,10 @@ input {
 }
 input[name="rh"]{
     max-width: 100px;
+    height: 20px;
+}
+p{
+    margin: 5px;
 }
 .button {
     /*  border-radius: 30px;*/
@@ -55,7 +63,7 @@ input[name="rh"]{
   }
   @media screen and (max-width: 400px){
       #entry-container{
-          padding: 10px;
+          padding: 10px 30px;
       }
 
       h3{
@@ -63,7 +71,7 @@ input[name="rh"]{
       }
       fieldset{
           width: 250px;
-          margin: 10px;
+          margin: 10px 0px 10px 5px;
           text-align: center;
       }
       input {
@@ -74,7 +82,7 @@ input[name="rh"]{
           height: 30px;
       }
       #quantity-button,
-      #kolicina{
+      #quantity{
           width:  120px;
           float: left;
         

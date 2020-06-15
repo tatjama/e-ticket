@@ -1,6 +1,13 @@
 var eShopMessage = document.getElementById('entry-message');
 var navBg = document.querySelector('.nav-bg');
 var entryContainer = document.querySelector('.entry-container');
+
+var name =  document.getElementById('name');
+var author =  document.getElementById('author');
+var price =  document.getElementById('price');
+var date =  document.getElementById('date');
+var quantity =  document.getElementById('quantity');
+var type =  document.getElementById('type');
 checkUser();
 
 function checkUser(){
@@ -50,6 +57,47 @@ function animate(){
     });
 } 
 
+//Count quantity of tickets random methodes from 10 to 100.   
+function quantityOfTickets() {
+    var q = Math.floor(Math.random() * (300 - 1)) + 1;
+    quantity.value = q;
+}
+
+
+//Name of author and performance validation. Allowed only small and large letters of serbian latin
+function isValidName(a, b) {    
+    let val = document.getElementById(a).value;
+    console.log(val)
+    if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
+        document.getElementsByClassName('greska')[b].innerHTML = '*';
+        '/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*/';
+    }
+}
+//validation of price
+function isValidNumber() {
+    let val = price.value;
+    if (/[^0-9]/.test(val) || (val == '') || val < 00100 || val > 10000) {
+        document.getElementsByClassName('greska')[2].innerHTML = '*';
+    }
+}
+
+//remove * when is onfocus field whitch we have to change
+function unos(b) {
+    document.getElementsByClassName('greska')[b].innerHTML = '';
+}
+
+// Remove all written values inside of form fields
+function clearFields() {
+    name.value = '';
+    author.value = '';
+    price.value = '';
+    date.value = '';
+    quantity.value = '';
+    type.value = '';
+}
+
+
+
 /*obrisiLokalStoridz();
 
 function obrisiLokalStoridz() {
@@ -62,43 +110,7 @@ function obrisiLokalStoridz() {
 
 function noviFormular() {
     document.getElementById('pokupi').style.display = 'initial';
-    obrisi();
-}
-//Izracunava broj ulaynica slucajnim metodom, Brojevi su od 10 do 100   
-function brojUlaznica() {
-    var kolicina = Math.floor(Math.random() * (300 - 1)) + 1;
-    document.getElementById('kolicina').value = kolicina;
-}
-//validacija Naziva i autora prilikom unosa. Proverava da li su uneti karakteri samo velika i mala slova srpske latinice
-function valid(a, b) {
-    let val = document.getElementById(a).value;
-    if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
-        document.getElementsByClassName('greska')[b].innerHTML = '*';
-    }
-}
-//validacija cene
-function validBroj() {
-    let val = document.getElementById('cena').value;
-    if (/[^0-9]/.test(val) || (val == '') || val < 00100 || val > 10000) {
-        document.getElementsByClassName('greska')[2].innerHTML = '*';
-    }
-
-
-}
-//brise * kada je onfocus polje u koje treba da unesemo ispravku
-function unos(b) {
-    document.getElementsByClassName('greska')[b].innerHTML = '';
-}
-//brisemo upisane vrednosti za dogadjaj
-function obrisi() {
-
-    document.getElementById('naziv').value = '';
-    document.getElementById('autor').value = '';
-    document.getElementById('cena').value = '';
-    document.getElementById('datum').value = '';
-    document.getElementById('kolicina').value = '';
-    document.getElementById('vrstaDogadjaja').value = '';
-
+    clearFields();
 }
 
 //funkciju poziva dugme Pokupi          
@@ -108,48 +120,61 @@ function obrisi() {
 // Inicijalizujemo promenljivu nizDogađaja kao niz u koji smestamo dobijene objekte
 var storageOfPerformances = [];
 
-function dogadjaj() {
-    if (document.getElementById('naziv').value == '' || document.getElementById('autor').value == '' ||
-        document.getElementById('cena').value == '' ||
-        document.getElementById('datum').value == '' ||
-        document.getElementById('kolicina').value == '' ||
-        document.getElementById('vrstaDogadjaja').value == '' ||
+function entry() {
+    if (name.value == '' || 
+        author.value == '' ||
+        price.value == '' ||
+        date.value == '' ||
+        quantity.value == '' ||
+        type.value == '' ||
         document.getElementsByClassName('greska')[0].innerHTML != '' ||
         document.getElementsByClassName('greska')[1].innerHTML != '' ||
         document.getElementsByClassName('greska')[2].innerHTML != '') {
         alert('Neispravan unos ili prazno polje');
     } else {
         document.getElementById('pokupi').style.display = 'none';
+        var newPerformance = {};
 
+           
 
-
-        var noviDogadjaj = {};
-
-        noviDogadjaj.naziv = document.getElementById('naziv').value.toUpperCase();
-        noviDogadjaj.autor = document.getElementById('autor').value.toUpperCase();
-        noviDogadjaj.cena = document.getElementById('cena').value;
-        noviDogadjaj.datum = document.getElementById('datum').value;
-        noviDogadjaj.kolicina = document.getElementById('kolicina').value;
-        noviDogadjaj.vrsta = document.getElementById('vrstaDogadjaja').value;
+        newPerformance.naziv = document.getElementById('name').value.toUpperCase();
+        newPerformance.autor = author.value;
+        newPerformance.cena = price.value;
+        newPerformance.datum = date.value;
+        newPerformance.kolicina = quantity.value;
+        newPerformance.vrsta = type.value;
         if (document.getElementById('pozitivna').checked) {
-            noviDogadjaj.scena = 'Mala scena';
+            newPerformance.scena = 'Mala scena';
         } else {
-            noviDogadjaj.scena = 'Velika scena';
+            newPerformance.scena = 'Velika scena';
         }
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
         var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
         //ubacuje novi dogadjaj objekat u storageOfPerformances
-        storageOfPerformances.push(noviDogadjaj);
+        storageOfPerformances.push(newPerformance);
         //smesta storageOfPerformances u localStoride
         localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances));
 
         console.log(storageOfPerformances);
-        console.log(noviDogadjaj);
+        console.log(newPerformance);
 
-        obrisi();
+        clearFields();
 
 
     }
 
 } //kraj funkcije dogadjaj
+/*function capitalize(){
+    let authorArrey = [];
+    authorValue = document.getElementById('author').value;
+    console.log(authorValue)
+    authorArrey = authorValue.split(' ');
+    console.log(authorArrey)
+    for( let i = 0; i < authorArrey.length; i++){
+        console.log(authorArrey[i][0].toUpperCase())
+    }
+
+    console.log(authorValue)
+
+}*/
