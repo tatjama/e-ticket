@@ -17,6 +17,7 @@ fieldset {
     width: 500px;
     border: 2px solid darkgoldenrod;
     /*font-weight: bold;*/
+    background-color: beige;
     color: navy;    
     text-align: right;
     padding: 20px;
@@ -28,16 +29,25 @@ input {
     border: 1px solid goldenrod;
     padding: 2px;
 }
+input[name="rh"]{
+    max-width: 100px;
+}
 .button {
     /*  border-radius: 30px;*/
-      border: 0cm;
-      padding: 10px;
+      /*border: 0cm;*/
+      padding: 2px;
       text-decoration: none;
-      width: 150px;
-      height: 40px;
+      width: 138px;
+      height: 30px;
       margin: 5px;
+      border: 1px solid goldenrod;  
   }
-  .button :hover,
+  .button[type="button"]{
+      background-color: navy;
+      border: navy 1px solid;
+      color: white;
+  }
+  .button:hover,
   #eshop-buttons :hover, a :hover {
       background-color: goldenrod;
       color: white;
@@ -47,18 +57,21 @@ input {
       #entry-container{
           padding: 10px;
       }
+
       h3{
           font-size: 28px;
       }
       fieldset{
           width: 250px;
           margin: 10px;
+          text-align: center;
       }
       input {
           width: 250px;
       }
       .button{
           width: 250px;
+          height: 30px;
       }
       #quantity-button,
       #kolicina{

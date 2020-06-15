@@ -41,17 +41,17 @@
 
                 Naziv događaja:
                 <span class="greska" title="Pogrešan unos. Unesite naziv događaja"></span>
-                <input type="text" placeholder="Naziv događaja" id="naziv" onblur="valid('naziv', 0)" onfocus="unos(0)" required>
+                <input type="text" placeholder=" Naziv događaja" id="naziv" onblur="valid('naziv', 0)" onfocus="unos(0)" required>
                 <br> Autor:
                 <span class="greska" title="Pogrešan unos. Unesite ime i prezime autora"></span>
-                <input type="text" placeholder="Ime autora" id="autor" onblur="valid('autor', 1)" onfocus="unos(1)" required>
+                <input type="text" placeholder=" Ime autora" id="autor" onblur="valid('autor', 1)" onfocus="unos(1)" required>
                 <br>Cena:
                 <span class="greska" title="Pogrešan unos. Unesite cenu ulaznice"></span>
-                <input type="number" placeholder="Cena ulaznice" id="cena" onblur="validBroj()" onfocus="unos(2)" required>
+                <input type="number" placeholder=" Cena ulaznice" id="cena" onblur="validBroj()" onfocus="unos(2)" required>
                 <br> Datum događaja:
                 <span class="greska" title="Pogrešan unos. Unesite datum događaja"></span>
                 <input type="date" id="datum" name="bday" required><br> Vrsta događaja:
-                <input list="grupa" name="grupa" id="vrstaDogadjaja" placeholder="Vrsta događaja"><br>
+                <input list="grupa" name="grupa" id="vrstaDogadjaja" placeholder=" Vrsta događaja"><br>
                 <datalist id="grupa">
                     <option value="Opera">
                     <option value="Balet">
@@ -59,11 +59,13 @@
                     <option value="Filharmonija">
                 </datalist><br>
                 <button type="button" class="button" id="quantity-button" onclick="brojUlaznica()"> Količina:</button>
-                <input type="number" placeholder="Količina" id="kolicina" readonly>
+                <input type="number" placeholder=" Količina" id="kolicina" readonly>
+               
                 
-                <br><br> Scena:
-                <input type="radio" class="radiobutton" name="rh" id="pozitivna" checked>    &nbsp   Mala<br><br>
-                <input type="radio" class="radiobutton" name="rh">Velika<br><br>
+                <br><br><p>Izaberite scenu:</p>
+                
+                <input type="radio" class="radiobutton" name="rh" id="pozitivna" checked><label for="pozitivna"> Mala scena:</label>
+                <input type="radio" class="radiobutton" name="rh"><label for="negativna">Velika scena:</label>
                 <button type="reset" onclick="noviFormular()" class="button" class="fiksni">Novi događaj</button>
                 <button type="button" class="button" onclick="dogadjaj()">Pokupi</button>
                 <button type="reset" class="button" onclick="obrisi()">Obriši</button>
