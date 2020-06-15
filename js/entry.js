@@ -133,9 +133,7 @@ function entry() {
         alert('Neispravan unos ili prazno polje');
     } else {
         document.getElementById('pokupi').style.display = 'none';
-        var newPerformance = {};
-
-           
+        var newPerformance = {};           
 
         newPerformance.naziv = document.getElementById('name').value.toUpperCase();
         newPerformance.autor = author.value;
@@ -148,6 +146,7 @@ function entry() {
         } else {
             newPerformance.scena = 'Velika scena';
         }
+        newPerformance.image = document.getElementById('img').value;
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
         var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
