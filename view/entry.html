@@ -51,14 +51,14 @@
                 <br> Datum događaja:
                 <span class="greska" title="Pogrešan unos. Unesite datum događaja"></span>
                 <input type="date" id="date" name="date" required><br> Vrsta događaja:
-                <input list="grupa" name="grupa" id="type" placeholder=" Vrsta događaja"><br>
+                <input list="grupa" name="grupa" id="type" placeholder=" Vrsta događaja" required><br>
                 <datalist id="grupa">
                     <option value="Opera">
                     <option value="Balet">
                     <option value="Predstava">
                     <option value="Filharmonija">
                 </datalist><br>
-                <input type="number" placeholder=" Količina" id="quantity" readonly>
+                <input type="number" placeholder=" Količina" id="quantity" required readonly>
                 <button type="button" class="button" id="quantity-button" onclick="quantityOfTickets()"> Količina:</button>
                 
                
@@ -69,8 +69,9 @@
                 <input type="radio" class="radiobutton" name="rh"><label for="negativna">Velika scena:</label>
                 <br>
                 <label for="img">Izaberite sliku:</label>
-                <input type="file" id="img" name="img" accept="image/*">
-                <button type="reset" onclick="capitalize()" class="button" class="fiksni">Novi događaj</button>
+                <input type="file" id="img" name="img" accept="image/*" multiple required onchange="previewImg(event)">
+                <img alt="your image" id="outputImg"  width="50px" height="50px">
+                <button type="reset" onclick="takeImg()" class="button" class="fiksni">Novi događaj</button>
                 <button type="button" class="button" onclick="entry()">Pokupi</button>
                 <button type="reset" class="button" onclick="clearFields()">Obriši</button>
 

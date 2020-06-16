@@ -146,7 +146,7 @@ function entry() {
         } else {
             newPerformance.scena = 'Velika scena';
         }
-        newPerformance.image = document.getElementById('img').value;
+        newPerformance.image = document.getElementById('img').value.slice(12);
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
         var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
@@ -159,21 +159,17 @@ function entry() {
         console.log(newPerformance);
 
         clearFields();
-
-
     }
 
 } //kraj funkcije dogadjaj
-/*function capitalize(){
-    let authorArrey = [];
-    authorValue = document.getElementById('author').value;
-    console.log(authorValue)
-    authorArrey = authorValue.split(' ');
-    console.log(authorArrey)
-    for( let i = 0; i < authorArrey.length; i++){
-        console.log(authorArrey[i][0].toUpperCase())
+
+
+//show chosen image 
+function previewImg(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('outputImg');
+      output.src = reader.result;
     }
-
-    console.log(authorValue)
-
-}*/
+    reader.readAsDataURL(event.target.files[0]);
+  }
