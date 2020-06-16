@@ -134,7 +134,7 @@ function entry() {
     } else {
        // document.getElementById('pokupi').style.display = 'none';
         var newPerformance = {};           
-
+        
         newPerformance.naziv = document.getElementById('name').value.toUpperCase();
         newPerformance.autor = author.value;
         newPerformance.cena = price.value;
@@ -146,7 +146,28 @@ function entry() {
         } else {
             newPerformance.scena = 'Velika scena';
         }
-        newPerformance.image = document.getElementById('img').value.slice(12);
+        var x = Math.floor(Math.random() * 6) + 1;
+       // newPerformance.image = document.getElementById('img').value.slice(12);
+       newPerformance.image = pickImage() + + x + ".jpg"
+       function pickImage(){
+        switch(type.value){
+            case "Predstava":
+                return "drama" ;
+                
+                case "Opera":
+                     return "opera"
+                    break;
+                    case "Filharmonija":
+                        return "filharmonija" 
+                        break;
+                        case "Balet":
+                            return "balerina"
+        }
+       }       
+    //function runNumber(){ return Math.floor(Math.rundom()*8)}
+       console.log(x)
+       
+      
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
         var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
