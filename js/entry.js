@@ -132,7 +132,7 @@ function entry() {
         document.getElementsByClassName('greska')[2].innerHTML != '') {
         alert('Neispravan unos ili prazno polje');
     } else {
-        document.getElementById('pokupi').style.display = 'none';
+       // document.getElementById('pokupi').style.display = 'none';
         var newPerformance = {};           
 
         newPerformance.naziv = document.getElementById('name').value.toUpperCase();
