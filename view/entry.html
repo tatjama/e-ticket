@@ -29,13 +29,13 @@
     </nav>
 
     <div id="entry-container">
-        <h3> <i class="fa fa-opencart" > UNOS DOGAĐAJA </i></h3>      
+        <h3> <i class="fa fa-opencart" onclick="newForm()" > UNOS DOGAĐAJA </i></h3>      
          
 
 
        
         <!--<form id="pokupi" style="display: none">-->
-        <form id="pokupi">
+        <form id="entryForm">
             <fieldset>
                 <legend>Unos događaja</legend>
 
@@ -71,7 +71,7 @@
                 <label for="img">Izaberite sliku:</label>
                 <input type="file" id="img" name="img" accept="image/*" multiple  onchange="previewImg(event)">
                 <img alt="your image" id="outputImg"  width="50px" height="50px">
-                <button type="reset" onclick="takeImg()" class="button" class="fiksni">Novi događaj</button>
+                <!--<button type="reset" onclick="takeImg()" class="button" class="fiksni">Novi događaj</button>-->
                 <button type="button" class="button" onclick="entry()">Pokupi</button>
                 <button type="reset" class="button" onclick="clearFields()">Obriši</button>
 

@@ -8,6 +8,7 @@ var price =  document.getElementById('price');
 var date =  document.getElementById('date');
 var quantity =  document.getElementById('quantity');
 var type =  document.getElementById('type');
+var image = document.getElementById('img');
 checkUser();
 
 function checkUser(){
@@ -88,12 +89,14 @@ function unos(b) {
 
 // Remove all written values inside of form fields
 function clearFields() {
-    name.value = '';
+    document.getElementById('name').value = '';
     author.value = '';
     price.value = '';
     date.value = '';
     quantity.value = '';
     type.value = '';
+    image.value = '';
+
 }
 
 
@@ -108,9 +111,10 @@ function obrisiLokalStoridz() {
 // pokrecemo funkciju događajt() i sakrivamo dugme Pokupi
 
 
-function noviFormular() {
-    document.getElementById('pokupi').style.display = 'initial';
+function newForm() {
     clearFields();
+    document.getElementById('entryForm').style.display = 'initial';
+    
 }
 
 //funkciju poziva dugme Pokupi          
@@ -132,7 +136,7 @@ function entry() {
         document.getElementsByClassName('greska')[2].innerHTML != '') {
         alert('Neispravan unos ili prazno polje');
     } else {
-       // document.getElementById('pokupi').style.display = 'none';
+       
         var newPerformance = {};           
         
         newPerformance.naziv = document.getElementById('name').value.toUpperCase();
@@ -163,11 +167,8 @@ function entry() {
                         case "Balet":
                             return "balerina"
         }
-       }       
-    //function runNumber(){ return Math.floor(Math.rundom()*8)}
-       console.log(x)
-       
-      
+       }     
+       clearFields();
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
         var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
@@ -179,7 +180,8 @@ function entry() {
         console.log(storageOfPerformances);
         console.log(newPerformance);
 
-        clearFields();
+        
+        document.getElementById('entryForm').style.display = 'none';
     }
 
 } //kraj funkcije dogadjaj
