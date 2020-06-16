@@ -37,6 +37,9 @@ input[name="rh"]{
     max-width: 100px;
     height: 20px;
 }
+#img{
+    border: 0px;
+}
 p{
     margin: 5px;
 }
