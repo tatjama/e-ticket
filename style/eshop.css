@@ -176,9 +176,9 @@ span{
        background-size: contain;
        background-position-y: center;
        color: darkslategrey;
-
-    height: 750px;
-    width: 100%;
+       font-weight: bold;
+       height: 750px;
+       width: 100%;
     }
     h4{
         font-size: 12px;        
