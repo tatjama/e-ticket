@@ -47,7 +47,7 @@ function checkUser(){
 function animate(){                
     $('h1').show().animate({
         right: '10px',
-        top: "80px",
+        top: "60px",
         fontSize: "12px"
     }, (500)).queue(function() {
         $(this).css({
