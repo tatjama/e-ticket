@@ -164,7 +164,8 @@ span{
         height: 100px;
         margin: 10px 5px;
     }
-    h1{
+    #welcome-user, 
+    #guest-user{
         padding: 40px;
         margin-top: -60px;
         margin-right: -10px;
@@ -179,6 +180,9 @@ span{
        font-weight: bold;
        height: 750px;
        width: 100%;
+    }
+    #guest-user{
+        background-image: url('../images/pencil.svg');
     }
     h4{
         font-size: 12px;        

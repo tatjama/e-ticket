@@ -3,7 +3,7 @@ var navBg = document.querySelector('.nav-bg');
 
 createEShop();
 
-function user(){
+/*function user(){
     if(typeof(Storage) !== "undefined"){
         if(sessionStorage.getItem('user') === null){
             console.log('Nema usera');
@@ -18,15 +18,13 @@ function user(){
     console.log('kraj');
     }else{
         alert('Your browser does not support web storage. Sorry...' );
-    }
-
-    
-}
+    }    
+}*/
 
 function createEShop() {
     //session storage 
-    var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
-     console.log(localUser)          
+   /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
+     console.log(localUser)  */        
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
     console.log(currentlyLoggedIn) 
     function animate(){                
@@ -75,14 +73,14 @@ function createEShop() {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+        "<h1 id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
         animate();
      }
     
     }
 
     function hideMessage(){
-        document.getElementById('welcome-user').style.display = "none"
+        document.getElementsByTagName("h1")[0].style.display = "none"
     }
 
     function openStore(x, y) {

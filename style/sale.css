@@ -284,5 +284,25 @@ input[type = "number"]{
     .scene:last-of-type{
         width: 100%;
     }
+    #welcome-user, 
+    #guest-user{
+        padding: 40px;
+        margin-top: -60px;
+        margin-right: -10px;
+      /*  background-color: hsl(225, 3%, 49%);       
+       background-image: linear-gradient(white 5%, black);*/
+       background-color: cornsilk;
+       background-image: url('../images/theater-3.svg');
+       background-repeat: no-repeat;
+       background-size: contain;
+       background-position-y: center;
+       color: navy;
+       font-weight: bold;
+       height: 750px;
+       width: 100%;
+    }
+    #guest-user{
+        background-image: url('../images/pencil.svg');
+    }
 
   }
