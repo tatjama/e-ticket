@@ -16,11 +16,12 @@ h2{
     padding: 20px;
 }
 h1 {
-    position: absolute;
+    position: absolute;    
     font-size: 8px;
     color: mintcream;
     padding: 20px;
     font-weight: lighter;
+    
 }
 #shops div {
     color: mintcream;    
@@ -162,6 +163,21 @@ span{
         width: 100px;
         height: 100px;
         margin: 10px 5px;
+    }
+    h1{
+        padding: 40px;
+        margin-top: -60px;
+        margin-right: -10px;
+      /*  background-color: hsl(225, 3%, 49%);       
+       background-image: linear-gradient(white 5%, black);*/
+       background-color: cornsilk;
+       background-image: url('../images/my-icons-collection (1)/svg/filharmonija.svg');
+       background-repeat: no-repeat;
+       background-size: contain;
+       background-position-y: center;
+       color: darkgray;
+    height: 750px;
+    width: 100%;
     }
     h4{
         font-size: 12px;        
