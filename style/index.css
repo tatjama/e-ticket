@@ -202,4 +202,53 @@ figure:hover{
     .section_one figure{
         margin: 40px 27px;
     }
+    fieldset {
+        width: 260px;
+       /* border: 0px solid darkgoldenrod;*/
+        /*font-weight: bold;*/
+        color: navy;    
+        padding: 40px;
+    }
+   /* input {
+        width: 250px;
+        height: 30px;
+        margin: 5px;
+        border: 1px solid goldenrod;
+        padding: 2px;
+    }
+    #my_signIn input:nth-of-type(3){
+        background-color: navy;
+        border: solid 1px navy;
+        color: honeydew;
+    }
+    #my_signIn input:nth-of-type(3):hover,
+    #my_signIn input:nth-of-type(4):hover{
+        background-color: goldenrod;
+        border: solid 1px goldenrod;
+    }
+    #my_signUp input:nth-of-type(6){
+        background-color: navy;
+        border: solid 1px navy;
+        color: honeydew;
+    }
+    #my_signUp input:nth-of-type(6):hover,
+    #my_signUp input:nth-of-type(7):hover{
+        background-color: goldenrod;
+        border: solid 1px goldenrod;
+    }*/
+    
+    #pickUp_signIn,
+    #pickUp_signUp {
+        text-align: center;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        display: none;
+        background-color: beige;
+        border: 0px;
+        z-index: 9;
+        width: 100%;
+        height: 700px;
+    }
+    
 }
