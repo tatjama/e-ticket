@@ -2,9 +2,6 @@
 body{
     background-color: navy;
 }
-nav{
-    padding: 20px 100px;
-}
 #eshop-navigation{
     position: sticky;
     top: -100px;
@@ -166,9 +163,9 @@ span{
     }
     #welcome-user, 
     #guest-user{
-        padding: 40px;
+        padding: 60px 30px;
         margin-top: -60px;
-        margin-right: -10px;
+        margin-right: -30px;
       /*  background-color: hsl(225, 3%, 49%);       
        background-image: linear-gradient(white 5%, black);*/
        background-color: cornsilk;

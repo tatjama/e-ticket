@@ -29,7 +29,7 @@ function createEShop() {
     console.log(currentlyLoggedIn) 
     function animate(){                
         $('h1').show().animate({
-            right: '10px',
+            right: '30px',
             top: "60px",
             fontSize: "14px"
         }, (500)).queue(function() {

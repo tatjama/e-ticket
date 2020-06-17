@@ -2,7 +2,7 @@ nav{
     background-color: navy;
     display: flex;
     flex-direction: row;    
-    padding: 50px 100px; 
+    padding: 20px 100px; 
     justify-content: space-between;  
 }
 

@@ -126,8 +126,8 @@ function createSale() {
 // function with message in the opening sale store
     function animate(){                
         $('h1').show().animate({
-            right: '10px',
-            top: "35px",
+            right: '30px',
+            top: "50px",
             fontSize: "12px"
         }, (500)).queue(function() {
             $(this).css({
