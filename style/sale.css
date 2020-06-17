@@ -292,7 +292,7 @@ input[type = "number"]{
       /*  background-color: hsl(225, 3%, 49%);       
        background-image: linear-gradient(white 5%, black);*/
        background-color: cornsilk;
-       background-image: url('../images/spot.svg');
+       background-image: url('../images/search.svg');
        background-repeat: no-repeat;
        background-size: contain;
        background-position-y: center;
@@ -303,6 +303,10 @@ input[type = "number"]{
     }
     #guest-user{
         background-image: url('../images/pencil.svg');
+    }
+    .button{
+        height: 30px;
+        padding: 7px;
     }
 
   }
