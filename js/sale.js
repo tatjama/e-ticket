@@ -15,7 +15,7 @@ function createSale() {
      
      if(sessionStorage.getItem('user')!== null){ 
 
-        if(currentlyLoggedIn.status ===  "0"){
+        if(currentlyLoggedIn.status == "0"){
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 

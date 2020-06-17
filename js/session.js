@@ -6,8 +6,10 @@ function user(){
         var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));
         console.log('ima usera');
         console.log(currentlyLoggedIn.status);
-        console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +" " + currentlyLoggedIn.surname + ' sa E-mailom ' 
-        + currentlyLoggedIn.email + ' i passwordom ' + currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)
+        console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +
+        " " + currentlyLoggedIn.surname + ' sa E-mailom ' 
+        + currentlyLoggedIn.email + ' i passwordom ' + 
+        currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)
        
         }
     console.log('kraj');

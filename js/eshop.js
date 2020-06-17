@@ -3,9 +3,32 @@ var navBg = document.querySelector('.nav-bg');
 
 createEShop();
 
+function user(){
+    if(typeof(Storage) !== "undefined"){
+        if(sessionStorage.getItem('user') === null){
+            console.log('Nema usera');
+        }else{
+        var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));
+        console.log('ima usera');
+        console.log(currentlyLoggedIn.status);
+        console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +" " + currentlyLoggedIn.surname + ' sa E-mailom ' 
+        + currentlyLoggedIn.email + ' i passwordom ' + currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)
+       
+        }
+    console.log('kraj');
+    }else{
+        alert('Your browser does not support web storage. Sorry...' );
+    }
+
+    
+}
+
 function createEShop() {
     //session storage 
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
+    var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
+     console.log(localUser)          
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
+    console.log(currentlyLoggedIn) 
     function animate(){                
         $('h1').show().animate({
             right: '10px',

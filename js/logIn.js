@@ -74,6 +74,11 @@ function signIn() {
             localStorage.removeItem('currentlyLoggedInUser');
             //smesta trenutno ulogovanog korisnika u localStoride
             localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
+            var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));
+            var sessionUser = JSON.parse(sessionStorage.getItem('user'))
+            console.log(localUser)
+            console.log(sessionUser)
+            
             if (currentlyLoggedIn.status == 1) {
                 //document.getElementById('entry').style.display = "none";
                 //document.getElementById('sale').style.display = "none";
