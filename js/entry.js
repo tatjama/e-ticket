@@ -1,6 +1,6 @@
 var eShopMessage = document.getElementById('entry-message');
 var navBg = document.querySelector('.nav-bg');
-var entryContainer = document.querySelector('.entry-container');
+var entryContainer = document.getElementById('entry-container');
 
 var name =  document.getElementById('name');
 var author =  document.getElementById('author');
@@ -21,7 +21,7 @@ function checkUser(){
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 id="welcome-user">Dobro došli ' + currentlyLoggedIn.name + 
+            '<h1 id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' .<br>Na ovoj strani pravite ulaz za nove ulaznice.</h1>';
             animate();
@@ -38,7 +38,7 @@ function checkUser(){
         navBg.style.display = "none";  
         entryContainer.style.display = 'none';          
         eShopMessage.innerHTML = 
-       "<h1>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
+       "<h1 id='guest-user' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
        animate();
     }
 }
@@ -51,12 +51,16 @@ function animate(){
         fontSize: "12px"
     }, (500)).queue(function() {
         $(this).css({
-            "color": "white",
+            //"color": "white",
            // "text-shadow": "3px 3px 11px white",
           //  "background-color": "white"
         }).dequeue();
     });
 } 
+
+function hideMessage(){
+    document.getElementsByTagName('h1')[0].style.display = "none"
+}
 
 //Count quantity of tickets random methodes from 10 to 100.   
 function quantityOfTickets() {
