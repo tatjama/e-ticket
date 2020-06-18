@@ -50,7 +50,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 123,
             vrsta: "Opera",
             scena: "Mala scena",
-            image: "opera1.jpg"
+            image: "opera1.webp"
 
         },
         {
@@ -61,7 +61,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 8,
             vrsta: "Predstava",
             scena: "Mala scena",
-            image: "drama1.jpg"
+            image: "drama1.webp"
 
         }, {
 
@@ -72,7 +72,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 163,
             vrsta: "Predstava",
             scena: "Mala scena",
-            image: "drama2.jpg"
+            image: "drama2.webp"
 
         },
         {
@@ -83,7 +83,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 161,
             vrsta: "Opera",
             scena: "Velika scena",
-            image: "opera2.jpg"
+            image: "opera2.webp"
 
         }, {
             naziv: "BALKANSKI ŠPIJUN",
@@ -93,7 +93,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 175,
             vrsta: "Predstava",
             scena: "Mala scena",
-            image: "drama3.jpg"
+            image: "drama3.webp"
 
         }, {
             naziv: "LABUDOVO JEZERO",
@@ -103,7 +103,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 236,
             vrsta: "Balet",
             scena: "Velika scena",
-            image: "balerina1.jpg"
+            image: "balerina1.webp"
 
         }, {
             naziv: "ČUDO U ŠARGANU",
@@ -113,7 +113,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 80,
             vrsta: "Predstava",
             scena: "Mala scena",
-            image: "drama4.jpg"
+            image: "drama4.webp"
 
         }, {
             naziv: "DAMA S KAMELIJAMA",
@@ -123,7 +123,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 255,
             vrsta: "Predstava",
             scena: "Mala scena",
-            image: "drama5.jpg"
+            image: "drama5.webp"
 
         }, {
             naziv: "EVGENIJE ONJEGIN",
@@ -133,7 +133,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 58,
             vrsta: "Balet",
             scena: "Velika scena",
-            image: "balerina2.jpg"
+            image: "balerina2.webp"
 
         }, {
             naziv: "KRCKO ORAŠČIĆ",
@@ -143,7 +143,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 37,
             vrsta: "Balet",
             scena: "Velika scena",
-            image: "balerina3.jpg"
+            image: "balerina3.webp"
 
         }, {
             naziv: "KRALJICA MARGO",
@@ -153,7 +153,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 195,
             vrsta: "Balet",
             scena: "Mala scena",
-            image: "balerina4.jpg"
+            image: "balerina4.webp"
 
         }, {
             naziv: "USPAVANA LEPOTICA",
@@ -163,7 +163,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 79,
             vrsta: "Balet",
             scena: "Mala scena",
-            image: "balerina5.jpg"
+            image: "balerina5.webp"
 
         }, {
             naziv: "KAVALERIJA RUSTIKANA",
@@ -173,7 +173,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 151,
             vrsta: "Opera",
             scena: "Velika scena",
-            image: "opera3.jpg"
+            image: "opera3.webp"
 
         }, {
             naziv: "AIDA",
@@ -183,7 +183,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 158,
             vrsta: "Opera",
             scena: "Velika scena",
-            image: "opera4.jpg"
+            image: "opera4.webp"
 
         }, {
             naziv: "MUZIČKI RAZGOVORI",
@@ -193,7 +193,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 163,
             vrsta: "Filharmonija",
             scena: "Mala scena",
-            image: "filharmonija1.jpg"
+            image: "filharmonija1.webp"
 
         }, {
             naziv: "KONCERT NA OTVORENOM",
@@ -203,7 +203,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 93,
             vrsta: "Filharmonija",
             scena: "Velika scena",
-            image: "filharmonija2.jpg"
+            image: "filharmonija2.webp"
 
         }, {
             naziv: "JA VOLIM FILHARMONIJU",
@@ -213,7 +213,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 163,
             vrsta: "Filharmonija",
             scena: "Mala scena",
-            image: "filharmonija3.jpg"
+            image: "filharmonija3.webp"
 
         }, {
 
@@ -224,7 +224,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: 165,
             vrsta: "Filharmonija",
             scena: "Mala scena",
-            image: "filharmonija4.jpg"
+            image: "filharmonija4.webp"
 
         }, {
             naziv: "ERO S ONOGA SVIJETA",
@@ -234,7 +234,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: "157",
             vrsta: "Opera",
             scena: "Velika scena",
-            image: "opera5.jpg"
+            image: "opera5.webp"
 
         }, {
             naziv: "NA LEPOM PLAVOM DUNAVU",
@@ -244,7 +244,7 @@ function setLocalStorage(a, b, c, d) {
             kolicina: "71",
             vrsta: "Filharmonija",
             scena: "Velika scena",
-            image: "filharmonija5.jpg"
+            image: "filharmonija5.webp"
 
         }
 
@@ -260,7 +260,7 @@ function setLocalStorage(a, b, c, d) {
     console.log(currentlyLoggedIn);
 
    // version 1 . We set localStorage ones, and after that use the same localStorage    
-   localStorage.removeItem('currentlyLoggedInUser');
+  /* localStorage.removeItem('currentlyLoggedInUser');
 
     if(JSON.parse(localStorage.getItem('bazadogadjaja')) ===null){
         localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances));        
@@ -269,16 +269,16 @@ function setLocalStorage(a, b, c, d) {
         localStorage.setItem('userStorage', JSON.stringify(userStorage));
     }
     
-    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
+    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
 
 
    // version 2 . Every time we clicked icon, we set new localStorage
 
-   /*localStorage.removeItem('bazadogadjaja');
+   localStorage.removeItem('bazadogadjaja');
    localStorage.removeItem('userStorage');    
    localStorage.removeItem('currentlyLoggedInUser');
 
    localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances)); 
    localStorage.setItem('userStorage', JSON.stringify(userStorage));   
-   localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
+   localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
 }

@@ -58,7 +58,7 @@ h1 {
     margin: auto;
 }
 .items-img {
-    width: 200px;
+    width: 220px;
     height: 200px;
     padding-right: 20px;
     border-radius: 15px;
@@ -194,7 +194,7 @@ span{
         padding: 15px;
     }
     .items-img{
-        width: 130px;
+        width: 150px;
         height: 130px;
     }
     .item-card{

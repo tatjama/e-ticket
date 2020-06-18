@@ -368,7 +368,7 @@ function showFilteredItems(x){
         storeArticle.setAttribute('class' , 'item-card') ;              
         storeArticle.innerHTML = '<img id="' + performanceType + (i + 1) + 
                                 '" class="items-img" alt="' + performanceType + (i + 1) + 
-                                ' "src="../images/' + x[i].image + 
+                                ' "src="../images/webp/' + x[i].image + 
                                 '"><div class = "items-text"><p class = "items-name" id = "'+ i +'">' + 
                                 x[i].naziv + 
                                 '</p><p class="items-author">AUTOR: ' + x[i].autor + 
