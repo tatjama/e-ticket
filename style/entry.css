@@ -3,13 +3,6 @@
     font-size: 12px;
     margin-left: 15%;
 }
-h1 {
-    position: absolute;
-    font-size: 8px;
-    color: mintcream;
-    padding: 20px;
-    font-weight: lighter;
-}
 h3{
     font-size:44px;
     color:darkgoldenrod;
@@ -18,7 +11,6 @@ h3{
 fieldset {
     width: 500px;
     border: 2px solid darkgoldenrod;
-    /*font-weight: bold;*/
     background-color: beige;
     color: navy;    
     text-align: right;
@@ -45,8 +37,6 @@ p{
     margin: 5px;
 }
 .button {
-    /*  border-radius: 30px;*/
-      /*border: 0cm;*/
       padding: 2px;
       text-decoration: none;
       width: 138px;
@@ -69,27 +59,12 @@ p{
       #entry-container{
           padding: 10px 30px;
       }
-      #welcome-user, 
-      #guest-user{
-        padding: 60px 40px;
-        margin-top: -60px;
-        margin-right: -30px;
-        /*  background-color: hsl(225, 3%, 49%);       
-         background-image: linear-gradient(white 5%, black);*/
-         background-color: cornsilk;
-         background-image: url('../images/music.svg');
-         background-repeat: no-repeat;
-         background-size: contain;
-         background-position-y: center;
-         color: navy;
-         font-weight: bold;
-         height: 750px;
-         width: 100%;
+      #welcome-user{
+         background-image: url('../images/music.svg');         
       }
       #guest-user{
           background-image: url('../images/pencil.svg');
       }
-
       h3{
           font-size: 28px;
       }
