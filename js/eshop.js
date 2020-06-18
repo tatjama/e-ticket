@@ -186,18 +186,18 @@ function createEShop() {
         
                 //DODALA USLOV DA NE MOZE DA ODE U MINUS
                 if (newReservation > 0) {
-                    if (newReservation > parseInt(filterPerformance[j].kolicina)) {
-                        //treba da izbaci gresku za kolicinu 
+                    if (newReservation < parseInt(filterPerformance[j].kolicina)) {
+                        filterPerformance[j].rezervacija = newReservation;
+                    reservationsArray.push(filterPerformance[j]);
+                        } else {
+                            //treba da izbaci gresku za kolicinu 
                         alert(
                             "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno " +
                             filterPerformance[j].kolicina + " ulaznica");
                         console.log(filterPerformance[j].kolicina);
                         console.log(newReservation);
                         newReservation = 0;
-                    }
-                    filterPerformance[j].rezervacija = newReservation;
-                    reservationsArray.push(filterPerformance[j]);
-        
+                        }       
                 }
             }
             console.log(reservationsArray);

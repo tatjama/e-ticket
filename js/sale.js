@@ -213,7 +213,7 @@ function createSale() {
 // main function filter      
   function doFilter(){
       removePreSelection();
-     let dogadjanja = JSON.parse(localStorage.getItem('bazadogadjaja'));
+     let arrayOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja'));
      let typeOfPerformance = activeStore.innerHTML;
      let typeOfScene = activeScene.innerHTML;
      let ticketStock = quantityOfItems.checked;
@@ -221,9 +221,9 @@ function createSale() {
      let count = document.getElementById('prebroj').checked;
        
     //filter by type of performance
-      let filterTypeOfPerformance = dogadjanja;
+      let filterTypeOfPerformance = arrayOfPerformances;
       if(typeOfPerformance !==''){
-          filterTypeOfPerformance = dogadjanja.filter(
+          filterTypeOfPerformance = arrayOfPerformances.filter(
               function(newPerformance){
                   if(newPerformance.vrsta ==typeOfPerformance){
                       return true;
@@ -401,12 +401,13 @@ function makeNewReservation(){
              reservation.rezervacija = input[i].value;
              console.log(reservation);
              console.log('stock' + i);
-             if(parseInt(reservation.rezervacija)  > parseInt(reservation.kolicina) ){
-                alert(
+             if(parseInt(reservation.rezervacija)  < parseInt(reservation.kolicina) ){
+               newReservations.push(reservation);
+             } else{
+                
+                 alert(
                     "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da rezervišete maksimalno " +
                     reservation.kolicina + " ulaznica");
-             } else{
-                newReservations.push(reservation);
              }                       
         }        
     }

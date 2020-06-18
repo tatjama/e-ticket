@@ -140,28 +140,42 @@ function entry() {
         document.getElementsByClassName('greska')[2].innerHTML != '') {
         alert('Neispravan unos ili prazno polje');
     } else {
-       
-        var newPerformance = {};           
+        //let newPerformance = {};
+        let scene;
+        let x = Math.floor(Math.random() * 6) + 1;
+
+        if (document.getElementById('pozitivna').checked) {
+             scene = 'Mala scena';
+        } else {
+             scene = 'Velika scena';
+        }       
+              
+        var newPerformance = {
+            naziv: document.getElementById('name').value.toUpperCase(),
+            autor: author.value,
+            cena: price.value,
+            datum: date.value,
+            kolicina: quantity.value,
+            vrsta: type.value,
+            scena: scene,
+            image: pickImage()  + x + ".webp"
+        }    
         
-        newPerformance.naziv = document.getElementById('name').value.toUpperCase();
+        /*newPerformance.naziv = document.getElementById('name').value.toUpperCase();
         newPerformance.autor = author.value;
         newPerformance.cena = price.value;
         newPerformance.datum = date.value;
         newPerformance.kolicina = quantity.value;
         newPerformance.vrsta = type.value;
-        if (document.getElementById('pozitivna').checked) {
-            newPerformance.scena = 'Mala scena';
-        } else {
-            newPerformance.scena = 'Velika scena';
-        }
-        var x = Math.floor(Math.random() * 6) + 1;
+        newPerformance.scena = scene;
+        newPerformance.image = pickImage()  + x + ".webp";      */  
+        
        // newPerformance.image = document.getElementById('img').value.slice(12);
-       newPerformance.image = pickImage()  + x + ".webp"
+      
        function pickImage(){
         switch(type.value){
             case "Predstava":
-                return "drama" ;
-                
+                return "drama" ;                
                 case "Opera":
                      return "opera"
                     break;

@@ -4,6 +4,9 @@
     flex-direction: column;
     align-items: center;
 }
+h1{
+    position: relative;
+}
 #table-main{
     border-spacing: 3px 3px;
 }
