@@ -58,6 +58,7 @@ p{
   @media screen and (max-width: 400px){
       #entry-container{
           padding: 10px 30px;
+          margin-left: 0px;
       }
       #welcome-user{
          background-image: url('../images/music.svg');         
