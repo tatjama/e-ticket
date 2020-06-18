@@ -47,7 +47,7 @@ function createEShop() {
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' + '</h1>';
             var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
@@ -65,7 +65,7 @@ function createEShop() {
             console.log('gost');
             navBg.style.display = 'none';          
             eShopMessage.innerHTML = 
-            "<h1>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
+            "<h1 class='h1-message'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
             animate();
         }
         
@@ -73,7 +73,7 @@ function createEShop() {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1 id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+        "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
         animate();
      }
     

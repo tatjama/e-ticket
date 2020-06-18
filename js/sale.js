@@ -19,7 +19,7 @@ function createSale() {
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice.' + '</h1>';
             var shops = `
@@ -92,14 +92,14 @@ function createSale() {
             console.log('gost');
             navBg.style.display = 'none';          
             eShopMessage.innerHTML = 
-            "<h1 >Nemate administratorska ovlašćenja za prodaju ulaznica!</h1>"
+            "<h1 class='h1-message' >Nemate administratorska ovlašćenja za prodaju ulaznica!</h1>"
             animate();
         }        
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1 id='guest-user' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.</h1>";
+        "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.</h1>";
         animate();
      }    
     }

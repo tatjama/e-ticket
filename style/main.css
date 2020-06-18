@@ -19,7 +19,7 @@ a, i{
     font-size: small;   
     cursor: pointer; 
 }
-h1 {
+.h1-message {
     position: absolute;    
     font-size: 8px;
     color: mintcream;

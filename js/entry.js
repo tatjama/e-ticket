@@ -21,7 +21,7 @@ function checkUser(){
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
             ' .<br>Na ovoj strani pravite ulaz za nove ulaznice.</h1>';
             animate();
@@ -30,7 +30,7 @@ function checkUser(){
            navBg.style.display = 'none';  
            entryContainer.style.display = 'none';        
             eShopMessage.innerHTML = 
-            "<h1>Nemate administratorska ovlašćenja za unos ulaznica!</h1>"
+            "<h1 class='h1-message'>Nemate administratorska ovlašćenja za unos ulaznica!</h1>"
             animate();
         }    
     }else{ 
@@ -38,7 +38,7 @@ function checkUser(){
         navBg.style.display = "none";  
         entryContainer.style.display = 'none';          
         eShopMessage.innerHTML = 
-       "<h1 id='guest-user' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
+       "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
        animate();
     }
 }
