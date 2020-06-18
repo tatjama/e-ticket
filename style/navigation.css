@@ -94,9 +94,18 @@ nav a:hover{
    }
    .nav-close{
       display: block;
-      width: 80%;
+      width: 86%;
       text-align: end;
       padding: 30px 0px 20px 20px;
+    }
+    @media screen and (max-width: 400px){
+        .nav-close{
+      display: block;
+      width: 83%;
+      text-align: end;
+      padding: 30px 0px 20px 20px;
+    }
+
     }
     
 }

@@ -37,7 +37,7 @@ input {
 #pickUp_signUp {
     text-align: center;
     position: fixed;
-    right: 70px;
+    right: 90px;
     top: 15px;
     display: none;
     background-color: beige;
@@ -50,8 +50,8 @@ input {
    width: 15px;
 }
 .hide-form{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     margin: 10px;
     position: relative;
     left: 100px;
@@ -194,6 +194,7 @@ figure:hover{
     }
     #pickUp_signIn,
     #pickUp_signUp {
+        padding: 20px;
         text-align: center;
         position: fixed;
         right: 0px;
