@@ -156,7 +156,7 @@ function entry() {
         }
         var x = Math.floor(Math.random() * 6) + 1;
        // newPerformance.image = document.getElementById('img').value.slice(12);
-       newPerformance.image = pickImage() + + x + ".jpg"
+       newPerformance.image = pickImage()  + x + ".webp"
        function pickImage(){
         switch(type.value){
             case "Predstava":
