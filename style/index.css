@@ -105,7 +105,14 @@ figure:hover{
 }
 .content{
     width: 400px;
-    padding: 5px;
+    padding: 15px;
+}
+.content p
+{
+    padding:10px;
+}
+hr{
+    margin: 10px
 }
 /***Section three****/
 .section_three{
