@@ -209,9 +209,20 @@ h1{
 .popuna{
     height: 200px;
     background-color: mintcream;
+    background-color: goldenrod;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 1000px){
+    .section_three img {
+        margin: 15px 15px;
+    }   
+    .popuna{
+        height: 200px;
+        background-color: rgba(43, 43, 46, 0.8);
+        background-color: goldenrod;
+    } 
+}
+@media screen and (max-width: 800px){
     .section_one{
         padding: 10px 20px;
     }
@@ -224,8 +235,31 @@ h1{
     margin: 20px 27px;
 }
 
+.description{
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-@media screen and (max-width: 500px){
+.premiere{
+flex-direction: row-reverse;
+margin: 0px;
+width: 100%;
+font-size: 11px;
+padding: 25px;
+}
+.premiere:nth-of-type(2){
+flex-direction: row;
+   
+}
+.popuna{
+    height: 0px;
+}
+.section_three h4,
+.section_three h5{
+    text-align: center;
+}
+
+}
+@media screen and (max-width: 400px){
     .section_one{
         padding: 50px 20px;
     }
@@ -260,9 +294,7 @@ h1{
     flex-direction: column;
         margin: 0px;
         width: 100%;
-    }
-    .popuna{
-        height: 0px;
+        align-items: center;
     }
     .section_three h4,
     .section_three h5{
