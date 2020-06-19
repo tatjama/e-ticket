@@ -212,7 +212,10 @@ h1{
     background-color: goldenrod;
 }
 /***slider***/
-
+h2{
+    color: navy;
+    padding: 10px;
+}
 
 .slide img{
     height: 100px;
@@ -255,6 +258,14 @@ If we want to overflow works , we have to define height of element. Element have
     flex-direction: column;
     align-items: center;
     padding: 20px 0px;
+}
+.image-credit{
+    background-color: hsl(233, 12%, 13%);
+    padding: 10px;
+    color: grey;
+}
+.image-credit span{
+    font-size: x-small;
 }
 
 @media screen and (max-width: 1000px){
