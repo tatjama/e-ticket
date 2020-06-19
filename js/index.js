@@ -12,3 +12,12 @@ function showLess(){
     showLessSpan.style.display = 'none';
     hideTextSpan.style.display = 'none';
 }
+
+function currentSlide(n){         
+        document.querySelector('.slider').style.left =185-n*375 +'px';          
+        var x = document.querySelector('.slider-dots').querySelectorAll('.dot');
+        for(i = 0; i<x.length; i++){
+          x[i].setAttribute("class", 'dot');
+        }          
+        x[1+n].setAttribute("class", " dot active");
+}

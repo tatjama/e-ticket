@@ -212,6 +212,18 @@ h1{
     background-color: goldenrod;
 }
 /***slider***/
+
+
+.slide img{
+    height: 100px;
+    position: relative;
+    top: -50px;
+    border-radius: 50%;
+}
+h3{
+    margin-left: -100px;
+    display: inline-block;
+}
 /*SLIDER -  it is very important, that we define width, and now we can see whole slider.
 overflow-x: auto showing scroll bar, but on responsive scroll bar still exist, and I have to move it.
 If we want to overflow works , we have to define height of element. Element have to be block or flex.*/
@@ -222,7 +234,7 @@ If we want to overflow works , we have to define height of element. Element have
     height: 345px;
     width: 1465px;    
     position: relative;
-    left: -105px;
+    left: 0px;
 }
 .slider-dots{
     display: none;
@@ -241,6 +253,8 @@ If we want to overflow works , we have to define height of element. Element have
 .section_four{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
 }
 
 @media screen and (max-width: 1000px){
@@ -331,5 +345,36 @@ flex-direction: row;
     .section_three h5{
         text-align: center;
     }
+    /*****slider***/
+    
+.slider{ 
+    /*slide efekat achieved with change left position, 
+    but we could also  make this effekte with transform:translateX(375px), it is better solution when 
+    we use swipe on mobile instead onclick . */         
+    left: 185px;  
+    transition: 2s; 
+    overflow-x: hidden;   
+}
+.slider-dots{
+    display: initial;
+}
+.dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid goldenrod;
+}
+.active{
+    background-color: goldenrod;
+}
+.slide{
+   width: 375px;      
+   margin: 50px 0px;
+}
+.slide p{
+    font-size: 0.8rem;
+    width: 100%;        
+}
     
 }

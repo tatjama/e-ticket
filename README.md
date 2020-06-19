@@ -15,3 +15,8 @@ Photo by Michael Afonso on Unsplash
 Photo by Tim Gouw on Unsplash
 Photo by Andy Beales on Unsplash
 Photo by Sharon McCutcheon on Unsplash
+Photo by Michael Dam on Unsplash
+Photo by Fábio Scaletta on Unsplash
+Photo by Foto Sushi on Unsplash
+
+Photo by Štefan Štefančík on Unsplash
