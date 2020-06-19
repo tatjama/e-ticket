@@ -266,6 +266,10 @@ If we want to overflow works , we have to define height of element. Element have
         background-color: rgba(43, 43, 46, 0.8);
         background-color: goldenrod;
     } 
+    .slider{
+        width: 800px;
+    }
+    
 }
 @media screen and (max-width: 800px){
     .section_one{
@@ -301,6 +305,9 @@ flex-direction: row;
 .section_three h4,
 .section_three h5{
     text-align: center;
+}
+.slider{
+    width: 800px;
 }
 
 }
@@ -353,7 +360,8 @@ flex-direction: row;
     we use swipe on mobile instead onclick . */         
     left: 185px;  
     transition: 2s; 
-    overflow-x: hidden;   
+    overflow-x: hidden;  
+    width: 1400px; 
 }
 .slider-dots{
     display: initial;
