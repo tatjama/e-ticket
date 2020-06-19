@@ -114,6 +114,15 @@ figure:hover{
 hr{
     margin: 10px
 }
+.show-less,
+.hide-text{
+    display: none;
+}
+.show-less,
+.show-more{
+    color: navy;
+    cursor: pointer;
+}
 /***Section three****/
 .section_three{
     background-color: mintcream;    
@@ -149,6 +158,7 @@ h1{
     background-color: rgba(43, 43, 46, 0.8);
     display: flex;
     flex-direction: column;
+
 }
 
 .premiere {
@@ -159,8 +169,8 @@ h1{
     box-sizing: border-box;
    /*background-color: lightgoldenrodyellow;*/
   /* background-color: rgba(0, 0, 0, 0.6);*/
-    font-size: 16px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 25px;
     width: 50%;
     margin-bottom: -120px;
     margin-left: 50%;
@@ -178,19 +188,27 @@ h1{
     margin: 8px 50px;
     justify-content: center;
 }
-.section_three p, 
-.section_three h4{
-    padding: 0px  20px ;
-    text-align: center;
+.section_three p{
+   
+    text-align: left;
     color: white;
 }
-.section_three h4{
+.section_three h4
+{
     color: rgb(92, 150, 216);
-    padding: 10px;
+    padding: 10px 0px;
+}
+.section_three h5{
+    color: rgb(92, 150, 216);
+    padding: 2px 1px;
+}
+.parallax-text{
+    display: flex;
+    flex-direction: column;
 }
 .popuna{
     height: 200px;
-    background-color: rgba(43, 43, 46, 0.95);
+    background-color: mintcream;
 }
 
 @media screen and (max-width: 750px){
@@ -245,6 +263,10 @@ h1{
     }
     .popuna{
         height: 0px;
+    }
+    .section_three h4,
+    .section_three h5{
+        text-align: center;
     }
     
 }
