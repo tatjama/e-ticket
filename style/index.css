@@ -286,7 +286,22 @@ If we want to overflow works , we have to define height of element. Element have
 .image-credit-spans div{
     font-size: x-small;
 }
-
+/***comment form**/
+.comment-form{
+    padding: 30px 60px;
+    align-self: center;
+}
+.form-div{
+    display: flex;
+    flex-direction: row;
+}
+textarea{
+    margin: 6px 15px;
+    border: goldenrod 1px solid;
+}
+.comment-form{
+    display: none;
+}
 
 @media screen and (max-width: 1000px){
     .section_three img {
@@ -339,6 +354,15 @@ flex-direction: row;
 }
 .slider{
     width: 800px;
+}
+/***comment form**/
+.form-div{
+    display: flex;
+    flex-direction: column;
+    
+}
+textarea{
+    margin: 6px 5px;
 }
 
 }
@@ -415,5 +439,6 @@ flex-direction: row;
     font-size: 0.8rem;
     width: 100%;        
 }
+
     
 }

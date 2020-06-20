@@ -306,9 +306,37 @@
                 </div>
                 
                 <div>
-                  <button >Pošaljite poruku</button>
+                  <button id="open-comment-form" onclick="openCommentForm()">Pošaljite poruku</button>
                 </div>
               </div>
+              <div class="comment-form">
+                <img onclick="hideCommentForm()" class="hide-form" src="./images/icon-close.svg">
+                <form action="./php/myform-proccessor.php" method="post" target="_blank" name="myemailform">
+                        <input type="hidden" name="recipient" value="office@privatniboravak.com">
+                        <input type="hidden" name="subject" value="FormMail E-Mail">
+                        
+                    <legend><h2>Ostavite komentar</h2></legend>                 
+                        <div class="form-div">
+                            <div>
+                                <input name="name" type="text" placeholder=" Ime" size="30" value="" required><br><br>
+                                <input name="lastname" type="text" size="30" value="" placeholder=" Prezime"><br><br>
+                                <input name="email" type="text" placeholder=" E-mail" size="30" value="" required><br><br>
+                                
+                            </div>                            
+                            <div>    
+                                <textarea name="message" placeholder=" Napišite komentar" cols="35" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-div-submit">                                
+                            <br>
+                            <button  onclick="hgsubmit();">
+                                Pošaljite komentar
+                            </button><br>
+                            <input type="hidden" name="redirect" value="thanks.html">
+                                            
+                        </div>                        
+                </form>
+            </div> 
             </section>
             <footer>
               <div class="footer-div-first">
