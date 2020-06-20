@@ -29,3 +29,17 @@ function hideCommentForm(){
   document.querySelector('.comment-form').style.display = "none";
   document.getElementById('open-comment-form').style.display = "block";
 }
+function hgsubmit(){
+if (/\S+/.test(document.myemailform.name.value) == false) alert ("Molim Vas upišite ime.");
+else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value) == false) alert ("Validna  email adresa je obavezna.");
+ else if (/\S+/.test(document.myemailform.message.value) == false) alert ("Molim Vas upišite poruku.");
+  else {
+       document.myemailform.submit();
+       alert (' Hvala Vam! \n Vaš email je poslat.');
+       document.myemailform.name.value = "";       
+       document.myemailform.lastname.value = "";       
+       document.myemailform.email.value = "";       
+       document.myemailform.message.value = "";
+      
+       }
+}
