@@ -212,6 +212,10 @@ h1{
     background-color: goldenrod;
 }
 /***slider***/
+button:hover{
+    background-color: goldenrod;
+    cursor: pointer;
+}
 h2{
     color: navy;
     padding: 10px;
