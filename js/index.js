@@ -42,5 +42,6 @@ else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value
        document.myemailform.email.value = "";       
        document.myemailform.message.value = "";
       
+       hideCommentForm();
        }
 }
