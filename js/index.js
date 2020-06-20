@@ -34,7 +34,8 @@ if (/\S+/.test(document.myemailform.name.value) == false) alert ("Molim Vas upi�
 else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value) == false) alert ("Validna  email adresa je obavezna.");
  else if (/\S+/.test(document.myemailform.message.value) == false) alert ("Molim Vas upišite poruku.");
   else {
-       document.myemailform.submit();
+    //submit is not allowed - 
+     //  document.myemailform.submit();
        alert (' Hvala Vam! \n Vaš email je poslat.');
        document.myemailform.name.value = "";       
        document.myemailform.lastname.value = "";       
