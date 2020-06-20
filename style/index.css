@@ -262,11 +262,27 @@ If we want to overflow works , we have to define height of element. Element have
 .image-credit{
     background-color: hsl(233, 12%, 13%);
     padding: 10px;
+    color: rgb(92, 150, 216);
+    font-size: small;
+}
+.image-credit a{
+    font-size: x-small;
     color: grey;
+    text-align: left;
 }
 .image-credit span{
+    display: inline;
+}
+.image-credit-spans{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.image-credit-spans div{
     font-size: x-small;
 }
+
 
 @media screen and (max-width: 1000px){
     .section_three img {
