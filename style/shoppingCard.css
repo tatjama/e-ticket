@@ -85,7 +85,7 @@ button {
 #pay-button{
     display: none;
 }
-@media screen and (max-width: 750px){
+@media screen and (max-width: 760px){
     .shoppingCard-container{
         padding: 10px;
     }

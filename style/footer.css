@@ -83,7 +83,7 @@ footer input{
     position: relative;
     top: -20px;
 }
-@media screen and (max-width: 750px){
+@media screen and (max-width: 760px){
              
   footer{
         flex-direction: column;
