@@ -14,12 +14,12 @@ function showLess(){
 }
 
 function currentSlide(n){         
-        document.querySelector('.slider').style.left =185-n*375 +'px';          
-        var x = document.querySelector('.slider-dots').querySelectorAll('.dot');
+        document.querySelector('.location-slider').style.left =185-n*375 +'px';          
+        var x = document.querySelector('.location-dots').querySelectorAll('.location-dot');
         for(i = 0; i<x.length; i++){
-          x[i].setAttribute("class", 'dot');
+          x[i].setAttribute("class", 'location-dot');
         }          
-        x[1+n].setAttribute("class", " dot active");
+        x[1+n].setAttribute("class", " location-dot active");
 }
 function openCommentForm(){
   document.querySelector('.comment-form').style.display = "block";

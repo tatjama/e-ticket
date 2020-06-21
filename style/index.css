@@ -263,6 +263,7 @@ If we want to overflow works , we have to define height of element. Element have
     align-items: center;
     padding: 20px 0px;
 }
+/**images credits**/
 .image-credit{
     background-color: hsl(233, 12%, 13%);
     padding: 10px;
@@ -302,6 +303,77 @@ textarea{
 }
 .comment-form{
     display: none;
+}
+
+/****location***/
+.location-section{
+    padding: 50px 200px;
+    background-color: hsl(233, 12%, 13%);
+}
+.section-five{
+    display: flex;
+    flex-direction: row;
+    
+}
+.location{
+    width: 450px;
+}
+.location-slider{
+    left: 185px;
+    display: flex;   
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: 345px;
+    width: 1465px;    
+    position: relative;
+    transition: 2s;
+    overflow-x: hidden;
+    
+}
+.right{
+    background-color: hotpink;
+    z-index: 1;
+}
+.location-dots{
+    display: initial;
+}
+.location-dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid goldenrod;
+}
+.active{
+    background-color: goldenrod;
+}
+
+.location-slide p{
+    width: 460px;
+    padding:0px 50px;
+    font-size: 1rem;    
+}
+.location-slide{
+   width: 375px;   
+   background-color: hsl(0, 0%, 98%);
+   text-align: center;   
+   margin: 50px 0px;
+}
+.location-slide p{
+    font-size: 0.8rem;
+    width: 100%;        
+}
+.location-slide img{
+    height: 250px;
+    position: relative;
+    top: -50px;
+    
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
 }
 
 @media screen and (max-width: 1000px){
@@ -374,6 +446,9 @@ flex-direction: row;
     .form-div input,
     .form-div textarea{
         width: 250px;
+    }
+    .location{
+        width: 100%;
     }
 }
 @media screen and (max-width: 400px){
