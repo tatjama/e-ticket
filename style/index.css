@@ -298,6 +298,7 @@ If we want to overflow works , we have to define height of element. Element have
 textarea{
     margin: 6px 15px;
     border: goldenrod 1px solid;
+    padding: 2px;
 }
 .comment-form{
     display: none;
@@ -353,18 +354,27 @@ flex-direction: row;
     text-align: center;
 }
 .slider{
-    width: 600px;
+    width: 490px;
 }
 /***comment form**/
-.form-div{
-    display: flex;
-    flex-direction: column;
-    
-}
-textarea{
-    margin: 6px 5px;
-}
 
+
+
+}
+@media screen and (max-width: 560px){
+    .form-div{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    textarea{
+        margin: 6px 5px;
+    }
+    
+    .form-div input,
+    .form-div textarea{
+        width: 250px;
+    }
 }
 @media screen and (max-width: 400px){
     .section_one{
@@ -408,11 +418,12 @@ textarea{
         text-align: center;
     }
     /*****slider***/
-    
-.slider{ 
-    /*slide efekat achieved with change left position, 
+     /*slide efekat achieved with change left position, 
     but we could also  make this effekte with transform:translateX(375px), it is better solution when 
-    we use swipe on mobile instead onclick . */         
+    we use swipe on mobile instead onclick . */       
+    
+/*.slider{ 
+     
     left: 185px;  
     transition: 2s; 
     overflow-x: hidden;  
@@ -439,6 +450,6 @@ textarea{
     font-size: 0.8rem;
     width: 100%;        
 }
-
+*/
     
 }
