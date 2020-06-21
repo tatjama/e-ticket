@@ -27,7 +27,7 @@ nav{
     padding-top: 10px;
 }
 
- @media screen and (max-width:760px){
+ @media screen and (max-width:800px){
     nav{
         padding: 20px 20px ;
     }
