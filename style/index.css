@@ -120,7 +120,7 @@ hr{
 }
 .show-less,
 .show-more{
-    color: navy;
+    color: goldenrod;
     cursor: pointer;
 }
 /***Section three****/
@@ -313,7 +313,7 @@ textarea{
         background-color: goldenrod;
     } 
     .slider{
-        width: 800px;
+        width: 700px;
     }
     
 }
@@ -353,7 +353,7 @@ flex-direction: row;
     text-align: center;
 }
 .slider{
-    width: 800px;
+    width: 600px;
 }
 /***comment form**/
 .form-div{
