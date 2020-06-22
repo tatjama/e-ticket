@@ -379,7 +379,7 @@ textarea{
 
 .right{
     background-color:hsl(233, 12%, 13%);
-    
+    padding: 65px;
     z-index: 1;
     width: 600px;
 }
