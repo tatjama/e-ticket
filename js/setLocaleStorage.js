@@ -262,7 +262,7 @@ function setLocalStorage(a, b, c, d) {
     console.log(currentlyLoggedIn);
 
    // version 1 . We set localStorage ones, and after that use the same localStorage    
-  /* localStorage.removeItem('currentlyLoggedInUser');
+  localStorage.removeItem('currentlyLoggedInUser');
 
     if(JSON.parse(localStorage.getItem('bazadogadjaja')) ===null){
         localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances));        
@@ -271,16 +271,16 @@ function setLocalStorage(a, b, c, d) {
         localStorage.setItem('userStorage', JSON.stringify(userStorage));
     }
     
-    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
+    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
 
 
    // version 2 . Every time we clicked icon, we set new localStorage
 
-   localStorage.removeItem('bazadogadjaja');
+  /* localStorage.removeItem('bazadogadjaja');
    localStorage.removeItem('userStorage');    
    localStorage.removeItem('currentlyLoggedInUser');
 
    localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances)); 
    localStorage.setItem('userStorage', JSON.stringify(userStorage));   
-   localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
+   localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
 }
