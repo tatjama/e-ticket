@@ -57,3 +57,23 @@ Responsive Shopping card made by using technology:
             - image is randomly by type of performance
             Press button ENTRY
             Congratulation!!! You added new performance on stock, and now you can sell it.
+
+        LANDING PAGE:
+        1. Navigation menu
+           Responsive navigation menu hamburger
+        2. E-shop
+            Responsive - inside manburger menu
+            Desk top - inside navigation menu on the top right
+        3. Sections:
+            a) Links
+            b)Text
+            c)Premiere
+            d) Reviews - slider left to right
+            e) Location 
+               - Gallery - slider with dots
+               - Google map
+        4. Footer:
+        5. Credits for images and icons
+
+        Thank you
+        Tanja, tanja120a@gmail.com
