@@ -14,7 +14,7 @@ function showLess(){
 }
 
 function currentSlide(n){         
-        document.querySelector('.location-slider').style.left =185-n*375 +'px';          
+        document.querySelector('.location-slider').style.left =355-n*430 +'px';          
         var x = document.querySelector('.location-dots').querySelectorAll('.location-dot');
         for(i = 0; i<x.length; i++){
           x[i].setAttribute("class", 'location-dot');
