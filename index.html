@@ -68,11 +68,11 @@
               <img onclick="hideLoginForm()" class="hide-form" src="./images/icon-close.svg">
             
               <fieldset>
-                  <legend>LOGOVANJE</legend>
+                  <legend class="lang" key="signInLegend">LOGOVANJE</legend>
                   <br>E-mail:<br>
                   <span class="error" id="error1" title="Pogrešan unos. Unesite validan E-mail"></span>
                   <input type="email" placeholder=" E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
-                  <br> Lozinka:<br>
+                  <br><span class="lang" key="formPassword"> Lozinka:</span><br>
                   <span class="error" id="error2" title="Pogrešan unos. Unesite password"></span>
                   <input type="password" id="logIn_password" placeholder=" Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
                   <br>
@@ -88,9 +88,9 @@
                     <img class="nav-img-logo" src="./images/drama6.jpg">
                   </div>                  
                   <div class="nav-menu">
-                    <a  href="#aboutus">O nama</a>    
-                    <a  href="#terms">Uslovi kupovine</a>
-                    <a  href="#customer-service">Korisnički servis</a>                   
+                    <a class="lang" key="aboutUs" href="#aboutus">O nama</a>    
+                    <a class="lang" key="terms" href="#terms">Uslovi kupovine</a>
+                    <a class="lang" key="customer" href="#customer-service">Korisnički servis</a>                   
                   </div>      
                   <div class="nav-bg" id="start">                 
                     <a onclick="setLocalStorage('start', 'signing', 'signIn', 'signUp')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
@@ -110,9 +110,9 @@
                     <div onclick="closeMenu()" class="nav-close">
                       <img src="./images/icon-close.svg">
                     </div>
-                    <a  href="#aboutus" onclick="closeMenu()">O nama</a>    
-                    <a  href="#terms" onclick="closeMenu()">Uslovi kupovine</a>
-                    <a  href="#customer-service" onclick="closeMenu()">Korisnički servis</a>                                    
+                    <a class="lang" key="aboutUs" href="#aboutus" onclick="closeMenu()">O nama</a>    
+                    <a class="lang" key = "terms"  href="#terms" onclick="closeMenu()">Uslovi kupovine</a>
+                    <a class="lang" key="customer" href="#customer-service" onclick="closeMenu()">Korisnički servis</a>                                    
                     <a id="start_mobile" onclick="setLocalStorage('start_mobile', 'signing_mobile', 'signIn_mobile', 'signUp_mobile')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
                     <div id="signing_mobile">
                       <a id="eshop_mobile" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>
@@ -128,7 +128,7 @@
                 <figure>
                     <a href="#section_three_h1">
                         <img src="images/pozoriste1.jpg" alt="pozoriste velika sala">
-                        <figcaption>Premijere</figcaption>
+                        <figcaption class="lang" key="premiere">Premijere</figcaption>
                     </a>
                 </figure>
                 <figure>
@@ -140,7 +140,7 @@
                 <figure>
                   <a href="#location">
                     <img src="images/beograd3.jpg" alt="beograd">                  
-                    <figcaption>Kontakt</figcaption>
+                    <figcaption class="lang" key="contact">Kontakt</figcaption>
                   </a>
                 </figure>
             </section>
@@ -176,8 +176,8 @@
                         ulaznice. Ovo su uslovi za povrat novca... Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
                         veritatis
                       </span>
-                      <span class="show-more" onclick="showMore()">
-                        ...Saznaj više
+                      <span class="show-more lang" key="show-more" onclick="showMore()">
+                        saznaj više
                       </span>
                         <span class="hide-text">
                           et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
@@ -186,15 +186,15 @@
                           Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
                           Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
                       </span>
-                      <span class="show-less" onclick="showLess()">
-                        Saznaj manje...
+                      <span class="show-less lang" key="show-less" onclick="showLess()">
+                        ...saznaj manje
                       </span> 
                     </p>
                            
                 </div>
             </section>
             <section class="section_three">
-              <h1 id="section_three_h1">PREMIJERE</h1>
+              <h1 class="lang" key="premiere-h1" id="section_three_h1">PREMIJERE</h1>
               
               <div id="parallax_image_one" class="parallax"> 
                 <div class="description">
@@ -208,9 +208,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5> <span class="lang" key="date"> DATUM: </span> 10.10.2020</h5>
+                      <h5><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span>  Velika scena</h5>
                     </div>
                        
                   </div> 
@@ -223,9 +223,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5> <span class="lang" key="date"> DATUM: </span> 10.10.2020</h5>
+                      <h5><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span>  Velika scena</h5>
                     </div>   
                    </div>
                 </div>
@@ -239,9 +239,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5><span class="lang" key="date"> DATUM: </span> 10.10.2020</h5>
+                      <h5 ><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span> Velika scena</h5>
                     </div>
                   </div>
                   <div class="premiere">
@@ -253,9 +253,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5> <span class="lang" key="date"> DATUM: </span> 10.10.2020</h5>
+                      <h5><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span>  Velika scena</h5>
                     </div>
                   </div>
                 </div>     
@@ -269,9 +269,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5> <span class="lang" key="date"> DATUM: </span>10.10.2020</h5>
+                      <h5><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span>  Velika scena</h5>
                     </div>      
                 </div>
                 <div class="premiere">          
@@ -283,9 +283,9 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
                       molestie sapien quis, pretium est. Sed vehicula                      
                     </p>
-                    <h5> DATUM: 10.10.2020</h5>
-                      <h5>VREME: 20:00h</h5>
-                      <h5>SCENA: Velika scena</h5>
+                    <h5><span class="lang" key="date"> DATUM: </span>10.10.2020</h5>
+                      <h5><span class="lang" key = "time">VREME: </span> 20:00h</h5>
+                      <h5><span class="lang" key = 'scene'>SCENA: </span> Velika scena</h5>
                     </div>
                 </div>
                 </div>            
@@ -296,14 +296,14 @@
             <section>
               <div class="section_four">
                 <div>
-                  <h2>Rekli su o nama
+                  <h2 class="lang" key="they said">Rekli su o nama
                     <!--What they’ve said--></h2>
                 </div>      
                 <div class="slider">        
                   <div class="slide">
                   <img src="./images/webp/avatar-marko.webp">
                   <h3>Marko</h3>
-                  <p>"Jednostavna kupovina ulaznica je ono zbog čega uvek koristim ovu uslugu. 
+                  <p class="lang" key="marko">"Jednostavna kupovina ulaznica je ono zbog čega uvek koristim ovu uslugu. 
                     Visoka sigurnost prilikom plaćanja je još jedan plus." 
                     <!--“Manage has supercharged our team’s workflow. The ability to maintain 
                   visibility on larger milestones at all times keeps everyone motivated.”-->
@@ -312,7 +312,7 @@
                   <div class="slide">
                    <img src="./images/webp/avatar-jelena.webp">
                   <h3>Jelena</h3>
-                  <p> "Morala sam da otkažem karte za jednu predstavu. Procedura je bila 
+                  <p class="lang" key="jelena"> "Morala sam da otkažem karte za jednu predstavu. Procedura je bila 
                     veoma jednostavna, a novac mi je vraćen u rekordnom roku. Sigurno ću 
                     ponovo koristiti e-ticket."
                    <!--“We have been able to cancel so many other subscriptions since using 
@@ -323,7 +323,7 @@
                   <div class="slide">
                     <img src="./images/webp/avatar-stefan.webp"/>          
                   <h3>Stefan</h3>
-                  <p>"Redovno posećujem ovaj sajt, jer uvek dobijem nove informacije vezane za 
+                  <p class="lang" key="stefan">"Redovno posećujem ovaj sajt, jer uvek dobijem nove informacije vezane za 
                     premijere. Preglednost i jednostavnost korišćenja mi je najbitnija."
                     <!--“Manage allows us to provide structure and process. It keeps us organized 
                     and focused. I can’t stop recommending them to everyone I talk to!”-->
@@ -332,7 +332,7 @@
                   <div class="slide">
                    <img src="./images/webp/avatar-luka.webp">
                   <h3>Luka</h3>
-                  <p> "Uvek ljubazan i efikasan korisnički servis. Mogućnost kontaktiranja 
+                  <p class="lang" key="luka"> "Uvek ljubazan i efikasan korisnički servis. Mogućnost kontaktiranja 
                     e-mailom ili telefonom, a ulaznice stižu elektronskim putem."          
                    <!-- “Their software allows us to track, manage and collaborate on our projects 
                     from anywhere. It keeps the whole team in-sync without being intrusive.”--->
@@ -349,7 +349,7 @@
                 </div>
                 
                 <div>
-                  <button id="open-comment-form" onclick="openCommentForm()">Pošaljite poruku</button>
+                  <button class="lang" key="sent" id="open-comment-form" onclick="openCommentForm()">Pošaljite poruku</button>
                 </div>
               </div>
               <div class="comment-form">
@@ -360,7 +360,7 @@
                         <input type="hidden" name="recipient" value="tanja120a@gmail.com">
                         <input type="hidden" name="subject" value="FormMail E-Mail">
                         
-                    <legend><h2>Ostavite komentar</h2></legend>                 
+                    <legend><h2 class="lang" key="type comment">Ostavite komentar</h2></legend>                 
                         <div class="form-div">
                             <div>
                                 <input name="name" type="text" placeholder=" Ime" size="30" value="" required><br><br>
@@ -374,7 +374,7 @@
                         </div>
                         <div class="form-div-submit">                                
                             <br>
-                            <button  onclick="hgsubmit();">
+                            <button class="lang" key="sent" onclick="hgsubmit();">
                                 Pošaljite komentar
                             </button><br>
                             <input type="hidden" name="redirect" value="thanks.html">
@@ -388,7 +388,7 @@
             </section>-->
             <section class="customer-service">
               <div class="customer-service-content">
-                <h1 id="customer-service">Korisnički servis</h1>
+                <h1 class="lang" key="customer" id="customer-service">Korisnički servis</h1>
                
                 <p>
                  <hr/>Sed ut perspiciatis unde omnis iste natus error sit 
@@ -419,7 +419,7 @@
             <section id="location" class="location-section">
               <div class="section-five">
                 <div class="location-first">
-                      <h1>Kontakt</h1>
+                      <h1 class="lang" key="contact">Kontakt</h1>
                       <p>Tel: 011/111-00-00
                       <br>
                       Adresa: Milutina Milankovica bb 
@@ -493,15 +493,15 @@
               </div>
               <div class="footer-menu">
                 <div>
-                  <a href="#aboutus">O nama</a>
+                  <a class="lang" key="aboutUs" href="#aboutus">O nama</a>
                   <a href="./view/eshop.html">E - shop</a>
-                  <a href="#section_three_h1">Premijere</a>
+                  <a class="lang" key="premiere" href="#section_three_h1">Premijere</a>
                   <a href="#">Program</a>
                 </div>
                 <div>
-                  <a href="#location">Kontakt</a>  
-                  <a href="#terms">Uslovi</a>  
-                  <a href="#customer-service">Korisnički servis</a>  
+                  <a class="lang" key="contact" href="#location">Kontakt</a>  
+                  <a class="lang" key = "terms" href="#terms">Uslovi</a>  
+                  <a class="lang" key="customer" href="#customer-service">Korisnički servis</a>  
                 </div>
               </div>
               <div class="footer-form">
