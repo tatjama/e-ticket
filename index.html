@@ -43,20 +43,20 @@
                   <legend class="lang" key="signUpLegend">Registracija korisnika</legend>
                   <span class="lang" key="formName">Ime:</span>
                   <span class="error_signUp" title="Pogrešan unos. Unesite ime"></span>
-                  <input type="text" placeholder=" Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
+                  <input class="langAt" key="name" type="text" placeholder=" Unesite ime" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
                   <br><span class="lang" key="formSurname"> Prezime:</span>
                   <span class="error_signUp" title="Pogrešan unos. Unesite prezime"></span>
-                  <input type="text" placeholder=" Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
+                  <input class="langAt" key="surname" type="text" placeholder=" Unesite prezime" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
                   <span class="error_signUp" title="Pogrešan unos. Unesite validan E-mail"></span>
                   <input type="email" placeholder=" E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
                   <br><span class="lang" key="formPassword">Lozinka:</span> 
                   <span class="error_signUp" title="Pogrešan unos. Unesite password"></span>
-                  <input  type="password" placeholder=" Lozinka" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
+                  <input class="langAt" key="password" type="password" placeholder=" Lozinka" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
                   <br> Status:
                   <input type="number" placeholder=" administrator" id="signUp_status" readonly value="1">
                   <br>
-                  <input type="button" onclick="signUp()" value="Registracija">
-                  <input type="button" onclick="clearInputSignUp()" value="Obriši">                  
+                  <input class="langVal" key="register" type="button" onclick="signUp()" value="Registracija">
+                  <input class="langVal" key = "clear" type="button" onclick="clearInputSignUp()" value="Obriši">                  
               </fieldset>
           </form>
         </div>
@@ -74,10 +74,10 @@
                   <input type="email" placeholder=" E-mail" id="logIn_email" onblur="validMail('logIn_email', 0)" onfocus="fillingInput(0)" required>
                   <br><span class="lang" key="formPassword"> Lozinka:</span><br>
                   <span class="error" id="error2" title="Pogrešan unos. Unesite password"></span>
-                  <input type="password" id="logIn_password" placeholder=" Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
+                  <input class="langAt" key="password" type="password" id="logIn_password" placeholder=" Lozinka" onblur="valid1('logIn_password', 1)" onfocus="fillingInput(1)" required><br>
                   <br>
-                  <input type="button" onclick="signIn()" value="Uloguj">
-                  <input type="button" onclick="clearInput()" value="Obriši">
+                  <input class="langVal" key = "signIn" type="button" onclick="signIn()" value="Uloguj">
+                  <input class="langVal" key = "clear" type="button" onclick="clearInput()" value="Obriši">
               </fieldset>
           </form>
         </div>
@@ -507,7 +507,7 @@
               <div class="footer-form">
                 <form name="myForm">
                   <input type="email" name="emailAddr" placeholder="Novosti u Vašem sandučetu…" value="">
-                  <button  onClick="checkEMail()">Prijavi se</button>
+                  <button class="lang" key="signUp" onClick="checkEMail()">Prijavi se</button>
                   <br><p id="form-message"></p>
                 </form>                
                 <p id="footer-copy">Copyright 2020 by tanja120a@gmail.com . All Rights Reserved</p>

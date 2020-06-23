@@ -56,6 +56,7 @@ var arrLang = {
         'type comment' : 'Type comment',
         'sent' : 'Sent comment',
         'customer' : 'Customer service',
+        'signUp' :  'Sign Up',
 
     
     },
@@ -87,15 +88,49 @@ var arrLang = {
         'type comment' : 'Ostavite komentar',
         'sent' : 'Pošaljite komentar',
         'customer' : 'Korisnički servis',
+        'signUp' : 'Prijavi se',
+
+
+    }
+};
+
+//array of translation to change atributtes
+var arrLangAt = {
+    'en':{
+        'name': 'Yor name...',
+        'surname' : 'Your surname..',
+        'password' : 'Password...',
+        'register' : 'Register',
+        'clear' : 'Clear',
+        'signIn' : 'Sign in',
+
+    },
+    'sr' :{
+        'name' : 'Unesite ime..',
+        'surname' : 'Unesite prezime..',
+        'password' : 'Unesite ozinku...',
+        'register' : 'Registracija',
+        'clear' : 'Obriši',
+        'signIn' : 'Uloguj',
+
 
     }
 };
 $(function(){
     $('.translate').click(function(){
         var lang = $(this).attr('id');
-
+// inner text - change
         $('.lang').each(function(index, element){
             $(this).text(arrLang[lang][$(this).attr('key')])
         });
+        // value attribute placeholder - change
+        $('.langAt').each(function(index, element){
+            $(this).attr('placeholder', arrLangAt[lang][$(this).attr('key')]);
+            
+        });
+    // value attribute value - change
+        $('.langVal').each(function(index, element){
+            $(this).attr('value', arrLangAt[lang][$(this).attr('key')])
+        })
     })
 })
