@@ -315,6 +315,7 @@ textarea{
 .customer-service-content{
     padding: 150px;
     text-align: left;
+    background-color: honeydew;
 }
 .customer-service-content h1{
     text-align: center;
@@ -382,6 +383,13 @@ textarea{
     width: 300px;    
     background-color: hsl(233, 12%, 13%);
     z-index: 1;
+    color: goldenrod;
+    padding: 30px 20px;
+    font-size: 12px;
+}
+.location-first p,
+.location-first h1{
+    padding: 15px;
 }
 .left{
     display: flex;
@@ -414,6 +422,10 @@ textarea{
     } 
     .slider{
         width: 700px;
+    }
+    .location-first p,
+    .location-first h1{
+        display: none;
     }
     
 }
@@ -541,6 +553,10 @@ flex-direction: row;
     /**location**/
     .section-five{
         flex-direction: column;
+    }
+    .location-first p,
+    .location-first h1{
+        display: block;
     }
     .right{
         padding: 50px 0px;
