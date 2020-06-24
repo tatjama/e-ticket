@@ -53,10 +53,14 @@ var arrLang = {
         'jelena' : '" I had to cancel tickets for one show. The procedure was very simple, and the money was returned to me in record time. I will for sure re-use the e-ticket."',
         'stefan' : '"I visit this site regularly, because I always get new information related to premieres. Clarity and ease of use are paramount to me. "',
         'luka' : '"Always friendly and efficient customer service. Possibility of contact by e-mail or telephone, and tickets arrive electronically. "',
+        'swan': 'SWAN LAKE',
+        'eugene' : 'EUGENE ONEGIN',
+         'lady':'THE LADY OF THE CAMELLIAS',
         'type comment' : 'Type comment',
         'sent' : 'Sent comment',
         'customer' : 'Customer service',
         'signUp' :  'Sign Up',
+       
 
     
     },
@@ -85,11 +89,14 @@ var arrLang = {
         'jelena' : '"Morala sam da otkažem karte za jednu predstavu. Procedura je bila veoma jednostavna, a novac mi je vraćen u rekordnom roku. Sigurno ću ponovo koristiti e-ticket."',
         'stefan' : '"Redovno posećujem ovaj sajt, jer uvek dobijem nove informacije vezane za  premijere. Preglednost i jednostavnost korišćenja mi je najbitnija."',
         'luka' : '"Uvek ljubazan i efikasan korisnički servis. Mogućnost kontaktiranja e-mailom ili telefonom, a ulaznice stižu elektronskim putem." ',
+        'swan': 'LABUDOVO JEZERO',
+        'eugene' : 'EVGENIJE ONJEGIN',
+        'lady' : 'DAMA SA KAMELIJAMA',
         'type comment' : 'Ostavite komentar',
         'sent' : 'Pošaljite komentar',
         'customer' : 'Korisnički servis',
         'signUp' : 'Prijavi se',
-
+        
 
     }
 };
@@ -103,7 +110,7 @@ var arrLangAt = {
         'register' : 'Register',
         'clear' : 'Clear',
         'signIn' : 'Sign in',
-
+        'type comment' : 'Type comment...',
     },
     'sr' :{
         'name' : 'Unesite ime..',
@@ -112,7 +119,7 @@ var arrLangAt = {
         'register' : 'Registracija',
         'clear' : 'Obriši',
         'signIn' : 'Uloguj',
-
+        'type comment' : 'Napišite komentar...', 
 
     }
 };

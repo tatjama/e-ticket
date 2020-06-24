@@ -284,3 +284,210 @@ function setLocalStorage(a, b, c, d) {
    localStorage.setItem('userStorage', JSON.stringify(userStorage));   
    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
 }
+var storageOfPerformancesEng = [{
+    naziv: "CARMEN",
+    autor: "Georges Bizet",
+    cena: "700",
+    datum: "2020-10-10",
+    kolicina: 123,
+    vrsta: "Opera",
+    scena: "Mala scena",
+    image: "opera1.webp"
+
+},
+{
+    naziv: "RADOVAN TREĆI",
+    autor: "Dušan Kovačević",
+    cena: "500",
+    datum: "2020-11-20",
+    kolicina: 8,
+    vrsta: "Predstava",
+    scena: "Mala scena",
+    image: "drama1.webp"
+
+}, {
+
+    naziv: "GOSPOĐA MINISTARKA",
+    autor: "Branislav Nušić",
+    cena: "800",
+    datum: "2020-09-15",
+    kolicina: 163,
+    vrsta: "Predstava",
+    scena: "Mala scena",
+    image: "drama2.webp"
+
+},
+{
+    naziv: "LA TRAVIATA",
+    autor: "Giuseppe Verdi",
+    cena: "860",
+    datum: "2020-10-19",
+    kolicina: 161,
+    vrsta: "Opera",
+    scena: "Velika scena",
+    image: "opera2.webp"
+
+}, {
+    naziv: "BALKANSKI ŠPIJUN",
+    autor: "Dušan Kovačević",
+    cena: "680",
+    datum: "2020-09-11",
+    kolicina: 175,
+    vrsta: "Predstava",
+    scena: "Mala scena",
+    image: "drama3.webp"
+
+}, {
+    naziv: "SWAN LAKE",
+    autor: "Peter Ilich Tchaikovsky",
+    cena: "900",
+    datum: "2020-10-18",
+    kolicina: 236,
+    vrsta: "Balet",
+    scena: "Velika scena",
+    image: "balerina1.webp"
+
+}, {
+    naziv: "ČUDO U ŠARGANU",
+    autor: "LJubomir Simović",
+    cena: "550",
+    datum: "2020-10-25",
+    kolicina: 80,
+    vrsta: "Predstava",
+    scena: "Mala scena",
+    image: "drama4.webp"
+
+}, {
+    naziv: "THE LADY OF THE CAMELLIAS",
+    autor: "Alexandres Dumas",
+    cena: "800",
+    datum: "2020-09-16",
+    kolicina: 255,
+    vrsta: "Predstava",
+    scena: "Mala scena",
+    image: "drama5.webp"
+
+}, {
+    naziv: "EUGENE ONEGIN",
+    autor: "Peter Ilich Tchaikovsky",
+    cena: "900",
+    datum: "2020-05-16",
+    kolicina: 58,
+    vrsta: "Balet",
+    scena: "Velika scena",
+    image: "balerina2.webp"
+
+}, {
+    naziv: "THE NUTCRACKER",
+    autor: "Peter Ilich Tchaikovsky",
+    cena: "980",
+    datum: "2020-09-28",
+    kolicina: 37,
+    vrsta: "Balet",
+    scena: "Velika scena",
+    image: "balerina3.webp"
+
+}, {
+    naziv: "KRALJICA MARGO",
+    autor: "Goran Bregović",
+    cena: "700",
+    datum: "2020-09-17",
+    kolicina: 195,
+    vrsta: "Balet",
+    scena: "Mala scena",
+    image: "balerina4.webp"
+
+}, {
+    naziv: "THE SLEAPING BEAUTY",
+    autor: "Peter Ilich Tchaikovsky",
+    cena: "800",
+    datum: "2020-09-16",
+    kolicina: 79,
+    vrsta: "Balet",
+    scena: "Mala scena",
+    image: "balerina5.webp"
+
+}, {
+    naziv: "CAVALLERIJA RUSTICANA",
+    autor: "Pietro Mascagni",
+    cena: "1000",
+    datum: "2020-11-21",
+    kolicina: 151,
+    vrsta: "Opera",
+    scena: "Velika scena",
+    image: "opera3.webp"
+
+}, {
+    naziv: "AIDA",
+    autor: "Giuseppe Verdi",
+    cena: "880",
+    datum: "2020-10-18",
+    kolicina: 158,
+    vrsta: "Opera",
+    scena: "Velika scena",
+    image: "opera4.webp"
+
+}, {
+    naziv: "MUZIČKI RAZGOVORI",
+    autor: "Nemanja Stanković",
+    cena: "2000",
+    datum: "2020-09-15",
+    kolicina: 163,
+    vrsta: "Filharmonija",
+    scena: "Mala scena",
+    image: "filharmonija1.webp"
+
+}, {
+    naziv: "KONCERT NA OTVORENOM",
+    autor: "Gabrijel Felc",
+    cena: "100",
+    datum: "2020-09-22",
+    kolicina: 93,
+    vrsta: "Filharmonija",
+    scena: "Velika scena",
+    image: "filharmonija2.webp"
+
+}, {
+    naziv: "JA VOLIM FILHARMONIJU",
+    autor: "Aleksandar Kojić",
+    cena: "2500",
+    datum: "2020-09-22",
+    kolicina: 163,
+    vrsta: "Filharmonija",
+    scena: "Mala scena",
+    image: "filharmonija3.webp"
+
+}, {
+
+    naziv: "BOLERO",
+    autor: "Maurice Ravel",
+    cena: "970",
+    datum: "2020-09-17",
+    kolicina: 165,
+    vrsta: "Filharmonija",
+    scena: "Mala scena",
+    image: "filharmonija4.webp"
+
+}, {
+    naziv: "ERO S ONOGA SVIJETA",
+    autor: "Jakov Gotovac",
+    cena: "1500",
+    datum: "2020-09-27",
+    kolicina: "157",
+    vrsta: "Opera",
+    scena: "Velika scena",
+    image: "opera5.webp"
+
+}, {
+    naziv: "THE BLUE DANUBE",
+    autor: "Johann Strauss",
+    cena: "1200",
+    datum: "2020-09-13",
+    kolicina: "71",
+    vrsta: "Filharmonija",
+    scena: "Velika scena",
+    image: "filharmonija5.webp"
+
+}
+
+];
