@@ -19,20 +19,37 @@
 
 var eShopMessage = document.getElementById('eshop-message');
 var navBg = document.querySelector('.nav-bg');
+let userMessage;
 let userMessageSerbian =   ' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ;
 let userMessageEnglish = ' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' ;
+let guestMessage;
 let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" ;
 let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
+let currentlyLanguage = cLanguage();
+function cLanguage(){
+    let currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
+    console.log(currentlyLanguage);
+    return currentlyLanguage;
+}
+
+createEShop(currentlyLanguage);
 
 
-createEShop();
-
-
-function createEShop() {
+function createEShop(x) {
     //session storage 
    /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
      console.log(localUser)  */        
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
+    console.log(x);
+    if (x === 'sr'){
+        userMessage = userMessageSerbian;
+        guestMessage = guestMessageSerbian;
+        author = "AUTOR: ";
+    }else{
+        userMessage = userMessageEnglish;
+        guestMessage = guestMessageEnglish;
+        author = "AUTHOR: "
+    }
     
     console.log(currentlyLoggedIn) 
     function animate(){                
@@ -56,7 +73,7 @@ function createEShop() {
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
             '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()"> ' + currentlyLoggedIn.name + 
-            ' ' + currentlyLoggedIn.surname + userMessageEnglish
+            ' ' + currentlyLoggedIn.surname + userMessage
            + '</h1>';
             var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
             $("#eshop-container").append(shops);
@@ -80,7 +97,7 @@ function createEShop() {
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
-         eShopMessage.innerHTML = guestMessageEnglish;
+         eShopMessage.innerHTML = guestMessage;
         
         animate();
      }
@@ -131,7 +148,7 @@ function createEShop() {
                                     ' "src="../images/webp/' + filterPerformance[i].image + 
                                     '"><div class = "items-text"><p class = "items-name">' + 
                                     filterPerformance[i].naziv + 
-                                    '</p><p class="items-author">AUTOR: ' + filterPerformance[i].autor + 
+                                    '</p><p class="items-author">'+ author + filterPerformance[i].autor + 
                                     '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
                                     '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
                                     ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
