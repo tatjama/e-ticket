@@ -1,5 +1,18 @@
+/***translate***/
+.choose-language{
+    background-color: lightgoldenrodyellow;
+    text-align: right;
+    padding: 10px 50px;
+}
 .translate{
     color: navy;
+    display: inline-block;
+    padding: 10px;
+}
+.translate:hover{
+    color: goldenrod;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 /*POPUP*/
 fieldset {
