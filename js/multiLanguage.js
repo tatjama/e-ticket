@@ -62,7 +62,8 @@ var arrLang = {
         'sent' : 'Sent comment',
         'customer' : 'Customer service',
         'signUp' :  'Sign Up',
-       
+        'shopping card' : 'Shopping card',
+        'add' : "Add to cart",
 
     
     },
@@ -100,7 +101,8 @@ var arrLang = {
         'sent' : 'Pošaljite komentar',
         'customer' : 'Korisnički servis',
         'signUp' : 'Prijavi se',
-        
+        'shopping card' : 'Korpa',
+        'add' : 'Dodaj u korpu',
 
     }
 };
@@ -119,7 +121,7 @@ var arrLangAt = {
         'clear' : 'Clear',
         'signIn' : 'Sign in',
         'type comment' : 'Type comment...',
-        'news' : 'News in your inbox...'
+        'news' : 'News in your inbox...',
     },
     'sr' :{
         'name' : 'Unesite ime..',
@@ -158,3 +160,16 @@ $(function(){
         });
     })
 })
+function language(){
+    var lang = JSON.parse(sessionStorage.getItem('lang'));
+    lang =lang.language ;
+    console.log(lang);
+    var elementsWithText = document.querySelectorAll('.lang');
+    var elementsWithPlaceholder = document.querySelectorAll('.langAt');
+    var elementsWithValue = document.querySelectorAll('.langVal');
+    var elementsWithTitle = document.querySelectorAll('.langTitle');
+    for(i = 0; i < elementsWithText.length; i++){
+        elementsWithText[i].textContent = arrLang[lang][elementsWithText[i].getAttribute('key')];
+       console.log(elementsWithText[i].getAttribute('key'))
+    }
+}

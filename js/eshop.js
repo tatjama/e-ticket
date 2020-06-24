@@ -1,8 +1,3 @@
-var eShopMessage = document.getElementById('eshop-message');
-var navBg = document.querySelector('.nav-bg');
-
-createEShop();
-
 /*function user(){
     if(typeof(Storage) !== "undefined"){
         if(sessionStorage.getItem('user') === null){
@@ -21,11 +16,24 @@ createEShop();
     }    
 }*/
 
+
+var eShopMessage = document.getElementById('eshop-message');
+var navBg = document.querySelector('.nav-bg');
+let userMessageSerbian =   ' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ;
+let userMessageEnglish = ' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' ;
+let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" ;
+let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
+
+
+createEShop();
+
+
 function createEShop() {
     //session storage 
    /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
      console.log(localUser)  */        
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
+    
     console.log(currentlyLoggedIn) 
     function animate(){                
         $('h1').show().animate({
@@ -47,9 +55,9 @@ function createEShop() {
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
-            ' ' + currentlyLoggedIn.surname +
-            ' u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' + '</h1>';
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()"> ' + currentlyLoggedIn.name + 
+            ' ' + currentlyLoggedIn.surname + userMessageEnglish
+           + '</h1>';
             var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
@@ -72,8 +80,8 @@ function createEShop() {
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
-         eShopMessage.innerHTML = 
-        "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>";
+         eShopMessage.innerHTML = guestMessageEnglish;
+        
         animate();
      }
     

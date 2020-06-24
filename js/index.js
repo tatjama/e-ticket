@@ -1,3 +1,15 @@
+function translate(){
+  //let currentlyLanguage = x;
+  console.log("pokrenuto");
+ // sessionStorage.setItem('lang',JSON.stringify(currentlyLanguage) );
+}
+function translateL(x){
+ let currentlyLanguage = {};
+ currentlyLanguage.language = x;
+ console.log(currentlyLanguage)
+ sessionStorage.setItem('lang', JSON.stringify(currentlyLanguage));
+}
+
 let showLessSpan = document.querySelector('.show-less');
 let showMoreSpan = document.querySelector('.show-more');
 let hideTextSpan = document.querySelector('.hide-text');
