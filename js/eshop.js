@@ -27,11 +27,19 @@ let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideM
 let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
 let currentlyLanguage = cLanguage();
 function cLanguage(){
-    let currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
-    console.log(currentlyLanguage);
+    let currentlyLanguage;
+    if(JSON.parse(sessionStorage.getItem('lang')) === null){
+         currentlyLanguage = 'en';
+
+    }else{
+        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
+        console.log(currentlyLanguage);
+        
+    }
+    console.log(currentlyLanguage)
     return currentlyLanguage;
 }
-
+console.log(currentlyLanguage)
 createEShop(currentlyLanguage);
 
 
@@ -45,10 +53,16 @@ function createEShop(x) {
         userMessage = userMessageSerbian;
         guestMessage = guestMessageSerbian;
         author = "AUTOR: ";
+        scene = "SCENA: ";
+        price = "CENA: ";
+        quantity = "Količina";
     }else{
         userMessage = userMessageEnglish;
         guestMessage = guestMessageEnglish;
-        author = "AUTHOR: "
+        author = "AUTHOR: ";
+        scene = "SCENE: ";
+        price = "PRICE: ";
+        quantity = "Quantity";
     }
     
     console.log(currentlyLoggedIn) 
@@ -149,9 +163,9 @@ function createEShop(x) {
                                     '"><div class = "items-text"><p class = "items-name">' + 
                                     filterPerformance[i].naziv + 
                                     '</p><p class="items-author">'+ author + filterPerformance[i].autor + 
-                                    '</p><p class = "items-scene">SCENA: ' + filterPerformance[i].scena + 
-                                    '</p><p class = "items-price">  CENA: <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>Količina: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                    '</p><p class = "items-scene">'+ scene + filterPerformance[i].scena + 
+                                    '</p><p class = "items-price">' + price + ' <span >' + filterPerformance[i].cena + 
+                                    ' RSD </span> </p> <p>' + quantity + ' </p><button class="items-quantity-button" onclick="quantityDown('+ 
                                     "'rezervacija" + i + "'" + 
                                     ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
                                     + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 

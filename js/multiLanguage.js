@@ -161,8 +161,14 @@ $(function(){
     })
 })
 function language(){
+    
     var lang = JSON.parse(sessionStorage.getItem('lang'));
-    lang =lang.language ;
+    if(lang === null){
+        lang = "en";
+    }else{
+        lang =lang.language ;
+    }
+    
     console.log(lang);
     var elementsWithText = document.querySelectorAll('.lang');
     var elementsWithPlaceholder = document.querySelectorAll('.langAt');
