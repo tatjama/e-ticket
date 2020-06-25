@@ -26,20 +26,20 @@ let guestMessage;
 let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" ;
 let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
 let currentlyLanguage = cLanguage();
+//Language is defined 
 function cLanguage(){
     let currentlyLanguage;
     if(JSON.parse(sessionStorage.getItem('lang')) === null){
          currentlyLanguage = 'en';
-
     }else{
         currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
-        console.log(currentlyLanguage);
-        
+        console.log(currentlyLanguage);        
     }
     console.log(currentlyLanguage)
     return currentlyLanguage;
 }
 console.log(currentlyLanguage)
+//create shop with choosen language - deault english
 createEShop(currentlyLanguage);
 
 
@@ -49,9 +49,13 @@ function createEShop(x) {
      console.log(localUser)  */        
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
     console.log(x);
+    //variables  are defined  - en - sr
     if (x === 'sr'){
         userMessage = userMessageSerbian;
         guestMessage = guestMessageSerbian;
+        ballet = "Balet";
+        drama = "Predstava";
+        philharmonic = "Filharmonija";
         author = "AUTOR: ";
         scene = "SCENA: ";
         price = "CENA: ";
@@ -59,6 +63,9 @@ function createEShop(x) {
     }else{
         userMessage = userMessageEnglish;
         guestMessage = guestMessageEnglish;
+        ballet = "Ballet";
+        drama = "Drama";
+        philharmonic = "Philharmonic";
         author = "AUTHOR: ";
         scene = "SCENE: ";
         price = "PRICE: ";
@@ -89,7 +96,12 @@ function createEShop(x) {
             '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()"> ' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname + userMessage
            + '</h1>';
-            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>Balet</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>Predstava</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>Filharmonija</h4></div></div>';
+            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>'
+            + ballet 
+            + '</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>' 
+            + drama 
+            + '</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>'
+            + philharmonic + '</h4></div></div>';
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
