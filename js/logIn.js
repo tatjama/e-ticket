@@ -6,10 +6,26 @@
 var userArray = [];
 
 function signIn() {
+    let lang = language();
+    if(lang === 'sr'){
+        emailAlert = 'E-mail mora biti u formatu nesto@nesto.xyz';
+        passwordAlert = 'Lozinka prima samo slova ili brojeve';
+        welcomeAlert = "Dobro došli ";
+        statusAlertUser = " ! Vaš status je registrovani korisnik.";
+        statusAlertAdmin = " ! Vaš status je administratorski.";
+        statusAlertGuest = "Niste ulogovani. Registrujte se";
+    }else{
+        emailAlert = 'E-mail format has to be something@something.xyz';
+        passwordAlert = 'password can contain only letters and numbers.';
+        welcomeAlert = 'Welcome ';
+        statusAlertUser = " ! Your status is registered user.";
+        statusAlertAdmin = " ! Your status is admin.";
+        statusAlertGuest = " You are not sign in. Please,  sign up."
+    }
     if (document.getElementById('error1').innerHTML == '*') {
-        alert('E-mail mora biti u formatu nesto@nesto.xyz')
+        alert(emailAlert)
     } else if (document.getElementById('error2').innerHTML == '*') {
-        alert('Lozinka prima samo slova ili brojeve');
+        alert(passwordAlert);
     } else {
         document.getElementById('pickUp_signIn').style.display = 'none';
 
@@ -30,10 +46,10 @@ function signIn() {
 
             if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
                 if(userArray[i].status == 1){
-                    alert("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je registrovani korisnik.")
+                    alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
                     
                 }else{                
-                alert(("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je administratorski."));
+                alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
                 }
                 currentlyLoggedIn.status = userArray[i].status;
                 currentlyLoggedIn.email = userArray[i].email;
@@ -44,7 +60,7 @@ function signIn() {
         }
 
         if (currentlyLoggedIn.status == 9) {
-            alert("Niste ulogovani. Registrujte se");
+            alert(statusAlertGuest);
             let currentlyLoggedIn = {
                 status: 9,
                 email: "guest"

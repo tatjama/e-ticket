@@ -178,4 +178,5 @@ function language(){
         elementsWithText[i].textContent = arrLang[lang][elementsWithText[i].getAttribute('key')];
        console.log(elementsWithText[i].getAttribute('key'))
     }
+    return lang;
 }
