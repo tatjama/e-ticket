@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body onload="language()">
     <nav class="flex-row card">
         <div id="logo">
             <a href="../index.html">
@@ -45,30 +45,33 @@
 
     <div class="shoppingCard-container">
 
-        <h1> <i class="fa fa-opencart" style="font-size:48px;color:darkgoldenrod">  </i> KORPA</h1>
+        <h1> 
+            <i class="fa fa-opencart" style="font-size:48px;color:darkgoldenrod">  </i>
+            <span class="lang" key="shopping-card">SHOPPING CARD</span> 
+        </h1>
         <p id="thank-you-message"></p>
         <div id="ispisOpcijaFiltera"></div>
 
         <table id="table-main">
-            UKUPAN IZNOS (RSD):
+           <span class="lang" key="total"> TOTAL (RSD) </span>
             <input type="number" id="sum-of-buying-items" value="0" placeholder="0"  readonly>
              
             <tr id="table-of-reserved-performances">
-                <th class="naziv">NAZIV</th>
-                <th class="autor">AUTOR</th>
-                <th class="cena">CENA </th>
-                <th class ="image">SLIKA</th>
-                <th class="datum">DATUM</th>
-                <th class="kolicina">DOSTUPNO</th>
-                <th class="vrsta">VRSTA </th>
-                <th class="scena">SCENA</th>
-                <th class="rezervacija">KOL</th>
-                <th class="obrisi-header">OBRIŠI</th>
-                <th class="iznos">IZNOS</th>
+                <th class="naziv lang" key="title"> TITLE </th>
+                <th class="autor lang" key="author table"> AUTHOR </th>
+                <th class="cena lang" key="price table"> PRICE </th>
+                <th class ="image lang" >SLIKA</th>
+                <th class="datum lang" key="date"> DATE</th>
+                <th class="kolicina lang" key="stock">STOCK</th>
+                <th class="vrsta lang" key="type table"> TYPE </th>
+                <th class="scena lang" key="scene"> SCENE </th>
+                <th class="rezervacija lang" key="qty"> KOL </th>
+                <th class="obrisi-header lang" key = 'clear table'> CLEAR </th>
+                <th class="iznos lang" key="amount">AMOUNT</th>
             </tr>
         </table>
-        <button id="shopping-button" onclick="shopping()">Završi kupovinu</button>
-        <button id="pay-button" onclick = "pay()">Plati</button>
+        <button id="shopping-button" class="lang" key="finish" onclick="shopping()"> Finish </button>
+        <button id="pay-button" class="lang" key="pay" onclick = "pay()">Pay</button>
 
     </div>
     <script src="../js/shoppingCard.js"></script>

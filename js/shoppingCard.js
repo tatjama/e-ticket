@@ -25,10 +25,12 @@ function createShoppingCard(x) {
         countMessage = "Vaš račun je zadužen za ";
         payMessage = " RSD. Molimo Vas da izvršite plaćanje...";
         thankYouMessage = "Hvala za izvršenu uplatu  ";
+        clear = 'Ukloni';
     }else{
         countMessage = "Your account is a charge of ";
         payMessage = " RSD. Please make your payment...";
         thankYouMessage = "Thank you for making payment  ";
+        clear = 'Clear';
     }
 
     
@@ -76,8 +78,8 @@ $(document).ready(function() {
 
 //FUNKCIJE:
 
-function addEraseItem(el) {
-    el.obrisi = 'Ukloni';
+function addEraseItem(el) {    
+    el.obrisi = clear;
     el.iznos = parseInt(el.cena) * parseInt(el.rezervacija);
 }
 
