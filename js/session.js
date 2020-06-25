@@ -1,4 +1,5 @@
 function user(){
+    language()
     if(typeof(Storage) !== "undefined"){
         if(sessionStorage.getItem('user') === null){
             console.log('Nema usera');

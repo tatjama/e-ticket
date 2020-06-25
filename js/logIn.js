@@ -32,9 +32,7 @@ function signIn() {
                 if(userArray[i].status == 1){
                     alert("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je registrovani korisnik.")
                     
-                }else{
-
-                
+                }else{                
                 alert(("Dobro došli "+userArray[i].name + " "+userArray[i].surname + " ! Vaš status je administratorski."));
                 }
                 currentlyLoggedIn.status = userArray[i].status;
@@ -56,18 +54,12 @@ function signIn() {
             //smesta trenutno ulogovanog korisnika u localStoride
             localStorage.setItem('currentlyLoggedIn', JSON.stringify(currentlyLoggedIn));
             console.log(currentlyLoggedIn);
-            //document.getElementById('eshop').style.display = "block";
             document.getElementById('signUp').style.display = "block";
-           // document.getElementById('eshop2').style.display = "none";
-            //document.getElementById('unos').style.display = "none";
-            //document.getElementById('prodaja').style.display = "none";
             document.getElementById('signOut').style.display = "none";
-
-        } else {
+            } else {
 
              //session storage 
-            sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );
-    
+            sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );    
 
             console.log(currentlyLoggedIn);
             //praznimo localStoridze
@@ -80,9 +72,6 @@ function signIn() {
             console.log(sessionUser)
             
             if (currentlyLoggedIn.status == 1) {
-                //document.getElementById('entry').style.display = "none";
-                //document.getElementById('sale').style.display = "none";
-                //document.getElementById('eshop2').style.display = "block";
                 document.getElementById('eshop').style.display = "block";
                 document.getElementById('eshop_mobile').style.display = "block";
                 document.getElementById('signIn').style.display = 'none';
@@ -92,8 +81,6 @@ function signIn() {
                 document.getElementById('signOut').style.display = "block";
                 document.getElementById('signOut_mobile').style.display = "block";
             } else {
-               // document.getElementById('eshop').style.display = "none";
-               // document.getElementById('eshop2').style.display = "none";
                 document.getElementById('entry').style.display = "block";
                 document.getElementById('entry_mobile').style.display = "block";
                 document.getElementById('sale').style.display = "block";
