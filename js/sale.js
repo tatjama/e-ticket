@@ -5,13 +5,73 @@ var h2 = document.getElementById('sale-header');
 var activeSearch = document.getElementById('active-search');
 var activeScene = document.getElementById('active-scene');
 var activeStore = document.getElementById('active-store');
+let adminMessageEnglish = ' wellcome to the shop.<br> You can use filters to make easy to find tickets for performances. </h1>';
+let adminMessageSerbian = ' dobro došli  u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice. </h1>';
+let guestMessageSerbian = 'Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.';
+let guestMessageEnglish = 'You have to be admin if you wanna use shop. Please, make a registration.';
+let currentlyLanguage = cLanguage();
+
+//Language is defined 
+function cLanguage(){
+    let currentlyLanguage;
+    if(JSON.parse(sessionStorage.getItem('lang')) === null){
+         currentlyLanguage = 'en';
+    }else{
+        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
+        console.log(currentlyLanguage);        
+    }
+    console.log(currentlyLanguage)
+    return currentlyLanguage;
+}
+console.log(currentlyLanguage)
 
 
-createSale();
+createSale(currentlyLanguage);
 // function create filter-options
-function createSale() {
+function createSale(x) {
     //session storage 
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;          
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
+    
+    console.log(x);
+    //variables  are defined  - en - sr
+    if (x === 'sr'){
+        adminMessage = adminMessageSerbian;
+        guestMessage = guestMessageSerbian;
+        ballet = "Balet";
+        drama = "Predstava";
+        philharmonic = "Filharmonija";
+        main = "Velika scena";
+        alternative = "Mala scena";
+        filterCha = "Dogadjaji čije ime sadrži karaktere: ";
+        filterQua = "Količina veća od 0: ";
+        filterCou = "Prebroj filtrirane događaje: ";
+        author = "AUTOR: ";
+        scene = "SCENA: ";
+        price = "CENA: ";
+        date = "DATUM: ";
+        quantity = "Količina";
+        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
+        tickets = " ulaznica.";
+    }else{
+        adminMessage = adminMessageEnglish;
+        guestMessage = guestMessageEnglish;
+        ballet = "Ballet";
+        drama = "Drama";
+        philharmonic = "Philharmonic";
+        main = "Main scene";
+        alternative = "Alternative scene";
+        filterCha = " Performances with characters in title: ";
+        filterQua= " Quantity more then 0";
+        filterCou = "Count filtered performances: ";
+        author = "AUTHOR: ";
+        scene = "SCENE: ";
+        price = "PRICE: ";
+        date = "DATE: ";
+        quantity = "Quantity";
+        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
+        tickets = " tickets.";
+    }
+    
      
      if(sessionStorage.getItem('user')!== null){ 
 
@@ -19,18 +79,19 @@ function createSale() {
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
-            ' ' + currentlyLoggedIn.surname +
-            ' u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice.' + '</h1>';
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">' 
+            + currentlyLoggedIn.name 
+            + ' ' + currentlyLoggedIn.surname 
+            + adminMessage;
             var shops = `
             <div id="shops">
                 <div class="shops">
                     <img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
-                    <h4>Balet</h4>
+                    <h4>${ballet}</h4>
                 </div>
                 <div class="shops">
                     <img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg">
-                    <h4>Predstava</h4>
+                    <h4>${drama}</h4>
                 </div>
                 <div class="shops">
                     <img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg">
@@ -38,7 +99,7 @@ function createSale() {
                 </div>
                 <div class="shops" >
                     <img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg">
-                    <h4>Filharmonija</h4>
+                    <h4>${philharmonic}</h4>
                 </div>
             </div>`;
            
@@ -46,26 +107,26 @@ function createSale() {
             <div id="scenes">
                 <div class = "scene">
                     <img class="scene-img" id="velika-scena" alt="velika scena" src="../images/velika-scena-white.svg">
-                    <h4>Velika scena</h4>
+                    <h4>${main}</h4>
                 </div>
                 <div class="scene">
                     <img class="scene-img" id="mala-scena" alt="mala scena" src="../images/mala-scena-white.svg">
-                    <h4>Mala scena</h4>
+                    <h4>${alternative}</h4>
                 </div>
                 <div class="scene">
                     <div id="search-filter">
                         <div class="filter-box">
                             <input type="text" onchange = "filterSearch()" id="karakter">
                             <img class="filter-img" src="../images/search-white.svg">
-                            <label for="karakter"> <h3>Dogadjaji čije ime sadrži karaktere:</h3></label>
+                            <label for="karakter"> <h3>${filterCha}</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="kolicinaKarata">
-                            <label for="kolicinaKarata"> <h3>Količina veća od 0:</h3></label>
+                            <label for="kolicinaKarata"> <h3>${filterQua}</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="prebroj">
-                            <label for="prebroj"> <h3>Prebroj filtrirane događaje:</h3></label>
+                            <label for="prebroj"> <h3>${filterCou}</h3></label>
                         </div>
                     </div>
                 </div>
@@ -99,7 +160,7 @@ function createSale() {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.</h1>";
+        "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>" + guestMessage +"</h1>";
         animate();
      }    
     }
@@ -371,11 +432,11 @@ function showFilteredItems(x){
                                 ' "src="../images/webp/' + x[i].image + 
                                 '"><div class = "items-text"><p class = "items-name" id = "'+ i +'">' + 
                                 x[i].naziv + 
-                                '</p><p class="items-author">AUTOR: ' + x[i].autor + 
+                                '</p><p class="items-author">' + author + x[i].autor + 
                                 '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
                                 '</p><p class = "items-stock">Količina:<span id="stock' + i  +
-                                '">' +x[i].kolicina + '</span></p><p class = "items-date">DATUM: ' + x[i].datum + 
-                                '</p><p class = "items-price">  CENA: <span >' + x[i].cena + 
+                                '">' +x[i].kolicina + '</span></p><p class = "items-date"> ' + date + x[i].datum + 
+                                '</p><p class = "items-price"> ' + price + ' <span >' + x[i].cena + 
                                 ' RSD </span> </p> <p>Rezerviši: </p><button class="items-quantity-button" onclick="quantityDown('+ 
                                 "'rezervacija" + i + "'" + 
                                 ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" class="items-input" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
