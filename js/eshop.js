@@ -60,6 +60,8 @@ function createEShop(x) {
         scene = "SCENA: ";
         price = "CENA: ";
         quantity = "Količina";
+        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
+        tickets = " ulaznica.";
     }else{
         userMessage = userMessageEnglish;
         guestMessage = guestMessageEnglish;
@@ -70,6 +72,8 @@ function createEShop(x) {
         scene = "SCENE: ";
         price = "PRICE: ";
         quantity = "Quantity";
+        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
+        tickets = " tickets.";
     }
     
     console.log(currentlyLoggedIn) 
@@ -242,9 +246,7 @@ function createEShop(x) {
                     reservationsArray.push(filterPerformance[j]);
                         } else {
                             //treba da izbaci gresku za kolicinu 
-                        alert(
-                            "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno " +
-                            filterPerformance[j].kolicina + " ulaznica");
+                        alert( errorAlertQuantity + filterPerformance[j].kolicina + tickets);
                         console.log(filterPerformance[j].kolicina);
                         console.log(newReservation);
                         newReservation = 0;

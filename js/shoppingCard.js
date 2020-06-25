@@ -1,10 +1,36 @@
 //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu korpa
 var shoppingCard = JSON.parse(localStorage.getItem('korpa')) || [];
 var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;  
-createShoppingCard();
+let currentlyLanguage = cLanguage();
 
-function createShoppingCard() {    
+//Language is defined 
+function cLanguage(){
+    let currentlyLanguage;
+    if(JSON.parse(sessionStorage.getItem('lang')) === null){
+         currentlyLanguage = 'en';
+    }else{
+        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
+        console.log(currentlyLanguage);        
+    }
+    console.log(currentlyLanguage)
+    return currentlyLanguage;
+}
+console.log(currentlyLanguage)
+
+createShoppingCard(currentlyLanguage);
+
+function createShoppingCard(x) {    
     console.log(shoppingCard);
+    if(x === 'sr'){
+        countMessage = "Vaš račun je zadužen za ";
+        payMessage = " RSD. Molimo Vas da izvršite plaćanje...";
+        thankYouMessage = "Hvala za izvršenu uplatu  ";
+    }else{
+        countMessage = "Your account is a charge of ";
+        payMessage = " RSD. Please make your payment...";
+        thankYouMessage = "Thank you for making payment  ";
+    }
+
     
     //dodajemo polje za kolicinu rezervacije .
     shoppingCard.forEach(addEraseItem);
@@ -117,9 +143,8 @@ function tableOfReservedPerformances(x) {
                 localStorage.setItem('bazadogadjaja', JSON.stringify(lager));
                 document.getElementById('table-main').style.display = "none";
                 document.getElementById('thank-you-message').innerHTML = 
-                "Vaš račun je zadužen za " + userBill + 
-                " RSD. Molimo Vas da izvršite plaćanje..."
-                           }
+                countMessage + userBill + payMessage                
+            }
         }
     }
     localStorage.removeItem('kupljeno');
@@ -131,8 +156,8 @@ function tableOfReservedPerformances(x) {
 
 function pay(){
     document.getElementById('pay-button').style.display = "none";
-    document.getElementById('thank-you-message').innerHTML = "Uplata je izvršio " + currentlyLoggedIn.name +
-    " " + currentlyLoggedIn.surname + ". Hvala.";
+    document.getElementById('thank-you-message').innerHTML = thankYouMessage + currentlyLoggedIn.name +
+    " " + currentlyLoggedIn.surname ;
     document.getElementById('sum-of-buying-items').value = "0";
 }
 
