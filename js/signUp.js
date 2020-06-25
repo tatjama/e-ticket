@@ -17,6 +17,15 @@ function obrisiLokalStoridz() {
 var userArray = [];
 
 function signUp() {
+    let lang = language();
+    console.log(lang)
+    if(lang === 'sr'){
+        errorAlert = 'Neispravan unos ili prazno polje';
+        errorAlertHaveUser = "Postoji korisnik sa tim e-mailom u bazi";
+    }else{
+        errorAlert = 'Not valid or empty field';
+        errorAlertHaveUser = "Error. User with this e-mail already registered.";
+    }
     if (nameSignUp.value == '' ||
         surnameSignUp.value == '' ||
         emailSignUp.value == '' ||
@@ -25,7 +34,7 @@ function signUp() {
         errorSignUp[1].innerHTML != '' ||
         errorSignUp[2].innerHTML != '' ||
         errorSignUp[3].innerHTML != '') {
-        alert('Neispravan unos ili prazno polje');
+        alert(errorAlert);
     } else {
 
 
@@ -41,7 +50,7 @@ function signUp() {
         newUser.status = document.getElementById('signUp_status').value;
         userArray.forEach(element => {
             if (element.email === newUser.email) {
-                alert("Postoji korisnik sa tim e-mailom u bazi");
+                alert(errorAlertHaveUser);
                 document.getElementById('signUp_email').value = '';
                 newUser.email = '';
 
