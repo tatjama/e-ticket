@@ -76,6 +76,12 @@ var arrLang = {
         'add' : "Add to cart",
         'shopping-card' : 'SHOPPING CARD',
         'total' : 'TOTAL (RSD): ',
+        'shop': 'E-shop:',
+        'filter': 'Filter',
+        'clear' : 'Clear',
+        'cart' : 'Cart',
+        'reserve' : 'Reserve'
+
     
     },
     'sr': {
@@ -126,7 +132,11 @@ var arrLang = {
         'add' : 'Dodaj u korpu',
         'shopping-card': 'KORPA',
         'total': 'UKUPAN IZNOS (RSD):',
-
+        'shop': 'Prodavnica:',
+        'filter': 'Filtriraj',
+        'clear' : 'Obriši',
+        'cart' : 'Korpa',
+        'reserve': 'Rezerviši',
     }
 };
 

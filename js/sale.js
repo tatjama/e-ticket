@@ -46,10 +46,11 @@ function createSale(x) {
         filterQua = "Količina veća od 0: ";
         filterCou = "Prebroj filtrirane događaje: ";
         author = "AUTOR: ";
-        scene = "SCENA: ";
+        sceneType = "SCENA: ";
         price = "CENA: ";
         date = "DATUM: ";
         quantity = "Količina";
+        reserve = "Rezerviši: ";
         errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
         tickets = " ulaznica.";
     }else{
@@ -64,10 +65,11 @@ function createSale(x) {
         filterQua= " Quantity more then 0";
         filterCou = "Count filtered performances: ";
         author = "AUTHOR: ";
-        scene = "SCENE: ";
+        sceneType = "SCENE: ";
         price = "PRICE: ";
         date = "DATE: ";
         quantity = "Quantity";
+        reserve = "Reserve";
         errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
         tickets = " tickets.";
     }
@@ -433,11 +435,11 @@ function showFilteredItems(x){
                                 '"><div class = "items-text"><p class = "items-name" id = "'+ i +'">' + 
                                 x[i].naziv + 
                                 '</p><p class="items-author">' + author + x[i].autor + 
-                                '</p><p class = "items-scene">SCENA: ' + x[i].scena + 
-                                '</p><p class = "items-stock">Količina:<span id="stock' + i  +
+                                '</p><p class = "items-scene">' + sceneType + x[i].scena + 
+                                '</p><p class = "items-stock">'+quantity +'<span id="stock' + i  +
                                 '">' +x[i].kolicina + '</span></p><p class = "items-date"> ' + date + x[i].datum + 
                                 '</p><p class = "items-price"> ' + price + ' <span >' + x[i].cena + 
-                                ' RSD </span> </p> <p>Rezerviši: </p><button class="items-quantity-button" onclick="quantityDown('+ 
+                                ' RSD </span> </p> <p>'+ reserve +'</p><button class="items-quantity-button" onclick="quantityDown('+ 
                                 "'rezervacija" + i + "'" + 
                                 ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" class="items-input" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
                                 + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 

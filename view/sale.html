@@ -43,12 +43,22 @@
             </div>
         </nav>
         <div id="sale-container" ></div> 
-        <h2 id="sale-header">Prodavnica</h2>        
+        <h2 class="lang" key="shop" id="sale-header">E-shop</h2>        
         <div id="sale-buttons">
-            <button type="button" class="button" id="filter-button" onclick="doFilter()"><a href="#">Filtriraj</a></button><br>
-            <button type="reset" class="button" id="clear-button" onclick = "removeAllFilters()"><a href="#">Obriši</a></button><br>            
-            <button type="button" class="button" id="reservation-button"><a href="./saleCard.html">Korpa </a></button><br>
-            <button type="button" class="button" id="reservation" onclick = "makeNewReservation()"><a href="#" > Rezerviši </a></button><br>
+            <button type="button" class="button" id="filter-button" onclick="doFilter()">
+                <a href="#" class="lang" key="filter">Filter</a>
+            </button>
+            <br>
+            <button type="reset" class="button" id="clear-button" onclick = "removeAllFilters()">
+                <a href="#" class="lang" key="clear">Clear</a>
+            </button>
+            <br>            
+            <button type="button" class="button" id="reservation-button">
+                <a href="./saleCard.html" class="lang" key="cart">Cart </a>
+            </button><br>
+            <button type="button" class="button" id="reservation" onclick = "makeNewReservation()">
+                <a href="#" class="lang" key="reserve" > Reserve </a>
+            </button><br>
                         
         </div>  
         <p id="quantity"></p>      
