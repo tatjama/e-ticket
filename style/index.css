@@ -2,12 +2,12 @@
 .choose-language{
     background-color: lightgoldenrodyellow;
     text-align: right;
-    padding: 10px 50px;
+    padding: 0px 110px;
 }
 .translate{
     color: navy;
     display: inline-block;
-    padding: 10px;
+    padding: 5px;
 }
 .translate:hover{
     color: goldenrod;
@@ -414,6 +414,10 @@ textarea{
     width: 450px;
     
 }
+.location-img-caption{
+    font-size: x-small;
+    
+}
 
 .right{
     background-color:hsl(233, 12%, 13%);
@@ -446,6 +450,9 @@ textarea{
     
 }
 @media screen and (max-width: 800px){
+    .choose-language{
+        padding: 0px 90px;
+    }
     .section_one{
         padding: 10px 20px;
     }
@@ -497,6 +504,9 @@ flex-direction: row;
 }
 }
 @media screen and (max-width: 560px){
+    .choose-language{
+        padding: 0px 60px;
+    }
     .form-div{
         display: flex;
         flex-direction: column;
@@ -519,6 +529,9 @@ flex-direction: row;
     }
 }
 @media screen and (max-width: 400px){
+    .choose-language{
+        padding: 0px 50px;
+    }
     .section_one{
         padding: 50px 20px;
     }
