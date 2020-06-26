@@ -107,7 +107,8 @@ hr{
 .items-author,
 .items-scene,
 .items-price,
-.items-date{
+.items-date,
+.items-stock{
     font-size: 12px;
     text-transform: capitalize;    
 }

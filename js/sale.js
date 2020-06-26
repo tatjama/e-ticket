@@ -49,7 +49,7 @@ function createSale(x) {
         sceneType = "SCENA: ";
         price = "CENA: ";
         date = "DATUM: ";
-        quantity = "Količina";
+        quantity = "KOLIČINA: ";
         reserve = "Rezerviši: ";
         errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
         tickets = " ulaznica.";
@@ -68,8 +68,8 @@ function createSale(x) {
         sceneType = "SCENE: ";
         price = "PRICE: ";
         date = "DATE: ";
-        quantity = "Quantity";
-        reserve = "Reserve";
+        quantity = "QUANTITY: ";
+        reserve = "Reserve: ";
         errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
         tickets = " tickets.";
     }

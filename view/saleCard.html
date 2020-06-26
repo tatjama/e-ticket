@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body onload="language()">
     <nav class="flex-row card" >
         <div id="logo">
             <a href="../index.html">
@@ -37,8 +37,10 @@
             </a>
         </div>
         <div class="nav-bg" >
-            <a  title="Idite na unos ulaznica..."  href="./entry.html">Unos</a>
-            <a  title="Vratite se u prodavnicu..."  href="./sale.html"><i class="fa fa-opencart" >  </i> E-shop </a>     
+            <a class="lang langTitle" key="entry" title='Link to tickets entry...'  href="./entry.html">Unos</a>
+            <a class = "langTitle" key="sale"  title='Link to sale...'  href="./sale.html">
+                <i class="fa fa-opencart" >  </i> E-shop 
+            </a>     
             <a id="signOut"  href="../index.html" onclick="signOutEshop('table-main')">Sign Out</a>
         </div>
     </nav>
@@ -73,6 +75,7 @@
 
     </div>
     <script src="../js/shoppingCard.js"></script>
+    <script src="../js/multiLanguage.js"></script>
     <script src="../js/signout.js"></script>
 </body>
 

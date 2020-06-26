@@ -132,7 +132,7 @@ var arrLang = {
         'add' : 'Dodaj u korpu',
         'shopping-card': 'KORPA',
         'total': 'UKUPAN IZNOS (RSD):',
-        'shop': 'Prodavnica:',
+        'shop': 'Prodavnica:',        
         'filter': 'Filtriraj',
         'clear' : 'Obriši',
         'cart' : 'Korpa',
@@ -155,6 +155,8 @@ var arrLangAt = {
         'signIn' : 'Sign in',
         'type comment' : 'Type comment...',
         'news' : 'News in your inbox...',
+        'entry':'Link to tickets entry...',
+        'sale': 'Link to sale...',
     },
     'sr' :{
         'name' : 'Unesite ime..',
@@ -168,7 +170,9 @@ var arrLangAt = {
         'clear' : 'Obriši',
         'signIn' : 'Uloguj',
         'type comment' : 'Napišite komentar...', 
-        'news' : "Novosti u Vašem sandučetu…"
+        'news' : "Novosti u Vašem sandučetu…",
+        'entry': "Idite na unos ulaznica...",
+        'sale' : "Vratite se u prodavnicu...",
     }
 };
 $(function(){
@@ -211,6 +215,10 @@ function language(){
     for(i = 0; i < elementsWithText.length; i++){
         elementsWithText[i].textContent = arrLang[lang][elementsWithText[i].getAttribute('key')];
       // console.log(elementsWithText[i].getAttribute('key'))
+    }
+    for(i = 0; i < elementsWithTitle.length; i++){
+        let key = arrLangAt[lang][elementsWithTitle[i].getAttribute('key')];        
+        elementsWithTitle[i].title = key;
     }
     return lang;
 }
