@@ -9,11 +9,56 @@ var date =  document.getElementById('date');
 var quantity =  document.getElementById('quantity');
 var type =  document.getElementById('type');
 var image = document.getElementById('img');
-checkUser();
+let currentlyLanguage = cLanguage();
+//Language is defined 
+function cLanguage(){
+    let currentlyLanguage;
+    if(JSON.parse(sessionStorage.getItem('lang')) === null){
+         currentlyLanguage = 'en';
+    }else{
+        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
+        console.log(currentlyLanguage);        
+    }
+    console.log(currentlyLanguage)
+    return currentlyLanguage;
+}
+console.log(currentlyLanguage)
 
-function checkUser(){
+checkUser(currentlyLanguage);
+
+function checkUser(x){
      //session storage 
-     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;          
+     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
+     //variables  are defined  - en - sr
+    if (x === 'sr'){
+        userMessage = ' Dobro došli .<br>Na ovoj strani pravite ulaz za nove ulaznice.</h1>';
+        guestMessage = 'Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.';
+        
+        errorAlert = 'Neispravan unos ili prazno polje';
+        ballet = "Balet";
+        drama = "Predstava";
+        philharmonic = "Filharmonija";
+        author = "AUTOR: ";
+        scene = "SCENA: ";
+        price = "CENA: ";
+        quantity = "Količina";
+        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
+        tickets = " ulaznica.";
+    }else{
+        userMessage = ' Welcome .<br>On this page you make an entry for tickets.</h1>';
+        guestMessage = 'You have to be admin if you wanna use shop. Please, make a registration.';
+        errorAlert = "Unvalid entry or empty field";
+        ballet = "Ballet";
+        drama = "Drama";
+        philharmonic = "Philharmonic";
+        author = "AUTHOR: ";
+        scene = "SCENE: ";
+        price = "PRICE: ";
+        quantity = "Quantity";
+        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
+        tickets = " tickets.";
+    }
+          
      
      if(sessionStorage.getItem('user')!== null){ 
 
@@ -21,9 +66,9 @@ function checkUser(){
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">Dobro došli ' + currentlyLoggedIn.name + 
+            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">' + currentlyLoggedIn.name + 
             ' ' + currentlyLoggedIn.surname +
-            ' .<br>Na ovoj strani pravite ulaz za nove ulaznice.</h1>';
+            userMessage;
             animate();
         }else{
             console.log('gost');
@@ -38,7 +83,7 @@ function checkUser(){
         navBg.style.display = "none";  
         entryContainer.style.display = 'none';          
         eShopMessage.innerHTML = 
-       "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.</h1>";
+       "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>" + guestMessage + "</h1>";
        animate();
     }
 }
@@ -138,7 +183,7 @@ function entry() {
         document.getElementsByClassName('greska')[0].innerHTML != '' ||
         document.getElementsByClassName('greska')[1].innerHTML != '' ||
         document.getElementsByClassName('greska')[2].innerHTML != '') {
-        alert('Neispravan unos ili prazno polje');
+        alert(errorAlert);
     } else {
         //let newPerformance = {};
         let scene;
