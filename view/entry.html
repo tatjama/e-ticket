@@ -57,25 +57,25 @@
 
                 <span class="lang" key="title performance"> </span> 
                 <span class="greska langTitle" key="error title" title="Error. Type performance title"></span>
-                <input class="langAt"  type="text" placeholder=" Naziv događaja" id="name" onblur="isValidName('name', 0)" onfocus="unos(0)" required>
+                <input class="langAt" key="title performance" type="text" placeholder=" Performance title" id="name" onblur="isValidName('name', 0)" onfocus="unos(0)" required>
                 <br> <span class="lang" key="author table">Author:</span>
                 <span class="greska langTitle" key = "error author" title="Error. Type author name."></span>
-                <input type="text" placeholder=" Ime autora" id="author" onblur="isValidName('author', 1)" onfocus="unos(1)" required>
+                <input class="langAt" key="author" type="text" placeholder=" Author name" id="author" onblur="isValidName('author', 1)" onfocus="unos(1)" required>
                 <br><span class="lang" key="price table"> Price:</span>
                 <span class="greska langTitle" key="error price" title=' Error. Type price.'></span>
-                <input type="number" placeholder=" Cena ulaznice" id="price" onblur="isValidNumber()" onfocus="unos(2)" required>
+                <input type="number" class="langAt" key="price" placeholder=" Ticket price" id="price" onblur="isValidNumber()" onfocus="unos(2)" required>
                 <br><span class="lang" key="date"> Date:</span>
                 <span class="greska langTitle" key="error date" title="Error. Type date"></span>
                 <input type="date" id="date" name="date" required>
                 <br><span class="lang" key="type table"> Type of performance:</span>
-                <input list="grupa" name="grupa" id="type" placeholder=" Vrsta događaja" required><br>
+                <input list="grupa" name="grupa" class="langAt" key="type" id="type" placeholder=" Performance type" required><br>
                 <datalist id="grupa">
                     <option value="Opera">
                     <option value="Balet">
                     <option value="Predstava">
                     <option value="Filharmonija">
                 </datalist><br>
-                <input type="number" placeholder=" Količina" id="quantity"  readonly required>
+                <input type="number" class="langAt" key="quantity" placeholder="Quantity" id="quantity"  readonly required>
                 <button type="button" class="button lang" key="quantity" id="quantity-button" onclick="quantityOfTickets()"> Quantity</button>
                 
                

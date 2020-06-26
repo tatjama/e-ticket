@@ -177,6 +177,11 @@ var arrLangAt = {
         'news' : 'News in your inbox...',
         'entry':'Link to tickets entry...',
         'sale': 'Link to sale...',
+        'title performance' : 'Performance title...',
+        'author' : 'Author name...',
+        'price' : 'Ticket price',
+        'type' : 'Performance type',
+        'quantity' : 'Quantity'
     },
     'sr' :{
         'name' : 'Unesite ime..',
@@ -193,6 +198,11 @@ var arrLangAt = {
         'news' : "Novosti u Vašem sandučetu…",
         'entry': "Idite na unos ulaznica...",
         'sale' : "Vratite se u prodavnicu...",
+        'title performance' : 'Naziv događaja ',
+        'author' : 'Ime autora',
+        'price' : 'Cena ulaznice',
+        'type': 'Tip događaja',
+        'quantity' : ' Količina"'
     }
 };
 $(function(){
@@ -232,12 +242,17 @@ function language(){
     var elementsWithPlaceholder = document.querySelectorAll('.langAt');
     var elementsWithValue = document.querySelectorAll('.langVal');
     var elementsWithTitle = document.querySelectorAll('.langTitle');
+   
     for(i = 0; i < elementsWithText.length; i++){
         elementsWithText[i].textContent = arrLang[lang][elementsWithText[i].getAttribute('key')];
       // console.log(elementsWithText[i].getAttribute('key'))
     }
+    for(i = 0 ; i < elementsWithPlaceholder.length; i++){
+        let key = arrLangAt[lang][elementsWithPlaceholder[i].getAttribute('key')];
+        elementsWithPlaceholder[i].placeholder = key;
+    }
     for(i = 0; i < elementsWithTitle.length; i++){
-        let key = arrLangAt[lang][elementsWithTitle[i].getAttribute('key')];        
+        let key = arrLangAt[lang][elementsWithTitle[i].getAttribute('key')];       
         elementsWithTitle[i].title = key;
     }
     return lang;
