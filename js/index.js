@@ -8,6 +8,7 @@ function translateL(x){
  currentlyLanguage.language = x;
  console.log(currentlyLanguage)
  sessionStorage.setItem('lang', JSON.stringify(currentlyLanguage));
+ return currentlyLanguage
 }
 
 let showLessSpan = document.querySelector('.show-less');
@@ -42,13 +43,27 @@ function hideCommentForm(){
   document.getElementById('open-comment-form').style.display = "block";
 }
 function hgsubmit(){
-if (/\S+/.test(document.myemailform.name.value) == false) alert ("Molim Vas upišite ime.");
-else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value) == false) alert ("Validna  email adresa je obavezna.");
- else if (/\S+/.test(document.myemailform.message.value) == false) alert ("Molim Vas upišite poruku.");
+  let lang = language();
+  if(lang === 'sr'){
+      nameAlert = "Molim Vas upišite ime.";
+      emailAlert = 'E-mail mora biti u formatu nesto@nesto.xyz';
+      messageAlert = "Molimo Vas upišite poruku.";
+      thankYouAlert = ' Hvala Vam! \n Vaš email je poslat.';
+     
+  }else{
+      nameAlert = "Please type valid name";
+      emailAlert = 'E-mail format has to be something@something.xyz';
+      messageAlert = 'Please, type the message.';
+      thankYouAlert = ' Thank You! \n Your message is sent';
+      
+  }
+if (/\S+/.test(document.myemailform.name.value) == false) alert (nameAlert);
+else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value) == false) alert (emailAlert);
+ else if (/\S+/.test(document.myemailform.message.value) == false) alert (messageAlert);
   else {
     //submit is not allowed - 
      //  document.myemailform.submit();
-       alert (' Hvala Vam! \n Vaš email je poslat.');
+       alert (thankYouAlert);
        document.myemailform.name.value = "";       
        document.myemailform.lastname.value = "";       
        document.myemailform.email.value = "";       

@@ -196,6 +196,7 @@ $(function(){
 function language(){
     
     var lang = JSON.parse(sessionStorage.getItem('lang'));
+
     if(lang === null){
         lang = "en";
     }else{
@@ -209,7 +210,7 @@ function language(){
     var elementsWithTitle = document.querySelectorAll('.langTitle');
     for(i = 0; i < elementsWithText.length; i++){
         elementsWithText[i].textContent = arrLang[lang][elementsWithText[i].getAttribute('key')];
-       console.log(elementsWithText[i].getAttribute('key'))
+      // console.log(elementsWithText[i].getAttribute('key'))
     }
     return lang;
 }

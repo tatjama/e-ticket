@@ -1,3 +1,4 @@
+//trenutno nista ne radi
 function user(){
     let lang = language();
    
@@ -21,4 +22,5 @@ function user(){
     }
 
     
+
 }
