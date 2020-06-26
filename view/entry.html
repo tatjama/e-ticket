@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body onload="language()">
     <nav class="flex-row ">
         <div id="logo">
             <a href="../index.html">
@@ -37,13 +37,15 @@
             </a>
         </div>
         <div class="nav-bg card" >
-            <a  title="Idite na prodaju..."  href="./sale.html"><i class="fa fa-opencart" >  </i> Prodaja </a>
+            <a class="langTitle" key="sale"  title="Idite na prodaju..."  href="./sale.html">
+                <i class="fa fa-opencart" >  </i> 
+              Sale </a>
             <a id="signOut"  href="../index.html" onclick="signOutEshop('entryForm')">Sign Out</a>     
         </div>
     </nav>
 
     <div id="entry-container">
-        <h3> <i class="fa fa-opencart" onclick="newForm()" > UNOS DOGAĐAJA </i></h3>      
+        <h3> <i class="fa fa-opencart lang" key="receipt" onclick="newForm()" > RECEIPT DOCUMENT </i></h3>      
          
 
 
@@ -51,20 +53,21 @@
         <!--<form id="pokupi" style="display: none">-->
         <form id="entryForm">
             <fieldset>
-                <legend>Unos događaja</legend>
+                <legend class="lang" key="receipt" >Receipt document</legend>
 
-                Naziv događaja:
-                <span class="greska" title="Pogrešan unos. Unesite naziv događaja"></span>
-                <input type="text" placeholder=" Naziv događaja" id="name" onblur="isValidName('name', 0)" onfocus="unos(0)" required>
-                <br> Autor:
-                <span class="greska" title="Pogrešan unos. Unesite ime i prezime autora"></span>
+                <span class="lang" key="title performance"> </span> 
+                <span class="greska langTitle" key="error title" title="Error. Type performance title"></span>
+                <input class="langAt"  type="text" placeholder=" Naziv događaja" id="name" onblur="isValidName('name', 0)" onfocus="unos(0)" required>
+                <br> <span class="lang" key="author table">Author:</span>
+                <span class="greska langTitle" key = "error author" title="Error. Type author name."></span>
                 <input type="text" placeholder=" Ime autora" id="author" onblur="isValidName('author', 1)" onfocus="unos(1)" required>
-                <br>Cena:
-                <span class="greska" title="Pogrešan unos. Unesite cenu ulaznice"></span>
+                <br><span class="lang" key="price table"> Price:</span>
+                <span class="greska langTitle" key="error price" title=' Error. Type price.'></span>
                 <input type="number" placeholder=" Cena ulaznice" id="price" onblur="isValidNumber()" onfocus="unos(2)" required>
-                <br> Datum događaja:
-                <span class="greska" title="Pogrešan unos. Unesite datum događaja"></span>
-                <input type="date" id="date" name="date" required><br> Vrsta događaja:
+                <br><span class="lang" key="date"> Date:</span>
+                <span class="greska langTitle" key="error date" title="Error. Type date"></span>
+                <input type="date" id="date" name="date" required>
+                <br><span class="lang" key="type table"> Type of performance:</span>
                 <input list="grupa" name="grupa" id="type" placeholder=" Vrsta događaja" required><br>
                 <datalist id="grupa">
                     <option value="Opera">
@@ -73,27 +76,31 @@
                     <option value="Filharmonija">
                 </datalist><br>
                 <input type="number" placeholder=" Količina" id="quantity"  readonly required>
-                <button type="button" class="button" id="quantity-button" onclick="quantityOfTickets()"> Količina:</button>
+                <button type="button" class="button lang" key="quantity" id="quantity-button" onclick="quantityOfTickets()"> Quantity</button>
                 
                
                 
-                <br><br><p>Izaberite scenu:</p>
+                <br><br><p class="lang" key="scene">Scene:</p>
                 
-                <input type="radio" class="radiobutton" name="rh" id="pozitivna" checked><label for="pozitivna"> Mala scena:</label>
-                <input type="radio" class="radiobutton" name="rh"><label for="negativna">Velika scena:</label>
+                <input type="radio" class="radiobutton" name="rh" id="pozitivna" checked>
+                <label class="lang" key="alternative" for="pozitivna"> Alternative scene:</label>
+                <input type="radio" class="radiobutton" name="rh">
+                <label class="lang" key="main" for="negativna">Main scene:</label>
                 <br>
-                <label for="img">Izaberite sliku:</label>
+                <label class="lang" key="img pick"  for="img">Pick image</label>
                 <input type="file" id="img" name="img" accept="image/*" multiple   onchange="previewImg(event)">
+
                 <img alt="your image" id="outputImg"  width="50px" height="50px">
                 <!--<button type="reset" onclick="takeImg()" class="button" class="fiksni">Novi događaj</button>-->
-                <button type="button" class="button" onclick="entry()">Pokupi</button>
-                <button type="reset" class="button" onclick="clearFields()">Obriši</button>
+                <button type="button" class="button lang" key="submit" onclick="entry()">Submit</button>
+                <button type="reset" class="button lang" key="clear" onclick="clearFields()">Clear</button>
 
             </fieldset>
         </form>
     </div>
     <div id="entry-message"></div>
     <script src="../js/entry.js"></script>
+    <script src="../js/multiLanguage.js"></script>
     <script src="../js/signout.js"></script>
 </body>
 

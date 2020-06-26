@@ -80,9 +80,18 @@ var arrLang = {
         'filter': 'Filter',
         'clear' : 'Clear',
         'cart' : 'Cart',
-        'reserve' : 'Reserve'
-
-    
+        'reserve' : 'Reserve',
+        'receipt' : 'RECEIPT DOCUMENT',
+        'title performance' : 'PERFORMANCE TITLE:',
+        'main' : 'Main scene',
+        'alternative' : 'Alternative scene',
+        'submit': 'Submit',
+        'quantity' : 'Quantity',
+        'img pick' : 'Pick image',
+        'error title' : "Error. Type performance title",
+        'error author' : 'Error. Type author name.',
+        'error price' : ' Error. Type price.',
+        'error date' : 'Error. Type date',
     },
     'sr': {
         'aboutUs' : 'O nama',
@@ -137,6 +146,17 @@ var arrLang = {
         'clear' : 'Obriši',
         'cart' : 'Korpa',
         'reserve': 'Rezerviši',
+        'receipt' : 'UNOS DOGAĐAJA',
+        'title performance' : 'NAZIV DOGAĐAJA: ',
+        'main': 'Velika scena',
+        'alternative': 'Mala scena',
+        'submit': 'Pokupi',
+        'quantity' : 'Količina:',
+        'img pick' : 'Izaberite sliku:',
+        'error title' : "Pogrešan unos. Unesite naziv događaja",
+        'error author' : 'Pogrešan unos. Unesite ime i prezime autora',
+        'error price': 'Pogrešan unos. Unesite cenu ulaznice',
+        'error date' : 'Pogrešan unos. Unesite datum događaja',
     }
 };
 
