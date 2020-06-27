@@ -35,28 +35,12 @@ function checkUser(x){
         guestMessage = 'Da biste koristili prodavnicu morate biti administrator.<br> Molimo Vas da se ulogujete.';
         
         errorAlert = 'Neispravan unos ili prazno polje';
-        ballet = "Balet";
-        drama = "Predstava";
-        philharmonic = "Filharmonija";
-        author = "AUTOR: ";
-        scene = "SCENA: ";
-        price = "CENA: ";
-        quantity = "Količina";
-        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
-        tickets = " ulaznica.";
+       
     }else{
         userMessage = ' Welcome .<br>On this page you make an entry for tickets.</h1>';
         guestMessage = 'You have to be admin if you wanna use shop. Please, make a registration.';
         errorAlert = "Unvalid entry or empty field";
-        ballet = "Ballet";
-        drama = "Drama";
-        philharmonic = "Philharmonic";
-        author = "AUTHOR: ";
-        scene = "SCENE: ";
-        price = "PRICE: ";
-        quantity = "Quantity";
-        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
-        tickets = " tickets.";
+        
     }
           
      
