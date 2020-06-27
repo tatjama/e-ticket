@@ -464,7 +464,7 @@ function makeNewReservation(){
              reservation.rezervacija = input[i].value;
              console.log(reservation);
              console.log('stock' + i);
-             if(parseInt(reservation.rezervacija)  < parseInt(reservation.kolicina) ){
+             if(parseInt(reservation.rezervacija)  <= parseInt(reservation.kolicina) ){
                newReservations.push(reservation);
              } else{
                 

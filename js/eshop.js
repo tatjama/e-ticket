@@ -241,7 +241,7 @@ function createEShop(x) {
         
                 //DODALA USLOV DA NE MOZE DA ODE U MINUS
                 if (newReservation > 0) {
-                    if (newReservation < parseInt(filterPerformance[j].kolicina)) {
+                    if (newReservation <= parseInt(filterPerformance[j].kolicina)) {
                         filterPerformance[j].rezervacija = newReservation;
                     reservationsArray.push(filterPerformance[j]);
                         } else {
