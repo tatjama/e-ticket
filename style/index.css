@@ -1,8 +1,15 @@
 /***translate***/
 .choose-language{
-    background-color: lightgoldenrodyellow;
+    position: relative;
+    bottom: 40px;
+    right: 50px;
+    background-color: navy;
+    color: white;
     text-align: right;
-    padding: 0px 110px;
+    
+}
+.choose-language span{
+    color: white;
 }
 .translate{
     color: navy;
@@ -161,13 +168,7 @@ h1{
     background-size: cover;
 }
 #parallax_image_one{     
-     background-image: url('../images/balerina9.jpg');
-}
-#parallax_image_two{     
-     background-image: url('../images/balerina7.jpg');
-}
-#parallax_image_three{     
-     background-image: url('../images/balerina8.jpg');
+     background-image: url('../images/webp/balerina9.webp');
 }
 .description{
     width: 100%;
@@ -450,9 +451,7 @@ textarea{
     
 }
 @media screen and (max-width: 800px){
-    .choose-language{
-        padding: 0px 90px;
-    }
+   
     .section_one{
         padding: 10px 20px;
     }
@@ -504,9 +503,7 @@ flex-direction: row;
 }
 }
 @media screen and (max-width: 560px){
-    .choose-language{
-        padding: 0px 60px;
-    }
+    
     .form-div{
         display: flex;
         flex-direction: column;
@@ -529,9 +526,7 @@ flex-direction: row;
     }
 }
 @media screen and (max-width: 400px){
-    .choose-language{
-        padding: 0px 50px;
-    }
+   
     .section_one{
         padding: 50px 20px;
     }
