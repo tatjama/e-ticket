@@ -1,0 +1,210 @@
+{
+    "tickets":[
+      {
+        "title": "CARMEN",
+        "author": "Georges Bizet",
+       "price": 700,
+         "date": "2020-10-10",
+         "quantity": 123,
+        "type": "Opera",
+        "scene": "Mala scena",
+        "image": "opera1.webp"
+    
+    },
+    {
+        "title": "RADOVAN TREĆI",
+        "author": "Dušan Kovačević",
+       "price": 500,
+         "date": "2020-11-20",
+         "quantity": 8,
+        "type": "Predstava",
+        "scene": "Mala scena",
+        "image": "drama1.webp"
+    
+    }, {
+    
+        "title": "GOSPOĐA MINISTARKA",
+        "author": "Branislav Nušić",
+        "price": 800,
+         "date": "2020-09-15",
+         "quantity": 163,
+        "type": "Predstava",
+        "scene": "Mala scena",
+        "image": "drama2.webp"
+    
+    },
+    {
+        "title": "LA TRAVIATA",
+        "author": "Giuseppe Verdi",
+        "price": 860,
+         "date": "2020-10-19",
+         "quantity": 161,
+        "type": "Opera",
+        "scene": "Velika scena",
+        "image": "opera2.webp"
+    
+    }, {
+        "title": "BALKANSKI ŠPIJUN",
+        "author": "Dušan Kovačević",
+        "price": 680,
+         "date": "2020-09-11",
+         "quantity": 175,
+        "type": "Predstava",
+        "scene": "Mala scena",
+        "image": "drama3.webp"
+    
+    }, {
+        "title": "SWAN LAKE",
+        "author": "Peter Ilich Tchaikovsky",
+        "price": 900,
+         "date": "2020-10-18",
+         "quantity": 236,
+        "type": "Balet",
+        "scene": "Velika scena",
+        "image": "balerina1.webp"
+    
+    }, {
+        "title": "ČUDO U ŠARGANU",
+        "author": "LJubomir Simović",
+        "price": 550,
+         "date": "2020-10-25",
+         "quantity": 80,
+        "type": "Predstava",
+        "scene": "Mala scena",
+        "image": "drama4.webp"
+    
+    }, {
+        "title": "THE LADY OF THE CAMELLIAS",
+        "author": "Alexandres Dumas",
+        "price": 800,
+         "date": "2020-09-16",
+         "quantity": 255,
+        "type": "Predstava",
+        "scene": "Mala scena",
+        "image": "drama5.webp"
+    
+    }, {
+        "title": "EUGENE ONEGIN",
+        "author": "Peter Ilich Tchaikovsky",
+        "price": 900,
+         "date": "2020-05-16",
+         "quantity": 58,
+        "type": "Balet",
+        "scene": "Velika scena",
+        "image": "balerina2.webp"
+    
+    }, {
+        "title": "THE NUTCRACKER",
+        "author": "Peter Ilich Tchaikovsky",
+        "price": 980,
+         "date": "2020-09-28",
+         "quantity": 37,
+        "type": "Balet",
+        "scene": "Velika scena",
+        "image": "balerina3.webp"
+    
+    }, {
+        "title": "KRALJICA MARGO",
+        "author": "Goran Bregović",
+        "price": 700,
+         "date": "2020-09-17",
+         "quantity": 195,
+        "type": "Balet",
+        "scene": "Mala scena",
+        "image": "balerina4.webp"
+    
+    }, {
+        "title": "THE SLEAPING BEAUTY",
+        "author": "Peter Ilich Tchaikovsky",
+        "price": 800,
+         "date": "2020-09-16",
+         "quantity": 79,
+        "type": "Balet",
+        "scene": "Mala scena",
+        "image": "balerina5.webp"
+    
+    }, {
+        "title": "CAVALLERIJA RUSTICANA",
+        "author": "Pietro Mascagni",
+        "price": 1000,
+         "date": "2020-11-21",
+         "quantity": 151,
+        "type": "Opera",
+        "scene": "Velika scena",
+        "image": "opera3.webp"
+    
+    }, {
+        "title": "AIDA",
+        "author": "Giuseppe Verdi",
+        "price": 880,
+         "date": "2020-10-18",
+         "quantity": 158,
+        "type": "Opera",
+        "scene": "Velika scena",
+        "image": "opera4.webp"
+    
+    }, {
+        "title": "MUZIČKI RAZGOVORI",
+        "author": "Nemanja Stanković",
+        "price": 2000,
+        "date": "2020-09-15",
+        "quantity": 163,
+         "type": "Filharmonija",
+        "scene": "Mala scena",
+        "image": "filharmonija1.webp"
+    
+    }, {
+        "title": "KONCERT NA OTVORENOM",
+        "author": "Gabrijel Felc",
+        "price": 100,
+        "date": "2020-09-22",
+        "quantity": 93,
+        "type": "Filharmonija",
+        "scene": "Velika scena",
+        "image": "filharmonija2.webp"
+    
+    }, {
+        "title": "JA VOLIM FILHARMONIJU",
+        "author": "Aleksandar Kojić",
+        "price": 2500,
+         "date": "2020-09-22",
+         "quantity": 163,
+        "type": "Filharmonija",
+        "scene": "Mala scena",
+        "image": "filharmonija3.webp"
+    
+    }, {
+    
+        "title": "BOLERO",
+        "author": "Maurice Ravel",
+        "price": 970,
+         "date": "2020-09-17",
+         "quantity": 165,
+        "type": "Filharmonija",
+        "scene": "Mala scena",
+        "image": "filharmonija4.webp"
+    
+    }, {
+        "title": "ERO S ONOGA SVIJETA",
+        "author": "Jakov Gotovac",
+       "price": 1500,
+         "date": "2020-09-27",
+         "quantity": "157",
+        "type": "Opera",
+        "scene": "Velika scena",
+        "image": "opera5.webp"
+    
+    }, {
+        "title": "THE BLUE DANUBE",
+        "author": "Johann Strauss",
+       "price": 1200,
+         "date": "2020-09-13",
+         "quantity": "71",
+        "type": "Filharmonija",
+        "scene": "Velika scena",
+        "image": "filharmonija5.webp"
+    
+    }
+    
+    ]
+}
