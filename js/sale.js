@@ -429,22 +429,59 @@ function showFilteredItems(x){
         
         let storeArticle = document.createElement('div');    
         storeArticle.setAttribute('class' , 'item-card') ;              
-        storeArticle.innerHTML = '<img id="' + performanceType + (i + 1) + 
-                                '" class="items-img" alt="' + performanceType + (i + 1) + 
-                                ' "src="../images/webp/' + x[i].image + 
-                                '"><div class = "items-text"><p class = "items-name" id = "'+ i +'">' + 
-                                x[i].naziv + 
-                                '</p><p class="items-author">' + author + x[i].autor + 
-                                '</p><p class = "items-scene">' + sceneType + x[i].scena + 
-                                '</p><p class = "items-stock">'+quantity +'<span id="stock' + i  +
-                                '">' +x[i].kolicina + '</span></p><p class = "items-date"> ' + date + x[i].datum + 
-                                '</p><p class = "items-price"> ' + price + ' <span >' + x[i].cena + 
-                                ' RSD </span> </p> <p>'+ reserve +'</p><button class="items-quantity-button" onclick="quantityDown('+ 
-                                "'rezervacija" + i + "'" + 
-                                ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" class="items-input" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
-                                + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
-                                "'rezervacija" + i + "'" + 
-                                ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
+        storeArticle.innerHTML = `
+        <img    id="${performanceType+(i+1)}" 
+                class="items-img"   
+                alt="${performanceType+(i+1)}" 
+                src="../images/webp/${x[i].image}">
+        <div    class = "items-text">
+            <p  class = "items-name" id = "${i}">
+                 ${x[i].naziv}
+            </p>
+            <p class="items-author">
+                ${author+x[i].autor}
+            </p>
+            <p class = "items-scene"> 
+                ${sceneType + x[i].scena}
+            </p>
+            <p class = "items-stock">
+                ${quantity}
+                <span id="stock${i}">
+                ${x[i].kolicina}
+                </span>
+            </p>
+            <p class = "items-date">  
+                ${date + x[i].datum}
+            </p>
+            <p class = "items-price"> 
+                ${price} 
+                <span >
+                    ${x[i].cena} RSD 
+                </span> 
+            </p> 
+            <p>
+                ${reserve}
+            </p>
+            <button class="items-quantity-button" 
+                    onclick="quantityDown('rezervacija${i}')">
+                <img alt="arrow down" 
+                     class="arrow-img" 
+                     src="../images/arrow-down-white.svg" >
+            </button> 
+            <input type="number" 
+                   class="items-input" 
+                   value = "0" 
+                   min="0" 
+                   max="20" 
+                   placeholder="0" 
+                   id="rezervacija${i}">
+            <button class="items-quantity-button" 
+                    onclick="quantityUp('rezervacija${i}')">
+                <img alt="arrow up" 
+                     class="arrow-img" 
+                     src="../images/arrow-up-white.svg" >
+            </button>
+        </div>`;
         store.appendChild(storeArticle);                  
     }
 }
