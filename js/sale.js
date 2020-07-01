@@ -506,7 +506,8 @@ function makeNewReservation(){
              } else{
                 
                  alert(
-                    `Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru.
+                    `Lager ne može da ide u minus. 
+                    Rezervišete više ulaznica nego što ima na lageru.
                      Možete da rezervišete maksimalno ${reservation.kolicina} ulaznica`);
              }                       
         }        

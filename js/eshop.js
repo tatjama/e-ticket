@@ -82,13 +82,8 @@ function createEShop(x) {
             right: '30px',
             top: "60px",
             fontSize: "14px"
-        }, (500)).queue(function() {
-            $(this).css({
-                //"color": "white",
-               // "text-shadow": "3px 3px 11px white",
-              //  "background-color": "white"
-            }).dequeue();
-        });
+        }
+        , (500));
     }    
      
      if(sessionStorage.getItem('user')!== null){ 
@@ -97,15 +92,48 @@ function createEShop(x) {
             console.log(currentlyLoggedIn);
             navBg.style.display = "flex";
             eShopMessage.innerHTML = 
-            '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()"> ' + currentlyLoggedIn.name + 
-            ' ' + currentlyLoggedIn.surname + userMessage
-           + '</h1>';
-            var shops = '<div id="shops"><div class="shops"><img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg"><h4>'
-            + ballet 
-            + '</h4></div><div class="shops"><img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg"><h4>' 
-            + drama 
-            + '</h4></div><div class="shops"><img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg"><h4>Opera</h4></div><div class="shops" ><img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg"><h4>'
-            + philharmonic + '</h4></div></div>';
+            `<h1 class="h1-message" 
+                 id="welcome-user" 
+                 onclick="hideMessage()">
+                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + userMessage}
+            </h1>`;
+            var shops = `
+            <div id="shops">
+                <div class="shops">
+                    <img class="shops-img" 
+                         id="balet" 
+                         alt="balet" 
+                         src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
+                    <h4>
+                        ${ballet}
+                    </h4>
+                </div>
+                <div class="shops">
+                    <img class="shops-img" 
+                         id="drama" 
+                         alt="drama" 
+                         src="../images/my-icons-collection (1)/svg/drama-white.svg">
+                    <h4>
+                        ${drama}
+                    </h4>
+                </div>
+                <div class="shops">
+                    <img class="shops-img" 
+                         id="opera" 
+                         alt="opera" 
+                         src="../images/my-icons-collection (1)/svg/opera-white.svg">
+                    <h4>Opera</h4>
+                </div>
+                <div class="shops" >
+                    <img class="shops-img" 
+                         id="filharmonija" 
+                         alt="filharmonija" 
+                         src="../images/my-icons-collection (1)/svg/conductor-white.svg">
+                         <h4>
+                            ${philharmonic}
+                         </h4>
+                </div>
+            </div>`;
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
@@ -154,7 +182,7 @@ function createEShop(x) {
         //Filtriramo po vrsti dogadjaja -balet  
         var filterPerformance = performances;
         console.log(y);
-        document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
+        document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`)
         //console.log(document.getElementById(y).innerHTML);
         filterPerformance = performances.filter(
             function(newPerformance) {
@@ -173,20 +201,42 @@ function createEShop(x) {
             //refaktorizacija           
             let storeArticle = document.createElement('div');    
             storeArticle.setAttribute('class' , 'item-card') ;              
-            storeArticle.innerHTML = '<img id="' + y + (i + 1) + 
-                                    '" class="items-img" alt="' + y + (i + 1) + 
-                                    ' "src="../images/webp/' + filterPerformance[i].image + 
-                                    '"><div class = "items-text"><p class = "items-name">' + 
-                                    filterPerformance[i].naziv + 
-                                    '</p><p class="items-author">'+ author + filterPerformance[i].autor + 
-                                    '</p><p class = "items-scene">'+ scene + filterPerformance[i].scena + 
-                                    '</p><p class = "items-price">' + price + ' <span >' + filterPerformance[i].cena + 
-                                    ' RSD </span> </p> <p>' + quantity + ' </p><button class="items-quantity-button" onclick="quantityDown('+ 
-                                    "'rezervacija" + i + "'" + 
-                                    ')"><img alt="arrow down" class="arrow-img" src="../images/arrow-down-white.svg" ></button> <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija' 
-                                    + i + '"><button class="items-quantity-button" onclick="quantityUp('+ 
-                                    "'rezervacija" + i + "'" + 
-                                    ')"><img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" ></button></div>';
+            storeArticle.innerHTML = `
+            <img id="${y + (i + 1)}" 
+                 class="items-img" 
+                 alt="${y + (i + 1)} "
+                 src="../images/webp/${filterPerformance[i].image}">
+                <div class = "items-text">
+                    <p class = "items-name">
+                        ${filterPerformance[i].naziv}
+                    </p>
+                    <p class="items-author">
+                        ${author + filterPerformance[i].autor}
+                    </p>
+                    <p class = "items-scene">
+                        ${scene + filterPerformance[i].scena}
+                    </p>
+                    <p class = "items-price">
+                        ${price}
+                        <span >
+                         ${filterPerformance[i].cena}RSD 
+                        </span> 
+                    </p> 
+                    <p>
+                        ${quantity} 
+                    </p>
+                    <button class="items-quantity-button" 
+                            onclick="quantityDown('rezervacija${i}')">
+                        <img alt="arrow down" 
+                             class="arrow-img" 
+                             src="../images/arrow-down-white.svg" >
+                    </button> 
+                    <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija${i}">
+                    <button class="items-quantity-button" 
+                            onclick="quantityUp('rezervacija${i}')">
+                        <img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" >
+                    </button>
+                </div>`;
             store.appendChild(storeArticle);                  
         }  
     } 
