@@ -24,6 +24,22 @@ class UI{
         let result = '';
         tickets.forEach((ticket)=>{
             result += `
+            <div class="program-row">
+            <div class="program-item img-container" >
+              <img class="program-img" alt="labudovo jezero" src="./images/webp/${ticket.image}">
+            </div>
+            <div class="program-item">${ticket.title}</div>
+            <div class="program-item">${ticket.author}</div>
+            <div class="program-item">${ticket.date}</div>
+            <div class="program-item">${ticket.type}</div>
+            <div class="program-item">${ticket.scene}</div>
+            <div class="program-item" >${ticket.price},00 RSD</div>
+            
+          </div>     `
+
+            document.querySelector('.program-row-container').innerHTML = result;
+           /* result += `
+
             <div class="premiere">
                   
                    <img  alt="balet1" src="./images/webp/${ticket.image}">
@@ -41,7 +57,7 @@ class UI{
                        
                   </div> 
             `;
-          // document.querySelector('#section_three_h1_result').innerHTML = result;
+           document.querySelector('.program-list').innerHTML = result;*/
 
         })
     }

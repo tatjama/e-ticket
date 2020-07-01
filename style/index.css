@@ -321,12 +321,29 @@ textarea{
     display: none;
 }
 /**program*/
-/*.program{
-    padding: 20px 100px;
+.program-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    
 }
-.program img{
-    width: 30%;
-}*/
+.program-img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 50px;
+}
+.program-item{
+   
+    height: 50px;
+    padding: 10px;
+    width: 190px;
+    margin: 5px;
+    font-size: 12px;
+}
+.img-container{
+    width: auto;
+}
 /****customer service****/
 .customer-service-content{
     padding: 150px;
