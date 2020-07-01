@@ -162,7 +162,7 @@ function createSale(x) {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        "<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>" + guestMessage +"</h1>";
+        `<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>${guestMessage}</h1>`;
         animate();
      }    
     }
@@ -234,7 +234,7 @@ function createSale(x) {
         concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
         
         activeStore.innerHTML = x;  
-        document.getElementById(y).setAttribute('src', '../images/my-icons-collection (1)/svg/' + y + '.svg')
+        document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`)
        
        } 
      
@@ -355,7 +355,7 @@ function createSale(x) {
                 }
             });
         // render sum of qouted performances         
-        quantityField.innerHTML = "Izlistan je " + arrayCount.length + " događaj."
+        quantityField.innerHTML = `Izlistan je ${arrayCount.length} događaj.`
       
     }
   }  
@@ -469,8 +469,8 @@ function makeNewReservation(){
              } else{
                 
                  alert(
-                    "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da rezervišete maksimalno " +
-                    reservation.kolicina + " ulaznica");
+                    `Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru.
+                     Možete da rezervišete maksimalno ${reservation.kolicina} ulaznica`);
              }                       
         }        
     }
