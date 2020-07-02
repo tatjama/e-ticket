@@ -1,16 +1,12 @@
 /***translate***/
 .choose-language{
-   /* position: absolute;
-    top: 80px;
-    right: 50px;*/
-    
     text-align: right;
     background-color: navy;
     padding: 0px 40px 10px 0px;
 }
 .translate{   
     display: inline-block;
-    padding: 5px 15px 0px 0px;
+    padding: 5px 15px 0px 15px;
     color: white;
 }
 .translate:hover{
@@ -552,9 +548,8 @@ flex-direction: row;
 }
 @media screen and (max-width: 400px){
     .choose-language{
-        padding-right: 23px;
-    }
-    
+        padding-right: 30px;
+    }    
     .section_one{
         padding: 50px 20px;
     }
