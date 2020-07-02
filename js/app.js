@@ -11,14 +11,12 @@ class Tickets{
             return ticket;
         }catch{
             console.error();
-        }
-        
+        }        
     }
 }
 
 //display tickets
 class UI{
-
     displayTickets(tickets){
         console.log(tickets)
         let result = '';
@@ -38,28 +36,14 @@ class UI{
           </div>     `
 
             document.querySelector('.program-row-container').innerHTML = result;
-           /* result += `
-
-            <div class="premiere">
-                  
-                   <img  alt="balet1" src="./images/webp/${ticket.image}">
-                  
-                  <div class="parallax- text"> 
-                    <a href="./view/eshop.html">
-                    <h4 >${ticket.title}</h4> </a>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique diam in tempor condimentum. Proin condimentum a purus non malesuada. Nulla et dignissim libero, a accumsan enim. Quisque at auctor dolor. Praesent vitae neque iaculis,
-                      molestie sapien quis, pretium est. Sed vehicula                      
-                    </p>
-                    <h5> <span class="lang" key="date"> DATE: </span> ${ticket.date}</h5>
-                      <h5><span class="lang" key = "time">TIME: </span> 20:00h</h5>
-                      <h5><span class="lang" key = 'scene'>SCENE: </span> ${ticket.scene}</h5>
-                    </div>
-                       
-                  </div> 
-            `;
-           document.querySelector('.program-list').innerHTML = result;*/
-
+          
         })
+    }
+}
+//set to localStorage
+class Storage{
+    static saveStorage(tickets){
+        localStorage.setItem('tickets', JSON.stringify(tickets));
     }
 }
 
@@ -70,7 +54,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     const ui = new UI();
     //get tickets
     tickets.getTickets().then((tickets)=>{
-        ui.displayTickets(tickets)
+        ui.displayTickets(tickets);
+        Storage.saveStorage(tickets);
     })
    // console.log(tickets.getTickets())
 })
