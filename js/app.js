@@ -31,9 +31,9 @@ class UI{
             <div class="program-item">${ticket.title}</div>
             <div class="program-item">${ticket.author}</div>
             <div class="program-item">${ticket.date}</div>
-            <div class="program-item">${ticket.type}</div>
-            <div class="program-item">${ticket.scene}</div>
-            <div class="program-item" >${ticket.price},00 RSD</div>
+            <div class="program-item hide-item">${ticket.type}</div>
+            <div class="program-item hide-item">${ticket.scene}</div>
+            <div class="program-item hide-item" >${ticket.price},00 RSD</div>
             
           </div>     `
 
