@@ -1,0 +1,90 @@
+#entry-container{
+    padding: 50px;
+    font-size: 12px;
+    margin-left: 15%;
+}
+h3{
+    font-size:44px;
+    color:darkgoldenrod;
+}
+
+fieldset {
+    width: 500px;
+    border: 2px solid darkgoldenrod;
+    background-color: beige;
+    color: navy;    
+    text-align: right;
+    padding: 20px;
+}
+#author{
+    text-transform: capitalize;
+}
+input {
+    width: 250px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid goldenrod;
+    padding: 2px;
+}
+input[name="rh"]{
+    max-width: 100px;
+    height: 20px;
+}
+#img{
+    border: 0px;
+}
+p{
+    margin: 5px;
+}
+.button {
+      padding: 2px;
+      text-decoration: none;
+      width: 138px;
+      height: 30px;
+      margin: 5px;
+      border: 1px solid goldenrod;  
+  }
+  .button[type="button"]{
+      background-color: navy;
+      border: navy 1px solid;
+      color: white;
+  }
+  .button:hover,
+  #eshop-buttons :hover, a :hover {
+      background-color: goldenrod;
+      color: white;
+      font-weight: bold;
+  }
+  @media screen and (max-width: 400px){
+      #entry-container{
+          padding: 10px 30px;
+          margin-left: 0px;
+      }
+      #welcome-user{
+         background-image: url('../images/music.svg');         
+      }
+      #guest-user{
+          background-image: url('../images/pencil.svg');
+      }
+      h3{
+          font-size: 28px;
+      }
+      fieldset{
+          width: 250px;
+          margin: 10px 0px 10px 5px;
+          text-align: center;
+      }
+      input {
+          width: 250px;
+      }
+      .button{
+          width: 250px;
+          height: 30px;
+      }
+      #quantity-button,
+      #quantity{
+          width:  120px;
+          float: left;
+        
+      }
+  }
