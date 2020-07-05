@@ -1,0 +1,200 @@
+
+body{
+    background-color: navy;
+}
+#eshop-navigation{
+    position: sticky;
+    top: -100px;
+    background-color: navy;
+}
+h2{
+    color: mintcream;
+    text-align: center;
+    padding: 20px;
+}
+#shops div {
+    color: mintcream;    
+    text-align: center;
+    padding: 5px;
+    
+}
+#shops div:hover{
+    color: goldenrod;
+}
+#shops{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+.shops-img {
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+}
+.shops-img:hover {
+    transform: scale(1.1);    
+}
+.open-store {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    /*background-image: radial-gradient(white, goldenrod);*/
+    background-color: mintcream;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+}
+.items-img {
+    width: 220px;
+    height: 200px;
+    padding-right: 20px;
+    border-radius: 15px;
+}
+
+.items-text{
+    text-align: left;
+}
+.items-name,
+.items-author,
+.items-scene,
+.items-price{
+    font-size: 12px;
+    text-transform: capitalize;    
+}
+.items-name{
+    color: navy;
+    font-weight: bold;
+}
+p{
+    padding: 3px;
+    font-size: 14px;
+}
+.item-card{
+    height: 200px;
+    width: 390px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin:40px  20px;
+}
+span{
+    font-weight: bold;
+}
+ input{
+    width: 50px;
+    height: 26px;  
+    font-size: 15px;
+    border: 0px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+.items-quantity-button{
+    height: 24px;
+    padding: 0px 3px;
+    margin: 0px 3px;
+    background-color: navy;
+    color: white;
+}
+
+.items-quantity-button:hover{
+    /*background-color: rgb(212, 200, 170);*/
+    background-color: goldenrod;
+}
+.arrow-img{
+    width: 20px;
+    height: 15px;
+    padding: 2px 7px;
+}
+#korpa {
+    flex-wrap: wrap;
+}
+#eshop-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+.button {
+  /*  border-radius: 30px;*/
+    border: 0cm;
+    padding: 20px;
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    margin: 5px;
+}
+.button :hover,
+#eshop-buttons :hover, a :hover {
+    background-color: goldenrod;
+    color: white;
+    font-weight: bold;
+}
+#active-store{
+    color: white;
+    font-size: 0.67rem;
+}
+@media screen and (max-width: 800px){    
+    nav{
+        padding: 10px;
+    }
+    #shops{
+        padding-bottom: 10px;
+    }
+    .shops{
+        margin: 40px 20px;
+    }
+    .shops-img{
+        width: 100px;
+        height: 100px;
+        margin: 10px 5px;
+    }
+    
+    h4{
+        font-size: 12px;        
+       /* font-weight: lighter;*/
+    }
+    h2{
+        padding: 40px;
+        font-weight: lighter;
+    }
+    .button{        
+        height: 40px;
+        padding: 15px;
+    }
+    .items-img{
+        width: 150px;
+        height: 130px;
+    }
+    .item-card{
+        margin: 20px 10px;
+        height: 130px;
+        width: 320px;
+    }
+    p{
+        font-size: 12px;
+    }
+    input{
+        height: 15px;
+    }
+    .items-quantity-button{
+        height: 19px;
+        
+    }
+    .arrow-img{
+        width: 20px;
+        height: 10px;
+        padding: 2px 7px;
+    }
+  }
+  @media screen and (max-width: 400px){
+    #welcome-user{
+       background-image: url('../images/my-icons-collection (1)/svg/filharmonija.svg');
+           }
+    #guest-user{
+        background-image: url('../images/pencil.svg');
+    }
+  }
