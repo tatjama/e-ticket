@@ -1,5 +1,6 @@
+
 nav{
-    background-color: navy;
+    background-color: $primaryColor;
     display: flex;
     flex-direction: row;    
     padding: 20px 100px; 
@@ -8,16 +9,16 @@ nav{
 #logo img{
     width: 60px;  
    border-radius: 50%;
-   border: goldenrod 2px solid;
+   border: $secondaryColor 2px solid;
  }
  nav a{
-     color: honeydew;
+     color: $sectionFiveBG;
      font-size: 1rem;
      padding: 10px;
  }
  nav a:hover{
      transform: scale(1.1);
-     color: goldenrod;
+     color: $secondaryColor;
  }
  .nav-bg{
     display: flex;
