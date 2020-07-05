@@ -1,0 +1,111 @@
+.shoppingCard-container{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    position: relative;
+}
+#table-main{
+    border-spacing: 3px 3px;
+}
+/*#table-of-reserved-performances :nth-child(even){
+    background-color: orangered;
+}*/
+th, 
+td{
+    font-weight: lighter;       
+    padding: 15px;
+   /* display: table-column;*/
+   /* width: 60px;*/
+}
+th{
+    font-size: 12px;
+   
+}
+td{
+    border-right: dashed 1px olive;
+    border-collapse: collapse;
+    /*border-bottom: dashed 1px olive;*/
+    margin: 2px;
+    font-size: 10px;
+    text-align: right;
+}
+td.iznos{
+    border-left: dashed 1px olive;
+    border-right: 0px;
+}
+.obrisi{
+    background-color: navy;
+    color: white; 
+    border-radius: 15px;
+    border: white 3px solid;  
+}
+.obrisi:hover{
+    background-color: goldenrod;
+}
+.image{
+    display: none;
+}
+.rezervacija,
+.naziv,
+.cena,
+.iznos,
+.obrisi,
+.obrisi-header{
+    font-weight: bold;
+}
+input{
+    background-color: rgb(217, 165, 32);
+    color: white;
+    height: 40px;
+    width: 170px;
+    text-align: center;
+    border: 0px;
+    font-weight: bold;
+    margin: 5px;
+}
+button {
+      background-color: navy;
+      color: white;
+      border: 0cm;
+      padding: 20px;
+      text-decoration: none;
+      width: 172px;
+      height: 50px;
+      margin: 5px;
+  }
+  
+  button:hover
+   {
+      background-color: goldenrod;
+      font-weight: bold;
+  }
+#pay-button{
+    display: none;
+}
+@media screen and (max-width: 800px){
+    .shoppingCard-container{
+        padding: 10px;
+    }
+   /* button, input{
+        width: 180px;
+    }*/
+    th, td{
+        padding: 15px ;
+    }
+    .autor,
+    .datum,
+    .kolicina,
+    .vrsta,
+    .scena{
+        display: none;
+    }
+
+}
+@media screen and (max-width: 400px){
+    th, td{
+        padding: 10px 5px;
+    }
+}
