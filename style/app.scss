@@ -11,8 +11,10 @@ $primaryBackGroundColor: cornsilk;
 $primaryColor: navy;
 $sectionOneBG: lightgoldenrodyellow;
 $sectionTwoBG: mintcream;
+$sectionFiveBG: hsl(233, 12%, 13%);
 $secondaryColor: goldenrod;
 $secondaryColorDark: darkgoldenrod;
+$sectionParallaxBG: rgba(43, 43, 46, 0.8);
 
 
 /***translate***/
@@ -146,7 +148,7 @@ hr{
 }
 /***Section three****/
 .section_three{
-    background-color: $primaryText;    
+    background-color: $sectionTwoBG;    
        
 }
 .section_three h1,
@@ -171,7 +173,7 @@ h1{
 }
 .description{
     width: 100%;
-    background-color: rgba(43, 43, 46, 0.8);
+    background-color: $sectionParallaxBG;
     display: flex;
     flex-direction: column;
 }
@@ -278,7 +280,7 @@ If we want to overflow works , we have to define height of element. Element have
 }
 /**images credits**/
 .image-credit{
-    background-color: hsl(233, 12%, 13%);
+    background-color: $sectionFiveBG;
     padding: 10px;
     color: $parallaxHeader;
     font-size: small;
@@ -365,12 +367,11 @@ textarea{
 /****location***/
 .location-section{
     padding: 50px 0px;
-    background-color: hsl(233, 12%, 13%);
+    background-color: $sectionFiveBG;
 }
 .section-five{
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: row;    
 }
 
 .location-slider{
@@ -423,7 +424,7 @@ textarea{
 }
 .location-first{
     width: 300px;    
-    background-color: hsl(233, 12%, 13%);
+    background-color: $sectionFiveBG;
     z-index: 1;
     color: $secondaryColor;
     padding: 30px 20px;
@@ -443,7 +444,7 @@ textarea{
     font-size: x-small;    
 }
 .right{
-    background-color:hsl(233, 12%, 13%);
+    background-color:$sectionFiveBG;
     padding: 65px;
     z-index: 1;
     width: 600px;
@@ -577,7 +578,7 @@ flex-direction: row;
         right: 0px;
         top: 0px;
         display: none;
-        background-color: beige;
+        background-color:$basicColorTwo;
         border: 0px;
         z-index: 9;
         width: 100%;
