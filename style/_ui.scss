@@ -22,7 +22,7 @@ a, i{
 .h1-message {
     position: absolute;    
     font-size: 8px;
-    color: $primaryText;
+    color: $sectionTwoBG;
     padding: 20px;
     font-weight: lighter;
     
@@ -33,7 +33,7 @@ a, i{
         padding: 60px 30px;
         margin-top: -60px;
         margin-right: -30px;
-       background-color: $primaryBackGroundColor;
+       background-color: $primaryBGColor;
        background-image: url('../images/my-icons-collection (1)/svg/filharmonija.svg');
        background-repeat: no-repeat;
        background-size: contain;

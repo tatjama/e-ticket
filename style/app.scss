@@ -1,20 +1,7 @@
-@import './variables';
-@import './_ui';
+@import "./_variables";
+@import "./ui";
+@import "./footer";
 
-
-$basicColorOne: white;
-$basicColorTwo: beige;
-
-$parallaxHeader: rgb(92, 150, 216);
-
-$primaryBackGroundColor: cornsilk;
-$primaryColor: navy;
-$sectionOneBG: lightgoldenrodyellow;
-$sectionTwoBG: mintcream;
-$sectionFiveBG: hsl(233, 12%, 13%);
-$secondaryColor: goldenrod;
-$secondaryColorDark: darkgoldenrod;
-$sectionParallaxBG: rgba(43, 43, 46, 0.8);
 
 
 /***translate***/
@@ -50,7 +37,7 @@ input {
 #my_signUp input:nth-of-type(6){
     background-color: $primaryColor;
     border: solid 1px $primaryColor;
-    color: honeydew;
+    color: $sectionFiveBG;
 }
 #my_signIn input:nth-of-type(3):hover,
 #my_signIn input:nth-of-type(4):hover,
@@ -120,7 +107,7 @@ input {
     height: 150px;
     border-radius: 50%;
     border: solid 1px $basicColorOne;
-    box-shadow: gray 0px 0px 10px;
+    box-shadow: $boxShadowPrimaryColor 0px 0px 10px;
     margin: 15px;
 }
 figure:hover{
@@ -223,7 +210,7 @@ h1{
 }
 .popuna{
     height: 200px;
-    background-color: $primaryText;
+    background-color: $sectionTwoBG;
     background-color: $secondaryColor;
 }
 /***slider***/
@@ -263,7 +250,7 @@ If we want to overflow works , we have to define height of element. Element have
 }
 .slide{
     width: 550px;
-    background-color: hsl(0, 0%, 98%);
+    background-color: $basicColorThree;
     text-align: center;
     margin: 50px 20px;  
 }
@@ -280,14 +267,14 @@ If we want to overflow works , we have to define height of element. Element have
 }
 /**images credits**/
 .image-credit{
-    background-color: $sectionFiveBG;
+    background-color: $sectionSevenBG;
     padding: 10px;
     color: $parallaxHeader;
     font-size: small;
 }
 .image-credit a{
     font-size: x-small;
-    color: grey;
+    color: $boxShadowPrimaryColor;
     text-align: left;
 }
 .image-credit span{
@@ -320,9 +307,9 @@ textarea{
     display: none;
 }
 /**program*/
-.section_six{
-   /* background-color: lightgoldenrodyellow;*/
-}
+/*.section_six{
+   background-color: lightgoldenrodyellow;
+}*/
 .program-row{
     display: flex;
     flex-direction: row;
@@ -352,14 +339,14 @@ textarea{
 .head{
     font-weight: bold;    
     color: $parallaxHeader;
-    background-color: rgba(43, 43, 46, 0.8);
+    background-color: $sectionParallaxBG;
 }
 
 /****customer service****/
 .customer-service-content{
     padding: 150px;
     text-align: left;
-    background-color: honeydew;
+    background-color: $sectionFiveBG;
 }
 .customer-service-content h1{
     text-align: center;
@@ -367,9 +354,9 @@ textarea{
 /****location***/
 .location-section{
     padding: 50px 0px;
-    background-color: $sectionFiveBG;
+    background-color: $sectionSevenBG;
 }
-.section-five{
+.section-seven{
     display: flex;
     flex-direction: row;    
 }
@@ -424,7 +411,7 @@ textarea{
 }
 .location-first{
     width: 300px;    
-    background-color: $sectionFiveBG;
+    background-color: $sectionSevenBG;
     z-index: 1;
     color: $secondaryColor;
     padding: 30px 20px;
@@ -444,7 +431,7 @@ textarea{
     font-size: x-small;    
 }
 .right{
-    background-color:$sectionFiveBG;
+    background-color:$sectionSevenBG;
     padding: 65px;
     z-index: 1;
     width: 600px;
@@ -461,7 +448,7 @@ textarea{
     }   
     .popuna{
         height: 200px;
-        background-color: rgba(43, 43, 46, 0.8);
+        background-color: $sectionParallaxBG;
         background-color: $secondaryColor;
     } 
     .slider{
@@ -601,7 +588,7 @@ flex-direction: row;
     }
     
     /**location**/
-    .section-five{
+    .section-seven{
         flex-direction: column;
     }
     .location-first p,
