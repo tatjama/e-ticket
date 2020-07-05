@@ -15,11 +15,11 @@
     display: inline-block;
     padding: 5px 15px 0px 15px;
     color: $basicColorOne;
-}
-.translate:hover{
-    color: $secondaryColor;
-    transform: scale(1.1);
-    cursor: pointer;
+    :hover{
+        color: $secondaryColor;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 }
 /*POPUP*/
 fieldset {
@@ -39,10 +39,12 @@ input {
     background-color: $primaryColor;
     border: solid 1px $primaryColor;
     color: $sectionFiveBG;
+    :hover{
+        background-color: $secondaryColor;
+        border: solid 1px $secondaryColor;
+    }
 }
-#my_signIn input:nth-of-type(3):hover,
 #my_signIn input:nth-of-type(4):hover,
-#my_signUp input:nth-of-type(6):hover,
 #my_signUp input:nth-of-type(7):hover{
     background-color: $secondaryColor;
     border: solid 1px $secondaryColor;
@@ -82,10 +84,28 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-.section_one a{
-    color: $secondaryColorDark;
-    display: block;
+    a{
+        color: $secondaryColorDark;
+        display: block;
+    }
+    figure {
+        width: 152px;    
+        font-weight: bold;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: solid 1px $basicColorOne;
+            box-shadow: $boxShadowPrimaryColor 0px 0px 10px;
+            margin: 15px;
+        }
+        :hover{
+            transform: scale(1.1);
+        }
+    }
 }
 .section_two {
     background-color: $sectionTwoBG;
@@ -95,32 +115,12 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
 }
-.section_one figure {
-    width: 152px;    
-    font-weight: bold;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.section_one figure img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: solid 1px $basicColorOne;
-    box-shadow: $boxShadowPrimaryColor 0px 0px 10px;
-    margin: 15px;
-}
-figure:hover{
-    transform: scale(1.1);
-}
 .content{
     width: 400px;
     padding: 15px;
-}
-.content p
-{
-    padding:10px;
+    p{
+        padding:10px;
+    }
 }
 hr{
     margin: 10px
@@ -137,9 +137,30 @@ hr{
 /***Section three****/
 .section_three{
     background-color: $sectionTwoBG;    
-       
+      h1{
+        text-align: center;
+        color: $secondaryColor;
+      } 
+      img {
+        border: 0px;
+        width: 200px;
+        height: 200px;
+        margin: 8px 50px;
+        justify-content: center;
+      }
+      p{   
+        text-align: left;
+        color: $basicColorOne;
+      }
+     h4{
+        color: $parallaxHeader;
+        padding: 10px 0px;
+       }
+    h5{
+        color: $parallaxHeader;
+        padding: 2px 1px;
+    }
 }
-.section_three h1,
 .section_six h1{
     text-align: center;
     color: $secondaryColor;
@@ -171,8 +192,6 @@ h1{
     flex-wrap:nowrap;
     justify-content: center;
     box-sizing: border-box;
-   /*background-color: lightgoldenrodyellow;*/
-  /* background-color: rgba(0, 0, 0, 0.6);*/
     font-size: 12px;
     padding: 25px;
     width: 50%;
@@ -184,26 +203,6 @@ h1{
     margin-right: 50%;
     margin-left: 0px;
     flex-direction: row;
-}
-.section_three img {
-    border: 0px;
-    width: 200px;
-    height: 200px;
-    margin: 8px 50px;
-    justify-content: center;
-}
-.section_three p{   
-    text-align: left;
-    color: $basicColorOne;
-}
-.section_three h4
-{
-    color: $parallaxHeader;
-    padding: 10px 0px;
-}
-.section_three h5{
-    color: $parallaxHeader;
-    padding: 2px 1px;
 }
 .parallax-text{
     display: flex;
@@ -224,12 +223,7 @@ h2{
     padding: 10px;
 }
 
-.slide img{
-    height: 100px;
-    position: relative;
-    top: -50px;
-    border-radius: 50%;
-}
+
 h3{
     margin-left: -100px;
     display: inline-block;
@@ -254,12 +248,18 @@ If we want to overflow works , we have to define height of element. Element have
     background-color: $basicColorThree;
     text-align: center;
     margin: 50px 20px;  
-}
-.slide p{
-    width: 460px;
-    padding:0px 50px;
-    font-size: 1rem;    
-}
+    img{
+        height: 100px;
+        position: relative;
+        top: -50px;
+        border-radius: 50%;
+    }
+    p{
+        width: 460px;
+        padding:0px 50px;
+        font-size: 1rem;    
+    }
+} 
 .section_four{
     display: flex;
     flex-direction: column;
@@ -272,24 +272,25 @@ If we want to overflow works , we have to define height of element. Element have
     padding: 10px;
     color: $parallaxHeader;
     font-size: small;
+    a{
+        font-size: x-small;
+        color: $boxShadowPrimaryColor;
+        text-align: left;
+    }
+    span{
+        display: inline;
+    }
 }
-.image-credit a{
-    font-size: x-small;
-    color: $boxShadowPrimaryColor;
-    text-align: left;
-}
-.image-credit span{
-    display: inline;
-}
+
 .image-credit-spans{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+    div{
+        font-size: x-small;
+    }
 }
-.image-credit-spans div{
-    font-size: x-small;
-}
+ 
 /***comment form**/
 .comment-form{
     padding: 30px 60px;
@@ -308,16 +309,12 @@ textarea{
     display: none;
 }
 /**program*/
-/*.section_six{
-   background-color: lightgoldenrodyellow;
-}*/
 .program-row{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
     padding: 10px 30px;
-   /* background-color: lightgoldenrodyellow;*/
 }
 .program-img{
     width: 30px;
@@ -330,8 +327,7 @@ textarea{
     height: 50px;
     padding: 10px;
     width: 190px;    
-    font-size: 12px;
-   
+    font-size: 12px;   
 }
 .img-container{
     width: auto;
@@ -348,10 +344,11 @@ textarea{
     padding: 150px;
     text-align: left;
     background-color: $sectionFiveBG;
+    h1{
+        text-align: center;
+    }
 }
-.customer-service-content h1{
-    text-align: center;
-}
+
 /****location***/
 .location-section{
     padding: 50px 0px;
@@ -389,27 +386,18 @@ textarea{
     background-color: $secondaryColor;
 }
 
-/*.location-slide p{
-    width: 460px;
-    padding:0px 50px;
-    font-size: 1rem;    
-}*/
 .location-slide{
    width: 430px;   
    background-color: $secondaryColor;
    text-align: center;   
    margin: 50px 0px;
-}
-/*.location-slide p{
-    font-size: 0.8rem;
-    width: 100%;        
-}*/
-.location-slide img{
+   img{
     height: 300px;
     position: relative;
-    top: -50px;
-    
+    top: -50px;    
 }
+}
+
 .location-first{
     width: 300px;    
     background-color: $sectionSevenBG;
@@ -417,10 +405,9 @@ textarea{
     color: $secondaryColor;
     padding: 30px 20px;
     font-size: 12px;
-}
-.location-first p,
-.location-first h1{
-    padding: 15px;
+    p, h1{
+        padding: 15px;
+    }
 }
 .left{
     display: flex;
@@ -464,16 +451,15 @@ textarea{
    
     .section_one{
         padding: 10px 20px;
+        figure{
+            width: 102px;
+            margin: 20px 27px;
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
     }
-.section_one figure img {
-    width: 100px;
-    height: 100px;
-}
-.section_one figure{
-    width: 102px;
-    margin: 20px 27px;
-}
-
 .description{
     flex-direction: column;
     flex-wrap: wrap;
@@ -521,15 +507,13 @@ flex-direction: row;
     .form-div{
         display: flex;
         flex-direction: column;
+        input, textarea{
+            width: 250px;
+        }
         
     }
     textarea{
         margin: 6px 5px;
-    }
-    
-    .form-div input,
-    .form-div textarea{
-        width: 250px;
     }
     .customer-service-content{
         padding: 50px;
@@ -549,9 +533,9 @@ flex-direction: row;
     }    
     .section_one{
         padding: 50px 20px;
-    }
-    .section_one figure{
-        margin: 40px 27px;
+        figure{
+            margin: 40px 27px;
+        }
     }
     fieldset {
         width: 260px;
