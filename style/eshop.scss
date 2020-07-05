@@ -2,30 +2,6 @@
 @import "./ui";
 @import "./navigationEShop";
 
-$basicColorOne: white;
-$basicColorTwo: beige;
-$basicColorThree: hsl(0, 0%, 98%);
-
-$boxShadowPrimaryColor: grey;
-$boxShadowSecondaryColor: hsla(12, 88%, 59%, 0.07);
-
-$parallaxHeader: rgb(92, 150, 216);
-
-$primaryBGColor: cornsilk;
-$primaryColor: navy;
-$SecondaryBGColor:  hsl(225, 3%, 49%);
-$secondaryColor: goldenrod;
-$secondaryColorDark: darkgoldenrod;
-
-$sectionOneBG: lightgoldenrodyellow;
-$sectionTwoBG: mintcream;
-$sectionFiveBG: honeydew;
-$sectionSevenBG: hsl(233, 12%, 13%);
-$sectionParallaxBG: rgba(43, 43, 46, 0.8);
-
-
-
-
 body{
     background-color: $primaryColor;
 }
@@ -39,21 +15,20 @@ h2{
     text-align: center;
     padding: 20px;
 }
-#shops div {
-    color: $sectionTwoBG;    
-    text-align: center;
-    padding: 5px;
-    
-}
-#shops div:hover{
-    color: $secondaryColor;
-}
 #shops{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding-bottom: 50px;
+    div {
+        color: $sectionTwoBG;    
+        text-align: center;
+        padding: 5px;
+        :hover{
+            color: $secondaryColor;
+        }
+    }
 }
 .shops-img {
     width: 120px;
@@ -69,7 +44,6 @@ h2{
     flex-wrap:wrap;
     justify-content: space-evenly;
     box-sizing: border-box;
-    /*background-image: radial-gradient(white, goldenrod);*/
     background-color: $sectionTwoBG;
     font-size: 12px;
     padding: 10px;
@@ -126,11 +100,9 @@ span{
     margin: 0px 3px;
     background-color: $primaryColor;
     color: $basicColorOne;
-}
-
-.items-quantity-button:hover{
-    /*background-color: rgb(212, 200, 170);*/
-    background-color: $secondaryColor;
+    :hover{
+        background-color: $secondaryColor;
+    }
 }
 .arrow-img{
     width: 20px;
@@ -181,8 +153,7 @@ span{
     }
     
     h4{
-        font-size: 12px;        
-       /* font-weight: lighter;*/
+        font-size: 12px;     
     }
     h2{
         padding: 40px;
