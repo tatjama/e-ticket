@@ -15,31 +15,24 @@ h1{
 #table-main{
     border-spacing: 3px 3px;
 }
-/*#table-of-reserved-performances :nth-child(even){
-    background-color: orangered;
-}*/
 th, 
 td{
     font-weight: lighter;       
     padding: 15px;
-   /* display: table-column;*/
-   /* width: 60px;*/
 }
 th{
-    font-size: 12px;
-   
+    font-size: 12px;   
 }
 td{
     border-right: dashed 1px $secondaryColor;
     border-collapse: collapse;
-    /*border-bottom: dashed 1px olive;*/
     margin: 2px;
     font-size: 10px;
     text-align: right;
-}
-td.iznos{
-    border-left: dashed 1px $secondaryColor;
-    border-right: 0px;
+    .iznos{
+        border-left: dashed 1px $secondaryColor;
+        border-right: 0px;
+    }
 }
 .obrisi{
     background-color: $primaryColor;
@@ -80,12 +73,10 @@ button {
       width: 172px;
       height: 50px;
       margin: 5px;
-  }
-  
-  button:hover
-   {
-      background-color: $secondaryColor;
-      font-weight: bold;
+      :hover{
+         background-color: $secondaryColor;
+         font-weight: bold;
+     }
   }
 #pay-button{
     display: none;
@@ -94,9 +85,6 @@ button {
     .shoppingCard-container{
         padding: 10px;
     }
-   /* button, input{
-        width: 180px;
-    }*/
     th, td{
         padding: 15px ;
     }
