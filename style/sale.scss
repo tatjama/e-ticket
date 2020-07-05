@@ -16,18 +16,17 @@ h2{
 }
 .scene{
     width: 17%;
-}
-.scene:last-of-type{
-    width: 40%;
+    :last-of-type{
+        width: 40%;
+    }
 }
 #shops div, 
 #scenes div {
     color: $sectionTwoBG;    
-    text-align: center;    
-}
-#shops div:hover,
-#scenes div:hover{
-    color: $secondaryColor;
+    text-align: center;   
+    :hover{
+        color: $secondaryColor;
+    } 
 }
 #shops, 
 #scenes,
@@ -43,21 +42,21 @@ h2{
     padding-top: 15px;
     padding-left: 10px;
     justify-content: stretch;
-}
-#search-filter div{
-    text-align: left;
+    div{
+        text-align: left;
+    }
 }
 .filter-img{
     height: 30px;
     margin-bottom: -10px;
     margin-left: 10px;
-}
-.filter-box input[type="text"] {
-    width: 200px;
-    height: 20px;    
-}
+} 
 .filter-box{
     margin: 0px 20px;
+    input[type="text"] {
+        width: 200px;
+        height: 20px;    
+    }
 }
 #filter-scene{    
     display: flex;
@@ -80,10 +79,9 @@ hr{
     width: 120px;
     height: 120px;
     margin: 10px;
-}
-.shops-img:hover,
-.scene-img {
+    :hover{
     transform: scale(1.1);    
+}
 }
 .open-store {
     display: flex;
@@ -148,11 +146,11 @@ span{
     margin: 0px 3px;
     background-color: $primaryColor;
     color: $basicColorOne;
+    :hover{
+        background-color: $secondaryColor;
+    }
 }
-.items-quantity-button:hover{
-    /*background-color: rgb(212, 200, 170);*/
-    background-color: $secondaryColor;
-}
+
 input[type = "number"]{
     width: 50px;
     height: 25px;
@@ -214,10 +212,9 @@ input[type = "number"]{
     .shops,
     .scene{
        margin: 10px 20px;
-    }
-    #shops div,
-    #scene div{
-        padding: 0px;
+       div{
+           padding: 0px;
+       }
     }
     .shops-img,
     .scene-img{
