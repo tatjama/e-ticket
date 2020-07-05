@@ -2,36 +2,11 @@
 @import "./ui";
 @import "./navigationEShop";
 
-$basicColorOne: white;
-$basicColorTwo: beige;
-$basicColorThree: hsl(0, 0%, 98%);
-
-$boxShadowPrimaryColor: grey;
-$boxShadowSecondaryColor: hsla(12, 88%, 59%, 0.07);
-
-$parallaxHeader: rgb(92, 150, 216);
-
-$primaryBGColor: cornsilk;
-$primaryColor: navy;
-$SecondaryBGColor:  hsl(225, 3%, 49%);
-$secondaryColor: goldenrod;
-$secondaryColorDark: darkgoldenrod;
-
-$sectionOneBG: lightgoldenrodyellow;
-$sectionTwoBG: mintcream;
-$sectionFiveBG: honeydew;
-$sectionSevenBG: hsl(233, 12%, 13%);
-$sectionParallaxBG: rgba(43, 43, 46, 0.8);
-
-
-
 
 body{
     background-color: $primaryColor;
 }
 #eshop-navigation{
-    position: sticky;
-    top: -100px;
     background-color: $primaryColor;
 }
 h2{
@@ -39,28 +14,75 @@ h2{
     text-align: center;
     padding: 20px;
 }
-#shops div {
-    color: $sectionTwoBG;    
-    text-align: center;
-    padding: 5px;
-    
+.scene{
+    width: 17%;
 }
-#shops div:hover{
+.scene:last-of-type{
+    width: 40%;
+}
+#shops div, 
+#scenes div {
+    color: $sectionTwoBG;    
+    text-align: center;    
+}
+#shops div:hover,
+#scenes div:hover{
     color: $secondaryColor;
 }
-#shops{
+#shops, 
+#scenes,
+#search-filter{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-bottom: 50px;
+    
 }
-.shops-img {
+#search-filter{
+    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-left: 10px;
+    justify-content: stretch;
+}
+#search-filter div{
+    text-align: left;
+}
+.filter-img{
+    height: 30px;
+    margin-bottom: -10px;
+    margin-left: 10px;
+}
+.filter-box input[type="text"] {
+    width: 200px;
+    height: 20px;    
+}
+.filter-box{
+    margin: 0px 20px;
+}
+#filter-scene{    
+    display: flex;
+    flex-direction: column;
+   padding: 0px 10px;
+}
+hr{
+    margin: 10px;
+    color: aquamarine;
+}
+
+#search-filter h3{
+    font-size: 16px;
+    font-weight: lighter;
+    color: $sectionTwoBG;
+    margin: 7px 0px 13px 0px;
+}
+.shops-img,
+.scene-img {
     width: 120px;
     height: 120px;
     margin: 10px;
 }
-.shops-img:hover {
+.shops-img:hover,
+.scene-img {
     transform: scale(1.1);    
 }
 .open-store {
@@ -77,19 +99,20 @@ h2{
     margin: auto;
 }
 .items-img {
-    width: 220px;
+    width: 200px;
     height: 200px;
     padding-right: 20px;
     border-radius: 15px;
 }
-
 .items-text{
     text-align: left;
 }
 .items-name,
 .items-author,
 .items-scene,
-.items-price{
+.items-price,
+.items-date,
+.items-stock{
     font-size: 12px;
     text-transform: capitalize;    
 }
@@ -113,11 +136,10 @@ span{
     font-weight: bold;
 }
  input{
-    width: 50px;
-    height: 26px;  
+    width: 15px;
+    height: 15px;  
     font-size: 15px;
     border: 0px;
-    padding-bottom: 3px;
     text-align: center;
 }
 .items-quantity-button{
@@ -127,10 +149,13 @@ span{
     background-color: $primaryColor;
     color: $basicColorOne;
 }
-
 .items-quantity-button:hover{
     /*background-color: rgb(212, 200, 170);*/
     background-color: $secondaryColor;
+}
+input[type = "number"]{
+    width: 50px;
+    height: 25px;
 }
 .arrow-img{
     width: 20px;
@@ -140,13 +165,12 @@ span{
 #korpa {
     flex-wrap: wrap;
 }
-#eshop-buttons{
+#sale-buttons{
     display: flex;
     flex-direction: row;
     justify-content: center;    
 }
 .button {
-  /*  border-radius: 30px;*/
     border: 0cm;
     padding: 20px;
     text-decoration: none;
@@ -155,45 +179,73 @@ span{
     margin: 5px;
 }
 .button :hover,
-#eshop-buttons :hover, a :hover {
+#sale-buttons :hover, a :hover {
     background-color: $secondaryColor;
     color: $basicColorOne;
     font-weight: bold;
 }
-#active-store{
+#active-store,
+#active-scene,
+#active-search, 
+#quantity{
     color: $basicColorOne;
+    padding: 5px;
     font-size: 0.67rem;
 }
 @media screen and (max-width: 800px){    
     nav{
-        padding: 10px;
+        padding: 0px 10px;
     }
-    #shops{
-        padding-bottom: 10px;
+    .scene{
+        width: 17%;
     }
-    .shops{
-        margin: 40px 20px;
+    .scene:last-of-type{
+        width: 42%;
     }
-    .shops-img{
-        width: 100px;
-        height: 100px;
-        margin: 10px 5px;
+    #shops,
+    #scenes,
+    #search-filter{
+        padding: 0px;
     }
-    
-    h4{
+    #search-filter{
+        width: 100%;
+        padding-left: 15px;
+    }
+    .shops,
+    .scene{
+       margin: 10px 20px;
+    }
+    #shops div,
+    #scene div{
+        padding: 0px;
+    }
+    .shops-img,
+    .scene-img{
+        width: 60px;
+        height: 60px;
+        margin: 10px 15px;
+    }
+    h4,
+    #search-filter h3{
         font-size: 12px;        
-       /* font-weight: lighter;*/
+        font-weight: bold;
     }
     h2{
-        padding: 40px;
         font-weight: lighter;
+    }
+    #search-filter{
+        justify-content: stretch; 
+    }
+    .filter-box{
+        padding: 0px 10px;
+        margin: 0px;
     }
     .button{        
         height: 40px;
         padding: 15px;
     }
     .items-img{
-        width: 150px;
+        width: 130px;
         height: 130px;
     }
     .item-card{
@@ -204,23 +256,34 @@ span{
     p{
         font-size: 12px;
     }
-    input{
-        height: 15px;
-    }
     .items-quantity-button{
-        height: 19px;
-        
+        height: 19px;        
     }
     .arrow-img{
         width: 20px;
         height: 10px;
         padding: 2px 7px;
     }
+    
+  }
+  @media screen and (max-width: 550px){
+    .scene{
+        width: 35%;
+    }
+    .scene:last-of-type{
+        width: 100%;
+    }
+    .button{
+        height: 30px;
+        padding: 7px;
+    }
+
   }
   @media screen and (max-width: 400px){
+      
     #welcome-user{
-       background-image: url('../images/my-icons-collection (1)/svg/filharmonija.svg');
-           }
+       background-image: url('../images/search.svg');
+    }
     #guest-user{
         background-image: url('../images/pencil.svg');
     }
