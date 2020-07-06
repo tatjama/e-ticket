@@ -117,12 +117,10 @@ p{
     font-size: 14px;
 }
 .item-card{
+    @include flexRow(space-evenly);
     height: 200px;
     width: 390px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin:40px  20px;
+    margin: 40px 20px;
 }
 span{
     font-weight: bold;
@@ -140,7 +138,7 @@ span{
     margin: 0px 3px;
     background-color: $primaryColor;
     color: $basicColorOne;
-    :hover{
+    &:hover{
         background-color: $secondaryColor;
     }
 }
@@ -158,9 +156,7 @@ input[type = "number"]{
     flex-wrap: wrap;
 }
 #sale-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;    
+    @include flexRow(center);    
 }
 .button {
     border: 0cm;
@@ -246,7 +242,7 @@ input[type = "number"]{
     }
     .item-card{
         margin: 20px 10px;
-        height: 130px;
+        height: 180px;
         width: 320px;
     }
     p{
