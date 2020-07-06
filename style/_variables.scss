@@ -19,4 +19,12 @@ $sectionFiveBG: honeydew;
 $sectionSevenBG: hsl(233, 12%, 13%);
 $sectionParallaxBG: rgba(43, 43, 46, 0.8);
 
+@mixin flexRow($content) {
+    display: flex;
+    flex-direction: row;    
+    justify-content: $content;    
+}
+
+
+
 

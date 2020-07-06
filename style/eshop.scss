@@ -2,6 +2,7 @@
 @import "./ui";
 @import "./navigationEShop";
 
+
 body{
     background-color: $primaryColor;
 }
@@ -16,9 +17,7 @@ h2{
     padding: 20px;
 }
 #shops{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    @include flexRow(space-evenly);
     flex-wrap: wrap;
     padding-bottom: 50px;
     div {
@@ -39,10 +38,8 @@ h2{
     transform: scale(1.1);    
 }
 .open-store {
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
     flex-wrap:wrap;
-    justify-content: space-evenly;
     box-sizing: border-box;
     background-color: $sectionTwoBG;
     font-size: 12px;
@@ -76,10 +73,9 @@ p{
     font-size: 14px;
 }
 .item-card{
+    @include flexRow(space-evenly);
     height: 200px;
-    width: 390px;
-    display: flex;
-    flex-direction: row;
+    width: 390px;    
     align-items: center;
     margin:40px  20px;
 }
@@ -113,12 +109,9 @@ span{
     flex-wrap: wrap;
 }
 #eshop-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;    
+    @include flexRow(center)    
 }
 .button {
-  /*  border-radius: 30px;*/
     border: 0cm;
     padding: 20px;
     text-decoration: none;

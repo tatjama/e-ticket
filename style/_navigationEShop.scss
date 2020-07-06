@@ -1,8 +1,4 @@
-@mixin flexRow($content) {
-    display: flex;
-    flex-direction: row;    
-    justify-content: $content;    
-}
+
 nav{
     @include flexRow(space-between);
     background-color: $primaryColor;        

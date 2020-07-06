@@ -24,16 +24,14 @@ h2{
 #scenes div {
     color: $sectionTwoBG;    
     text-align: center;   
-    :hover{
+    &:hover{
         color: $secondaryColor;
     } 
 }
 #shops, 
 #scenes,
 #search-filter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    @include flexRow(space-evenly);
     flex-wrap: wrap;
     
 }
@@ -79,17 +77,14 @@ hr{
     width: 120px;
     height: 120px;
     margin: 10px;
-    :hover{
+    &:hover{
     transform: scale(1.1);    
 }
 }
 .open-store {
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
     flex-wrap:wrap;
-    justify-content: space-evenly;
     box-sizing: border-box;
-    /*background-image: radial-gradient(white, goldenrod);*/
     background-color: $sectionTwoBG;
     font-size: 12px;
     padding: 10px;
@@ -125,8 +120,7 @@ p{
 .item-card{
     height: 200px;
     width: 390px;
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
     align-items: center;
     margin:40px  20px;
 }
@@ -164,9 +158,7 @@ input[type = "number"]{
     flex-wrap: wrap;
 }
 #sale-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;    
+    @include flexRow(center);    
 }
 .button {
     border: 0cm;
