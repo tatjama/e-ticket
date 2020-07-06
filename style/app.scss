@@ -3,7 +3,6 @@
 @import "./navigation";
 @import "./footer";
 
-
 /***translate***/
 .choose-language{
     text-align: right;
@@ -176,7 +175,9 @@ h1{
 .description{
     width: 100%;
     background-color: $sectionParallaxBG;
-    @include flexColumn();
+    display: flex;
+    flex-direction: column;
+
 }
 .premiere {
     display: flex;
