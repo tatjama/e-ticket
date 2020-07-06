@@ -37,10 +37,12 @@ td{
     color: $basicColorOne; 
     border-radius: 15px;
     border: $basicColorOne 3px solid;  
+    &:hover{
+        background-color: $secondaryColor;
+        cursor: pointer;
+    }
 }
-.obrisi:hover{
-    background-color: $secondaryColor;
-}
+
 .image{
     display: none;
 }
@@ -71,9 +73,8 @@ button {
       width: 172px;
       height: 50px;
       margin: 5px;
-      :hover{
-         background-color: $secondaryColor;
-         font-weight: bold;
+      &:hover{
+         @include hoverButton();
      }
   }
 #pay-button{

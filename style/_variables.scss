@@ -29,7 +29,17 @@ $sectionParallaxBG: rgba(43, 43, 46, 0.8);
     flex-direction: column;
     align-items: center;
 }
-
+@mixin hoverStyle() {
+    color: $secondaryColor;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+@mixin hoverButton(){
+    background-color: $secondaryColor;
+    border: solid 1px $secondaryColor;
+    color: $basicColorOne;
+    cursor: pointer;
+}
 
 
 

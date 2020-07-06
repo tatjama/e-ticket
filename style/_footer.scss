@@ -13,7 +13,7 @@ footer{
         font-size: 0.8rem; 
         text-transform: capitalize;  
         &:hover{
-            color:$secondaryColor;
+            @include hoverStyle();
         }   
     } 
     p,

@@ -34,8 +34,7 @@ a {
     text-align: center;
 }
 nav a:hover{
-    transform: scale(1.1);
-    color: $secondaryColor;
+    @include hoverStyle();
 }
 .nav-bg-menu{
     display: none;

@@ -55,12 +55,9 @@ p{
       border: $primaryColor 1px solid;
       color: $basicColorOne;
   }
-  .button:hover,
-  #eshop-buttons :hover, a :hover {
-      background-color: $secondaryColor;
-      color: $basicColorOne;
-      font-weight: bold;
-  }
+  .button:hover{
+      @include hoverButton();
+  }  
   @media screen and (max-width: 400px){
       #entry-container{
           padding: 10px 30px;

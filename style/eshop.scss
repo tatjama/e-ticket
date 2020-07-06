@@ -24,7 +24,7 @@ h2{
         color: $sectionTwoBG;    
         text-align: center;
         padding: 5px;
-        :hover{
+        &:hover{
             color: $secondaryColor;
         }
     }
