@@ -24,6 +24,12 @@ $sectionParallaxBG: rgba(43, 43, 46, 0.8);
     flex-direction: row;    
     justify-content: $content;    
 }
+@mixin flexColumn(){    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 

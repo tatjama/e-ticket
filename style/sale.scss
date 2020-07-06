@@ -57,8 +57,7 @@ h2{
     }
 }
 #filter-scene{    
-    display: flex;
-    flex-direction: column;
+   @include flexColumn();
    padding: 0px 10px;
 }
 hr{

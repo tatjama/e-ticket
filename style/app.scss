@@ -4,7 +4,6 @@
 @import "./footer";
 
 
-
 /***translate***/
 .choose-language{
     text-align: right;
@@ -15,7 +14,7 @@
     display: inline-block;
     padding: 5px 15px 0px 15px;
     color: $basicColorOne;
-    :hover{
+    &:hover{
         color: $secondaryColor;
         transform: scale(1.1);
         cursor: pointer;
@@ -39,7 +38,7 @@ input {
     background-color: $primaryColor;
     border: solid 1px $primaryColor;
     color: $sectionFiveBG;
-    :hover{
+    &:hover{
         background-color: $secondaryColor;
         border: solid 1px $secondaryColor;
     }
@@ -80,10 +79,8 @@ input {
 .section_one{
     background-color: $sectionOneBG; 
     padding: 10% 5%;    
-    display: flex;
-    flex-direction: row;
+   @include flexRow(space-evenly);
     flex-wrap: wrap;
-    justify-content: space-evenly;
     a{
         color: $secondaryColorDark;
         display: block;
@@ -91,9 +88,7 @@ input {
     figure {
         width: 152px;    
         font-weight: bold;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
+        @include flexColumn();
         img{
             width: 150px;
             height: 150px;
@@ -102,7 +97,7 @@ input {
             box-shadow: $boxShadowPrimaryColor 0px 0px 10px;
             margin: 15px;
         }
-        :hover{
+        &:hover{
             transform: scale(1.1);
         }
     }
@@ -110,9 +105,7 @@ input {
 .section_two {
     background-color: $sectionTwoBG;
     text-align: center;
-    justify-content: center;    
-    display: flex;
-    flex-direction: row;
+    @include flexRow(center);
     flex-wrap: wrap;
 }
 .content{
@@ -183,8 +176,7 @@ h1{
 .description{
     width: 100%;
     background-color: $sectionParallaxBG;
-    display: flex;
-    flex-direction: column;
+    @include flexColumn();
 }
 .premiere {
     display: flex;
@@ -205,8 +197,7 @@ h1{
     flex-direction: row;
 }
 .parallax-text{
-    display: flex;
-    flex-direction: column;
+    @include flexColumn();
 }
 .popuna{
     height: 200px;
@@ -261,9 +252,7 @@ If we want to overflow works , we have to define height of element. Element have
     }
 } 
 .section_four{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   @include flexColumn();
     padding: 20px 0px;
 }
 /**images credits**/
@@ -283,8 +272,7 @@ If we want to overflow works , we have to define height of element. Element have
 }
 
 .image-credit-spans{
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
     flex-wrap: wrap;
     div{
         font-size: x-small;
@@ -297,8 +285,7 @@ If we want to overflow works , we have to define height of element. Element have
     align-self: center;
 }
 .form-div{
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
 }
 textarea{
     margin: 6px 15px;
@@ -310,9 +297,7 @@ textarea{
 }
 /**program*/
 .program-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    @include flexRow(space-evenly);
     align-content: center;
     padding: 10px 30px;
 }
@@ -355,8 +340,7 @@ textarea{
     background-color: $sectionSevenBG;
 }
 .section-seven{
-    display: flex;
-    flex-direction: row;    
+    @include flexRow(space-evenly);    
 }
 
 .location-slider{
@@ -410,9 +394,7 @@ textarea{
     }
 }
 .left{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexColumn();
     width: 450px;    
 }
 .location-img-caption{
@@ -505,8 +487,7 @@ flex-direction: row;
 @media screen and (max-width: 560px){
     
     .form-div{
-        display: flex;
-        flex-direction: column;
+        @include flexColumn();
         input, textarea{
             width: 250px;
         }
@@ -562,10 +543,9 @@ flex-direction: row;
     }
     .premiere,
     .premiere:nth-of-type(2){
-    flex-direction: column;
+        @include flexColumn();
         margin: 0px;
         width: 100%;
-        align-items: center;
     }
     .section_three h4,
     .section_three h5{

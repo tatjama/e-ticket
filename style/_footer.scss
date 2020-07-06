@@ -1,6 +1,5 @@
 footer{
-    display: flex;
-    flex-direction: row;    
+    @include flexRow(space-evenly);    
     padding: 50px 100px;  
     background-color: $sectionSevenBG;
     color: $basicColorThree;
