@@ -35,12 +35,12 @@ function currentSlide(n){
         x[1+n].setAttribute("class", " location-dot active");
 }
 function openCommentForm(){
-  document.querySelector('.comment-form').style.display = "block";
+  document.querySelector('.comment-form').style.display = "flex";
   document.getElementById('open-comment-form').style.display = "none";
 }
 function hideCommentForm(){
   document.querySelector('.comment-form').style.display = "none";
-  document.getElementById('open-comment-form').style.display = "block";
+  document.getElementById('open-comment-form').style.display = "flex";
 }
 function hgsubmit(){
   let lang = language();
