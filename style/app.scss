@@ -3,6 +3,12 @@
 @import "./navigation";
 @import "./footer";
 
+@mixin hoverStyle() {
+    color: $secondaryColor;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 /***translate***/
 .choose-language{
     text-align: right;
@@ -14,9 +20,7 @@
     padding: 5px 15px 0px 15px;
     color: $basicColorOne;
     &:hover{
-        color: $secondaryColor;
-        transform: scale(1.1);
-        cursor: pointer;
+        @include hoverStyle();        
     }
 }
 /*POPUP*/
@@ -38,13 +42,13 @@ input {
     border: solid 1px $primaryColor;
     color: $sectionFiveBG;
     &:hover{
-        background-color: $secondaryColor;
+        @include hoverStyle();
         border: solid 1px $secondaryColor;
     }
 }
 #my_signIn input:nth-of-type(4):hover,
 #my_signUp input:nth-of-type(7):hover{
-    background-color: $secondaryColor;
+    @include hoverStyle();
     border: solid 1px $secondaryColor;
 }
 
@@ -97,7 +101,7 @@ input {
             margin: 15px;
         }
         &:hover{
-            transform: scale(1.1);
+            @include hoverStyle();
         }
     }
 }
@@ -283,10 +287,10 @@ If we want to overflow works , we have to define height of element. Element have
 /***comment form**/
 .comment-form{
     padding: 30px 60px;
-    align-self: center;
+    align-self: left;
 }
 .form-div{
-    @include flexRow(space-evenly);
+    @include flexRow();
 }
 textarea{
     margin: 6px 15px;
