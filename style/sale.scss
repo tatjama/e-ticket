@@ -31,9 +31,7 @@ h2{
 #shops, 
 #scenes,
 #search-filter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    @include flexRow(space-evenly);
     flex-wrap: wrap;
 }
 #search-filter{
@@ -83,10 +81,8 @@ hr{
 }
 }
 .open-store {
-    display: flex;
-    flex-direction: row;
+    @include flexRow(space-evenly);
     flex-wrap:wrap;
-    justify-content: space-evenly;
     box-sizing: border-box;
     background-color: $sectionTwoBG;
     font-size: 12px;
