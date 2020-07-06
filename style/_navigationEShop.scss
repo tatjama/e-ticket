@@ -1,39 +1,39 @@
-
-nav{
-    background-color: $primaryColor;
+@mixin flexRow($content) {
     display: flex;
     flex-direction: row;    
+    justify-content: $content;    
+}
+nav{
+    @include flexRow(space-between);
+    background-color: $primaryColor;        
     padding: 20px 100px; 
-    justify-content: space-between;  
+    a{
+        color: $sectionFiveBG;
+        font-size: 1rem;
+        padding: 10px;
+        &:hover{
+            transform: scale(1.1);
+            color: $secondaryColor;
+        }
+    }  
 }
 #logo img{
-    width: 60px;  
+   width: 60px;  
    border-radius: 50%;
    border: $secondaryColor 2px solid;
  }
- nav a{
-     color: $sectionFiveBG;
-     font-size: 1rem;
-     padding: 10px;
- }
- nav a:hover{
-     transform: scale(1.1);
-     color: $secondaryColor;
- }
  .nav-bg{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+     @include flexRow(flex-end);
     padding-top: 10px;
 }
  @media screen and (max-width:800px){
     nav{
         padding: 20px 20px ;
+        a{
+            font-size: 0.8rem;
+        }
     }
     .flex-row.card{
        padding: 20px;
-    }
-    nav a{
-        font-size: 0.8rem;
     }
  }

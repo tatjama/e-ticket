@@ -1,22 +1,21 @@
-
-nav{
-    background-color: $primaryColor;
+@mixin flexRow($content) {
     display: flex;
     flex-direction: row;    
+    justify-content: $content;    
+}
+nav{
+    @include flexRow(space-evenly);
+    background-color: $primaryColor;
     padding: 50px 100px 20px 100px;   
+    div{
+        width: 33%;
+    }
 }
-nav div{
-    width: 33%;
-}
-.nav-menu{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;    
+.nav-menu{    
+    @include flexRow(space-evenly);    
 }
 .nav-bg{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    @include flexRow(flex-end);
 }
 #signing, 
 #entry,
@@ -49,13 +48,14 @@ nav a:hover{
 }
 @media screen and (max-width:800px){
     nav{
-        padding: 30px 30px 5px 30px;     
-   }   
-   nav div{
-    width: 45%;
-    justify-content: flex-end;
-}
-   div.nav-menu, .nav-bg{
+        padding: 30px 30px 5px 30px; 
+        div{
+            width: 45%;
+            justify-content: flex-end;
+        }    
+   }      
+   div.nav-menu, 
+   .nav-bg{
        display: none;
    }  
    .nav-bg-menu{
@@ -67,10 +67,10 @@ nav a:hover{
        background-color:$SecondaryBGColor;       
        background-image: linear-gradient(white 5%, black);
        z-index: 0;
-   }
-   .nav-bg-menu a{
-       color: $primaryColor;
-       margin: 25px 0px;       
+       a{
+        color: $primaryColor;
+        margin: 25px 0px;       
+    }
    }
    #signing_mobile{
        width: 100%;
