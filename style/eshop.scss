@@ -33,9 +33,9 @@ h2{
     width: 120px;
     height: 120px;
     margin: 10px;
-}
-.shops-img:hover {
-    transform: scale(1.1);    
+    &:hover{
+        transform: scale(1.1);  
+    }
 }
 .open-store {
     @include flexRow(space-evenly);
@@ -96,7 +96,7 @@ span{
     margin: 0px 3px;
     background-color: $primaryColor;
     color: $basicColorOne;
-    :hover{
+    &:hover{
         background-color: $secondaryColor;
     }
 }
