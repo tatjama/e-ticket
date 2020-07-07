@@ -15,6 +15,25 @@ class Tickets{
     }
 }
 
+class Languages{
+    async getLanguages(){
+        try{
+            let result = await fetch('languages.json');
+            let data = await result.json();
+            let language = data.languages.map((item) => {
+                const en = item.en;
+                const sr = item.sr;
+               // console.log(en)
+               // console.log(sr)
+                return{en, sr};
+            })
+            return language;
+        }catch{
+            console.error();
+        }
+    }
+}
+
 //display tickets
 class UI{
     displayTickets(tickets){
@@ -31,31 +50,40 @@ class UI{
             <div class="program-item">${ticket.date}</div>
             <div class="program-item hide-item">${ticket.type}</div>
             <div class="program-item hide-item">${ticket.scene}</div>
-            <div class="program-item hide-item" >${ticket.price},00 RSD</div>
-            
+            <div class="program-item hide-item" >${ticket.price},00 RSD</div>            
           </div>     `
 
-            document.querySelector('.program-row-container').innerHTML = result;
-          
+            document.querySelector('.program-row-container').innerHTML = result;          
         })
     }
 }
 //set to localStorage
 class Storage{
-    static saveStorage(tickets){
+    static saveStorageTickets(tickets){
         localStorage.setItem('tickets', JSON.stringify(tickets));
+        
     }
+    static saveStorageLanguages(languages){
+        localStorage.setItem('languages', JSON.stringify(languages));
+    }
+    
 }
 
 
 document.addEventListener('DOMContentLoaded',()=>{
     
     const tickets = new Tickets();
+    const languages = new Languages();
     const ui = new UI();
     //get tickets
     tickets.getTickets().then((tickets)=>{
         ui.displayTickets(tickets);
-        Storage.saveStorage(tickets);
+        Storage.saveStorageTickets(tickets);
     })
-   // console.log(tickets.getTickets())
+    
+    languages.getLanguages().then((languages) => {
+        Storage.saveStorageLanguages(languages);
+    })
+   //console.log(tickets.getTickets())
+   console.log(languages.getLanguages());
 })
