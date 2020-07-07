@@ -21,10 +21,7 @@ class Languages{
             let result = await fetch('languages.json');
             let data = await result.json();
             let language = data.languages.map((item) => {
-                const en = item.en;
-                const sr = item.sr;
-               // console.log(en)
-               // console.log(sr)
+                const{en, sr} = item;
                 return{en, sr};
             })
             return language;
@@ -57,16 +54,14 @@ class UI{
         })
     }
 }
-//set to localStorage
+//set to localStorage tickets and languages
 class Storage{
     static saveStorageTickets(tickets){
-        localStorage.setItem('tickets', JSON.stringify(tickets));
-        
+        localStorage.setItem('tickets', JSON.stringify(tickets));        
     }
     static saveStorageLanguages(languages){
         localStorage.setItem('languages', JSON.stringify(languages));
-    }
-    
+    }    
 }
 
 
