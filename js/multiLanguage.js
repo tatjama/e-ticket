@@ -27,7 +27,7 @@ console.log(dataReload.length)*/
 
 //NEW VERSION
 
-var arrLang = {
+/*var arrLang = {
     'en': {
         'aboutUs': 'About Us',
         'aboutUsContent' : "Our opinion is that satisfied customer is the best marketing ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." ,
@@ -239,7 +239,18 @@ var arrLangAt = {
         'type comment' : 'Napišite komentar...',        
         'quantity' : ' Količina'
     }
-};
+};*/
+
+var arrLang = {};
+    let languagesStorage = JSON.parse(localStorage.getItem('languages'));
+    console.log(languagesStorage[0].en);
+    console.log(languagesStorage[1].sr);
+    console.log(languagesStorage);
+    arrLang = {
+        "en":languagesStorage[0].en,
+        "sr":languagesStorage[1].sr       
+  }
+
 $(function(){
     $('.translate').click(function(){
         var lang = $(this).attr('id');
@@ -264,6 +275,7 @@ $(function(){
 })
 function language(){
     
+    
     var lang = JSON.parse(sessionStorage.getItem('lang'));
 
     if(lang === null){
@@ -283,11 +295,11 @@ function language(){
       // console.log(elementsWithText[i].getAttribute('key'))
     }
     for(i = 0 ; i < elementsWithPlaceholder.length; i++){
-        let key = arrLangAt[lang][elementsWithPlaceholder[i].getAttribute('key')];
+        let key = arrLang[lang][elementsWithPlaceholder[i].getAttribute('key')];
         elementsWithPlaceholder[i].placeholder = key;
     }
     for(i = 0; i < elementsWithTitle.length; i++){
-        let key = arrLangAt[lang][elementsWithTitle[i].getAttribute('key')];       
+        let key = arrLang[lang][elementsWithTitle[i].getAttribute('key')];       
         elementsWithTitle[i].title = key;
     }
     return lang;
