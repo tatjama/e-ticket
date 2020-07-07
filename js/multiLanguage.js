@@ -92,6 +92,23 @@ var arrLang = {
         'type table' : 'TYPE: ',        
         'qty' : 'QTY: ', 
         'quantity' : 'Quantity', 
+        'author' : 'Author name...',
+        'name': 'Yor name...',
+        'news' : 'News in your inbox...',
+        'entry-link':'Link to tickets entry...',
+        'error email' : 'Error. Type valid E-mail',
+        'error name' : 'Error. Type valid name...',
+        'error password' : 'Error. Type valid password',
+        'error surname': 'Error. Type valid surname',
+        'password' : 'Password...',
+        'price' : 'Ticket price',
+        'register' : 'Register',
+        'sale-link': 'Link to sale...',
+        'signIn' : 'Sign in',
+        'surname' : 'Your surname..',
+        'title-performance' : 'Performance title...',
+        'type' : 'Performance type'
+        
     },
     'sr': {
         'aboutUs' : 'O nama',
@@ -156,53 +173,71 @@ var arrLang = {
         'type comment' : 'Ostavite komentar',
         'type table' : 'VRSTA: ',          
         'qty' : 'KOL: ',              
-        'quantity' : 'Količina:',        
+        'quantity' : 'Količina:',
+        'author' : 'Ime autora',
+        'name' : 'Unesite ime..',
+        'news' : "Novosti u Vašem sandučetu…",
+        'entry-link': "Idite na unos ulaznica...",        
+        'error email' : 'Pogrešan unos. Unesite validan E-mail',
+        'error name' : 'Pogrešan unos. Unesite validno ime',
+        'error password' : 'Pogrešan unos. Unesite validnu lozinku',
+        'error surname' : 'Pogrešan unos. Unesite validno prezime',
+        'password' : 'Unesite lozinku...',
+        'price' : 'Cena ulaznice',
+        'register' : 'Registracija',        
+        'sale-link' : "Vratite se u prodavnicu...",
+        'signIn' : 'Uloguj',
+        'surname' : 'Unesite prezime..',
+        'title-performance' : 'Naziv događaja ',
+        'type': 'Tip događaja'       
+        
+        
     }
 };
 
 //array of translation to change atributtes
 var arrLangAt = {
     'en':{
-        'name': 'Yor name...',
-        'error name' : 'Error. Type valid name...',
-        'error surname': 'Error. Type valid surname',
-        'surname' : 'Your surname..',
-        'error email' : 'Error. Type valid E-mail',
-        'password' : 'Password...',
-        'error pssword' : 'Error. Type valid password',
-        'register' : 'Register',
-        'clear' : 'Clear',
-        'signIn' : 'Sign in',
-        'type comment' : 'Type comment...',
-        'news' : 'News in your inbox...',
-        'entry':'Link to tickets entry...',
-        'sale': 'Link to sale...',
-        'title performance' : 'Performance title...',
         'author' : 'Author name...',
+        'clear' : 'Clear',
+        'name': 'Yor name...',
+        'news' : 'News in your inbox...',
+        'entry-link':'Link to tickets entry...',
+        'error email' : 'Error. Type valid E-mail',
+        'error name' : 'Error. Type valid name...',
+        'error password' : 'Error. Type valid password',
+        'error surname': 'Error. Type valid surname',
+        'password' : 'Password...',
         'price' : 'Ticket price',
+        'register' : 'Register',
+        'sale-link': 'Link to sale...',
+        'signIn' : 'Sign in',
+        'surname' : 'Your surname..',
+        'title-performance' : 'Performance title...',
         'type' : 'Performance type',
-        'quantity' : 'Quantity'
+        'type comment' : 'Type comment...',
+        'quantity' : 'Quantity',       
     },
     'sr' :{
-        'name' : 'Unesite ime..',
-        'error name' : 'Pogrešan unos. Unesite validno ime',
-        'error surname' : 'Pogrešan unos. Unesite validno prezime',
-        'surname' : 'Unesite prezime..',
-        'error email' : 'Pogrešan unos. Unesite validan E-mail',
-        'password' : 'Unesite lozinku...',
-        'error password' : 'Pogrešan unos. Unesite validnu lozinku',
-        'register' : 'Registracija',
-        'clear' : 'Obriši',
-        'signIn' : 'Uloguj',
-        'type comment' : 'Napišite komentar...', 
-        'news' : "Novosti u Vašem sandučetu…",
-        'entry': "Idite na unos ulaznica...",
-        'sale' : "Vratite se u prodavnicu...",
-        'title performance' : 'Naziv događaja ',
         'author' : 'Ime autora',
+        'clear' : 'Obriši',
+        'name' : 'Unesite ime..',
+        'news' : "Novosti u Vašem sandučetu…",
+        'entry-link': "Idite na unos ulaznica...",        
+        'error email' : 'Pogrešan unos. Unesite validan E-mail',
+        'error name' : 'Pogrešan unos. Unesite validno ime',
+        'error password' : 'Pogrešan unos. Unesite validnu lozinku',
+        'error surname' : 'Pogrešan unos. Unesite validno prezime',
+        'password' : 'Unesite lozinku...',
         'price' : 'Cena ulaznice',
+        'register' : 'Registracija',        
+        'sale-link' : "Vratite se u prodavnicu...",
+        'signIn' : 'Uloguj',
+        'surname' : 'Unesite prezime..',
+        'title-performance' : 'Naziv događaja ',
         'type': 'Tip događaja',
-        'quantity' : ' Količina"'
+        'type comment' : 'Napišite komentar...',        
+        'quantity' : ' Količina'
     }
 };
 $(function(){
@@ -214,16 +249,16 @@ $(function(){
         });
         // value attribute placeholder - change
         $('.langAt').each(function(index, element){
-            $(this).attr('placeholder', arrLangAt[lang][$(this).attr('key')]);
+            $(this).attr('placeholder', arrLang[lang][$(this).attr('key')]);
             
         });
     // value attribute value - change
         $('.langVal').each(function(index, element){
-            $(this).attr('value', arrLangAt[lang][$(this).attr('key')])
+            $(this).attr('value', arrLang[lang][$(this).attr('key')])
         });
     // value attribute title - change
         $('.langTitle').each(function(index, element){
-            $(this).attr('title', arrLangAt[lang][$(this).attr('key')])
+            $(this).attr('title', arrLang[lang][$(this).attr('key')])
         });
     })
 })
