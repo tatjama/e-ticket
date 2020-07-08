@@ -177,7 +177,8 @@ function createEShop(x) {
         
         
         //storageOfPerformances izvlacimo iz localS
-        let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+        let performances = JSON.parse(localStorage.getItem('tickets'));
+        console.log(performances);
     
         //Filtriramo po vrsti dogadjaja -balet  
         var filterPerformance = performances;
@@ -185,7 +186,7 @@ function createEShop(x) {
         document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`)
         //console.log(document.getElementById(y).innerHTML);
         filterPerformance = performances.filter(
-            function(newPerformance) {
+            function(newPerformance) {                
                 if (newPerformance.vrsta == x) {
                     console.log(newPerformance.vrsta);
                     document.getElementById('active-store').innerHTML = newPerformance.vrsta;
@@ -265,7 +266,7 @@ function createEShop(x) {
         
         function createNewReservation() {           
             //storageOfPerformances izvlacimo iz localS
-            let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+            let performances = JSON.parse(localStorage.getItem('tickets'));
             
             //Filtriramo po vrsti dogadjaja  
             var filterPerformance = performances;

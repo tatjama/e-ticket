@@ -1,21 +1,5 @@
 function setLocalStorage(a, b, c, d) {
-    //localStorage.removeItem('bazakorisnika');
-
-    //preuzimanje vrednosti local storidga i slanje na drugu adresu
-    /*
-        var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja'));
-        var bazakorisnika = JSON.parse(localStorage.getItem('bazakorisnika'));
-        var trenutnoUlogovani = {
-            status: 9,
-            email: "gost"
-        }
-        console.log(storageOfPerformances);
-        console.log(bazakorisnika);
-        localStorage.setItem('bazadogadjaja3', JSON.stringify(storageOfPerformances));
-        localStorage.setItem('bazakorisnika3', JSON.stringify(bazakorisnika));
-        localStorage.setItem('trenutnoulogovanikorisnik3', JSON.stringify(trenutnoUlogovani));*/
-
-
+    
     //KADA JE LOCAL STORAGE PRAZAN, PUNIMO GA POCETNIM VREDNOSTIMA.
     //INDEX.HTML DUGME POCETNA
 
