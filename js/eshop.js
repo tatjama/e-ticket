@@ -42,15 +42,10 @@ console.log(currentlyLanguage)
 //create shop with choosen language - deault english
 createEShop(currentlyLanguage);
 
-
-function createEShop(x) {
-    //session storage 
-   /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
-     console.log(localUser)  */        
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
-    console.log(x);
+//variables are depending of language
+function createShopLanguage(language){
     //variables  are defined  - en - sr
-    if (x === 'sr'){
+    if (language === 'sr'){
         userMessage = userMessageSerbian;
         guestMessage = guestMessageSerbian;
         ballet = "Balet";
@@ -75,8 +70,10 @@ function createEShop(x) {
         errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
         tickets = " tickets.";
     }
-    
-    console.log(currentlyLoggedIn) 
+}
+
+function getUser(currentlyLoggedIn){
+
     function animate(){                
         $('h1').show().animate({
             right: '30px',
@@ -84,9 +81,9 @@ function createEShop(x) {
             fontSize: "14px"
         }
         , (500));
-    }    
-     
-     if(sessionStorage.getItem('user')!== null){ 
+    }
+
+    if(sessionStorage.getItem('user')!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
             console.log(currentlyLoggedIn);
@@ -159,6 +156,22 @@ function createEShop(x) {
         
         animate();
      }
+
+}
+
+
+function createEShop(currentlyLanguage) {
+    //session storage 
+   /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
+     console.log(localUser)  */        
+    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
+    console.log(currentlyLanguage);
+    
+    createShopLanguage(currentlyLanguage);
+    console.log(currentlyLoggedIn) 
+        
+     
+getUser(currentlyLoggedIn);
     
     }
 

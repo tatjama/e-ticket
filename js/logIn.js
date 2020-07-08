@@ -28,9 +28,7 @@ function signIn() {
         alert(passwordAlert);
     } else {
         document.getElementById('pickUp_signIn').style.display = 'none';
-
         var checkUser = {};
-
         checkUser.email = document.getElementById('logIn_email').value;
         checkUser.password = document.getElementById('logIn_password').value;
 
