@@ -15,12 +15,15 @@ let currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
 let sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
 //let currentlyLanguage = cLanguage();
 
+function hideMessage(){
+    document.getElementsByTagName("h1")[0].style.display = "none"
+}
+
 //Language is defined 
 class CLanguage{
     constructor(currentlyLanguage){
         this.currentlyLanguage = currentlyLanguage;
     }
-
     static getCLanguage(){        
         if(languageFromSession.currentlyLanguage === null){
             return 'en';
@@ -88,7 +91,8 @@ function animate(){
 }
 
 function getUser(currentlyLoggedIn, languageShop){
-    if(sessionStorage.getItem('user')!== null){ 
+
+    if(currentlyLoggedIn!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
             console.log(currentlyLoggedIn);
@@ -99,6 +103,7 @@ function getUser(currentlyLoggedIn, languageShop){
                  onclick="hideMessage()">
                  ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}
             </h1>`;
+
             var shops = `
             <div id="shops">
                 <div class="shops">
@@ -136,6 +141,7 @@ function getUser(currentlyLoggedIn, languageShop){
                          </h4>
                 </div>
             </div>`;
+            
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
@@ -143,42 +149,24 @@ function getUser(currentlyLoggedIn, languageShop){
                 shopArray[1].addEventListener("click", ()=>{openStore("Predstava", "drama", languageShop)} );
                 shopArray[2].addEventListener("click", ()=>{openStore("Opera", "opera", languageShop)} );
                 shopArray[3].addEventListener("click", ()=>{openStore("Filharmonija", "filharmonija", languageShop)} );
-            
-            //upisiBalet("Balet")
-            animate();
-            }else{
-            console.log('gost');
-            navBg.style.display = 'none';          
-            eShopMessage.innerHTML = 
-            "<h1 class='h1-message'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"
-            animate();
-        }
         
+            }else{
+          //  console.log('gost');
+            navBg.style.display = 'none';          
+            eShopMessage.innerHTML = languageShop.guestMessage;
+            //"<h1 class='h1-message'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"            
+        }        
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
-         eShopMessage.innerHTML = languageShop.guestMessage;
-        
-        animate();
+         eShopMessage.innerHTML = languageShop.guestMessage;       
      }
-
+     animate();
 }
 
-/*function getUser(currentlyLoggedIn, languageShop){
-    console.log(currentlyLoggedIn);
-    console.log(languageShop);
-    
-displayShopType(currentlyLoggedIn, languageShop);
-   
-}*/
-
-
+  
 
     
-
-    function hideMessage(){
-        document.getElementsByTagName("h1")[0].style.display = "none"
-    }
 
     function openStore(x, y, languageShop) {
         let store = document.getElementById('open-store');
