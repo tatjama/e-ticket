@@ -1,79 +1,87 @@
-/*function user(){
-    if(typeof(Storage) !== "undefined"){
-        if(sessionStorage.getItem('user') === null){
-            console.log('Nema usera');
-        }else{
-        var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));
-        console.log('ima usera');
-        console.log(currentlyLoggedIn.status);
-        console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +" " + currentlyLoggedIn.surname + ' sa E-mailom ' 
-        + currentlyLoggedIn.email + ' i passwordom ' + currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)
-       
-        }
-    console.log('kraj');
-    }else{
-        alert('Your browser does not support web storage. Sorry...' );
-    }    
-}*/
-
-
 var eShopMessage = document.getElementById('eshop-message');
 var navBg = document.querySelector('.nav-bg');
-let userMessage;
-let userMessageSerbian =   ' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ;
-let userMessageEnglish = ' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' ;
-let guestMessage;
-let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" ;
-let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
+let arrayOfDictionarySerbian = [' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ,
+                                "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" , 
+                                "Balet", "Predstava", "Filharmonija", "AUTOR: ", "SCENA: ", "CENA: ", "Količina", 
+                                "Pokušavate da rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ",
+                                " ulaznica."]
+let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' , 
+                                "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>",
+                                "Ballet", "Drama", "Philharmonic", "AUTHOR: ", "SCENE: ", "PRICE: ", "Quantity", 
+                                "You are trying to purchase more tickets that we have on stock. You can buy max ",
+                                " tickets."]
+
+let currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
+let sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
 let currentlyLanguage = cLanguage();
+
+//variables are depending of language
+class Dictionary{
+    constructor(userMessage, guestMessage, ballet, drama, philharmonic, author, scene, price, quantity, errorAlertQuantity, tickets ){
+        this.userMessage = userMessage;
+        this.guestMessage = guestMessage;
+        this.ballet = ballet;
+        this.drama = drama;
+        this.philharmonic = philharmonic;
+        this.author = author;
+        this.scene = scene;
+        this.price = price;
+        this.quantity = quantity;
+        this.errorAlertQuantity = errorAlertQuantity;
+        this.tickets = tickets;
+    }
+
+    static getLanguage(language){
+        if(language === 'sr'){
+            console.log(dictionarySerbian)
+         return dictionarySerbian    
+        }else{
+            console.log(dictionaryEnglish)
+            return dictionaryEnglish
+        }
+    }
+
+}
+
+//Initialisation of objects
+const dictionarySerbian = new Dictionary(...arrayOfDictionarySerbian);
+const dictionaryEnglish = new Dictionary(...arrayOfDictionaryEnglish);
+
+
+
+
+
+let languageShop = Dictionary.getLanguage(currentlyLanguage);
+//console.log(languageShop)
+
+
+
 //Language is defined 
+/*class CLanguage{
+
+}*/
 function cLanguage(){
     let currentlyLanguage;
-    if(JSON.parse(sessionStorage.getItem('lang')) === null){
+    if(sessionLanguage === null){
          currentlyLanguage = 'en';
     }else{
-        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
-        console.log(currentlyLanguage);        
+        currentlyLanguage = sessionLanguage.language;
+       // console.log(currentlyLanguage);        
     }
     console.log(currentlyLanguage)
     return currentlyLanguage;
 }
-console.log(currentlyLanguage)
-//create shop with choosen language - deault english
-createEShop(currentlyLanguage);
 
-//variables are depending of language
-function createShopLanguage(language){
-    //variables  are defined  - en - sr
-    if (language === 'sr'){
-        userMessage = userMessageSerbian;
-        guestMessage = guestMessageSerbian;
-        ballet = "Balet";
-        drama = "Predstava";
-        philharmonic = "Filharmonija";
-        author = "AUTOR: ";
-        scene = "SCENA: ";
-        price = "CENA: ";
-        quantity = "Količina";
-        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
-        tickets = " ulaznica.";
-    }else{
-        userMessage = userMessageEnglish;
-        guestMessage = guestMessageEnglish;
-        ballet = "Ballet";
-        drama = "Drama";
-        philharmonic = "Philharmonic";
-        author = "AUTHOR: ";
-        scene = "SCENE: ";
-        price = "PRICE: ";
-        quantity = "Quantity";
-        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
-        tickets = " tickets.";
-    }
-}
+//console.log(languageShop)
 
-function getUser(currentlyLoggedIn){
+getUser(currentlyLoggedIn, languageShop);
 
+
+
+
+function getUser(currentlyLoggedIn, languageShop){
+    console.log(currentlyLoggedIn);
+    console.log(languageShop);
     function animate(){                
         $('h1').show().animate({
             right: '30px',
@@ -92,7 +100,7 @@ function getUser(currentlyLoggedIn){
             `<h1 class="h1-message" 
                  id="welcome-user" 
                  onclick="hideMessage()">
-                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + userMessage}
+                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}
             </h1>`;
             var shops = `
             <div id="shops">
@@ -102,7 +110,7 @@ function getUser(currentlyLoggedIn){
                          alt="balet" 
                          src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
                     <h4>
-                        ${ballet}
+                        ${languageShop.ballet}
                     </h4>
                 </div>
                 <div class="shops">
@@ -111,7 +119,7 @@ function getUser(currentlyLoggedIn){
                          alt="drama" 
                          src="../images/my-icons-collection (1)/svg/drama-white.svg">
                     <h4>
-                        ${drama}
+                        ${languageShop.drama}
                     </h4>
                 </div>
                 <div class="shops">
@@ -127,17 +135,17 @@ function getUser(currentlyLoggedIn){
                          alt="filharmonija" 
                          src="../images/my-icons-collection (1)/svg/conductor-white.svg">
                          <h4>
-                            ${philharmonic}
+                            ${languageShop.philharmonic}
                          </h4>
                 </div>
             </div>`;
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
-                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet")} );
-                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama")} );
-                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera")} );
-                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija")} );
+                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", languageShop)} );
+                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", languageShop)} );
+                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", languageShop)} );
+                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", languageShop)} );
             
             //upisiBalet("Balet")
             animate();
@@ -152,7 +160,7 @@ function getUser(currentlyLoggedIn){
     }else{ 
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
-         eShopMessage.innerHTML = guestMessage;
+         eShopMessage.innerHTML = languageShop.guestMessage;
         
         animate();
      }
@@ -160,26 +168,14 @@ function getUser(currentlyLoggedIn){
 }
 
 
-function createEShop(currentlyLanguage) {
-    //session storage 
-   /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
-     console.log(localUser)  */        
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
-    console.log(currentlyLanguage);
+
     
-    createShopLanguage(currentlyLanguage);
-    console.log(currentlyLoggedIn) 
-        
-     
-getUser(currentlyLoggedIn);
-    
-    }
 
     function hideMessage(){
         document.getElementsByTagName("h1")[0].style.display = "none"
     }
 
-    function openStore(x, y) {
+    function openStore(x, y, languageShop) {
         let store = document.getElementById('open-store');
         removePreSelection();
 
@@ -225,19 +221,19 @@ getUser(currentlyLoggedIn);
                         ${filterPerformance[i].naziv}
                     </p>
                     <p class="items-author">
-                        ${author + filterPerformance[i].autor}
+                        ${languageShop.author + filterPerformance[i].autor}
                     </p>
                     <p class = "items-scene">
-                        ${scene + filterPerformance[i].scena}
+                        ${languageShop.scene + filterPerformance[i].scena}
                     </p>
                     <p class = "items-price">
-                        ${price}
+                        ${languageShop.price}
                         <span >
                          ${filterPerformance[i].cena}RSD 
                         </span> 
                     </p> 
                     <p>
-                        ${quantity} 
+                        ${languageShop.quantity} 
                     </p>
                     <button class="items-quantity-button" 
                             onclick="quantityDown('rezervacija${i}')">
