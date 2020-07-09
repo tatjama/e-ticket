@@ -74,21 +74,20 @@ const languageShop = Dictionary.getLanguage(currentlyLanguage);
 
 getUser(currentlyLoggedIn, languageShop);
 
+//Klasa UIShopType
+/*class UIShopType{
 
-
+}*/
+function animate(){                
+    $('h1').show().animate({
+        right: '30px',
+        top: "60px",
+        fontSize: "14px"
+    }
+    , (500));
+}
 
 function getUser(currentlyLoggedIn, languageShop){
-    console.log(currentlyLoggedIn);
-    console.log(languageShop);
-    function animate(){                
-        $('h1').show().animate({
-            right: '30px',
-            top: "60px",
-            fontSize: "14px"
-        }
-        , (500));
-    }
-
     if(sessionStorage.getItem('user')!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
@@ -164,6 +163,14 @@ function getUser(currentlyLoggedIn, languageShop){
      }
 
 }
+
+/*function getUser(currentlyLoggedIn, languageShop){
+    console.log(currentlyLoggedIn);
+    console.log(languageShop);
+    
+displayShopType(currentlyLoggedIn, languageShop);
+   
+}*/
 
 
 
@@ -269,9 +276,10 @@ function getUser(currentlyLoggedIn, languageShop){
     } 
 
     let reservation = document.getElementById('reservation');
-        reservation.addEventListener('click', createNewReservation); 
+        reservation.addEventListener('click', ()=>{createNewReservation(languageShop)}); 
         
-        function createNewReservation() {           
+        function createNewReservation(languageShop) {         
+            console.log(languageShop)  
             //storageOfPerformances izvlacimo iz localS
             let performances = JSON.parse(localStorage.getItem('tickets'));
             
@@ -304,7 +312,9 @@ function getUser(currentlyLoggedIn, languageShop){
                     reservationsArray.push(filterPerformance[j]);
                         } else {
                             //treba da izbaci gresku za kolicinu 
-                        alert( errorAlertQuantity + filterPerformance[j].kolicina + tickets);
+                        alert( 
+                             languageShop.errorAlertQuantity + filterPerformance[j].kolicina + languageShop.tickets
+                            );
                         console.log(filterPerformance[j].kolicina);
                         console.log(newReservation);
                         newReservation = 0;
