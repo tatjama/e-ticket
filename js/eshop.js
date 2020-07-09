@@ -13,7 +13,23 @@ let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticke
 
 let currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
 let sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
-let currentlyLanguage = cLanguage();
+//let currentlyLanguage = cLanguage();
+
+//Language is defined 
+class CLanguage{
+    constructor(currentlyLanguage){
+        this.currentlyLanguage = currentlyLanguage;
+    }
+
+    static getCLanguage(){
+        if(languageFromSession === null){
+            return 'en';
+        }else{
+            return languageFromSession.currentlyLanguage.language;
+        }
+    }
+
+}
 
 //variables are depending of language
 class Dictionary{
@@ -43,34 +59,16 @@ class Dictionary{
 
 }
 
+
+
 //Initialisation of objects
+const languageFromSession = new CLanguage(sessionLanguage);
 const dictionarySerbian = new Dictionary(...arrayOfDictionarySerbian);
 const dictionaryEnglish = new Dictionary(...arrayOfDictionaryEnglish);
 
 
-
-
-
-let languageShop = Dictionary.getLanguage(currentlyLanguage);
-//console.log(languageShop)
-
-
-
-//Language is defined 
-/*class CLanguage{
-
-}*/
-function cLanguage(){
-    let currentlyLanguage;
-    if(sessionLanguage === null){
-         currentlyLanguage = 'en';
-    }else{
-        currentlyLanguage = sessionLanguage.language;
-       // console.log(currentlyLanguage);        
-    }
-    console.log(currentlyLanguage)
-    return currentlyLanguage;
-}
+const  currentlyLanguage = CLanguage.getCLanguage(languageFromSession);
+const languageShop = Dictionary.getLanguage(currentlyLanguage);
 
 //console.log(languageShop)
 
