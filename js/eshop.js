@@ -21,8 +21,8 @@ class CLanguage{
         this.currentlyLanguage = currentlyLanguage;
     }
 
-    static getCLanguage(){
-        if(languageFromSession === null){
+    static getCLanguage(){        
+        if(languageFromSession.currentlyLanguage === null){
             return 'en';
         }else{
             return languageFromSession.currentlyLanguage.language;
@@ -140,10 +140,10 @@ function getUser(currentlyLoggedIn, languageShop){
             $("#eshop-container").append(shops);
             var shopArray = document.getElementsByClassName('shops-img');
             
-                shopArray[0].addEventListener("click", function(){openStore("Balet", "balet", languageShop)} );
-                shopArray[1].addEventListener("click", function(){openStore("Predstava", "drama", languageShop)} );
-                shopArray[2].addEventListener("click", function(){openStore("Opera", "opera", languageShop)} );
-                shopArray[3].addEventListener("click", function(){openStore("Filharmonija", "filharmonija", languageShop)} );
+                shopArray[0].addEventListener("click", ()=>{openStore("Balet", "balet", languageShop)} );
+                shopArray[1].addEventListener("click", ()=>{openStore("Predstava", "drama", languageShop)} );
+                shopArray[2].addEventListener("click", ()=>{openStore("Opera", "opera", languageShop)} );
+                shopArray[3].addEventListener("click", ()=>{openStore("Filharmonija", "filharmonija", languageShop)} );
             
             //upisiBalet("Balet")
             animate();
