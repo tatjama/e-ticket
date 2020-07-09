@@ -2,12 +2,12 @@ var eShopMessage = document.getElementById('eshop-message');
 var navBg = document.querySelector('.nav-bg');
 let arrayOfDictionarySerbian = [' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ,
                                 "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" , 
-                                "Balet", "Predstava", "Filharmonija", "AUTOR: ", "SCENA: ", "CENA: ", "Količina", 
+                                "Balet", "Predstava", "Opera", "Filharmonija", "AUTOR: ", "SCENA: ", "CENA: ", "Količina", 
                                 "Pokušavate da rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ",
                                 " ulaznica."]
 let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' , 
                                 "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>",
-                                "Ballet", "Drama", "Philharmonic", "AUTHOR: ", "SCENE: ", "PRICE: ", "Quantity", 
+                                "Ballet", "Drama", "Opera", "Philharmonic", "AUTHOR: ", "SCENE: ", "PRICE: ", "Quantity", 
                                 "You are trying to purchase more tickets that we have on stock. You can buy max ",
                                 " tickets."]
 
@@ -36,11 +36,12 @@ class CLanguage{
 
 //variables are depending of language
 class Dictionary{
-    constructor(userMessage, guestMessage, ballet, drama, philharmonic, author, scene, price, quantity, errorAlertQuantity, tickets ){
+    constructor(userMessage, guestMessage, ballet, drama, opera, philharmonic, author, scene, price, quantity, errorAlertQuantity, tickets ){
         this.userMessage = userMessage;
         this.guestMessage = guestMessage;
         this.ballet = ballet;
         this.drama = drama;
+        this.opera = opera;
         this.philharmonic = philharmonic;
         this.author = author;
         this.scene = scene;
@@ -91,18 +92,13 @@ function animate(){
 }
 
 function getUser(currentlyLoggedIn, languageShop){
-
+    navBg.style.display = "flex";
     if(currentlyLoggedIn!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
-            console.log(currentlyLoggedIn);
-            navBg.style.display = "flex";
-            eShopMessage.innerHTML = 
-            `<h1 class="h1-message" 
-                 id="welcome-user" 
-                 onclick="hideMessage()">
-                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}
-            </h1>`;
+                       
+            eShopMessage.innerHTML = `<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">
+                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}</h1>`;
 
             var shops = `
             <div id="shops">
@@ -129,7 +125,9 @@ function getUser(currentlyLoggedIn, languageShop){
                          id="opera" 
                          alt="opera" 
                          src="../images/my-icons-collection (1)/svg/opera-white.svg">
-                    <h4>Opera</h4>
+                    <h4>
+                        ${languageShop.opera}
+                    </h4>
                 </div>
                 <div class="shops" >
                     <img class="shops-img" 
@@ -151,14 +149,10 @@ function getUser(currentlyLoggedIn, languageShop){
                 shopArray[3].addEventListener("click", ()=>{openStore("Filharmonija", "filharmonija", languageShop)} );
         
             }else{
-          //  console.log('gost');
-            navBg.style.display = 'none';          
+                    
             eShopMessage.innerHTML = languageShop.guestMessage;
-            //"<h1 class='h1-message'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>"            
-        }        
-    }else{ 
-         console.log('neregistrovani korisnik');
-         navBg.style.display = "none";            
+           }        
+    }else{                     
          eShopMessage.innerHTML = languageShop.guestMessage;       
      }
      animate();
@@ -243,6 +237,7 @@ function getUser(currentlyLoggedIn, languageShop){
             store.appendChild(storeArticle);                  
         }  
     } 
+
     function removePreSelection(){
         let h2 = document.getElementById('eshop-header');
         document.getElementById('reservation').removeAttribute('click');
@@ -254,19 +249,18 @@ function getUser(currentlyLoggedIn, languageShop){
         }
                 
         let store = document.getElementById('open-store');
-        //store.innerHTML = '';
         let k = store.childNodes.length;
         if(store.firstElementChild !== null){          
             for(let i = 0; i < k ; i++){
                 store.removeChild(store.childNodes[0]);
             }       
-    }
+        }
     } 
 
     let reservation = document.getElementById('reservation');
         reservation.addEventListener('click', ()=>{createNewReservation(languageShop)}); 
         
-        function createNewReservation(languageShop) {         
+    function createNewReservation(languageShop) {         
             console.log(languageShop)  
             //storageOfPerformances izvlacimo iz localS
             let performances = JSON.parse(localStorage.getItem('tickets'));
@@ -284,11 +278,8 @@ function getUser(currentlyLoggedIn, languageShop){
                     } else {
                         return false;
                     }
-                });
-        
-        
-            console.log(filterPerformance);
-        
+                });       
+            console.log(filterPerformance);        
             let reservationsArray = [];
             for (let j = 0; j < filterPerformance.length; j++) {
                 let newReservation = document.getElementById('rezervacija' + j).value;
