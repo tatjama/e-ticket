@@ -15,11 +15,44 @@ let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticke
 
 let currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
 let sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
-//let currentlyLanguage = cLanguage();
+
 
 function hideMessage(){
     document.getElementsByTagName("h1")[0].style.display = "none"
 }
+function animate(){                
+    $('h1').show().animate({
+        right: '30px',
+        top: "60px",
+        fontSize: "14px"
+    }
+    , (500));
+}
+
+function quantityUp(x){
+    let quantity = document.getElementById(x).value;   
+    document.getElementById(x).value =++quantity;
+ }
+ function quantityDown(x){
+     let quantity = document.getElementById(x).value;
+     if(quantity >= 1){document.getElementById(x).value = --quantity;}    
+ }   
+ 
+ $(document).ready(function() {
+     $('.shops').click(function() {
+         $('.shops-img').animate({
+             height: '50px',
+             width: '50px'
+         });
+         $('.shops').animate({
+             margin: '0px'
+         })
+     });
+ });
+ 
+ 
+   
+   
 
 //Language is defined 
 class CLanguage{
@@ -186,37 +219,27 @@ const uiItems = new UIItems();
 
 //console.log(languageShop)
 
-getUser(currentlyLoggedIn, languageShop);
+//getUser(currentlyLoggedIn);
 
 //Klasa UIShopType
 /*class UIShopType{
 
 }*/
-function animate(){                
-    $('h1').show().animate({
-        right: '30px',
-        top: "60px",
-        fontSize: "14px"
+class ShowEShopByUser{
+    showEShop(currentlyLoggedIn){
+        navBg.style.display = "flex";
+        (currentlyLoggedIn!== null)?
+            ((currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0")?
+            uiFilter.displayFilterByType() : eShopMessage.innerHTML = languageShop.guestMessage)
+            :  eShopMessage.innerHTML = languageShop.guestMessage;       
+         
+         animate();
     }
-    , (500));
 }
 
+const showEShopByUser = new ShowEShopByUser();
+showEShopByUser.showEShop(currentlyLoggedIn);
 
-
-function getUser(currentlyLoggedIn, languageShop){
-    navBg.style.display = "flex";
-    if(currentlyLoggedIn!== null){ 
-
-        if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
-        uiFilter.displayFilterByType();           
-            }else{                    
-            eShopMessage.innerHTML = languageShop.guestMessage;
-           }        
-    }else{                     
-         eShopMessage.innerHTML = languageShop.guestMessage;       
-     }
-     animate();
-}
 
     
     function openStore(performanceTypeTitle, performanceType, languageShop) {
@@ -250,19 +273,12 @@ function getUser(currentlyLoggedIn, languageShop){
     function removePreSelection(){
         
         document.getElementById('reservation').removeAttribute('click');
-        if(h2.style.display !== "none"){
-            h2.style.display = "none";
-        }
-        if(eShopMessage.firstElementChild !== null){
-            eShopMessage.removeChild(eShopMessage.firstElementChild)
-        }
-                
-       // let store = document.getElementById('open-store');
+        if(h2.style.display !== "none"){h2.style.display = "none";}
+        if(eShopMessage.firstElementChild !== null){eShopMessage.removeChild(eShopMessage.firstElementChild)}
+        
         let k = store.childNodes.length;
         if(store.firstElementChild !== null){          
-            for(let i = 0; i < k ; i++){
-                store.removeChild(store.childNodes[0]);
-            }       
+            for(let i = 0; i < k ; i++){store.removeChild(store.childNodes[0]);}       
         }
     } 
 
@@ -273,16 +289,9 @@ function getUser(currentlyLoggedIn, languageShop){
             let performances = JSON.parse(localStorage.getItem('tickets'));            
             //Filtriramo po vrsti dogadjaja  
             var filterPerformance = performances;
-            var activePerformance = document.getElementById('active-store').innerHTML;
+            var activePerformance = document.getElementById('active-store').innerHTML;            
+            filterPerformance = performances.filter((newPerformance) => {(newPerformance.vrsta == activePerformance)? true : false});           
             
-            filterPerformance = performances.filter(
-                function(newPerformance) {
-                    if (newPerformance.vrsta == activePerformance) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });           
             let reservationsArray = [];
             for (let j = 0; j < filterPerformance.length; j++) {
                 let newReservation = document.getElementById('rezervacija' + j).value;
@@ -315,31 +324,3 @@ function getUser(currentlyLoggedIn, languageShop){
         }    
     
       
-function quantityUp(x){
-   let quantity = document.getElementById(x).value;   
-   document.getElementById(x).value =++quantity;
-   console.log(quantity);
-}
-function quantityDown(x){
-    let quantity = document.getElementById(x).value;
-    if(quantity >= 1){
-        document.getElementById(x).value = --quantity;
-    }    
-    console.log(quantity);
-}   
-
-$(document).ready(function() {
-    $('.shops').click(function() {
-        $('.shops-img').animate({
-            height: '50px',
-            width: '50px'
-        });
-        $('.shops').animate({
-            margin: '0px'
-        })
-    });
-});
-
-
-  
-  
