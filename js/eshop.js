@@ -31,11 +31,11 @@ function animate(){
 
 function quantityUp(x){
     let quantity = document.getElementById(x).value;   
-    document.getElementById(x).value =++quantity;
+    document.getElementById(x).value =++quantity;   
  }
  function quantityDown(x){
      let quantity = document.getElementById(x).value;
-     if(quantity >= 1){document.getElementById(x).value = --quantity;}    
+     if(quantity >= 1){document.getElementById(x).value = --quantity;}      
  }   
  
  $(document).ready(function() {
@@ -217,14 +217,7 @@ const languageShop = Dictionary.getLanguage(currentlyLanguage);
 const uiFilter = new UIFilter();
 const uiItems = new UIItems();
 
-//console.log(languageShop)
 
-//getUser(currentlyLoggedIn);
-
-//Klasa UIShopType
-/*class UIShopType{
-
-}*/
 class ShowEShopByUser{
     showEShop(currentlyLoggedIn){
         navBg.style.display = "flex";
@@ -284,31 +277,40 @@ showEShopByUser.showEShop(currentlyLoggedIn);
 
     let reservation = document.getElementById('reservation');
         reservation.addEventListener('click', ()=>{createNewReservation(languageShop)}); 
+
         
     function createNewReservation(languageShop) {         
-            let performances = JSON.parse(localStorage.getItem('tickets'));            
+            let performances = JSON.parse(localStorage.getItem('tickets'));  
+            console.log(performances)          
             //Filtriramo po vrsti dogadjaja  
             var filterPerformance = performances;
             var activePerformance = document.getElementById('active-store').innerHTML;            
-            filterPerformance = performances.filter((newPerformance) => {(newPerformance.vrsta == activePerformance)? true : false});           
-            
+            filterPerformance = performances.filter((newPerformance) => {
+                if(newPerformance.vrsta == activePerformance){
+                    return true
+                }else{
+                    return false
+                }  
+            });           
+            console.log(filterPerformance)
             let reservationsArray = [];
-            for (let j = 0; j < filterPerformance.length; j++) {
+            let j = 0;
+            filterPerformance.forEach(element => {
                 let newReservation = document.getElementById('rezervacija' + j).value;
-        
+                j++
                 //DODALA USLOV DA NE MOZE DA ODE U MINUS
                 if (newReservation > 0) {
-                    if (newReservation <= parseInt(filterPerformance[j].kolicina)) {
-                        filterPerformance[j].rezervacija = newReservation;
-                        reservationsArray.push(filterPerformance[j]);
+                    if (newReservation <= parseInt(element.kolicina)) {
+                        element.rezervacija = newReservation;
+                        reservationsArray.push(element);
                         } else {                             
-                        alert(languageShop.errorAlertQuantity + filterPerformance[j].kolicina + languageShop.tickets);
+                        alert(languageShop.errorAlertQuantity + element.kolicina + languageShop.tickets);
                         newReservation = 0;
                         }       
                 }
-            }
-            console.log(reservationsArray);
-        
+            });
+
+            
             //vadi niz iz local S 'korpa' i parsira u JavaScript, smesta u promenljivu korpaIzStoridza
             var shopingCardFromStorage = JSON.parse(localStorage.getItem('korpa')) || [];
             //merdzujemo niz korpaIzStoridza i nizRezervacija i smestamo u niz novaKorpa
@@ -319,8 +321,7 @@ showEShopByUser.showEShop(currentlyLoggedIn);
             reservationsArray = [];
             for (let j = 0; j < filterPerformance.length; j++) {
                 document.getElementById('rezervacija' + j).value = 0;
-            }
-        
+            }        
         }    
     
       
