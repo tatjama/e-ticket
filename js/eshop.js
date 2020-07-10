@@ -1,5 +1,7 @@
 var eShopMessage = document.getElementById('eshop-message');
 var navBg = document.querySelector('.nav-bg');
+let store = document.getElementById('open-store');
+let h2 = document.getElementById('eshop-header');
 let arrayOfDictionarySerbian = [' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ,
                                 "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" , 
                                 "Balet", "Predstava", "Opera", "Filharmonija", "AUTOR: ", "SCENA: ", "CENA: ", "Količina", 
@@ -158,65 +160,32 @@ function getUser(currentlyLoggedIn, languageShop){
      animate();
 }
 
-  
-
-    
-
-    function openStore(x, y, languageShop) {
-        let store = document.getElementById('open-store');
-        removePreSelection();
-
-        document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
-        document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
-        document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
-        document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-        
-        
-        //storageOfPerformances izvlacimo iz localS
-        let performances = JSON.parse(localStorage.getItem('tickets'));
-        console.log(performances);
-    
-        //Filtriramo po vrsti dogadjaja -balet  
-        var filterPerformance = performances;
-        console.log(y);
-        document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`)
-        //console.log(document.getElementById(y).innerHTML);
-        filterPerformance = performances.filter(
-            function(newPerformance) {                
-                if (newPerformance.vrsta == x) {
-                    console.log(newPerformance.vrsta);
-                    document.getElementById('active-store').innerHTML = newPerformance.vrsta;
-                    return true;
-
-                } else {
-                    return false;
-                }
-            });            
-        console.log(filterPerformance);
-    
-        for (let i = 0; i < filterPerformance.length; i++) {
-            //refaktorizacija           
+//display filter performances by type
+    class UIFiltered{
+        displayPerformance(filterPerformance, performanceType){
+             let i = 0;
+           filterPerformance.forEach(element => {            
             let storeArticle = document.createElement('div');    
             storeArticle.setAttribute('class' , 'item-card') ;              
             storeArticle.innerHTML = `
-            <img id="${y + (i + 1)}" 
+            <img id="${performanceType + (i + 1)}" 
                  class="items-img" 
-                 alt="${y + (i + 1)} "
-                 src="../images/webp/${filterPerformance[i].image}">
+                 alt="${performanceType + (i + 1)} "
+                 src="../images/webp/${element.image}">
                 <div class = "items-text">
                     <p class = "items-name">
-                        ${filterPerformance[i].naziv}
+                        ${element.naziv}
                     </p>
                     <p class="items-author">
-                        ${languageShop.author + filterPerformance[i].autor}
+                        ${languageShop.author + element.autor}
                     </p>
                     <p class = "items-scene">
-                        ${languageShop.scene + filterPerformance[i].scena}
+                        ${languageShop.scene + element.scena}
                     </p>
                     <p class = "items-price">
                         ${languageShop.price}
                         <span >
-                         ${filterPerformance[i].cena}RSD 
+                         ${element.cena}RSD 
                         </span> 
                     </p> 
                     <p>
@@ -234,12 +203,43 @@ function getUser(currentlyLoggedIn, languageShop){
                         <img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" >
                     </button>
                 </div>`;
-            store.appendChild(storeArticle);                  
-        }  
+            store.appendChild(storeArticle);
+            i++;
+           });
+        }
+    }
+    const uiFiltered = new UIFiltered();
+    
+    function openStore(performanceTypeTitle, performanceType, languageShop) {
+       
+        removePreSelection();
+
+        document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+        document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+        document.getElementById('opera').src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+        document.getElementById('filharmonija').src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+               
+        //storageOfPerformances izvlacimo iz localS
+        let performances = JSON.parse(localStorage.getItem('tickets'));
+            
+        //Filtriramo po vrsti dogadjaja -balet  
+        var filterPerformance = performances;
+        document.getElementById(performanceType).setAttribute('src', `../images/my-icons-collection (1)/svg/${performanceType}.svg`)
+        filterPerformance = performances.filter(
+            function(newPerformance) {                
+                if (newPerformance.vrsta == performanceTypeTitle) {                    
+                    document.getElementById('active-store').innerHTML = newPerformance.vrsta;
+                    return true;
+                } else {
+                    return false;
+                }
+            });       
+         uiFiltered.displayPerformance(filterPerformance, performanceType);
     } 
 
+
     function removePreSelection(){
-        let h2 = document.getElementById('eshop-header');
+        
         document.getElementById('reservation').removeAttribute('click');
         if(h2.style.display !== "none"){
             h2.style.display = "none";
@@ -248,7 +248,7 @@ function getUser(currentlyLoggedIn, languageShop){
             eShopMessage.removeChild(eShopMessage.firstElementChild)
         }
                 
-        let store = document.getElementById('open-store');
+       // let store = document.getElementById('open-store');
         let k = store.childNodes.length;
         if(store.firstElementChild !== null){          
             for(let i = 0; i < k ; i++){
@@ -261,10 +261,7 @@ function getUser(currentlyLoggedIn, languageShop){
         reservation.addEventListener('click', ()=>{createNewReservation(languageShop)}); 
         
     function createNewReservation(languageShop) {         
-            console.log(languageShop)  
-            //storageOfPerformances izvlacimo iz localS
-            let performances = JSON.parse(localStorage.getItem('tickets'));
-            
+            let performances = JSON.parse(localStorage.getItem('tickets'));            
             //Filtriramo po vrsti dogadjaja  
             var filterPerformance = performances;
             var activePerformance = document.getElementById('active-store').innerHTML;
@@ -272,14 +269,11 @@ function getUser(currentlyLoggedIn, languageShop){
             filterPerformance = performances.filter(
                 function(newPerformance) {
                     if (newPerformance.vrsta == activePerformance) {
-                        console.log(newPerformance)
-                        console.log(activePerformance)
                         return true;
                     } else {
                         return false;
                     }
-                });       
-            console.log(filterPerformance);        
+                });           
             let reservationsArray = [];
             for (let j = 0; j < filterPerformance.length; j++) {
                 let newReservation = document.getElementById('rezervacija' + j).value;
@@ -288,14 +282,9 @@ function getUser(currentlyLoggedIn, languageShop){
                 if (newReservation > 0) {
                     if (newReservation <= parseInt(filterPerformance[j].kolicina)) {
                         filterPerformance[j].rezervacija = newReservation;
-                    reservationsArray.push(filterPerformance[j]);
-                        } else {
-                            //treba da izbaci gresku za kolicinu 
-                        alert( 
-                             languageShop.errorAlertQuantity + filterPerformance[j].kolicina + languageShop.tickets
-                            );
-                        console.log(filterPerformance[j].kolicina);
-                        console.log(newReservation);
+                        reservationsArray.push(filterPerformance[j]);
+                        } else {                             
+                        alert(languageShop.errorAlertQuantity + filterPerformance[j].kolicina + languageShop.tickets);
                         newReservation = 0;
                         }       
                 }
