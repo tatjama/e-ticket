@@ -65,6 +65,112 @@ class Dictionary{
 
 }
 
+class UIFilter {
+    displayFilterByType(){
+         eShopMessage.innerHTML = `<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">
+                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}</h1>`;
+            
+    var shops = `
+    <div id="shops">
+        <div class="shops">
+            <img class="shops-img" 
+                 id="balet" 
+                 alt="balet" 
+                 src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
+            <h4>
+                ${languageShop.ballet}
+            </h4>
+        </div>
+        <div class="shops">
+            <img class="shops-img" 
+                 id="drama" 
+                 alt="drama" 
+                 src="../images/my-icons-collection (1)/svg/drama-white.svg">
+            <h4>
+                ${languageShop.drama}
+            </h4>
+        </div>
+        <div class="shops">
+            <img class="shops-img" 
+                 id="opera" 
+                 alt="opera" 
+                 src="../images/my-icons-collection (1)/svg/opera-white.svg">
+            <h4>
+                ${languageShop.opera}
+            </h4>
+        </div>
+        <div class="shops" >
+            <img class="shops-img" 
+                 id="filharmonija" 
+                 alt="filharmonija" 
+                 src="../images/my-icons-collection (1)/svg/conductor-white.svg">
+                 <h4>
+                    ${languageShop.philharmonic}
+                 </h4>
+        </div>
+    </div>`;
+    
+    $("#eshop-container").append(shops);
+    var shopArray = document.getElementsByClassName('shops-img');
+    
+        shopArray[0].addEventListener("click", ()=>{openStore("Balet", "balet", languageShop)} );
+        shopArray[1].addEventListener("click", ()=>{openStore("Predstava", "drama", languageShop)} );
+        shopArray[2].addEventListener("click", ()=>{openStore("Opera", "opera", languageShop)} );
+        shopArray[3].addEventListener("click", ()=>{openStore("Filharmonija", "filharmonija", languageShop)} );
+
+        
+    }
+}
+ 
+//display filter performances by type
+class UIItems{
+    displayPerformances(filterPerformance, performanceType){
+         let i = 0;
+       filterPerformance.forEach(element => {            
+        let storeArticle = document.createElement('div');    
+        storeArticle.setAttribute('class' , 'item-card') ;              
+        storeArticle.innerHTML = `
+        <img id="${performanceType + (i + 1)}" 
+             class="items-img" 
+             alt="${performanceType + (i + 1)} "
+             src="../images/webp/${element.image}">
+            <div class = "items-text">
+                <p class = "items-name">
+                    ${element.naziv}
+                </p>
+                <p class="items-author">
+                    ${languageShop.author + element.autor}
+                </p>
+                <p class = "items-scene">
+                    ${languageShop.scene + element.scena}
+                </p>
+                <p class = "items-price">
+                    ${languageShop.price}
+                    <span >
+                     ${element.cena}RSD 
+                    </span> 
+                </p> 
+                <p>
+                    ${languageShop.quantity} 
+                </p>
+                <button class="items-quantity-button" 
+                        onclick="quantityDown('rezervacija${i}')">
+                    <img alt="arrow down" 
+                         class="arrow-img" 
+                         src="../images/arrow-down-white.svg" >
+                </button> 
+                <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija${i}">
+                <button class="items-quantity-button" 
+                        onclick="quantityUp('rezervacija${i}')">
+                    <img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" >
+                </button>
+            </div>`;
+        store.appendChild(storeArticle);
+        i++;
+       });
+    }
+}
+
 
 
 //Initialisation of objects
@@ -75,6 +181,8 @@ const dictionaryEnglish = new Dictionary(...arrayOfDictionaryEnglish);
 
 const  currentlyLanguage = CLanguage.getCLanguage(languageFromSession);
 const languageShop = Dictionary.getLanguage(currentlyLanguage);
+const uiFilter = new UIFilter();
+const uiItems = new UIItems();
 
 //console.log(languageShop)
 
@@ -93,65 +201,15 @@ function animate(){
     , (500));
 }
 
+
+
 function getUser(currentlyLoggedIn, languageShop){
     navBg.style.display = "flex";
     if(currentlyLoggedIn!== null){ 
 
         if(currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0"){
-                       
-            eShopMessage.innerHTML = `<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">
-                 ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}</h1>`;
-
-            var shops = `
-            <div id="shops">
-                <div class="shops">
-                    <img class="shops-img" 
-                         id="balet" 
-                         alt="balet" 
-                         src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
-                    <h4>
-                        ${languageShop.ballet}
-                    </h4>
-                </div>
-                <div class="shops">
-                    <img class="shops-img" 
-                         id="drama" 
-                         alt="drama" 
-                         src="../images/my-icons-collection (1)/svg/drama-white.svg">
-                    <h4>
-                        ${languageShop.drama}
-                    </h4>
-                </div>
-                <div class="shops">
-                    <img class="shops-img" 
-                         id="opera" 
-                         alt="opera" 
-                         src="../images/my-icons-collection (1)/svg/opera-white.svg">
-                    <h4>
-                        ${languageShop.opera}
-                    </h4>
-                </div>
-                <div class="shops" >
-                    <img class="shops-img" 
-                         id="filharmonija" 
-                         alt="filharmonija" 
-                         src="../images/my-icons-collection (1)/svg/conductor-white.svg">
-                         <h4>
-                            ${languageShop.philharmonic}
-                         </h4>
-                </div>
-            </div>`;
-            
-            $("#eshop-container").append(shops);
-            var shopArray = document.getElementsByClassName('shops-img');
-            
-                shopArray[0].addEventListener("click", ()=>{openStore("Balet", "balet", languageShop)} );
-                shopArray[1].addEventListener("click", ()=>{openStore("Predstava", "drama", languageShop)} );
-                shopArray[2].addEventListener("click", ()=>{openStore("Opera", "opera", languageShop)} );
-                shopArray[3].addEventListener("click", ()=>{openStore("Filharmonija", "filharmonija", languageShop)} );
-        
-            }else{
-                    
+        uiFilter.displayFilterByType();           
+            }else{                    
             eShopMessage.innerHTML = languageShop.guestMessage;
            }        
     }else{                     
@@ -160,55 +218,6 @@ function getUser(currentlyLoggedIn, languageShop){
      animate();
 }
 
-//display filter performances by type
-    class UIFiltered{
-        displayPerformance(filterPerformance, performanceType){
-             let i = 0;
-           filterPerformance.forEach(element => {            
-            let storeArticle = document.createElement('div');    
-            storeArticle.setAttribute('class' , 'item-card') ;              
-            storeArticle.innerHTML = `
-            <img id="${performanceType + (i + 1)}" 
-                 class="items-img" 
-                 alt="${performanceType + (i + 1)} "
-                 src="../images/webp/${element.image}">
-                <div class = "items-text">
-                    <p class = "items-name">
-                        ${element.naziv}
-                    </p>
-                    <p class="items-author">
-                        ${languageShop.author + element.autor}
-                    </p>
-                    <p class = "items-scene">
-                        ${languageShop.scene + element.scena}
-                    </p>
-                    <p class = "items-price">
-                        ${languageShop.price}
-                        <span >
-                         ${element.cena}RSD 
-                        </span> 
-                    </p> 
-                    <p>
-                        ${languageShop.quantity} 
-                    </p>
-                    <button class="items-quantity-button" 
-                            onclick="quantityDown('rezervacija${i}')">
-                        <img alt="arrow down" 
-                             class="arrow-img" 
-                             src="../images/arrow-down-white.svg" >
-                    </button> 
-                    <input type="number" value = "0" min="0" max="20" placeholder="0" id="rezervacija${i}">
-                    <button class="items-quantity-button" 
-                            onclick="quantityUp('rezervacija${i}')">
-                        <img alt="arrow up" class="arrow-img" src="../images/arrow-up-white.svg" >
-                    </button>
-                </div>`;
-            store.appendChild(storeArticle);
-            i++;
-           });
-        }
-    }
-    const uiFiltered = new UIFiltered();
     
     function openStore(performanceTypeTitle, performanceType, languageShop) {
        
@@ -234,7 +243,7 @@ function getUser(currentlyLoggedIn, languageShop){
                     return false;
                 }
             });       
-         uiFiltered.displayPerformance(filterPerformance, performanceType);
+         uiItems.displayPerformances(filterPerformance, performanceType);
     } 
 
 
