@@ -66,7 +66,7 @@ class Storage{
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-    
+    if(localStorage.getItem('tickets') === null){
     const tickets = new Tickets();
     const languages = new Languages();
     const ui = new UI();
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
    //console.log(tickets.getTickets())
    console.log(languages.getLanguages());
+}
 })
 
 function setLocalStorage(a, b, c, d) {
