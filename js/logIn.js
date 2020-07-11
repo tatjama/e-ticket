@@ -37,21 +37,8 @@ class LanguageVariables{
 let serbianVariables = new LanguageVariables(...arraySerbianVariable);
 let englishVariables = new LanguageVariables(...arrayEnglishVariable);
 
-function signIn() {
-    console.log(lang)
-   const languageVar =  LanguageVariables.chooseVariables(lang);
-    console.log(languageVar)
-   
-    if (document.getElementById('error1').innerHTML == '*') {
-        alert(languageVar.emailAlert)
-    } else if (document.getElementById('error2').innerHTML == '*') {
-        alert(languageVar.passwordAlert);
-    } else {
-        document.getElementById('pickUp_signIn').style.display = 'none';
-        var checkUser = {};
-        checkUser.email = document.getElementById('logIn_email').value;
-        checkUser.password = document.getElementById('logIn_password').value;
-
+function checkingUserStatus(checkUser, languageVar){
+    
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
         var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
         console.log(userArray);
@@ -73,6 +60,24 @@ function signIn() {
                 currentlyLoggedIn.password = userArray[i].password;
             }
         }
+}
+
+function signIn() {
+   // console.log(lang)
+   const languageVar =  LanguageVariables.chooseVariables(lang);
+   // console.log(languageVar)
+   
+    if (document.getElementById('error1').innerHTML == '*') {
+        alert(languageVar.emailAlert)
+    } else if (document.getElementById('error2').innerHTML == '*') {
+        alert(languageVar.passwordAlert);
+    } else {
+        document.getElementById('pickUp_signIn').style.display = 'none';
+        var checkUser = {};
+        checkUser.email = document.getElementById('logIn_email').value;
+        checkUser.password = document.getElementById('logIn_password').value;
+
+        checkingUserStatus(checkUser, languageVar);
 
         if (currentlyLoggedIn.status == 9) {
             alert(languageVar.statusAlertGuest);
