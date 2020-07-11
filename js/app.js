@@ -62,6 +62,12 @@ class Storage{
     static saveStorageLanguages(languages){
         localStorage.setItem('languages', JSON.stringify(languages));
     }    
+    static saveCurrentlyLoggedInUser(currentlyLoggedIn){
+        localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn))
+    }
+    static removeCurrentlyLoggedInUser(){
+        localStorage.removeItem('currentlyLoggedInUser')
+    }
 }
 
 
@@ -93,17 +99,11 @@ function setLocalStorage(a, b, c, d) {
         let signing = document.getElementById(b); 
         let signIn = document.getElementById(c);
         let signUp = document.getElementById(d);
-      //  let signing_mobile = document.getElementById('signing_mobile');
-       // let start_mobile = document.getElementById('start_mobile');
         start.style.display = "none";
         signing.style.display ="inherit";
         signIn.style.display = "block";
         signUp.style.display = "block";
-
-      //  signing_mobile.style.display = "inherit";
-       // start_mobile.style.display = "none";
-
-    
+         
     var userStorage = [
         { name: "ADMINISTRATOR", surname: "ADMIN", email: "admin@admin.com", password: "admin", status: "0" },
         { name: "TATJANA", surname: "MARKOVIC", email: "tanja120a@gmail.com", password: "tanja", status: "0" },
@@ -124,14 +124,13 @@ function setLocalStorage(a, b, c, d) {
     console.log(currentlyLoggedIn);
 
    // version 1 . We set localStorage ones, and after that use the same localStorage    
-  localStorage.removeItem('currentlyLoggedInUser');
-
+  
+    Storage.removeCurrentlyLoggedInUser()
     
     if(JSON.parse(localStorage.getItem('userStorage')) ===null){
         localStorage.setItem('userStorage', JSON.stringify(userStorage));
-    }
-    
-    localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
+    }      
+   Storage.saveCurrentlyLoggedInUser(currentlyLoggedIn);
 
 
    // version 2 . Every time we clicked icon, we set new localStorage

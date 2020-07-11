@@ -219,7 +219,7 @@ const uiItems = new UIItems();
 
 
 class ShowEShopByUser{
-    showEShop(currentlyLoggedIn){
+   static showEShop(currentlyLoggedIn){
         navBg.style.display = "flex";
         (currentlyLoggedIn!== null)?
             ((currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0")?
@@ -230,8 +230,8 @@ class ShowEShopByUser{
     }
 }
 
-const showEShopByUser = new ShowEShopByUser();
-showEShopByUser.showEShop(currentlyLoggedIn);
+//const showEShopByUser = new ShowEShopByUser();
+ShowEShopByUser.showEShop(currentlyLoggedIn);
 
 
     

@@ -4,28 +4,48 @@
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jednog korisnika drugim 
 // Inicijalizujemo promenljivu nizKorisnika kao niz u koji smestamo dobijene objekte
 var userArray = [];
+let currentlyLoggedIn = {
+    status: 9,
+    email: "guest"
+};
+let lang = language();
+console.log(lang)
+let arraySerbianVariable = ['E-mail mora biti u formatu nesto@nesto.xyz', 'Lozinka prima samo slova ili brojeve',
+ "Dobro došli ", " ! Vaš status je administratorski.", "Niste ulogovani. Registrujte se", 
+ " ! Vaš status je registrovani korisnik."];
+let arrayEnglishVariable = ['E-mail format has to be something@something.xyz', 'password can contain only letters and numbers.',
+ 'Welcome ', " ! Your status is admin.", " You are not sign in. Please,  sign up.", 
+ " ! Your status is registered user."]
+class LanguageVariables{
+    constructor(emailAlert, passwordAlert, welcomeAlert, statusAlertAdmin, statusAlertGuest, statusAlertUser){
+        this.emailAlert = emailAlert;
+        this.passwordAlert = passwordAlert;
+        this.welcomeAlert = welcomeAlert;        
+        this.statusAlertAdmin = statusAlertAdmin;
+        this.statusAlertGuest = statusAlertGuest;
+        this.statusAlertUser = statusAlertUser;
+    }
+
+    static chooseVariables(lang){
+        if(lang == 'sr'){
+            return serbianVariables
+        }else{
+            return englishVariables
+        }
+    }
+}
+let serbianVariables = new LanguageVariables(...arraySerbianVariable);
+let englishVariables = new LanguageVariables(...arrayEnglishVariable);
 
 function signIn() {
-    let lang = language();
-    if(lang === 'sr'){
-        emailAlert = 'E-mail mora biti u formatu nesto@nesto.xyz';
-        passwordAlert = 'Lozinka prima samo slova ili brojeve';
-        welcomeAlert = "Dobro došli ";
-        statusAlertUser = " ! Vaš status je registrovani korisnik.";
-        statusAlertAdmin = " ! Vaš status je administratorski.";
-        statusAlertGuest = "Niste ulogovani. Registrujte se";
-    }else{
-        emailAlert = 'E-mail format has to be something@something.xyz';
-        passwordAlert = 'password can contain only letters and numbers.';
-        welcomeAlert = 'Welcome ';
-        statusAlertUser = " ! Your status is registered user.";
-        statusAlertAdmin = " ! Your status is admin.";
-        statusAlertGuest = " You are not sign in. Please,  sign up."
-    }
+    console.log(lang)
+   const languageVar =  LanguageVariables.chooseVariables(lang);
+    console.log(languageVar)
+   
     if (document.getElementById('error1').innerHTML == '*') {
-        alert(emailAlert)
+        alert(languageVar.emailAlert)
     } else if (document.getElementById('error2').innerHTML == '*') {
-        alert(passwordAlert);
+        alert(languageVar.passwordAlert);
     } else {
         document.getElementById('pickUp_signIn').style.display = 'none';
         var checkUser = {};
@@ -35,19 +55,16 @@ function signIn() {
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
         var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
         console.log(userArray);
-        let currentlyLoggedIn = {
-            status: 9,
-            email: "guest"
-        };
+        
 
         for (let i = 0; i < userArray.length; i++) {
 
             if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
                 if(userArray[i].status == 1){
-                    alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
+                    alert( languageVar.welcomeAlert + userArray[i].name + " "+userArray[i].surname + languageVar.statusAlertUser )
                     
                 }else{                
-                alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
+                alert(languageVar.welcomeAlert + userArray[i].name + " "+userArray[i].surname + languageVar.statusAlertAdmin);
                 }
                 currentlyLoggedIn.status = userArray[i].status;
                 currentlyLoggedIn.email = userArray[i].email;
@@ -58,7 +75,7 @@ function signIn() {
         }
 
         if (currentlyLoggedIn.status == 9) {
-            alert(statusAlertGuest);
+            alert(languageVar.statusAlertGuest);
             let currentlyLoggedIn = {
                 status: 9,
                 email: "guest"
