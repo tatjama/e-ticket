@@ -20,23 +20,10 @@ class Languages{
         try{
             let result = await fetch('languages.json');
             let data = await result.json();
-            console.log (data)
             let languages = data.languages;
-            console.log(languages);
             let en = languages[0];
             let sr = languages[1];
-            console.log(en)
-                console.log(sr)
-            console.log({en, sr})
-            return{en, sr}
-           /* let language = data.languages.map((item) => {
-                const en = item[0];
-                const sr = item[1];
-                console.log(en)
-                console.log(sr)
-                return{en, sr};
-            })*/
-           // return language;
+            return{en, sr}           
         }catch{
             console.error();
         }
