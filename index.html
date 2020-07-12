@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="Tatjana Markovic, tanja120a@gmail.com">
         <meta name="description" content="Responsive Shopping card made by using technique 
-        Vanilla JavaScript, HTML, CSS, Sass, jQuery, session storage and local storage. 
+        Vanilla JavaScript, HTML, CSS, Sass, jQuery,fetch from JSON,  session storage and local storage. 
         If you want to try shopping card go to E-shop.
         Role: 1. Admin - Sign In - username: admin@admin.com, password: admin,
         Admin have possibility to sell tickets for performances and to make entry for new performances.
@@ -144,6 +144,13 @@
                   <a href="#location">
                     <img src="images/webp/beograd3.webp" alt="beograd">                  
                     <figcaption class="lang" key="contact">Contact</figcaption>
+                  </a>
+                </figure>
+          
+                <figure onclick="setLocalStorage('start', 'signing', 'signIn', 'signUp')">
+                  <a href="./view/eshop.html">
+                    <img src="images/webp/balerina3.webp" alt="E shop">                  
+                    <figcaption >E-Shop</figcaption>
                   </a>
                 </figure>
             </section>
