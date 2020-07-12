@@ -62,7 +62,7 @@ Responsive Shopping card made by using technology:
         1. Navigation menu
            Responsive navigation menu hamburger
         2. E-shop
-            Responsive - inside manburger menu
+            Responsive - inside hamburger menu
             Desk top - inside navigation menu on the top right
         3. Sections:
             a) Links

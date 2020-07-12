@@ -5,8 +5,8 @@ class Tickets{
             let result =  await fetch('tickets.json');
             let data = await result.json();
             let ticket = data.tickets.map(item=>{
-                const {naziv, autor, cena, kolicina, scena, datum, image, vrsta}= item;
-                return {naziv, autor, cena, kolicina, scena, datum, image, vrsta};
+                const {title, author, price, quantity, scene, date, image, type}= item;
+                return {title, author, price, quantity, scene, date, image, type};
             })
             return ticket;
         }catch{
@@ -14,17 +14,29 @@ class Tickets{
         }        
     }
 }
-//getting Languages
+
 class Languages{
     async getLanguages(){
         try{
             let result = await fetch('languages.json');
             let data = await result.json();
-            let language = data.languages.map((item) => {
-                const{en, sr} = item;
+            console.log (data)
+            let languages = data.languages;
+            console.log(languages);
+            let en = languages[0];
+            let sr = languages[1];
+            console.log(en)
+                console.log(sr)
+            console.log({en, sr})
+            return{en, sr}
+           /* let language = data.languages.map((item) => {
+                const en = item[0];
+                const sr = item[1];
+                console.log(en)
+                console.log(sr)
                 return{en, sr};
-            })
-            return language;
+            })*/
+           // return language;
         }catch{
             console.error();
         }
@@ -42,37 +54,33 @@ class UI{
             <div class="program-item img-container" >
               <img class="program-img" alt="labudovo jezero" src="./images/webp/${ticket.image}">
             </div>
-            <div class="program-item">${ticket.naziv}</div>
-            <div class="program-item">${ticket.autor}</div>
-            <div class="program-item">${ticket.datum}</div>
-            <div class="program-item hide-item">${ticket.vrsta}</div>
-            <div class="program-item hide-item">${ticket.scena}</div>
-            <div class="program-item hide-item" >${ticket.cena},00 RSD</div>            
+            <div class="program-item">${ticket.title}</div>
+            <div class="program-item">${ticket.author}</div>
+            <div class="program-item">${ticket.date}</div>
+            <div class="program-item hide-item">${ticket.type}</div>
+            <div class="program-item hide-item">${ticket.scene}</div>
+            <div class="program-item hide-item" >${ticket.price},00 RSD</div>            
           </div>     `
 
             document.querySelector('.program-row-container').innerHTML = result;          
         })
     }
 }
-//set to localStorage tickets and languages
+//set to localStorage
 class Storage{
     static saveStorageTickets(tickets){
-        localStorage.setItem('tickets', JSON.stringify(tickets));        
+        localStorage.setItem('tickets', JSON.stringify(tickets));
+        
     }
     static saveStorageLanguages(languages){
         localStorage.setItem('languages', JSON.stringify(languages));
-    }    
-    static saveCurrentlyLoggedInUser(currentlyLoggedIn){
-        localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn))
     }
-    static removeCurrentlyLoggedInUser(){
-        localStorage.removeItem('currentlyLoggedInUser')
-    }
+    
 }
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-    if(localStorage.getItem('tickets') === null){
+    
     const tickets = new Tickets();
     const languages = new Languages();
     const ui = new UI();
@@ -81,65 +89,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         ui.displayTickets(tickets);
         Storage.saveStorageTickets(tickets);
     })
-    //get languages
+    
     languages.getLanguages().then((languages) => {
         Storage.saveStorageLanguages(languages);
     })
    //console.log(tickets.getTickets())
    console.log(languages.getLanguages());
-}
 })
-
-function setLocalStorage(a, b, c, d) {
-    
-    //KADA JE LOCAL STORAGE PRAZAN, PUNIMO GA POCETNIM VREDNOSTIMA.
-    //INDEX.HTML DUGME POCETNA
-
-        let start = document.getElementById(a);
-        let signing = document.getElementById(b); 
-        let signIn = document.getElementById(c);
-        let signUp = document.getElementById(d);
-        start.style.display = "none";
-        signing.style.display ="inherit";
-        signIn.style.display = "block";
-        signUp.style.display = "block";
-         
-    var userStorage = [
-        { name: "ADMINISTRATOR", surname: "ADMIN", email: "admin@admin.com", password: "admin", status: "0" },
-        { name: "TATJANA", surname: "MARKOVIC", email: "tanja120a@gmail.com", password: "tanja", status: "0" },
-        { name: "TANJA", surname: "MARKOVIC", email: "tanja120@gmail.com", password: "tanja", status: "0" },
-        { name: "USER", surname: "USER", email: "user@user.com", password: "user", status: "1" },
-        { name: "PERA", surname: "PERIC", email: "pera@gmail.com", password: "pera", status: "1" },
-        { name: "MITAR", surname: "MIRIC", email: "mitar@gmail.com", password: "mitar", status: "1" },
-        { name: "IVAN", surname: "IVANOVIC", email: "ivan@gmail.com", password: "ivan", status: "1" }
-
-    ];
-        
-    var currentlyLoggedIn = {
-        status: 9,
-        email: "guest"
-    }
-    //console.log(storageOfPerformances);   
-    console.log(userStorage);    
-    console.log(currentlyLoggedIn);
-
-   // version 1 . We set localStorage ones, and after that use the same localStorage    
-  
-    Storage.removeCurrentlyLoggedInUser()
-    
-    if(JSON.parse(localStorage.getItem('userStorage')) ===null){
-        localStorage.setItem('userStorage', JSON.stringify(userStorage));
-    }      
-   Storage.saveCurrentlyLoggedInUser(currentlyLoggedIn);
-
-
-   // version 2 . Every time we clicked icon, we set new localStorage
-
-  /* localStorage.removeItem('tickets');
-   localStorage.removeItem('userStorage');    
-   localStorage.removeItem('currentlyLoggedInUser');
-
-   localStorage.setItem('tickets', JSON.stringify(storageOfPerformances)); 
-   localStorage.setItem('userStorage', JSON.stringify(userStorage));   
-   localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));*/
-}

@@ -4,54 +4,52 @@
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jednog korisnika drugim 
 // Inicijalizujemo promenljivu nizKorisnika kao niz u koji smestamo dobijene objekte
 var userArray = [];
-let currentlyLoggedIn = {
-    status: 9,
-    email: "guest"
-};
-let lang = language();
-console.log(lang)
-let arraySerbianVariable = ['E-mail mora biti u formatu nesto@nesto.xyz', 'Lozinka prima samo slova ili brojeve',
- "Dobro došli ", " ! Vaš status je administratorski.", "Niste ulogovani. Registrujte se", 
- " ! Vaš status je registrovani korisnik."];
-let arrayEnglishVariable = ['E-mail format has to be something@something.xyz', 'password can contain only letters and numbers.',
- 'Welcome ', " ! Your status is admin.", " You are not sign in. Please,  sign up.", 
- " ! Your status is registered user."]
-class LanguageVariables{
-    constructor(emailAlert, passwordAlert, welcomeAlert, statusAlertAdmin, statusAlertGuest, statusAlertUser){
-        this.emailAlert = emailAlert;
-        this.passwordAlert = passwordAlert;
-        this.welcomeAlert = welcomeAlert;        
-        this.statusAlertAdmin = statusAlertAdmin;
-        this.statusAlertGuest = statusAlertGuest;
-        this.statusAlertUser = statusAlertUser;
-    }
 
-    static chooseVariables(lang){
-        if(lang == 'sr'){
-            return serbianVariables
-        }else{
-            return englishVariables
-        }
+function signIn() {
+    let lang = language();
+    if(lang === 'sr'){
+        emailAlert = 'E-mail mora biti u formatu nesto@nesto.xyz';
+        passwordAlert = 'Lozinka prima samo slova ili brojeve';
+        welcomeAlert = "Dobro došli ";
+        statusAlertUser = " ! Vaš status je registrovani korisnik.";
+        statusAlertAdmin = " ! Vaš status je administratorski.";
+        statusAlertGuest = "Niste ulogovani. Registrujte se";
+    }else{
+        emailAlert = 'E-mail format has to be something@something.xyz';
+        passwordAlert = 'password can contain only letters and numbers.';
+        welcomeAlert = 'Welcome ';
+        statusAlertUser = " ! Your status is registered user.";
+        statusAlertAdmin = " ! Your status is admin.";
+        statusAlertGuest = " You are not sign in. Please,  sign up."
     }
-}
-let serbianVariables = new LanguageVariables(...arraySerbianVariable);
-let englishVariables = new LanguageVariables(...arrayEnglishVariable);
+    if (document.getElementById('error1').innerHTML == '*') {
+        alert(emailAlert)
+    } else if (document.getElementById('error2').innerHTML == '*') {
+        alert(passwordAlert);
+    } else {
+        document.getElementById('pickUp_signIn').style.display = 'none';
 
-function checkingUserStatus(checkUser, languageVar){
-    
+        var checkUser = {};
+
+        checkUser.email = document.getElementById('logIn_email').value;
+        checkUser.password = document.getElementById('logIn_password').value;
+
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
         var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
         console.log(userArray);
-        
+        let currentlyLoggedIn = {
+            status: 9,
+            email: "guest"
+        };
 
         for (let i = 0; i < userArray.length; i++) {
 
             if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
                 if(userArray[i].status == 1){
-                    alert( languageVar.welcomeAlert + userArray[i].name + " "+userArray[i].surname + languageVar.statusAlertUser )
+                    alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
                     
                 }else{                
-                alert(languageVar.welcomeAlert + userArray[i].name + " "+userArray[i].surname + languageVar.statusAlertAdmin);
+                alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
                 }
                 currentlyLoggedIn.status = userArray[i].status;
                 currentlyLoggedIn.email = userArray[i].email;
@@ -60,27 +58,9 @@ function checkingUserStatus(checkUser, languageVar){
                 currentlyLoggedIn.password = userArray[i].password;
             }
         }
-}
-
-function signIn() {
-   // console.log(lang)
-   const languageVar =  LanguageVariables.chooseVariables(lang);
-   // console.log(languageVar)
-   
-    if (document.getElementById('error1').innerHTML == '*') {
-        alert(languageVar.emailAlert)
-    } else if (document.getElementById('error2').innerHTML == '*') {
-        alert(languageVar.passwordAlert);
-    } else {
-        document.getElementById('pickUp_signIn').style.display = 'none';
-        var checkUser = {};
-        checkUser.email = document.getElementById('logIn_email').value;
-        checkUser.password = document.getElementById('logIn_password').value;
-
-        checkingUserStatus(checkUser, languageVar);
 
         if (currentlyLoggedIn.status == 9) {
-            alert(languageVar.statusAlertGuest);
+            alert(statusAlertGuest);
             let currentlyLoggedIn = {
                 status: 9,
                 email: "guest"

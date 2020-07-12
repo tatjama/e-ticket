@@ -115,9 +115,9 @@ function tableOfReservedPerformances(x) {
 //put arrey of buying tickets in the localStorage by the name "kupljeno"
 
  function shopping () {
-    //vadimo podatke iz osnovnog lagera 'tickets' i smestamo u promenljivu lager
+    //vadimo podatke iz osnovnog lagera 'bazadogadjaja' i smestamo u promenljivu lager
     //. Oduzimamo prodate ulaznice i upisujemo nove kolicine na lager
-    var lager = JSON.parse(localStorage.getItem('tickets')) || [];
+    var lager = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
     console.log(lager);
     var purchased = shoppingCard.filter(deleteRemovedFields);
     console.log(purchased);
@@ -139,10 +139,10 @@ function tableOfReservedPerformances(x) {
                 lager[j].kolicina = newStock;
                 console.log(lager[j].kolicina);
 
-                //upisujemo novi lager u localStoridze 'tickets'  
+                //upisujemo novi lager u localStoridze 'bazadogadjaja'  
                 //pre toga obrisemo dosadasnji lager 
-                localStorage.removeItem('tickets');
-                localStorage.setItem('tickets', JSON.stringify(lager));
+                localStorage.removeItem('bazadogadjaja');
+                localStorage.setItem('bazadogadjaja', JSON.stringify(lager));
                 document.getElementById('table-main').style.display = "none";
                 document.getElementById('thank-you-message').innerHTML = 
                 countMessage + userBill + payMessage                

@@ -1,7 +1,7 @@
 {
     "languages":[
         {
-            "en": {
+            
                 "aboutUs": "About Us",
                 "aboutUsContent" : "Our opinion is that satisfied customer is the best marketing ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." ,
                 "alternative" : "Alternative scene",
@@ -81,10 +81,10 @@
                 "title-performance" : "Performance title...",       
                 "qty" : "QTY: ", 
                 "quantity" : "Quantity"
-        }
+        
     },
         {
-            "sr": {
+            
                 "aboutUs" : "O nama",
                 "aboutUsContent" : "Mislimo da je zadovoljan klijent najbolja reklama... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 "add" : "Dodaj u korpu",
@@ -164,7 +164,7 @@
                 "type table" : "VRSTA: ",          
                 "qty" : "KOL: ",              
                 "quantity" : "Količina:"        
-        }
+        
     }
     ]
    

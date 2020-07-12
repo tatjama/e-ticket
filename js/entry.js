@@ -218,11 +218,11 @@ function entry() {
        clearFields();
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu storageOfPerformances
-        var storageOfPerformances = JSON.parse(localStorage.getItem('tickets')) || [];
+        var storageOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja')) || [];
         //ubacuje novi dogadjaj objekat u storageOfPerformances
         storageOfPerformances.push(newPerformance);
         //smesta storageOfPerformances u localStoride
-        localStorage.setItem('tickets', JSON.stringify(storageOfPerformances));
+        localStorage.setItem('bazadogadjaja', JSON.stringify(storageOfPerformances));
 
         console.log(storageOfPerformances);
         console.log(newPerformance);
