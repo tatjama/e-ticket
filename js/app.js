@@ -93,6 +93,5 @@ document.addEventListener('DOMContentLoaded',()=>{
     languages.getLanguages().then((languages) => {
         Storage.saveStorageLanguages(languages);
     })
-   //console.log(tickets.getTickets())
    console.log(languages.getLanguages());
 })
