@@ -131,14 +131,6 @@ function clearFields() {
     image.value = '';
 
 }
-
-
-
-/*obrisiLokalStoridz();
-
-function obrisiLokalStoridz() {
-    localStorage.clear();
-}*/
 //funkciju poziva dugme Novi formular
 //dugme Pokupi se pojavljuje. Prilikom ucitavanja programa dugme Pokupi je aktivno. Kada ga pritisnemo
 // pokrecemo funkciju događajt() i sakrivamo dugme Pokupi
@@ -190,16 +182,6 @@ function entry() {
             image: pickImage()  + x + ".webp"
         }    
         
-        /*newPerformance.naziv = document.getElementById('name').value.toUpperCase();
-        newPerformance.autor = author.value;
-        newPerformance.cena = price.value;
-        newPerformance.datum = date.value;
-        newPerformance.kolicina = quantity.value;
-        newPerformance.vrsta = type.value;
-        newPerformance.scena = scene;
-        newPerformance.image = pickImage()  + x + ".webp";      */  
-        
-       // newPerformance.image = document.getElementById('img').value.slice(12);
       
        function pickImage(){
         switch(type.value){

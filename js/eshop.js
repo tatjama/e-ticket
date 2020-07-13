@@ -1,21 +1,3 @@
-/*function user(){
-    if(typeof(Storage) !== "undefined"){
-        if(sessionStorage.getItem('user') === null){
-            console.log('Nema usera');
-        }else{
-        var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));
-        console.log('ima usera');
-        console.log(currentlyLoggedIn.status);
-        console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +" " + currentlyLoggedIn.surname + ' sa E-mailom ' 
-        + currentlyLoggedIn.email + ' i passwordom ' + currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)
-       
-        }
-    console.log('kraj');
-    }else{
-        alert('Your browser does not support web storage. Sorry...' );
-    }    
-}*/
-
 
 var eShopMessage = document.getElementById('eshop-message');
 var navBg = document.querySelector('.nav-bg');
@@ -44,9 +26,7 @@ createEShop(currentlyLanguage);
 
 
 function createEShop(x) {
-    //session storage 
-   /* var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));            
-     console.log(localUser)  */        
+    //session storage          
     var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
     console.log(x);
     //variables  are defined  - en - sr
