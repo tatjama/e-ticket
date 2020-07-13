@@ -2,13 +2,14 @@ function setLocalStorage(a, b, c, d) {
         let start = document.getElementById(a);
         let signing = document.getElementById(b); 
         let signIn = document.getElementById(c);
+        let signUp = document.getElementById(d);
       
         start.style.display = "none";
         signing.style.display ="inherit";
         signIn.style.display = "block";
         signUp.style.display = "block";
 
-    var userStorage = [
+    /*var userStorage = [
         { name: "ADMINISTRATOR", surname: "ADMIN", email: "admin@admin.com", password: "admin", status: "0" },
         { name: "TATJANA", surname: "MARKOVIC", email: "tanja120a@gmail.com", password: "tanja", status: "0" },
         { name: "TANJA", surname: "MARKOVIC", email: "tanja120@gmail.com", password: "tanja", status: "0" },
@@ -17,20 +18,20 @@ function setLocalStorage(a, b, c, d) {
         { name: "MITAR", surname: "MIRIC", email: "mitar@gmail.com", password: "mitar", status: "1" },
         { name: "IVAN", surname: "IVANOVIC", email: "ivan@gmail.com", password: "ivan", status: "1" }
 
-    ];
+    ];*/
     
     var currentlyLoggedIn = {
         status: 9,
         email: "guest"
     }  
-    console.log(userStorage);    
+   // console.log(userStorage);    
     console.log(currentlyLoggedIn);
     
   localStorage.removeItem('currentlyLoggedInUser');
    
-    if(JSON.parse(localStorage.getItem('userStorage')) ===null){
+    /*if(JSON.parse(localStorage.getItem('userStorage')) ===null){
         localStorage.setItem('userStorage', JSON.stringify(userStorage));
-    }
+    }*/
     
     localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
 }

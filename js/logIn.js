@@ -4,6 +4,78 @@
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jednog korisnika drugim 
 // Inicijalizujemo promenljivu nizKorisnika kao niz u koji smestamo dobijene objekte
 var userArray = [];
+function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
+    console.log(userArray);
+    console.log(checkUser);
+    console.log(currentlyLoggedIn)
+    for (let i = 0; i < userArray.length; i++) {
+
+        if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
+            if(userArray[i].status == 1){
+                alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
+                
+            }else{                
+            alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
+            }
+            currentlyLoggedIn.status = userArray[i].status;
+            currentlyLoggedIn.email = userArray[i].email;
+            currentlyLoggedIn.name = userArray[i].name;
+            currentlyLoggedIn.surname = userArray[i].surname;
+            currentlyLoggedIn.password = userArray[i].password;
+        }
+    }
+    if (currentlyLoggedIn.status == 9) {
+        alert(statusAlertGuest);
+        let currentlyLoggedIn = {
+            status: 9,
+            email: "guest"
+        };
+        //praznimo localStoridze
+        localStorage.removeItem('currentlyLoggedIn');
+        //smesta trenutno ulogovanog korisnika u localStoride
+        localStorage.setItem('currentlyLoggedIn', JSON.stringify(currentlyLoggedIn));
+        console.log(currentlyLoggedIn);
+        document.getElementById('signUp').style.display = "block";
+        document.getElementById('signOut').style.display = "none";
+        } else {
+
+         //session storage 
+        sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );    
+
+        console.log(currentlyLoggedIn);
+        //praznimo localStoridze
+        localStorage.removeItem('currentlyLoggedInUser');
+        //smesta trenutno ulogovanog korisnika u localStoride
+        localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
+        var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));
+        var sessionUser = JSON.parse(sessionStorage.getItem('user'))
+        console.log(localUser)
+        console.log(sessionUser)
+        
+        if (currentlyLoggedIn.status == 1) {
+            document.getElementById('eshop').style.display = "block";
+            document.getElementById('eshop_mobile').style.display = "block";
+            document.getElementById('signIn').style.display = 'none';
+            document.getElementById('signIn_mobile').style.display = 'none';
+            document.getElementById('signUp').style.display = "none";
+            document.getElementById('signUp_mobile').style.display = "none";
+            document.getElementById('signOut').style.display = "block";
+            document.getElementById('signOut_mobile').style.display = "block";
+        } else {
+            document.getElementById('entry').style.display = "block";
+            document.getElementById('entry_mobile').style.display = "block";
+            document.getElementById('sale').style.display = "block";
+            document.getElementById('sale_mobile').style.display = "block";
+            document.getElementById('signIn').style.display = 'none';
+            document.getElementById('signIn_mobile').style.display = 'none';
+            document.getElementById('signUp').style.display = "none";
+            document.getElementById('signUp_mobile').style.display = "none";
+            document.getElementById('signOut').style.display ="block";
+            document.getElementById('signOut_mobile').style.display ="block";
+        }
+
+    }
+}
 
 function signIn() {
     let lang = language();
@@ -35,81 +107,31 @@ function signIn() {
         checkUser.password = document.getElementById('logIn_password').value;
 
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
-        var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
-        console.log(userArray);
+        //var userArray = JSON.parse(localStorage.getItem('userStorage')) || []; 
         let currentlyLoggedIn = {
             status: 9,
             email: "guest"
         };
-
-        for (let i = 0; i < userArray.length; i++) {
-
-            if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
-                if(userArray[i].status == 1){
-                    alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
-                    
-                }else{                
-                alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
+        class UserArray  {
+         async  getUserArray(){
+                try {
+                    let result = await fetch('users.json');
+                    let data = await result.json();
+                    let userArray = data.users
+                    //console.log(users)                   
+                    return(userArray)
+                } catch (error) {
+                   console.log(error) 
                 }
-                currentlyLoggedIn.status = userArray[i].status;
-                currentlyLoggedIn.email = userArray[i].email;
-                currentlyLoggedIn.name = userArray[i].name;
-                currentlyLoggedIn.surname = userArray[i].surname;
-                currentlyLoggedIn.password = userArray[i].password;
             }
         }
+        const user = new UserArray();
+       user.getUserArray().then((userArray)=>{
+        checkUserStatus(userArray, checkUser, currentlyLoggedIn)
+       })
+        
 
-        if (currentlyLoggedIn.status == 9) {
-            alert(statusAlertGuest);
-            let currentlyLoggedIn = {
-                status: 9,
-                email: "guest"
-            };
-            //praznimo localStoridze
-            localStorage.removeItem('currentlyLoggedIn');
-            //smesta trenutno ulogovanog korisnika u localStoride
-            localStorage.setItem('currentlyLoggedIn', JSON.stringify(currentlyLoggedIn));
-            console.log(currentlyLoggedIn);
-            document.getElementById('signUp').style.display = "block";
-            document.getElementById('signOut').style.display = "none";
-            } else {
-
-             //session storage 
-            sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );    
-
-            console.log(currentlyLoggedIn);
-            //praznimo localStoridze
-            localStorage.removeItem('currentlyLoggedInUser');
-            //smesta trenutno ulogovanog korisnika u localStoride
-            localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
-            var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));
-            var sessionUser = JSON.parse(sessionStorage.getItem('user'))
-            console.log(localUser)
-            console.log(sessionUser)
-            
-            if (currentlyLoggedIn.status == 1) {
-                document.getElementById('eshop').style.display = "block";
-                document.getElementById('eshop_mobile').style.display = "block";
-                document.getElementById('signIn').style.display = 'none';
-                document.getElementById('signIn_mobile').style.display = 'none';
-                document.getElementById('signUp').style.display = "none";
-                document.getElementById('signUp_mobile').style.display = "none";
-                document.getElementById('signOut').style.display = "block";
-                document.getElementById('signOut_mobile').style.display = "block";
-            } else {
-                document.getElementById('entry').style.display = "block";
-                document.getElementById('entry_mobile').style.display = "block";
-                document.getElementById('sale').style.display = "block";
-                document.getElementById('sale_mobile').style.display = "block";
-                document.getElementById('signIn').style.display = 'none';
-                document.getElementById('signIn_mobile').style.display = 'none';
-                document.getElementById('signUp').style.display = "none";
-                document.getElementById('signUp_mobile').style.display = "none";
-                document.getElementById('signOut').style.display ="block";
-                document.getElementById('signOut_mobile').style.display ="block";
-            }
-
-        }
+        
         clearInput();
     }
 
