@@ -8,7 +8,41 @@ function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
     console.log(userArray);
     console.log(checkUser);
     console.log(currentlyLoggedIn)
-    for (let i = 0; i < userArray.length; i++) {
+    const users = JSON.parse(localStorage.getItem('userStorage')) || [];
+    console.log(users);
+    const newUsersArray = userArray.concat(users);
+    console.log(newUsersArray.length);
+    console.log(newUsersArray);
+    console.log(typeof(newUsersArray));
+   // let currentlyUser;
+   // console.log(newUsersArray[0])
+   /* newUsersArray.forEach(element => {
+        if((element.email === checkUser.email)&&(element.password === checkUser.password)){
+            console.log(element.email + element.password)
+        console.log(checkUser.email+checkUser.password)
+         currentlyUser = element
+        console.log(currentlyUser)*/
+       // return currentlyUser
+       // }
+       // return currentlyUser
+    /*});
+    console.log(currentlyUser)*/
+function checkDoesUserExist(element){
+    return ((element.email === checkUser.email)&&(element.password === checkUser.password))
+}
+const currentlyUser = newUsersArray.filter(checkDoesUserExist);
+console.log(currentlyUser)
+let activeUser;
+if(currentlyUser.length !==0){
+    activeUser = currentlyUser[0];
+    console.log(activeUser)
+
+}else{
+    activeUser = currentlyLoggedIn
+    console.log(activeUser)
+}
+console.log(activeUser)
+   /* for (let i = 0; i < userArray.length; i++) {
 
         if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
             if(userArray[i].status == 1){
@@ -74,7 +108,7 @@ function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
             document.getElementById('signOut_mobile').style.display ="block";
         }
 
-    }
+    }*/
 }
 
 function signIn() {

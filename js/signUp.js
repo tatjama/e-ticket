@@ -2,7 +2,7 @@ var errorSignUp = document.getElementsByClassName('error_signUp');
 var nameSignUp = document.getElementById('signUp_name');
 var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
-var passwordSignUp = document.getElementById('signUp_email');
+var passwordSignUp = document.getElementById('signUp_password');
 
 /*obrisiLokalStoridz();
 
