@@ -177,7 +177,7 @@ function createEShop(x) {
         
         
         //storageOfPerformances izvlacimo iz localS
-        let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+        let performances = JSON.parse(localStorage.getItem('tickets'));
     
         //Filtriramo po vrsti dogadjaja -balet  
         var filterPerformance = performances;
@@ -265,7 +265,7 @@ function createEShop(x) {
         
         function createNewReservation() {           
             //storageOfPerformances izvlacimo iz localS
-            let performances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+            let performances = JSON.parse(localStorage.getItem('tickets'));
             
             //Filtriramo po vrsti dogadjaja  
             var filterPerformance = performances;

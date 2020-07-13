@@ -5,8 +5,8 @@ class Tickets{
             let result =  await fetch('tickets.json');
             let data = await result.json();
             let ticket = data.tickets.map(item=>{
-                const {title, author, price, quantity, scene, date, image, type}= item;
-                return {title, author, price, quantity, scene, date, image, type};
+                const {naziv, autor, cena, kolicina, scena, datum, image, vrsta}= item;
+                return {naziv, autor, cena, kolicina, scena, datum, image, vrsta};
             })
             return ticket;
         }catch{
@@ -41,12 +41,12 @@ class UI{
             <div class="program-item img-container" >
               <img class="program-img" alt="labudovo jezero" src="./images/webp/${ticket.image}">
             </div>
-            <div class="program-item">${ticket.title}</div>
-            <div class="program-item">${ticket.author}</div>
-            <div class="program-item">${ticket.date}</div>
-            <div class="program-item hide-item">${ticket.type}</div>
-            <div class="program-item hide-item">${ticket.scene}</div>
-            <div class="program-item hide-item" >${ticket.price},00 RSD</div>            
+            <div class="program-item">${ticket.naziv}</div>
+            <div class="program-item">${ticket.autor}</div>
+            <div class="program-item">${ticket.datum}</div>
+            <div class="program-item hide-item">${ticket.vrsta}</div>
+            <div class="program-item hide-item">${ticket.scena}</div>
+            <div class="program-item hide-item" >${ticket.cena},00 RSD</div>            
           </div>     `
 
             document.querySelector('.program-row-container').innerHTML = result;          
@@ -67,7 +67,7 @@ class Storage{
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-    
+    if(localStorage.getItem('tickets') === null){
     const tickets = new Tickets();
     const languages = new Languages();
     const ui = new UI();
@@ -81,4 +81,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         Storage.saveStorageLanguages(languages);
     })
    console.log(languages.getLanguages());
+}
 })

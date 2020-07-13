@@ -276,7 +276,7 @@ function createSale(x) {
 // main function filter      
   function doFilter(){
       removePreSelection();
-     let arrayOfPerformances = JSON.parse(localStorage.getItem('bazadogadjaja'));
+     let arrayOfPerformances = JSON.parse(localStorage.getItem('tickets'));
      let typeOfPerformance = activeStore.innerHTML;
      let typeOfScene = activeScene.innerHTML;
      let ticketStock = quantityOfItems.checked;
