@@ -59,13 +59,18 @@ class Storage{
         localStorage.setItem('tickets', JSON.stringify(tickets));
         
     }
+    static getStorageTickets(){
+      let tickets =  JSON.parse(localStorage.getItem('tickets'));
+      return tickets
+    }
     static saveStorageLanguages(languages){
         localStorage.setItem('languages', JSON.stringify(languages));
     }
     
 }
 
-
+//for the first time tickets are fetched from tickets.JSON and put it on localStorage, 
+//after that always take tickets from localStorage, so changes of quantity are displayed
 document.addEventListener('DOMContentLoaded',()=>{
     if(localStorage.getItem('tickets') === null){
     const tickets = new Tickets();
@@ -81,5 +86,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         Storage.saveStorageLanguages(languages);
     })
    console.log(languages.getLanguages());
+}else{
+   let tickets = Storage.getStorageTickets();
+    const ui = new UI();    
+    ui.displayTickets(tickets);    
 }
 })
