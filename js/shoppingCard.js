@@ -125,14 +125,9 @@ function tableOfReservedPerformances(x) {
     document.getElementById('pay-button').style.display = "block";
 
     for (let i = 0; i < purchased.length; i++) {
-       // console.log(purchased[i].kolicina);
-        //console.log(purchased[i].rezervacija);
         var newStock = parseInt(purchased[i].kolicina) - parseInt(purchased[i].rezervacija);
-        //console.log(newStock);
         var userBill = document.getElementById('sum-of-buying-items').value
         for (let j = 0; j < lager.length; j++) {
-           // console.log(purchased[i].naziv);
-           // console.log(lager[j].naziv);
             if (purchased[i].naziv === lager[j].naziv) {
                 console.log(lager[j].kolicina);
                 console.log(newStock);

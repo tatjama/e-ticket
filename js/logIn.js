@@ -3,112 +3,68 @@
 //potom ubacuje metodom push objekat noviKorisnik u niz nizKorisnika gde ga pamti
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jednog korisnika drugim 
 // Inicijalizujemo promenljivu nizKorisnika kao niz u koji smestamo dobijene objekte
+let elementEntry = document.getElementById('entry') ;
+let elementEntryMobile = document.getElementById('entry_mobile') ;
+let elementEShop = document.getElementById('eshop');
+let elementEShopMobile = document.getElementById('eshop_mobile');
+let elementSale = document.getElementById('sale');
+let elementSaleMobile = document.getElementById('sale_mobile');
+let elementSignIn = document.getElementById('signIn');
+let elementSignInMobile = document.getElementById('signIn_mobile');
+let elementSignUp = document.getElementById('signUp');
+let elementSignUpMobile = document.getElementById('signUp_mobile') ;
+let elementSignOut = document.getElementById('signOut');
+let elementSignOutMobile = document.getElementById('signOut_mobile');
 var userArray = [];
+class UserArray  {
+    async  getUserArray(){
+           try {
+               let result = await fetch('users.json');
+               let data = await result.json();
+               let userArray = data.users             
+               return(userArray)
+           } catch (error) {
+              console.log(error) 
+           }
+       }
+   }
 function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
-    console.log(userArray);
-    console.log(checkUser);
-    console.log(currentlyLoggedIn)
-    const users = JSON.parse(localStorage.getItem('userStorage')) || [];
-    console.log(users);
+    const users = JSON.parse(localStorage.getItem('userStorage')) || [];    
     const newUsersArray = userArray.concat(users);
-    console.log(newUsersArray.length);
-    console.log(newUsersArray);
-    console.log(typeof(newUsersArray));
-   // let currentlyUser;
-   // console.log(newUsersArray[0])
-   /* newUsersArray.forEach(element => {
-        if((element.email === checkUser.email)&&(element.password === checkUser.password)){
-            console.log(element.email + element.password)
-        console.log(checkUser.email+checkUser.password)
-         currentlyUser = element
-        console.log(currentlyUser)*/
-       // return currentlyUser
-       // }
-       // return currentlyUser
-    /*});
-    console.log(currentlyUser)*/
-function checkDoesUserExist(element){
-    return ((element.email === checkUser.email)&&(element.password === checkUser.password))
-}
-const currentlyUser = newUsersArray.filter(checkDoesUserExist);
-console.log(currentlyUser)
-let activeUser;
-if(currentlyUser.length !==0){
-    activeUser = currentlyUser[0];
-    console.log(activeUser)
-
-}else{
-    activeUser = currentlyLoggedIn
-    console.log(activeUser)
-}
-console.log(activeUser)
-   /* for (let i = 0; i < userArray.length; i++) {
-
-        if (checkUser.email === userArray[i].email && checkUser.password === userArray[i].password) {
-            if(userArray[i].status == 1){
-                alert( welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertUser )
-                
-            }else{                
-            alert(welcomeAlert + userArray[i].name + " "+userArray[i].surname + statusAlertAdmin);
-            }
-            currentlyLoggedIn.status = userArray[i].status;
-            currentlyLoggedIn.email = userArray[i].email;
-            currentlyLoggedIn.name = userArray[i].name;
-            currentlyLoggedIn.surname = userArray[i].surname;
-            currentlyLoggedIn.password = userArray[i].password;
-        }
+    
+    function checkDoesUserExist(element){
+        return ((element.email === checkUser.email)&&(element.password === checkUser.password))
     }
-    if (currentlyLoggedIn.status == 9) {
-        alert(statusAlertGuest);
-        let currentlyLoggedIn = {
-            status: 9,
-            email: "guest"
-        };
-        //praznimo localStoridze
-        localStorage.removeItem('currentlyLoggedIn');
-        //smesta trenutno ulogovanog korisnika u localStoride
-        localStorage.setItem('currentlyLoggedIn', JSON.stringify(currentlyLoggedIn));
-        console.log(currentlyLoggedIn);
-        document.getElementById('signUp').style.display = "block";
-        document.getElementById('signOut').style.display = "none";
-        } else {
+    const currentlyUser = newUsersArray.filter(checkDoesUserExist);
+    let activeUser;
+    if(currentlyUser.length !==0){    
+        activeUser = currentlyUser[0];
+        elementSignIn.style.display = 'none';
+        elementSignInMobile.style.display = 'none';
+        elementSignUp.style.display = "none";
+        elementSignUpMobile.style.display = "none";
+        elementSignOut.style.display = "block";
+        elementSignOutMobile.style.display = "block";
 
-         //session storage 
-        sessionStorage.setItem('user',JSON.stringify(currentlyLoggedIn) );    
-
-        console.log(currentlyLoggedIn);
-        //praznimo localStoridze
-        localStorage.removeItem('currentlyLoggedInUser');
-        //smesta trenutno ulogovanog korisnika u localStoride
-        localStorage.setItem('currentlyLoggedInUser', JSON.stringify(currentlyLoggedIn));
-        var localUser = JSON.parse(localStorage.getItem('currentlyLoggedInUser'));
-        var sessionUser = JSON.parse(sessionStorage.getItem('user'))
-        console.log(localUser)
-        console.log(sessionUser)
-        
-        if (currentlyLoggedIn.status == 1) {
-            document.getElementById('eshop').style.display = "block";
-            document.getElementById('eshop_mobile').style.display = "block";
-            document.getElementById('signIn').style.display = 'none';
-            document.getElementById('signIn_mobile').style.display = 'none';
-            document.getElementById('signUp').style.display = "none";
-            document.getElementById('signUp_mobile').style.display = "none";
-            document.getElementById('signOut').style.display = "block";
-            document.getElementById('signOut_mobile').style.display = "block";
-        } else {
-            document.getElementById('entry').style.display = "block";
-            document.getElementById('entry_mobile').style.display = "block";
-            document.getElementById('sale').style.display = "block";
-            document.getElementById('sale_mobile').style.display = "block";
-            document.getElementById('signIn').style.display = 'none';
-            document.getElementById('signIn_mobile').style.display = 'none';
-            document.getElementById('signUp').style.display = "none";
-            document.getElementById('signUp_mobile').style.display = "none";
-            document.getElementById('signOut').style.display ="block";
-            document.getElementById('signOut_mobile').style.display ="block";
+        if(activeUser.status == 0){
+            alert(welcomeAlert + activeUser.name + " " + activeUser.surname + statusAlertAdmin)
+            elementEntry.style.display = "block";
+            elementEntryMobile.style.display = "block";
+            elementSale.style.display = "block";
+            elementSaleMobile.style.display = "block";
+            }else{
+            alert(welcomeAlert + activeUser.name + " " + activeUser.surname + statusAlertUser)
+            elementEShop.style.display = "block";
+            elementEShopMobile.style.display = "block";       
         }
-
-    }*/
+    }else{
+        alert(statusAlertGuest)
+        activeUser = currentlyLoggedIn
+        elementSignUp.style.display = "block";
+        elementSignOut.style.display = "none";
+        
+    }
+sessionStorage.setItem('user', JSON.stringify(activeUser))   
 }
 
 function signIn() {
@@ -139,33 +95,15 @@ function signIn() {
 
         checkUser.email = document.getElementById('logIn_email').value;
         checkUser.password = document.getElementById('logIn_password').value;
-
-        //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
-        //var userArray = JSON.parse(localStorage.getItem('userStorage')) || []; 
         let currentlyLoggedIn = {
             status: 9,
             email: "guest"
         };
-        class UserArray  {
-         async  getUserArray(){
-                try {
-                    let result = await fetch('users.json');
-                    let data = await result.json();
-                    let userArray = data.users
-                    //console.log(users)                   
-                    return(userArray)
-                } catch (error) {
-                   console.log(error) 
-                }
-            }
-        }
+        
         const user = new UserArray();
        user.getUserArray().then((userArray)=>{
         checkUserStatus(userArray, checkUser, currentlyLoggedIn)
-       })
-        
-
-        
+       })        
         clearInput();
     }
 

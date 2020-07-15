@@ -3,17 +3,9 @@ function user(){
     let lang = language();
    
     if(typeof(Storage) !== "undefined"){
-        if(sessionStorage.getItem('user') === null){
-           // console.log('Nema usera');
+        if(sessionStorage.getItem('user') === null){           
         }else{
-        var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));
-       // console.log('ima usera');
-      //  console.log(currentlyLoggedIn.status);
-       /* console.log('ulogovani korisnik je '+ currentlyLoggedIn.name +
-        " " + currentlyLoggedIn.surname + ' sa E-mailom ' 
-        + currentlyLoggedIn.email + ' i passwordom ' + 
-        currentlyLoggedIn.password + ". Status korisnika je " + currentlyLoggedIn.status)*/
-       
+        var currentlyLoggedIn = JSON.parse(sessionStorage.getItem('user'));       
         }
         console.log(lang);
     console.log('kraj');

@@ -4,11 +4,6 @@ var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
 var passwordSignUp = document.getElementById('signUp_password');
 
-/*obrisiLokalStoridz();
-
-function obrisiLokalStoridz() {
-    localStorage.clear();
-}*/
 //funkciju poziva dugme Registracija          
 //funkcija prikuplja podatke iz forme u HTML-u i smesta u objekat sa nazivom noviKorisnik.
 //potom ubacuje metodom push objekat noviKorisnik u niz nizKorisnika gde ga pamti
@@ -36,8 +31,6 @@ function signUp() {
         errorSignUp[3].innerHTML != '') {
         alert(errorAlert);
     } else {
-
-
         var newUser = {};
         //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
         var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
