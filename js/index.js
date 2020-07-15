@@ -1,8 +1,7 @@
-function translate(){
-  //let currentlyLanguage = x;
-  console.log("pokrenuto");
- // sessionStorage.setItem('lang',JSON.stringify(currentlyLanguage) );
-}
+/*function translate(){
+  let currentlyLanguage = x;
+  console.log("pokrenuto"); 
+}*/
 function translateL(x){
  let currentlyLanguage = {};
  currentlyLanguage.language = x;

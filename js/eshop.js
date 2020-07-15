@@ -231,7 +231,6 @@ function createEShop(x) {
         }
                 
         let store = document.getElementById('open-store');
-        //store.innerHTML = '';
         let k = store.childNodes.length;
         if(store.firstElementChild !== null){          
             for(let i = 0; i < k ; i++){
