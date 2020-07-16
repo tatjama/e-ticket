@@ -51,6 +51,20 @@ function quantityUp(x){
      });
  });  
 
+ class Remove{
+     static removePreSelection(){
+        
+        document.getElementById('reservation').removeAttribute('click');
+        if(h2.style.display !== "none"){h2.style.display = "none";}
+        if(eShopMessage.firstElementChild !== null){eShopMessage.removeChild(eShopMessage.firstElementChild)}
+        
+        let k = store.childNodes.length;
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){store.removeChild(store.childNodes[0]);}       
+        }
+    }
+ }
+
 //Language is defined 
 class CLanguage{
     constructor(currentlyLanguage){
@@ -234,7 +248,7 @@ showEShopByUser.showEShop(currentlyLoggedIn);
     
     function openStore(performanceTypeTitle, performanceType, languageShop) {
        
-        removePreSelection();
+        Remove.removePreSelection();
 
         document.getElementById('balet').src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         document.getElementById('drama').src = "../images/my-icons-collection (1)/svg/drama-white.svg";
@@ -257,20 +271,7 @@ showEShopByUser.showEShop(currentlyLoggedIn);
                 }
             });       
          uiItems.displayPerformances(filterPerformance, performanceType);
-    } 
-
-
-    function removePreSelection(){
-        
-        document.getElementById('reservation').removeAttribute('click');
-        if(h2.style.display !== "none"){h2.style.display = "none";}
-        if(eShopMessage.firstElementChild !== null){eShopMessage.removeChild(eShopMessage.firstElementChild)}
-        
-        let k = store.childNodes.length;
-        if(store.firstElementChild !== null){          
-            for(let i = 0; i < k ; i++){store.removeChild(store.childNodes[0]);}       
-        }
-    } 
+    }      
 
     let reservation = document.getElementById('reservation');
         reservation.addEventListener('click', ()=>{createNewReservation(languageShop)}); 

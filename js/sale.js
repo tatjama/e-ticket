@@ -1,79 +1,191 @@
-var eShopMessage = document.getElementById('sale-message');
-var navBg = document.querySelector('.nav-bg');
-var store = document.getElementById('open-store');
-var h2 = document.getElementById('sale-header');
-var activeSearch = document.getElementById('active-search');
-var activeScene = document.getElementById('active-scene');
-var activeStore = document.getElementById('active-store');
-let adminMessageEnglish = ' wellcome to the shop.<br> You can use filters to make easy to find tickets for performances. </h1>';
-let adminMessageSerbian = ' dobro došli  u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice. </h1>';
-let guestMessageSerbian = 'Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.';
-let guestMessageEnglish = 'You have to be admin if you wanna use shop. Please, make a registration.';
-let currentlyLanguage = cLanguage();
+let eShopMessage = document.getElementById('sale-message');
+let navBg = document.querySelector('.nav-bg');
+let store = document.getElementById('open-store');
+let h2 = document.getElementById('sale-header');
+let activeSearch = document.getElementById('active-search');
+let activeScene = document.getElementById('active-scene');
+let activeStore = document.getElementById('active-store');
 
-//Language is defined 
-function cLanguage(){
-    let currentlyLanguage;
-    if(JSON.parse(sessionStorage.getItem('lang')) === null){
-         currentlyLanguage = 'en';
-    }else{
-        currentlyLanguage = JSON.parse(sessionStorage.getItem('lang')).language;
-        console.log(currentlyLanguage);        
-    }
-    console.log(currentlyLanguage)
-    return currentlyLanguage;
+let arrayOfDictionarySerbian = [' dobro došli  u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice. </h1>' ,
+                                "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" , 
+                                "Balet", "Predstava", "Opera", "Filharmonija", "Velika scena", "Mala scena",
+                                "Dogadjaji čije ime sadrži karaktere: ", "Količina veća od 0: ", "Prebroj filtrirane događaje: ",
+                               "AUTOR: ", "SCENA: ", "CENA: ", "DATUM:",  "LAGER:",  "Količina:", 
+                                "Pokušavate da rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ",
+                                " ulaznica."]
+ let arrayOfDictionaryEnglish = [' wellcome to the shop.<br> You can use filters to make easy to find tickets for performances. </h1>' , 
+                                "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>",
+                                "Ballet", "Drama", "Opera", "Philharmonic", "Main scene", "Alternative scene",
+                                " Performances with characters in title: ", " Quantity more then 0",
+                                "Count filtered performances: ", "AUTHOR: ", "SCENE: ", "PRICE:", "DATE:", "STOCK: ", "Quantity:", 
+                                "You are trying to purchase more tickets that we have on stock. You can buy max ",
+                                " tickets."]
+
+const currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
+const sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
+
+function hideMessage(){
+    document.getElementsByTagName("h1")[0].style.display = "none"
 }
-console.log(currentlyLanguage)
+
+// function with message in the opening sale store
+function animate(){                
+    $('h1').show().animate({
+        right: '30px',
+        top: "50px",
+        fontSize: "12px"
+    }, (500)).queue(function() {
+        $(this).css({
+            //"color": "white",
+           // "text-shadow": "3px 3px 11px white",
+          //  "background-color": "white"
+        }).dequeue();
+    });
+} 
+
+$(document).ready(function() {
+    $('.shops').click(function() {
+        $('.shops-img').animate({
+            height: '40px',
+            width: '40px'
+        });
+        $('.shops').animate({
+            margin: '0px'
+        })
+    });
+});
+$(document).ready(function() {
+    $('.scene').click(function() {
+        $('.scene-img').animate({
+            height: '40px',
+            width: '40px'
+        });
+        $('.scene').animate({
+            margin: '10px 0px'
+        })
+    });
+});
+
+
+function quantityUp(x){
+   let quantity = document.getElementById(x).value;   
+   document.getElementById(x).value =++quantity;
+}
+function quantityDown(x){
+    let quantity = document.getElementById(x).value;
+    if(quantity >= 1){
+        document.getElementById(x).value = --quantity;
+    }    
+} 
+
+
+
+class Remove{
+    // brisanje predstava koje su prethodno selektovanje
+    static removePreSelection(){    
+        quantityField.innerHTML = '';
+        document.getElementById('reservation').removeAttribute('click');
+        if(h2.style.display !== "none"){
+            h2.style.display = "none";
+        }
+        if(eShopMessage.firstElementChild !== null){
+            eShopMessage.removeChild(eShopMessage.firstElementChild)
+        }
+        let k = store.childNodes.length;
+        if(store.firstElementChild !== null){          
+            for(let i = 0; i < k ; i++){
+                store.removeChild(store.childNodes[0]);
+            }       
+    }
+    }
+
+    static removeAllFilters(){
+        Remove.removePreSelection();
+        activeStore.innerHTML = '';
+        activeScene.innerHTML = '';
+        activeSearch.innerHTML = '';
+    
+        ballet.src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
+        drama.src = "../images/my-icons-collection (1)/svg/drama-white.svg";
+        opera.src = "../images/my-icons-collection (1)/svg/opera-white.svg";
+        concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
+        
+        bigScene.src = "../images/velika-scena-white.svg";
+        smallScene.src = "../images/mala-scena-white.svg";
+    
+        character.value = "";
+        filterImage.src =  "../images/search-white.svg";
+        quantityOfItems.checked = false;
+        countItems.checked = false;
+    }
+}
+ 
+document.getElementById('clear-button').addEventListener('click', Remove.removeAllFilters);
+
+
+
+
+class CLanguage{
+    constructor(currentlyLanguage){
+        this.currentlyLanguage = currentlyLanguage;
+    }
+    static getCLanguage(){        
+        if(languageFromSession.currentlyLanguage === null){
+            return 'en';
+        }else{
+            return languageFromSession.currentlyLanguage.language;
+        }
+    }
+}
+
+
+
+class Dictionary{
+    constructor(adminMessage, guestMessage, ballet, drama, opera, philharmonic, main, alternative, filterCha, 
+        filterQua, filterCou, author, sceneType, price, date, quantity, reserve, errorAlertQuantity, tickets){
+        this.adminMessage = adminMessage;
+        this.guestMessage = guestMessage;
+        this.ballet = ballet;
+        this.drama = drama;
+        this.opera = opera;
+        this.philharmonic = philharmonic;
+        this.main = main;
+        this.alternative = alternative;
+        this.filterCha = filterCha;
+        this.filterQua = filterQua;
+        this.filterCou = filterCou;
+        this.author = author;
+        this.sceneType = sceneType;
+        this.price = price;
+        this.date = date;
+        this.quantity = quantity;
+        this.reserve = reserve;
+        this.errorAlertQuantity = errorAlertQuantity;
+        this.tickets = tickets;
+    }
+
+    static getLanguage(language){
+        if(language === 'sr'){
+            console.log(dictionarySerbian)
+         return dictionarySerbian    
+        }else{
+            console.log(dictionaryEnglish)
+            return dictionaryEnglish
+        }
+    }
+}
+
+const languageFromSession = new CLanguage(sessionLanguage);
+const  currentlyLanguage = CLanguage.getCLanguage(languageFromSession);
+const dictionaryEnglish = new Dictionary(...arrayOfDictionaryEnglish);
+const dictionarySerbian = new Dictionary(...arrayOfDictionarySerbian);
+const languageShop = Dictionary.getLanguage(currentlyLanguage);
 
 
 createSale(currentlyLanguage);
 // function create filter-options
-function createSale(x) {
-    //session storage 
-    var currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;    
-    
-    console.log(x);
-    //variables  are defined  - en - sr
-    if (x === 'sr'){
-        adminMessage = adminMessageSerbian;
-        guestMessage = guestMessageSerbian;
-        ballet = "Balet";
-        drama = "Predstava";
-        philharmonic = "Filharmonija";
-        main = "Velika scena";
-        alternative = "Mala scena";
-        filterCha = "Dogadjaji čije ime sadrži karaktere: ";
-        filterQua = "Količina veća od 0: ";
-        filterCou = "Prebroj filtrirane događaje: ";
-        author = "AUTOR: ";
-        sceneType = "SCENA: ";
-        price = "CENA: ";
-        date = "DATUM: ";
-        quantity = "KOLIČINA: ";
-        reserve = "Rezerviši: ";
-        errorAlertQuantity = "Lager ne može da ide u minus. Rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ";
-        tickets = " ulaznica.";
-    }else{
-        adminMessage = adminMessageEnglish;
-        guestMessage = guestMessageEnglish;
-        ballet = "Ballet";
-        drama = "Drama";
-        philharmonic = "Philharmonic";
-        main = "Main scene";
-        alternative = "Alternative scene";
-        filterCha = " Performances with characters in title: ";
-        filterQua= " Quantity more then 0";
-        filterCou = "Count filtered performances: ";
-        author = "AUTHOR: ";
-        sceneType = "SCENE: ";
-        price = "PRICE: ";
-        date = "DATE: ";
-        quantity = "QUANTITY: ";
-        reserve = "Reserve: ";
-        errorAlertQuantity = "You are trying to purchase more tickets that we have on stock. You can buy max ";
-        tickets = " tickets.";
-    }
-    
+function createSale(x) {   
+    console.log(x);   
      
      if(sessionStorage.getItem('user')!== null){ 
 
@@ -84,24 +196,24 @@ function createSale(x) {
             '<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">' 
             + currentlyLoggedIn.name 
             + ' ' + currentlyLoggedIn.surname 
-            + adminMessage;
+            + languageShop.adminMessage;
             var shops = `
             <div id="shops">
                 <div class="shops">
                     <img class="shops-img" id="balet" alt="balet" src="../images/my-icons-collection (1)/svg/ballerina-white.svg">
-                    <h4>${ballet}</h4>
+                    <h4>${languageShop.ballet}</h4>
                 </div>
                 <div class="shops">
                     <img class="shops-img" id="drama" alt="drama" src="../images/my-icons-collection (1)/svg/drama-white.svg">
-                    <h4>${drama}</h4>
+                    <h4>${languageShop.drama}</h4>
                 </div>
                 <div class="shops">
                     <img class="shops-img" id="opera" alt="opera" src="../images/my-icons-collection (1)/svg/opera-white.svg">
-                    <h4>Opera</h4>
+                    <h4>${languageShop.opera}</h4>
                 </div>
                 <div class="shops" >
                     <img class="shops-img" id="filharmonija" alt="filharmonija" src="../images/my-icons-collection (1)/svg/conductor-white.svg">
-                    <h4>${philharmonic}</h4>
+                    <h4>${languageShop.philharmonic}</h4>
                 </div>
             </div>`;
            
@@ -109,26 +221,26 @@ function createSale(x) {
             <div id="scenes">
                 <div class = "scene">
                     <img class="scene-img" id="velika-scena" alt="velika scena" src="../images/velika-scena-white.svg">
-                    <h4>${main}</h4>
+                    <h4>${languageShop.main}</h4>
                 </div>
                 <div class="scene">
                     <img class="scene-img" id="mala-scena" alt="mala scena" src="../images/mala-scena-white.svg">
-                    <h4>${alternative}</h4>
+                    <h4>${languageShop.alternative}</h4>
                 </div>
                 <div class="scene">
                     <div id="search-filter">
                         <div class="filter-box">
                             <input type="text" onchange = "filterSearch()" id="karakter">
                             <img class="filter-img" src="../images/search-white.svg">
-                            <label for="karakter"> <h3>${filterCha}</h3></label>
+                            <label for="karakter"> <h3>${languageShop.filterCha}</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="kolicinaKarata">
-                            <label for="kolicinaKarata"> <h3>${filterQua}</h3></label>
+                            <label for="kolicinaKarata"> <h3>${languageShop.filterQua}</h3></label>
                         </div>
                         <div class="filter-box">                            
                             <input type="checkbox" id="prebroj">
-                            <label for="prebroj"> <h3>${filterCou}</h3></label>
+                            <label for="prebroj"> <h3>${languageShop.filterCou}</h3></label>
                         </div>
                     </div>
                 </div>
@@ -165,45 +277,25 @@ function createSale(x) {
         `<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>${guestMessage}</h1>`;
         animate();
      }    
-    }
-
-    function hideMessage(){
-        document.getElementsByTagName("h1")[0].style.display = "none"
-    }
+    }  
 
     //variable
 
-    var bigScene = document.getElementById('velika-scena');
-    var smallScene = document.getElementById('mala-scena');
-    var ballet = document.getElementById('balet');
-    var opera = document.getElementById('opera');
-    var drama = document.getElementById('drama');
-    var concert = document.getElementById('filharmonija');
-    var character = document.getElementById('karakter');
-    var quantityField = document.getElementById('quantity');
-    var countItems = document.getElementById('prebroj');
-    var quantityOfItems = document.getElementById('kolicinaKarata');
-    var filterImage = document.querySelector('.filter-img');
-
-
-// function with message in the opening sale store
-    function animate(){                
-        $('h1').show().animate({
-            right: '30px',
-            top: "50px",
-            fontSize: "12px"
-        }, (500)).queue(function() {
-            $(this).css({
-                //"color": "white",
-               // "text-shadow": "3px 3px 11px white",
-              //  "background-color": "white"
-            }).dequeue();
-        });
-    } 
+    let bigScene = document.getElementById('velika-scena');
+    let smallScene = document.getElementById('mala-scena');
+    let ballet = document.getElementById('balet');
+    let opera = document.getElementById('opera');
+    let drama = document.getElementById('drama');
+    let concert = document.getElementById('filharmonija');
+    let character = document.getElementById('karakter');
+    let quantityField = document.getElementById('quantity');
+    let countItems = document.getElementById('prebroj');
+    let quantityOfItems = document.getElementById('kolicinaKarata');
+    let filterImage = document.querySelector('.filter-img');
 
 // filter po karakterima
     function filterSearch(){
-        removePreSelection();
+        Remove.removePreSelection();
         let karakter = character.value.toUpperCase();
         console.log(karakter)
         activeSearch.innerHTML = karakter;
@@ -212,70 +304,27 @@ function createSale(x) {
 
 // filter po vrsti scene
     function filterScene(x, y){
-        removePreSelection();
-
+        Remove.removePreSelection();
         bigScene.src = "../images/velika-scena-white.svg";
         smallScene.src = "../images/mala-scena-white.svg";
-
         document.getElementById(x).setAttribute('src', '../images/' + x + '.svg');
         activeScene.innerHTML = y;        
     }
 
-
-
-
 //filter po vrsti dogadjaja
     function openStore(x, y) {        
-        removePreSelection();
-        
+        Remove.removePreSelection();        
         ballet.src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
         drama.src = "../images/my-icons-collection (1)/svg/drama-white.svg";
         opera.src = "../images/my-icons-collection (1)/svg/opera-white.svg";
-        concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-        
+        concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";        
         activeStore.innerHTML = x;  
-        document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`)
-       
-       } 
-     
-     $(document).ready(function() {
-         $('.shops').click(function() {
-             $('.shops-img').animate({
-                 height: '40px',
-                 width: '40px'
-             });
-             $('.shops').animate({
-                 margin: '0px'
-             })
-         });
-     });
-     $(document).ready(function() {
-         $('.scene').click(function() {
-             $('.scene-img').animate({
-                 height: '40px',
-                 width: '40px'
-             });
-             $('.scene').animate({
-                 margin: '10px 0px'
-             })
-         });
-     });
-
-     
-     function quantityUp(x){
-        let quantity = document.getElementById(x).value;   
-        document.getElementById(x).value =++quantity;
-     }
-     function quantityDown(x){
-         let quantity = document.getElementById(x).value;
-         if(quantity >= 1){
-             document.getElementById(x).value = --quantity;
-         }    
-     }   
+        document.getElementById(y).setAttribute('src', `../images/my-icons-collection (1)/svg/${y}.svg`);       
+       }      
   
 // main function filter      
   function doFilter(){
-      removePreSelection();
+      Remove.removePreSelection();
      let arrayOfPerformances = JSON.parse(localStorage.getItem('tickets'));
      let typeOfPerformance = activeStore.innerHTML;
      let typeOfScene = activeScene.innerHTML;
@@ -355,57 +404,12 @@ function createSale(x) {
                 }
             });
         // render sum of qouted performances         
-        quantityField.innerHTML = `Izlistan je ${arrayCount.length} događaj.`
-      
+        quantityField.innerHTML = `Izlistan je ${arrayCount.length} događaj.`;      
     }
   }  
 // end of function doFilter()
 
-function removeAllFilters(){
-    removePreSelection();
-    activeStore.innerHTML = '';
-    activeScene.innerHTML = '';
-    activeSearch.innerHTML = '';
-
-    ballet.src = "../images/my-icons-collection (1)/svg/ballerina-white.svg";
-    drama.src = "../images/my-icons-collection (1)/svg/drama-white.svg";
-    opera.src = "../images/my-icons-collection (1)/svg/opera-white.svg";
-    concert.src = "../images/my-icons-collection (1)/svg/conductor-white.svg";
-    
-    bigScene.src = "../images/velika-scena-white.svg";
-    smallScene.src = "../images/mala-scena-white.svg";
-
-    character.value = "";
-    filterImage.src =  "../images/search-white.svg";
-    quantityOfItems.checked = false;
-    countItems.checked = false;
-
-}
-
-// brisanje predstava koje su prethodno selektovanje
-function removePreSelection(){
-    
-    quantityField.innerHTML = '';
-    document.getElementById('reservation').removeAttribute('click');
-    if(h2.style.display !== "none"){
-        h2.style.display = "none";
-    }
-    if(eShopMessage.firstElementChild !== null){
-        eShopMessage.removeChild(eShopMessage.firstElementChild)
-    }
-    
-    //let store = document.getElementById('open-store');
-    //store.innerHTML = '';
-    let k = store.childNodes.length;
-    if(store.firstElementChild !== null){          
-        for(let i = 0; i < k ; i++){
-            store.removeChild(store.childNodes[0]);
-        }       
-}
-}
-
 //function render filtered items
-
 function showFilteredItems(x){
     for (let i = 0; i < x.length; i++) {
         //refaktorizacija  
@@ -439,28 +443,28 @@ function showFilteredItems(x){
                  ${x[i].naziv}
             </p>
             <p class="items-author">
-                ${author+x[i].autor}
+                ${languageShop.author+x[i].autor}
             </p>
             <p class = "items-scene"> 
-                ${sceneType + x[i].scena}
+                ${languageShop.sceneType + x[i].scena}
             </p>
             <p class = "items-stock">
-                ${quantity}
+                ${languageShop.quantity}
                 <span id="stock${i}">
                 ${x[i].kolicina}
                 </span>
             </p>
             <p class = "items-date">  
-                ${date + x[i].datum}
+                ${languageShop.date + x[i].datum}
             </p>
             <p class = "items-price"> 
-                ${price} 
+                ${languageShop.price} 
                 <span >
                     ${x[i].cena} RSD 
                 </span> 
             </p> 
             <p>
-                ${reserve}
+                ${languageShop.reserve}
             </p>
             <button class="items-quantity-button" 
                     onclick="quantityDown('rezervacija${i}')">
@@ -488,8 +492,7 @@ function showFilteredItems(x){
 //this function added new reservation in the shopping card
 function makeNewReservation(){
     let filterArray = JSON.parse(localStorage.getItem('filter'));
-    console.log(filterArray);
-
+    //console.log(filterArray);
     let newReservations = [];
     let reservation = {};
     let input = document.getElementsByClassName('items-input');    
@@ -528,22 +531,3 @@ function makeNewReservation(){
     }
 }
 
-//Funkcija koja pravi tabelu sa filtriranim dogadjajima
-/*function tabelaFiltriranihDogadjaja(x) {
-    let tableOfFilteredPerformances = document.getElementById('tabelaFiltriranihDogadjaja1');
-    tableOfFilteredPerformances.style.display = 'initial';
-
-    x.forEach(
-        function(y) {
-            let red = document.createElement('tr');
-
-            for (i in y) {
-                let celija = document.createElement('td');
-                celija.innerHTML = y[i];
-                red.appendChild(celija);
-            }
-            tableOfFilteredPerformances.appendChild(red);
-        });
-    return x;
-}*/
-//kraj funkcije tabela filtriranih dogadjaja
