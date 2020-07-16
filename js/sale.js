@@ -34,13 +34,7 @@ function animate(){
         right: '30px',
         top: "50px",
         fontSize: "12px"
-    }, (500)).queue(function() {
-        $(this).css({
-            //"color": "white",
-           // "text-shadow": "3px 3px 11px white",
-          //  "background-color": "white"
-        }).dequeue();
-    });
+    }, (500));
 } 
 
 $(document).ready(function() {
