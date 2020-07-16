@@ -78,8 +78,6 @@ function quantityDown(x){
     }    
 } 
 
-
-
 class Remove{
     // brisanje predstava koje su prethodno selektovanje
     static removePreSelection(){    
@@ -120,11 +118,6 @@ class Remove{
     }
 }
  
-document.getElementById('clear-button').addEventListener('click', Remove.removeAllFilters);
-
-
-
-
 class CLanguage{
     constructor(currentlyLanguage){
         this.currentlyLanguage = currentlyLanguage;
@@ -137,8 +130,6 @@ class CLanguage{
         }
     }
 }
-
-
 
 class Dictionary{
     constructor(adminMessage, guestMessage, ballet, drama, opera, philharmonic, main, alternative, filterCha, 
@@ -180,7 +171,7 @@ const  currentlyLanguage = CLanguage.getCLanguage(languageFromSession);
 const dictionaryEnglish = new Dictionary(...arrayOfDictionaryEnglish);
 const dictionarySerbian = new Dictionary(...arrayOfDictionarySerbian);
 const languageShop = Dictionary.getLanguage(currentlyLanguage);
-
+document.getElementById('clear-button').addEventListener('click', Remove.removeAllFilters);
 
 createSale(currentlyLanguage);
 // function create filter-options
@@ -281,13 +272,13 @@ function createSale(x) {
 
     //variable
 
-    let bigScene = document.getElementById('velika-scena');
-    let smallScene = document.getElementById('mala-scena');
+    let bigScene = document.getElementById('velika-scena');//
+    let smallScene = document.getElementById('mala-scena');//
     let ballet = document.getElementById('balet');
     let opera = document.getElementById('opera');
     let drama = document.getElementById('drama');
     let concert = document.getElementById('filharmonija');
-    let character = document.getElementById('karakter');
+    let character = document.getElementById('karakter');//
     let quantityField = document.getElementById('quantity');
     let countItems = document.getElementById('prebroj');
     let quantityOfItems = document.getElementById('kolicinaKarata');
