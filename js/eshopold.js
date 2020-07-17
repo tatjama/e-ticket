@@ -6,7 +6,7 @@ let userMessageSerbian =   ' Dobro došli u naš e-shop.<br> Da biste počeli pr
 let userMessageEnglish = ' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' ;
 let guestMessage;
 let guestMessageSerbian = "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" ;
-let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>";
+let guestMessageEnglish = "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage()'> You must be a registered user to use the E-shop. Please register. </h1>";
 let currentlyLanguage = cLanguage();
 //Language is defined 
 function cLanguage(){

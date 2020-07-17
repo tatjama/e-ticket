@@ -1,5 +1,6 @@
 function signOut(a, b, c, d, e, f){
     sessionStorage.removeItem('user');
+    
     currentlyLoggedIn = {
         status: 9,
         email: "guest"
@@ -10,10 +11,10 @@ function signOut(a, b, c, d, e, f){
     document.getElementById(c).style.display = "none";
     document.getElementById(d).style.display = "none";
     document.getElementById(e).style.display = "none";
-    document.getElementById(f).style.display = "none";
+    document.getElementById(f).style.display = "none";    
 }
 function signOutEshop(x){
-    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('user');   
     currentlyLoggedIn = {
         status: 9,
         email: "guest"
