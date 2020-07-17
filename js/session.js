@@ -13,7 +13,7 @@ function user(){
         alert('Your browser does not support web storage. Sorry...' );
     }
 }
-function clearStorage(){
+/*function clearStorage(){
     localStorage.clear();
     sessionStorage.clear();
-}
+}*/
