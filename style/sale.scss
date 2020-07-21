@@ -9,6 +9,21 @@ body{
 #eshop-navigation{
     background-color: $primaryColor;
 }
+#sale-navigation{
+    display: none;
+}
+.guest-user-link{
+    background-color: $basicColorOne;
+    color: $primaryColor;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0px;
+    &:hover {
+        background-color: $secondaryColor;
+        color: $basicColorOne;
+    }
+}
 h2{
     color: $sectionTwoBG;
     text-align: center;
@@ -278,5 +293,9 @@ input[type = "number"]{
     }
     #guest-user{
         background-image: url('../images/pencil.svg');
+    }
+    .guest-user-link{
+        background-color: $primaryColor;
+        color: $basicColorOne;
     }
   }

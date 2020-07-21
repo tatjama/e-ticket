@@ -7,14 +7,15 @@ let activeScene = document.getElementById('active-scene');
 let activeStore = document.getElementById('active-store');
 
 let arrayOfDictionarySerbian = [' dobro došli  u prodavnicu.<br>Koristite filtere da biste lakše pronašli ulaznice. </h1>' ,
-                                'Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete.' , 
+                                'Da biste koristili prodavnicu morate biti administrator. Molimo Vas da se ulogujete. <br><a class="guest-user-link" href="../index.html">Vratite se na prijavljivanje</a>' , 
                                 "Balet", "Predstava", "Opera", "Filharmonija", "Velika scena", "Mala scena",
                                 "Dogadjaji čije ime sadrži karaktere: ", "Količina veća od 0: ", "Prebroj filtrirane događaje: ",
                                "AUTOR: ", "SCENA: ", "CENA: ", "DATUM:",  "LAGER:",  "Količina:", 
                                 "Pokušavate da rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ",
                                 " ulaznica."]
  let arrayOfDictionaryEnglish = [' wellcome to the shop.<br> You can use filters to make easy to find tickets for performances. </h1>' , 
-                                 'You have to be admin if you wanna use shop. Please, make a registration.', "Ballet", "Drama", "Opera", "Philharmonic", "Main scene", "Alternative scene",
+                                 'You have to be admin if you wanna use shop. Please, make a registration. <br><a class="guest-user-link" href="../index.html">Go to Sign In</a>', 
+                                 "Ballet", "Drama", "Opera", "Philharmonic", "Main scene", "Alternative scene",
                                 " Performances with characters in title: ", " Quantity more then 0",
                                 "Count filtered performances: ", "AUTHOR: ", "SCENE: ", "PRICE:", "DATE:", "STOCK: ", "Quantity:", 
                                 "You are trying to purchase more tickets that we have on stock. You can buy max ",
@@ -24,7 +25,8 @@ const currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;
 const sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
 
 function hideMessage(){    
-    document.getElementsByTagName("h1")[0].style.display = "none"
+    document.getElementsByTagName("h1")[0].style.display = "none";
+    document.getElementById("sale-navigation").style.display = "inherit";
 }
 
 
@@ -259,7 +261,7 @@ function createSale(x) {
          console.log('neregistrovani korisnik');
          navBg.style.display = "none";            
          eShopMessage.innerHTML = 
-        `<h1 id='guest-user' class='h1-message' onclick='hideMessage()'>${languageShop.guestMessage}</h1>`;
+        `<h1 id='guest-user' class='h1-message' >${languageShop.guestMessage}</h1>`;
         animate();
      }    
     }  
