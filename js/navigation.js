@@ -1,10 +1,11 @@
 function openMenu(){    
     document.querySelector('.nav-hamburger').style.display = 'none';
     document.querySelector('.nav-close').style.visibility = 'show';
-   // document.querySelector('.nav-menu').style.display = 'initial';
-  // document.querySelector('.nav-bg').style.display = 'initial';
     document.querySelector('.nav-bg-menu').style.display = 'initial';   
-    document.getElementById('start_mobile').style.display = "block";   
+    document.getElementById("start_mobile").style.display = "none";
+    document.getElementById('signing_mobile').style.display = "inherit";
+    document.getElementById('signIn_mobile').style.display = "block";
+    document.getElementById('signUp_mobile').style.display = "block";
 }
 function closeMenu(){
     document.querySelector('.nav-hamburger').style.display = "initial";
@@ -12,8 +13,6 @@ function closeMenu(){
     document.querySelector('.nav-bg-menu').style.display = 'none';
     document.getElementById('signIn_mobile').style.display = "none";
     document.getElementById('signUp_mobile').style.display = "none";
-   // document.querySelector('.nav-menu').style.display = 'none';
-    //document.querySelector('.section-one-svg').style.visibility = 'visible';
 }
 /*function currentSlide(n){         
     document.querySelector('.slider').style.left =185-n*375 +'px';          
