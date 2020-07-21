@@ -4,12 +4,12 @@ var navBg = document.querySelector('.nav-bg');
 let store = document.getElementById('open-store');
 let h2 = document.getElementById('eshop-header');
 let arrayOfDictionarySerbian = [' Dobro došli u naš e-shop.<br> Da biste počeli proces kupovine ulaznice, molimo Vas da odaberete kategoriju.' ,
-                                "<h1 class='h1-message' id='guest-user' onclick='hideMessage()'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete.</h1>" , 
+                                "<h1 class='h1-message' id='guest-user'>Da biste koristili E-shop morate biti registrovani korisnik. Molimo Vas da se registrujete. <br><a class='guest-user-link' href='../index.html'>Vratite se na prijavljivanje</a> </h1>" , 
                                 "Balet", "Predstava", "Opera", "Filharmonija", "AUTOR: ", "SCENA: ", "CENA: ", "Količina", 
                                 "Pokušavate da rezervišete više ulaznica nego što ima na lageru. Možete da kupite maksimalno ",
                                 " ulaznica."]
 let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticket purchase process, please select a category.' , 
-                                "<h1 class = 'h1-message' id = 'guest-user' onclick = 'hideMessage ()'> You must be a registered user to use the E-shop. Please register. </h1>",
+                                "<h1 class = 'h1-message' id = 'guest-user'> You must be a registered user to use the E-shop. Please register.<br><a class='guest-user-link' href='../index.html'>Go to Sign In</a> </h1>",
                                 "Ballet", "Drama", "Opera", "Philharmonic", "AUTHOR: ", "SCENE: ", "PRICE: ", "Quantity", 
                                 "You are trying to purchase more tickets that we have on stock. You can buy max ",
                                 " tickets."]
@@ -17,10 +17,15 @@ let arrayOfDictionaryEnglish = [' Welcome to our e-shop. <br> To start the ticke
 let currentlyLoggedIn =JSON.parse(sessionStorage.getItem('user')) ;   
 let sessionLanguage = JSON.parse(sessionStorage.getItem('lang'));
 
-
 function hideMessage(){
-    document.getElementsByTagName("h1")[0].style.display = "none"
+    document.getElementsByTagName("h1")[0].style.display = "none";
+    document.getElementById("eshop-navigation").style.display = "inherit";
+    
 }
+/*function hideMessageGuest(){
+    document.getElementsByTagName("h1")[0].style.display = "none";
+}*/
+
 function animate(){                
     $('h1').show().animate({
         right: '30px',
@@ -111,6 +116,9 @@ class Dictionary{
 
 class UIFilter {
     displayFilterByType(){
+        document.getElementById('eshop-buttons').style.display = "flex";
+    document.getElementById('signOut').style.display = "block";
+    document.getElementById('eshop-header').style.display = "block";
          eShopMessage.innerHTML = `<h1 class="h1-message" id="welcome-user" onclick="hideMessage()">
                  ${currentlyLoggedIn.name + ' ' + currentlyLoggedIn.surname + languageShop.userMessage}</h1>`;
             
@@ -235,7 +243,9 @@ class ShowEShopByUser{
         (currentlyLoggedIn!== null)?
             ((currentlyLoggedIn.status === "1" || currentlyLoggedIn.status === "0")?
             uiFilter.displayFilterByType() : eShopMessage.innerHTML = languageShop.guestMessage)
-            :  eShopMessage.innerHTML = languageShop.guestMessage;       
+        : 
+        eShopMessage.innerHTML = languageShop.guestMessage; 
+                 
          
          animate();
     }
