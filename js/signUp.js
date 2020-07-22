@@ -38,10 +38,10 @@ function fillingInputSignUp(b) {
 }
 //brisemo upisane vrednosti za korisnika
 function clearInputSignUp() {
-    document.getElementById('signUp_name').value = '';
-    document.getElementById('signUp_surname').value = '';
-    document.getElementById('signUp_email').value = '';
-    document.getElementById('signUp_password').value = '';
+    nameSignUp.value = '';
+    surnameSignUp.value = '';
+    emailSignUp.value = '';
+    passwordSignUp.value = '';
     document.getElementById('signUp_status').value = '1';
 }
 
