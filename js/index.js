@@ -6,9 +6,31 @@ function translateL(x){
  return currentlyLanguage
 }
 
+let pickUpSignInElement = document.getElementById("pickUp_signIn");
+let pickUpSignUpElement = document.getElementById("pickUp_signUp");
+//pop-up prozor logovanje
+function showLoginForm() {
+  pickUpSignInElement.style.display = "block";
+}
+
+
+function hideLoginForm() {
+  pickUpSignInElement.style.display = "none";
+}
+//pop-up prozor registracija
+function showSignUpForm() {
+  pickUpSignUpElement.style.display = "block";
+}
+
+function hideSignUpForm() {
+  pickUpSignUpElement.style.display = "none";
+}
+
+
 let showLessSpan = document.querySelector('.show-less');
 let showMoreSpan = document.querySelector('.show-more');
 let hideTextSpan = document.querySelector('.hide-text');
+
 
 function showMore(){
     showMoreSpan.style.display = "none";

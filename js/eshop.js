@@ -22,9 +22,6 @@ function hideMessage(){
     document.getElementById("eshop-navigation").style.display = "inherit";
     
 }
-/*function hideMessageGuest(){
-    document.getElementsByTagName("h1")[0].style.display = "none";
-}*/
 
 function animate(){                
     $('h1').show().animate({
