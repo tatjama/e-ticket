@@ -1,4 +1,4 @@
-//getting tickets
+//FETCH TICKETS FROM JSON
 class Tickets{
     async getTickets(){
         try{
@@ -15,6 +15,7 @@ class Tickets{
     }
 }
 
+//FETCH DICTIONARY FROM JSON
 class Languages{
     async getLanguages(){
         try{
@@ -30,7 +31,7 @@ class Languages{
     }
 }
 
-//display tickets
+//DISPLAY TICKETS
 class UI{
     displayTickets(tickets){
         console.log(tickets)
@@ -53,11 +54,11 @@ class UI{
         })
     }
 }
-//set to localStorage
+
+//SET TO LOCAL STORAGE
 class Storage{
     static saveStorageTickets(tickets){
-        localStorage.setItem('tickets', JSON.stringify(tickets));
-        
+        localStorage.setItem('tickets', JSON.stringify(tickets));        
     }
     static getStorageTickets(){
       let tickets =  JSON.parse(localStorage.getItem('tickets'));
@@ -65,8 +66,7 @@ class Storage{
     }
     static saveStorageLanguages(languages){
         localStorage.setItem('languages', JSON.stringify(languages));
-    }
-    
+    }    
 }
 
 //for the first time tickets are fetched from tickets.JSON and put it on localStorage, 

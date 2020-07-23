@@ -25,10 +25,11 @@ $(function(){
         });
     })
 })
-function language(){
-    
+function language(){    
     let lang = JSON.parse(sessionStorage.getItem('lang'));
+    console.log(lang)
     let languageStorage = JSON.parse(localStorage.getItem('languages'));
+    console.log(languageStorage)
     let arrLang1 = {};
     arrLang1.en = languageStorage['en'];
     arrLang1.sr = languageStorage['sr'];

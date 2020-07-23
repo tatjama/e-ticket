@@ -254,7 +254,7 @@ function createSale(x) {
             console.log('gost');
             navBg.style.display = 'none';          
             eShopMessage.innerHTML = 
-            "<h1 class='h1-message' >Nemate administratorska ovlašćenja za prodaju ulaznica!</h1>"
+            `<h1 id='guest-user' class='h1-message' >${languageShop.guestMessage}</h1>`;
             animate();
         }        
     }else{ 

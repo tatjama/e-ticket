@@ -1,3 +1,4 @@
+//TRANSLATE
 function translateL(x){
  let currentlyLanguage = {};
  currentlyLanguage.language = x;
@@ -6,6 +7,7 @@ function translateL(x){
  return currentlyLanguage
 }
 
+//NAVIGATION
 let hamburgerElement = document.querySelector('.nav-hamburger');
 let closeElement = document.querySelector('.nav-close');
 let navBgMenuElement = document.querySelector('.nav-bg-menu');
@@ -41,10 +43,9 @@ function checkEMail(){
      return (false)  
    }
 
+//POPUP SIGN IN AND SIGN UP
 let pickUpSignInElement = document.getElementById("pickUp_signIn");
 let pickUpSignUpElement = document.getElementById("pickUp_signUp");
-
-
 //pop-up prozor logovanje
 function showLoginForm() {
   pickUpSignInElement.style.display = "block";
@@ -52,7 +53,6 @@ function showLoginForm() {
 function hideLoginForm() {
   pickUpSignInElement.style.display = "none";
 }
-
 //pop-up prozor registracija
 function showSignUpForm() {
   pickUpSignUpElement.style.display = "block";
@@ -61,12 +61,10 @@ function hideSignUpForm() {
   pickUpSignUpElement.style.display = "none";
 }
 
-
+//TEXT SHOW MORE
 let showLessSpan = document.querySelector('.show-less');
 let showMoreSpan = document.querySelector('.show-more');
 let hideTextSpan = document.querySelector('.hide-text');
-
-
 function showMore(){
     showMoreSpan.style.display = "none";
     showLessSpan.style.display = "initial";
@@ -78,6 +76,7 @@ function showLess(){
     hideTextSpan.style.display = 'none';
 }
 
+//SLIDER
 function currentSlide(n){         
         document.querySelector('.location-slider').style.left =355-n*430 +'px';          
         var x = document.querySelector('.location-dots').querySelectorAll('.location-dot');
@@ -86,6 +85,8 @@ function currentSlide(n){
         }          
         x[1+n].setAttribute("class", " location-dot active");
 }
+
+//COMMENT FORM
 function openCommentForm(){
   document.querySelector('.comment-form').style.display = "flex";
   document.getElementById('open-comment-form').style.display = "none";
@@ -100,14 +101,12 @@ function hgsubmit(){
       nameAlert = "Molim Vas upišite ime.";
       emailAlert = 'E-mail mora biti u formatu nesto@nesto.xyz';
       messageAlert = "Molimo Vas upišite poruku.";
-      thankYouAlert = ' Hvala Vam! \n Vaš email je poslat.';
-     
+      thankYouAlert = ' Hvala Vam! \n Vaš email je poslat.';     
   }else{
       nameAlert = "Please type valid name";
       emailAlert = 'E-mail format has to be something@something.xyz';
       messageAlert = 'Please, type the message.';
-      thankYouAlert = ' Thank You! \n Your message is sent';
-      
+      thankYouAlert = ' Thank You! \n Your message is sent';      
   }
 if (/\S+/.test(document.myemailform.name.value) == false) alert (nameAlert);
 else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value) == false) alert (emailAlert);
@@ -119,8 +118,7 @@ else if (/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(document.myemailform.email.value
        document.myemailform.name.value = "";       
        document.myemailform.lastname.value = "";       
        document.myemailform.email.value = "";       
-       document.myemailform.message.value = "";
-      
+       document.myemailform.message.value = "";      
        hideCommentForm();
        }
 }
