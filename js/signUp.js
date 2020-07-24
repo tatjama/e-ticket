@@ -3,14 +3,15 @@ var nameSignUp = document.getElementById('signUp_name');
 var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
 var passwordSignUp = document.getElementById('signUp_password');
-
+var errorSignUpValidation = document.getElementsByClassName('error_signUp');
 //funkciju poziva dugme Registracija          
 //funkcija prikuplja podatke iz forme u HTML-u i smesta u objekat sa nazivom noviKorisnik.
 //potom ubacuje metodom push objekat noviKorisnik u niz nizKorisnika gde ga pamti
 //Istovremeno sakriva dugme Pokupi  da ne bismo mogli greskom da prepisemo jednog korisnika drugim 
 // Inicijalizujemo promenljivu nizKorisnika kao niz u koji smestamo dobijene objekte
-var userArray = [];
-var errorSignUpValidation = document.getElementsByClassName('error_signUp');
+let users = [];
+let newUser = {};
+let newUsersArray = [];
 
 //validacija 
 function validR(a, b) {
@@ -45,9 +46,48 @@ function clearInputSignUp() {
     document.getElementById('signUp_status').value = '1';
 }
 
+function checkDoesUserExist(newUsersArray){    
+newUser.name = nameSignUp.value.toUpperCase();
+newUser.surname = surnameSignUp.value.toUpperCase();
+newUser.email = emailSignUp.value;
+newUser.password = passwordSignUp.value;
+newUser.status = document.getElementById('signUp_status').value;
+newUsersArray.forEach(element => {
+    if (element.email === newUser.email) {
+        alert(errorAlertHaveUser);
+        document.getElementById('signUp_email').value = '';
+        newUser.email = '';
+    }
+});
+if (newUser.email !== '') {
+    //ubacuje novi dogadjaj objekat u nizKorisnika        
+    users.push(newUser);
+    //smesta nizKorisnika u localStoride
+    localStorage.setItem('userStorage', JSON.stringify(users));
+    clearInputSignUp();
+    document.getElementById('pickUp_signUp').style.display = 'none';
+    document.getElementById('signUp').style.display = 'none';
+}
+
+}
+
+class UsersArray{
+    async getUserArray(){
+         try{
+             let result = await fetch('users.json');
+             let data = await result.json();
+             let userArray = data.users;
+             return userArray
+         }catch(error){
+            console.log(error)
+         }
+     }
+}
+const user = new UsersArray();
+
+
 function signUp() {
     let lang = language();
-    console.log(lang)
     if(lang === 'sr'){
         errorAlert = 'Neispravan unos ili prazno polje';
         errorAlertHaveUser = "Postoji korisnik sa tim e-mailom u bazi";
@@ -65,37 +105,16 @@ function signUp() {
         errorSignUp[3].innerHTML != '') {
         alert(errorAlert);
     } else {
-        var newUser = {};
-        //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu nizKorisnika
-        var userArray = JSON.parse(localStorage.getItem('userStorage')) || [];
-        console.log(userArray);
+        user.getUserArray().then((userArray)=>{
+            //vadi niz iz local S i parsira u JavaScript, smesta u promenljivu users
+            users = JSON.parse(localStorage.getItem('userStorage')) || [];
+            newUsersArray = userArray.concat(users);
+            return newUsersArray
+        }).then((newUsersArray)=>{
+            checkDoesUserExist(newUsersArray)
+        })
 
-        newUser.name = nameSignUp.value.toUpperCase();
-        newUser.surname = surnameSignUp.value.toUpperCase();
-        newUser.email = emailSignUp.value;
-        newUser.password = passwordSignUp.value;
-        newUser.status = document.getElementById('signUp_status').value;
-        userArray.forEach(element => {
-            if (element.email === newUser.email) {
-                alert(errorAlertHaveUser);
-                document.getElementById('signUp_email').value = '';
-                newUser.email = '';
-
-            }
-
-        });
-        if (newUser.email !== '') {
-            //ubacuje novi dogadjaj objekat u nizKorisnika        
-            userArray.push(newUser);
-            //smesta nizKorisnika u localStoride
-            localStorage.setItem('userStorage', JSON.stringify(userArray));
-
-            console.log(userArray);
-            console.log(newUser);
-            clearInputSignUp();
-            document.getElementById('pickUp_signUp').style.display = 'none';
-            document.getElementById('signUp').style.display = 'none';
-        }
+        
     }
 
 } //kraj funkcije registracija
