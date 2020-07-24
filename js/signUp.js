@@ -3,6 +3,7 @@ var nameSignUp = document.getElementById('signUp_name');
 var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
 var passwordSignUp = document.getElementById('signUp_password');
+var statusValue = document.getElementById('signUp_status').value;
 var errorSignUpValidation = document.getElementsByClassName('error_signUp');
 //funkciju poziva dugme Registracija          
 //funkcija prikuplja podatke iz forme u HTML-u i smesta u objekat sa nazivom noviKorisnik.
@@ -43,16 +44,30 @@ function clearInputSignUp() {
     surnameSignUp.value = '';
     emailSignUp.value = '';
     passwordSignUp.value = '';
-    document.getElementById('signUp_status').value = '1';
+    statusValue = '1';
 }
 
-function checkDoesUserExist(newUsersArray){    
-newUser.name = nameSignUp.value.toUpperCase();
-newUser.surname = surnameSignUp.value.toUpperCase();
-newUser.email = emailSignUp.value;
-newUser.password = passwordSignUp.value;
-newUser.status = document.getElementById('signUp_status').value;
+function checkDoesUserExist(newUsersArray){ 
+    let nameValue = nameSignUp.value.toUpperCase();
+    let surnameValue = surnameSignUp.value.toUpperCase();
+    let emailValue = emailSignUp.value;
+    let passwordValue = passwordSignUp.value;
+   // let statusValue = document.getElementById('signUp_status').value;
+ 
+    class NewUser{
+        constructor(name, surname, email, password, status){
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            this.password = password;
+            this.status = status;
+        }
+    } 
+
+    const newUser = new NewUser(nameValue, surnameValue, emailValue, passwordValue, statusValue);
+    console.log(newUser)
 newUsersArray.forEach(element => {
+    console.log(newUsersArray)
     if (element.email === newUser.email) {
         alert(errorAlertHaveUser);
         document.getElementById('signUp_email').value = '';
