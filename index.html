@@ -36,16 +36,16 @@
                   <legend class="lang" key="signUpLegend">SIGN UP</legend>
                   <br>
                   <span class="lang" key="formName">Name:</span>
-                  <span  class="error_signUp langTitle" key="error name" title="Error. Type valid name..."></span>
-                  <input class="langAt" key="name" type="text" placeholder=" Type name" id="signUp_name" onblur="validR('signUp_name', 0)" onfocus="fillingInputSignUp(0)" required>
+                  <span  class="error langTitle" key="error name" title="Error. Type valid name..."></span>
+                  <input class="langAt" key="name" type="text" placeholder=" Type name" id="signUp_name" onblur="valid('signUp_name', 0)" onfocus="fillingInput(0)" required>
                   <br><span class="lang" key="formSurname"> Surname:</span>
-                  <span class="error_signUp langTitle" key="error surname" title="Error. Type valid surname..."></span>
-                  <input class="langAt" key="surname" type="text" placeholder=" Type surname" id="signUp_surname" onblur="validR('signUp_surname', 1)" onfocus="fillingInputSignUp(1)" required>                  <br>E-mail:
-                  <span class="error_signUp langTitle" key="error email" title="Error. Type valid E-mail..."></span>
-                  <input type="email" placeholder=" E-mail" id="signUp_email" onblur="validMailR('signUp_email', 2)" onfocus="fillingInputSignUp(2)" required>
+                  <span class="error langTitle" key="error surname" title="Error. Type valid surname..."></span>
+                  <input class="langAt" key="surname" type="text" placeholder=" Type surname" id="signUp_surname" onblur="valid('signUp_surname', 1)" onfocus="fillingInput(1)" required>                  <br>E-mail:
+                  <span class="error langTitle" key="error email" title="Error. Type valid E-mail..."></span>
+                  <input type="email" placeholder=" E-mail" id="signUp_email" onblur="validMail('signUp_email', 2)" onfocus="fillingInput(2)" required>
                   <br><span class="lang" key="formPassword"> Password:</span> 
-                  <span class="error_signUp langTitle" key="error password" title="Error. Type valid password..."></span>
-                  <input class="langAt" key="password" type="password" placeholder="Password" id="signUp_password" name="bday" onblur="valid1R('signUp_password', 3)" onfocus="fillingInputSignUp(3)" required>
+                  <span class="error langTitle" key="error password" title="Error. Type valid password..."></span>
+                  <input class="langAt" key="password" type="password" placeholder="Password" id="signUp_password" name="bday" onblur="valid1('signUp_password', 3)" onfocus="fillingInput(3)" required>
                   <br> Status:
                   <input type="number" placeholder=" administrator" id="signUp_status" readonly value="1">
                   <br>
@@ -86,9 +86,9 @@
                     <a class="lang" key="terms" href="#terms">Terms</a>
                     <a class="lang" key="customer" href="#customer-service">Customer service</a>                   
                   </div>      
-                  <div class="nav-bg" id="start">                 
+                  <!--<div class="nav-bg" id="start">                 
                     <a onclick="setLocalStorage('start', 'signing', 'signIn', 'signUp')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
-                  </div>     
+                  </div>-->     
                   <div class="nav-bg" id="signing">
                       <a id="eshop" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>  
                       <a class="lang" key="entry" id="entry" href="view/entry.html">Entry</a>
@@ -107,7 +107,8 @@
                     <a class="lang" key="aboutUs" href="#aboutus" onclick="closeMenu()">About us</a>    
                     <a class="lang" key = "terms"  href="#terms" onclick="closeMenu()">Terms</a>
                     <a class="lang" key="customer" href="#customer-service" onclick="closeMenu()">Customer service</a>                                    
-                    <a id="start_mobile" onclick="setLocalStorage('start_mobile', 'signing_mobile', 'signIn_mobile', 'signUp_mobile')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                    <!--<a id="start_mobile" onclick="setLocalStorage('start_mobile', 'signing_mobile', 'signIn_mobile', 'signUp_mobile')" href="#">E-shop <i class="fa fa-opencart" ></i> </a>
+                    -->
                     <div id="signing_mobile">
                       <a id="eshop_mobile" href="./view/eshop.html">E-shop <i class="fa fa-opencart" ></i> </a>
                       <a class="lang" key="entry" id="entry_mobile" href="view/entry.html">Entry</a>
@@ -600,8 +601,9 @@
 
     </body>
     <script rel="text/js" src="./js/multiLanguage.js"></script>
-    <script rel="text/js" src="./js/logIn.js"></script>
-    <script rel="text/js" src="./js/signUp.js"></script>
+    <!--<script rel="text/js" src="./js/logIn.js"></script>
+    <script rel="text/js" src="./js/signUp.js"></script>-->
+    <script rel="text/js" src="./js/sign.js"></script>
     <script rel="text/js" src="./js/signout.js"></script>
     <script rel="text/js" src="./js/index.js"></script>
 </html>

@@ -1,10 +1,10 @@
-var errorSignUp = document.getElementsByClassName('error_signUp');
+var errorValidation = document.getElementsByClassName('error');
 var nameSignUp = document.getElementById('signUp_name');
 var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
 var passwordSignUp = document.getElementById('signUp_password');
 var statusValue = document.getElementById('signUp_status').value;
-var errorSignUpValidation = document.getElementsByClassName('error_signUp');
+
 //funkciju poziva dugme Registracija          
 //funkcija prikuplja podatke iz forme u HTML-u i smesta u objekat sa nazivom noviKorisnik.
 //potom ubacuje metodom push objekat noviKorisnik u niz nizKorisnika gde ga pamti
@@ -15,28 +15,28 @@ let newUser = {};
 let newUsersArray = [];
 
 //validacija 
-function validR(a, b) {
+function valid(a, b) {
     let val = document.getElementById(a).value;
     if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
-        errorSignUpValidation[b].innerHTML = '*';
+        errorValidation[b].innerHTML = '*';
     }
 }
-function validMailR(a, b) {
+function validMail(a, b) {
     let val = document.getElementById(a).value;
     if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
-        errorSignUpValidation[b].innerHTML = '*';
+        errorValidation[b].innerHTML = '*';
     }
 
 }
-function valid1R(a, b) {
+function valid1(a, b) {
     let val = document.getElementById(a).value;
     if ((/[\W_]/.test(val)) || (val == '')) {
-        errorSignUpValidation[b].innerHTML = '*';
+        errorValidation[b].innerHTML = '*';
     }
 }
 //brise * kada je onfocus polje u koje treba da unesemo ispravku
-function fillingInputSignUp(b) {
-    errorSignUpValidation[b].innerHTML = '';
+function filingInput(b) {
+    errorValidation[b].innerHTML = '';
 }
 //brisemo upisane vrednosti za korisnika
 function clearInputSignUp() {
@@ -46,6 +46,21 @@ function clearInputSignUp() {
     passwordSignUp.value = '';
     statusValue = '1';
 }
+
+class UsersArray{
+    async getUserArray(){
+         try{
+             let result = await fetch('users.json');
+             let data = await result.json();
+             let userArray = data.users;
+             return userArray
+         }catch(error){
+            console.log(error)
+         }
+     }
+}
+const user = new UsersArray();
+
 
 function checkDoesUserExist(newUsersArray){ 
     let nameValue = nameSignUp.value.toUpperCase();
@@ -86,19 +101,6 @@ if (newUser.email !== '') {
 
 }
 
-class UsersArray{
-    async getUserArray(){
-         try{
-             let result = await fetch('users.json');
-             let data = await result.json();
-             let userArray = data.users;
-             return userArray
-         }catch(error){
-            console.log(error)
-         }
-     }
-}
-const user = new UsersArray();
 
 
 function signUp() {
@@ -114,10 +116,10 @@ function signUp() {
         surnameSignUp.value == '' ||
         emailSignUp.value == '' ||
         passwordSignUp.value == '' ||
-        errorSignUp[0].innerHTML != '' ||
-        errorSignUp[1].innerHTML != '' ||
-        errorSignUp[2].innerHTML != '' ||
-        errorSignUp[3].innerHTML != '') {
+        errorValidation[0].innerHTML != '' ||
+        errorValidation[1].innerHTML != '' ||
+        errorValidation[2].innerHTML != '' ||
+        errorValidation[3].innerHTML != '') {
         alert(errorAlert);
     } else {
         user.getUserArray().then((userArray)=>{

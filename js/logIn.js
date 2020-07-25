@@ -15,13 +15,15 @@ let elementSignUp = document.getElementById('signUp');
 let elementSignUpMobile = document.getElementById('signUp_mobile') ;
 let elementSignOut = document.getElementById('signOut');
 let elementSignOutMobile = document.getElementById('signOut_mobile');
+let nameSignIn =  document.getElementById('logIn_email');
+let passwordSignIn = document.getElementById('logIn_password');
 var userArray = [];
 var errorValidation = document.getElementsByClassName('error');
 
 //brisemo upisane vrednosti za logovanje
  function clearInput() {
-    document.getElementById('logIn_email').value = '';
-    document.getElementById('logIn_password').value = '';
+    nameSignIn.value = '';
+    passwordSignIn.value = '';
 
 }
 //validacija
@@ -66,10 +68,10 @@ function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
     const users = JSON.parse(localStorage.getItem('userStorage')) || [];    
     const newUsersArray = userArray.concat(users);
     
-    function checkDoesUserExist(element){
+    function checkDoesUserAndPassExist(element){
         return ((element.email === checkUser.email)&&(element.password === checkUser.password))
     }
-    const currentlyUser = newUsersArray.filter(checkDoesUserExist);
+    const currentlyUser = newUsersArray.filter(checkDoesUserAndPassExist);
     let activeUser;
     if(currentlyUser.length !==0){    
         activeUser = currentlyUser[0];
