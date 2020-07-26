@@ -4,7 +4,6 @@ var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
 var passwordSignUp = document.getElementById('signUp_password');
 var statusValue = document.getElementById('signUp_status').value;
-
 //funkciju poziva dugme Registracija          
 //funkcija prikuplja podatke iz forme u HTML-u i smesta u objekat sa nazivom noviKorisnik.
 //potom ubacuje metodom push objekat noviKorisnik u niz nizKorisnika gde ga pamti
@@ -18,25 +17,25 @@ let newUsersArray = [];
 function valid(a, b) {
     let val = document.getElementById(a).value;
     if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
+        errorSignUp[b].innerHTML = '*';
     }
 }
 function validMail(a, b) {
     let val = document.getElementById(a).value;
     if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
+        errorSignUp[b].innerHTML = '*';
     }
 
 }
 function valid1(a, b) {
     let val = document.getElementById(a).value;
     if ((/[\W_]/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
+        errorSignUp[b].innerHTML = '*';
     }
 }
 //brise * kada je onfocus polje u koje treba da unesemo ispravku
-function filingInput(b) {
-    errorValidation[b].innerHTML = '';
+function fillingInputSignUp(b) {
+    errorSignUp[b].innerHTML = '';
 }
 //brisemo upisane vrednosti za korisnika
 function clearInputSignUp() {
