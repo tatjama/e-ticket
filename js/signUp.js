@@ -1,4 +1,4 @@
-var errorValidation = document.getElementsByClassName('error');
+var errorSignUp = document.getElementsByClassName('error_signUp');
 var nameSignUp = document.getElementById('signUp_name');
 var surnameSignUp = document.getElementById('signUp_surname');
 var emailSignUp = document.getElementById('signUp_email');
@@ -14,20 +14,20 @@ let newUser = {};
 let newUsersArray = [];
 
 //validacija 
-function valid(a, b) {
+function validR(a, b) {
     let val = document.getElementById(a).value;
     if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
         errorSignUp[b].innerHTML = '*';
     }
 }
-function validMail(a, b) {
+function validMailR(a, b) {
     let val = document.getElementById(a).value;
     if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
         errorSignUp[b].innerHTML = '*';
     }
 
 }
-function valid1(a, b) {
+function valid1R(a, b) {
     let val = document.getElementById(a).value;
     if ((/[\W_]/.test(val)) || (val == '')) {
         errorSignUp[b].innerHTML = '*';
@@ -45,21 +45,6 @@ function clearInputSignUp() {
     passwordSignUp.value = '';
     statusValue = '1';
 }
-
-class UsersArray{
-    async getUserArray(){
-         try{
-             let result = await fetch('users.json');
-             let data = await result.json();
-             let userArray = data.users;
-             return userArray
-         }catch(error){
-            console.log(error)
-         }
-     }
-}
-const user = new UsersArray();
-
 
 function checkDoesUserExist(newUsersArray){ 
     let nameValue = nameSignUp.value.toUpperCase();
@@ -100,6 +85,19 @@ if (newUser.email !== '') {
 
 }
 
+class UsersArray{
+    async getUserArray(){
+         try{
+             let result = await fetch('users.json');
+             let data = await result.json();
+             let userArray = data.users;
+             return userArray
+         }catch(error){
+            console.log(error)
+         }
+     }
+}
+const user = new UsersArray();
 
 
 function signUp() {
@@ -115,10 +113,10 @@ function signUp() {
         surnameSignUp.value == '' ||
         emailSignUp.value == '' ||
         passwordSignUp.value == '' ||
-        errorValidation[0].innerHTML != '' ||
-        errorValidation[1].innerHTML != '' ||
-        errorValidation[2].innerHTML != '' ||
-        errorValidation[3].innerHTML != '') {
+        errorSignUp[0].innerHTML != '' ||
+        errorSignUp[1].innerHTML != '' ||
+        errorSignUp[2].innerHTML != '' ||
+        errorSignUp[3].innerHTML != '') {
         alert(errorAlert);
     } else {
         user.getUserArray().then((userArray)=>{
