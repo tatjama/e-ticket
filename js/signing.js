@@ -43,55 +43,32 @@ function clearInputSignUp() {
     statusValue = '1';
 }
 
-//validation - SignIn
-function validMail(a, b) {
+//validation 
+function validMail(a, b, c) {
     let val = document.getElementById(a).value;
     if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
+        c[b].innerHTML = '*';
     }
 }
-function valid(a, b) {
-    let val = document.getElementById(a).value;
-    if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
-    }
-}
-function valid1(a, b) {
+
+function valid1(a, b, c) {
     let val = document.getElementById(a).value;
     if ((/[\W_]/.test(val)) || (val == '')) {
-        errorValidation[b].innerHTML = '*';
+        c[b].innerHTML = '*';
     }
 }
-//Remove * when field is onfocus SignIn
-function fillingInput(b) {
-    errorValidation[b].innerHTML = '';
-}
 
-//validacija - SignUp
-function validR(a, b) {
+function valid(a, b, c) {
     let val = document.getElementById(a).value;
     if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
-        errorSignUp[b].innerHTML = '*';
+        c[b].innerHTML = '*';
     }
-}
-function validMailR(a, b) {
-    let val = document.getElementById(a).value;
-    if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
-        errorSignUp[b].innerHTML = '*';
-    }
-
-}
-function valid1R(a, b) {
-    let val = document.getElementById(a).value;
-    if ((/[\W_]/.test(val)) || (val == '')) {
-        errorSignUp[b].innerHTML = '*';
-    }
-}
-//Remove * when field is onfocus SignUp
-function fillingInputSignUp(b) {
-    errorSignUp[b].innerHTML = '';
 }
 
+//Remove * when field is onfocus 
+function fillingInput(b, c) {
+    c[b].innerHTML = '';
+}
 
 class NewUser{
     constructor(name, surname, email, password, status){
