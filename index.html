@@ -30,50 +30,50 @@
         <div class="popUp_form" id="my_signUp">         
           <form id="pickUp_signUp">
             
-              <img onclick="hideSignUpForm()" class="hide-form"  src="./images/icon-close.svg">
-              
-              <fieldset>
-                  <legend class="lang" key="signUpLegend">SIGN UP</legend>
-                  <br>
-                  <span class="lang" key="formName">Name:</span>
-                  <span  class="error_signUp langTitle" key="error name" title="Error. Type valid name..."></span>
-                  <input class="langAt" key="name" type="text" placeholder=" Type name" id="signUp_name" onblur="valid('signUp_name', 0, errorSignUp, /[^A-Za-zČčĆćŠšĐđ]+$/)" onfocus="fillingInput(0, errorSignUp)" required>
-                  <br><span class="lang" key="formSurname"> Surname:</span>
-                  <span class="error_signUp langTitle" key="error surname" title="Error. Type valid surname..."></span>
-                  <input class="langAt" key="surname" type="text" placeholder=" Type surname" id="signUp_surname" onblur="valid('signUp_surname', 1, errorSignUp, /[^A-Za-zČčĆćŠšĐđ]+$/)" onfocus="fillingInput(1, errorSignUp)" required>                  <br>E-mail:
-                  <span class="error_signUp langTitle" key="error email" title="Error. Type valid E-mail..."></span>
-                  <input type="email" placeholder=" E-mail" id="signUp_email" onblur="valid('signUp_email', 2, errorSignUp, /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/)" onfocus="fillingInput(2, errorSignUp)" required>
-                  <br><span class="lang" key="formPassword"> Password:</span> 
-                  <span class="error_signUp langTitle" key="error password" title="Error. Type valid password..."></span>
-                  <input class="langAt" key="password" type="password" placeholder="Password" id="signUp_password" name="bday" onblur="valid('signUp_password', 3, errorSignUp, /[\W_]/)" onfocus="fillingInput(3, errorSignUp)" required>
-                  <br> Status:
-                  <input type="number" placeholder=" administrator" id="signUp_status" readonly value="1">
-                  <br>
-                  <input class="langVal" key="register" type="button" onclick="signUp()" value="Sign Up">
-                  <input class="langVal" key = "clear" type="button" onclick="clearInputSignUp()" value="Clear">                  
-              </fieldset>
-          </form>
+            <img onclick="hideSignUpForm()" class="hide-form"  src="./images/icon-close.svg">
+            
+            <fieldset>
+                <legend class="lang" key="signUpLegend">SIGN UP</legend>
+                <br>
+                <span class="lang" key="formName">Name:</span>
+                <span  class="error_signUp langTitle" key="error name" title="Error. Type valid name..."></span>
+                <input class="langAt" key="name" type="text" placeholder=" Type name" id="signUp_name" onblur="valid('signUp_name', 0, errorSignUp)" onfocus="fillingInput(0, errorSignUp)" required>
+                <br><span class="lang" key="formSurname"> Surname:</span>
+                <span class="error_signUp langTitle" key="error surname" title="Error. Type valid surname..."></span>
+                <input class="langAt" key="surname" type="text" placeholder=" Type surname" id="signUp_surname" onblur="valid('signUp_surname', 1, errorSignUp)" onfocus="fillingInput(1, errorSignUp)" required>                  <br>E-mail:
+                <span class="error_signUp langTitle" key="error email" title="Error. Type valid E-mail..."></span>
+                <input type="email" placeholder=" E-mail" id="signUp_email" onblur="validMail('signUp_email', 2, errorSignUp)" onfocus="fillingInput(2, errorSignUp)" required>
+                <br><span class="lang" key="formPassword"> Password:</span> 
+                <span class="error_signUp langTitle" key="error password" title="Error. Type valid password..."></span>
+                <input class="langAt" key="password" type="password" placeholder="Password" id="signUp_password" name="bday" onblur="valid1('signUp_password', 3, errorSignUp)" onfocus="fillingInput(3, errorSignUp)" required>
+                <br> Status:
+                <input type="number" placeholder=" administrator" id="signUp_status" readonly value="1">
+                <br>
+                <input class="langVal" key="register" type="button" onclick="signUp()" value="Sign Up">
+                <input class="langVal" key = "clear" type="button" onclick="clearInputSignUp()" value="Clear">                  
+            </fieldset>
+        </form>
         </div>
 
           <!--LOGOVANJE POP-UP FORMA-->
         <div class="popUp_form" id="my_signIn">
           <form id="pickUp_signIn">
             
-              <img onclick="hideLoginForm()" class="hide-form" src="./images/icon-close.svg">
-            
-              <fieldset>
-                  <legend class="lang" key="signInLegend">SIGN IN</legend>
-                  <br>E-mail:<br>
-                  <span class="error langTitle" key="error email" id="error1" title="Error. Type valid E-mail..."></span>
-                  <input type="email" placeholder=" E-mail" id="logIn_email" onblur="valid('logIn_email', 0, errorValidation, /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/)" onfocus="fillingInput(0, errorValidation)" required>
-                  <br><span class="lang" key="formPassword"> Password:</span><br>
-                  <span class="error langTitle" key="error password" id="error2" title="Error. Type valid password..."></span>
-                  <input class="langAt" key="password" type="password" id="logIn_password" placeholder=" Password" onblur="valid('logIn_password', 1, errorValidation, /[\W_]/)" onfocus="fillingInput(1, errorValidation)" required><br>
-                  <br>
-                  <input class="langVal" key = "signIn" type="button" onclick="signIn()" value="Sign In">
-                  <input class="langVal" key = "clear" type="button" onclick="clearInput()" value="Clear">
-              </fieldset>
-          </form>
+            <img onclick="hideLoginForm()" class="hide-form" src="./images/icon-close.svg">
+          
+            <fieldset>
+                <legend class="lang" key="signInLegend">SIGN IN</legend>
+                <br>E-mail:<br>
+                <span class="error langTitle" key="error email" id="error1" title="Error. Type valid E-mail..."></span>
+                <input type="email" placeholder=" E-mail" id="logIn_email" onblur="validMail('logIn_email', 0, errorValidation)" onfocus="fillingInput(0, errorValidation)" required>
+                <br><span class="lang" key="formPassword"> Password:</span><br>
+                <span class="error langTitle" key="error password" id="error2" title="Error. Type valid password..."></span>
+                <input class="langAt" key="password" type="password" id="logIn_password" placeholder=" Password" onblur="valid1('logIn_password', 1, errorValidation)" onfocus="fillingInput(1, errorValidation)" required><br>
+                <br>
+                <input class="langVal" key = "signIn" type="button" onclick="signIn()" value="Sign In">
+                <input class="langVal" key = "clear" type="button" onclick="clearInput()" value="Clear">
+            </fieldset>
+        </form>
         </div>
 
             <!---NAVIGATION-->

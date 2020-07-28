@@ -44,9 +44,25 @@ function clearInputSignUp() {
 }
 
 //validation 
-function valid(a, b, c, d) {
+
+//validation 
+function validMail(a, b, c) {
     let val = document.getElementById(a).value;
-    if (!(d.test(val)) || (val == '')) {
+    if (!(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/.test(val)) || (val == '')) {
+        c[b].innerHTML = '*';
+    }
+}
+
+function valid1(a, b, c) {
+    let val = document.getElementById(a).value;
+    if ((/[\W_]/.test(val)) || (val == '')) {
+        c[b].innerHTML = '*';
+    }
+}
+
+function valid(a, b, c) {
+    let val = document.getElementById(a).value;
+    if ((/[^A-Za-zČčĆćŠšĐđ]+$/.test(val)) || (val == '')) {
         c[b].innerHTML = '*';
     }
 }
