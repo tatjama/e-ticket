@@ -15,6 +15,8 @@ let elementSignUp = document.getElementById('signUp');
 let elementSignUpMobile = document.getElementById('signUp_mobile') ;
 let elementSignOut = document.getElementById('signOut');
 let elementSignOutMobile = document.getElementById('signOut_mobile');
+let elementUserShop = document.getElementById('user-shop');
+let elementAdminShop = document.getElementById('admin-shop');
 let userArray = [];
 let checkUser = {};
 let errorValidation = document.getElementsByClassName('error');
@@ -121,10 +123,14 @@ function checkUserStatus(userArray, checkUser, currentlyLoggedIn){
             elementEntryMobile.style.display = "block";
             elementSale.style.display = "block";
             elementSaleMobile.style.display = "block";
+            elementAdminShop.style.display = "block";
+            elementUserShop.style.display = "none";
             }else{
             alert(welcomeAlert + activeUser.name + " " + activeUser.surname + statusAlertUser)
             elementEShop.style.display = "block";
-            elementEShopMobile.style.display = "block";       
+            elementEShopMobile.style.display = "block";   
+            elementAdminShop.style.display = "none";
+            elementUserShop.style.display = "block";    
         }
     }else{
         alert(statusAlertGuest)

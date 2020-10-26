@@ -4,7 +4,7 @@
             "name": "ADMINISTRATOR", 
             "surname": "ADMIN", 
             "email": "admin@admin.com", 
-            "password": "admin", 
+            "password": "AdminAdmin1", 
             "status": "0" 
         },
         { 
@@ -25,7 +25,7 @@
             "name": "USER", 
             "surname": "USER", 
             "email": "user@user.com", 
-            "password": "user", 
+            "password": "UserUser1", 
             "status": "1" 
         },
         { 
