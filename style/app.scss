@@ -388,7 +388,7 @@ textarea{
 }
 
 .location-first{
-    width: 300px;    
+    width: 35%;    
     background-color: $sectionSevenBG;
     z-index: 1;
     color: $secondaryColor;
@@ -512,8 +512,11 @@ flex-direction: row;
     .location{
         width: 100%;
     }
+    .location-first{
+        width: 100%;
+    }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 430px){
     .choose-language{
         padding-right: 30px;
     }    
@@ -560,6 +563,9 @@ flex-direction: row;
     /**location**/
     .section-seven{
         flex-direction: column;
+    }
+    .location-first{
+        width: 100%;
     }
     .location-first p,
     .location-first h1{
